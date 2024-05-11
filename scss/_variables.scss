@@ -86,7 +86,5 @@ $login-image: 'https://source.unsplash.com/K4mSJ7kc0As/600x800' !default;
 $register-image: 'https://source.unsplash.com/Mv9hjnEUHR4/600x800' !default;
 $password-image: 'https://source.unsplash.com/oWTW-jNGl9I/600x800' !default;
 
-p {
-  margin-top: 0;
-  margin-bottom: 0 !important;
-}
+// Style p element.
+$paragraph-margin-bottom: 0 !default;

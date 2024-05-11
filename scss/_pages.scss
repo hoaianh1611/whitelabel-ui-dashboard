@@ -21,6 +21,7 @@
   .label-info {
     width: 75px;
     font-weight: 600;
+    margin-bottom: 5px;
   }
 
   .custom-select {
@@ -29,6 +30,14 @@
 
   .form-group {
     margin-bottom: 0;
+  }
+
+  .group-btn {
+    height: 38px;
+
+    button {
+      height: 100%;
+    }
   }
 }
 
