@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Merchant Balance Overview</title>
+
+
+  <!-- Custom fonts for this template-->
+  <link href="/Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template-->
+  <link href="/Content/css/MenuStyle.css" rel="stylesheet" />
+  <link href="/Content/css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="/Content/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link href="/Content/css/ssi-modal.min.css" rel="stylesheet">
+  <link href="/Content/css/toastr.min.css" rel="stylesheet" />
+
+
+  <script src="/Content/vendor/jquery/jquery.min.js"></script>
+
+  <script src="/Scripts/angular.min.js"></script>
+  <script src="/Content/Angular/Module.js?v=1.6"></script>
+  <script src="/Content/Angular/Service.js?v=1.6"></script>
+  <script src="/Content/Angular/Controller.js?v=1.6"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+  <script src="/Content/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+  <link href="/Content/css/LayoutStyle.css" rel="stylesheet" />
+  <style>
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+  </style>
+  <style type="text/css">
+    ul {
+      list-style: none;
+    }
+  </style>
+
+</head>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>UI_Design Overview</title>
+
+
+  <!-- Custom fonts for this template-->
+  <link href="/Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template-->
+  <link href="/Content/css/MenuStyle.css" rel="stylesheet" />
+  <link href="/Content/css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="/Content/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link href="/Content/css/ssi-modal.min.css" rel="stylesheet">
+  <link href="/Content/css/toastr.min.css" rel="stylesheet" />
+
+
+  <script src="/Content/vendor/jquery/jquery.min.js"></script>
+
+  <script src="/Scripts/angular.min.js"></script>
+  <script src="/Content/Angular/Module.js?v=1.6"></script>
+  <script src="/Content/Angular/Service.js?v=1.6"></script>
+  <script src="/Content/Angular/Controller.js?v=1.6"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+  <script src="/Content/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+  <link href="/Content/css/LayoutStyle.css" rel="stylesheet" />
+  <style>
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+  </style>
+  <style type="text/css">
+    ul {
+      list-style: none;
+    }
+  </style>
+
+</head>
+
+<body id="page-top" ng-app="S-Pay" class="ng-scope" data-new-gr-c-s-check-loaded="14.1172.0" data-gr-ext-installed=""
+  style="height: auto;">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <!-- End of Sidebar -->
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+        <!-- Topbar -->
+        <nav class="navbar-nav navbar-expand bg-gradient-primary topbar mb-4 static-top shadow sidebar-dark">
+          <div class="collapse navbar-collapse d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100"
+            style="overflow-y: hidden">
+            <ul class="navbar-nav mr-auto ml-1" id="accordionSidebar">
+              <li class="sidebar-brand d-flex align-items-center justify-content-center">
+                <!-- Sidebar - Brand -->
+
+                <div class="sidebar-brand-text mx-3 h4 font-weight-bold" style="white-space:nowrap; color: #DDDDDD">
+                  S-PAY</div>
+              </li>
+
+              <!-- Divider -->
+              <hr class="sidebar-divider my-0">
+              <li class="nav-item ">
+                <a class="nav-link" href="/Admin/masteroverview" style="color: #DDDDDD">
+                  <i class="fas fa-fw fa-tachometer-alt mr-1" style="color: #DDDDDD"></i>
+                  <span>Overview</span>
+                </a>
+              </li>
+              <li name="mastermenu" class="nav-item  ">
+                <a id="" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                  class="nav-link dropdown-toggle" style="color: #DDDDDD">
+
+
+                  <i class="fas fa-exchange-alt mr-1" style="color: #DDDDDD"></i>
+                  <span>Bank Transfer</span>
+                </a>
+                <ul name="ulmaster" class="noClick dropdown-menu border-0 shadow" style="left: 0px; right: inherit;">
+                  <li class="dropdown-submenu dropdown-hover" style="color: #3a3b45;">
+                    <span class="dropdown-submenu"><a name="asub" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="true" class="dropdown-item dropdown-toggle">Deposit</a></span>
+                    <ul name="ulsub" data-id="ulsub_Deposit" class="noClick dropdown-menu border-0 shadow">
+                      <li class="dropdown-submenu" style="color: #3a3b45;">
+                        <span class="dropdown-submenu"><a href="#" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Offline
+                            Deposit</a></span>
+                        <ul name="ulitem" aria-labelledby="" class="noClick dropdown-menu border-0 shadow">
+                          <li class="nav-item">
+                            <a class="dropdown-item" href="/membersubmithistory">Offline History</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="dropdown-submenu" style="color: #3a3b45;">
+                        <span class="dropdown-submenu"><a href="#" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">QRPay
+                            Deposit</a></span>
+                        <ul name="ulitem" aria-labelledby="" class="noClick dropdown-menu border-0 shadow">
+                          <li class="nav-item">
+                            <a class="dropdown-item" href="/qrsubmithistory">QR History</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="dropdown-submenu" style="color: #3a3b45;">
+                        <span class="dropdown-submenu"><a href="#" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Internet
+                            Banking</a></span>
+                        <ul name="ulitem" aria-labelledby="" class="noClick dropdown-menu border-0 shadow">
+                          <li class="nav-item">
+                            <a class="dropdown-item" href="/internetbankingsubmithistory">Internet Banking History</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="dropdown-item" href="/internetbankingmatching">Internet Banking Matching</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="nav-item">
+                        <a class="dropdown-item" href="/unmatchstatement">Unmatch Statement</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown-submenu dropdown-hover" style="color: #3a3b45;">
+                    <span class="dropdown-submenu"><a name="asub" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="true" class="dropdown-item dropdown-toggle">Payout</a></span>
+                    <ul name="ulsub" data-id="ulsub_Payout" class="noClick dropdown-menu border-0 shadow">
+                      <li class="nav-item">
+                        <a class="dropdown-item" href="/payoutlastesttransaction">Payout In Progress</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="dropdown-item" href="/payoutsubmithistory?type=1">Payout History</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="dropdown-item" href="/payoutmatching">Payout Matching</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="dropdown-item" href="/PayoutApprovalTransaction?type=1">Approval Transactions</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="dropdown-item" href="/payoutbatches">Batches Payout</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown-submenu dropdown-hover" style="color: #3a3b45;">
+                    <span class="dropdown-submenu"><a name="asub" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="true" class="dropdown-item dropdown-toggle">Settlement</a></span>
+                    <ul name="ulsub" data-id="ulsub_Settlement" class="noClick dropdown-menu border-0 shadow">
+                      <li class="nav-item">
+                        <a class="dropdown-item" href="/Admin/accountsettlementmanage">Manage Accounts Settlement</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="dropdown-item" href="/settlementsubmithistory">Settlement History</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="dropdown-item" href="/settlementrequests">Settlement Requests</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown-submenu dropdown-hover" style="color: #3a3b45;">
+                    <span class="dropdown-submenu"><a name="asub" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="true" class="dropdown-item dropdown-toggle">eBanking Account
+                        Management</a></span>
+                    <ul name="ulsub" data-id="ulsub_eBanking Account Management"
+                      class="noClick dropdown-menu border-0 shadow">
+                      <li class="nav-item">
+                        <a class="dropdown-item" href="/accountstatus">Accounts Balance Overview</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="dropdown-item" href="/Admin/bankconfig">Manage Banks</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="mr-3">
+
+                    <a class="dropdown-item " href="/requestmonitor">eBanking Request Monitor</a>
+                  </li>
+
+                </ul>
+              </li>
+              <li name="mastermenu" class="nav-item  ">
+                <a id="" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                  class="nav-link dropdown-toggle" style="color: #DDDDDD">
+
+
+                  <i class="fas fa-wallet mr-1" style="color: #DDDDDD"></i>
+                  <span>Ewallets</span>
+                </a>
+                <ul name="ulmaster" class="noClick dropdown-menu border-0 shadow" style="left: 0px; right: inherit;">
+                  <li class="dropdown-submenu dropdown-hover" style="color: #3a3b45;">
+                    <span class="dropdown-submenu"><a name="asub" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="true" class="dropdown-item dropdown-toggle">Deposit</a></span>
+                    <ul name="ulsub" data-id="ulsub_Deposit" class="noClick dropdown-menu border-0 shadow">
+                      <li class="dropdown-submenu" style="color: #3a3b45;">
+                        <span class="dropdown-submenu"><a href="#" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false"
+                            class="dropdown-item dropdown-toggle">Momo</a></span>
+                        <ul name="ulitem" aria-labelledby="" class="noClick dropdown-menu border-0 shadow">
+                          <li class="nav-item">
+                            <a class="dropdown-item" href="/momosubmithistory">Momo History</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="dropdown-submenu" style="color: #3a3b45;">
+                        <span class="dropdown-submenu"><a href="#" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false"
+                            class="dropdown-item dropdown-toggle">ZaloPay</a></span>
+                        <ul name="ulitem" aria-labelledby="" class="noClick dropdown-menu border-0 shadow">
+                          <li class="nav-item">
+                            <a class="dropdown-item" href="/zalosubmithistory">ZaloPay History</a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown-submenu dropdown-hover" style="color: #3a3b45;">
+                    <span class="dropdown-submenu"><a name="asub" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="true" class="dropdown-item dropdown-toggle">Ewallets Account
+                        Management</a></span>
+                    <ul name="ulsub" data-id="ulsub_Ewallets Account Management"
+                      class="noClick dropdown-menu border-0 shadow">
+                      <li class="nav-item">
+                        <a class="dropdown-item" href="/accountewalletstatus">Accounts EWallet Balance Overview</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="dropdown-item" href="/Admin/manageewallets">Manage Ewallets</a>
+                      </li>
+                    </ul>
+                  </li>
+
+                </ul>
+              </li>
+              <li name="mastermenu" class="nav-item  ">
+                <a id="" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                  class="nav-link dropdown-toggle" style="color: #DDDDDD">
+
+
+                  <i class="fas fa-chess-board mr-1" style="color: #DDDDDD"></i>
+                  <span>Scratchcard</span>
+                </a>
+                <ul name="ulmaster" class="noClick dropdown-menu border-0 shadow" style="left: 0px; right: inherit;">
+                  <li class="mr-3">
+
+                    <a class="dropdown-item " href="/SrCardSubmitHistory">Scratchcard History</a>
+                  </li>
+                  <li class="mr-3">
+
+                    <a class="dropdown-item " href="/Admin/SrCardConfig">ScratchCard Configuration</a>
+                  </li>
+
+                </ul>
+              </li>
+              <li name="mastermenu" class="nav-item  ">
+                <a id="" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                  class="nav-link dropdown-toggle" style="color: #DDDDDD">
+
+
+                  <i class="fas fa-cogs mr-1" style="color: #DDDDDD"></i>
+                  <span>Smart Card</span>
+                </a>
+                <ul name="ulmaster" class="noClick dropdown-menu border-0 shadow" style="left: 0px; right: inherit;">
+                  <li class="dropdown-submenu dropdown-hover" style="color: #3a3b45;">
+                    <span class="dropdown-submenu"><a name="asub" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="true" class="dropdown-item dropdown-toggle">Merchant Submissions</a></span>
+                    <ul name="ulsub" data-id="ulsub_Merchant Submissions" class="noClick dropdown-menu border-0 shadow">
+                      <li class="nav-item">
+                        <a class="dropdown-item" href="/smartcardsubmithistory">Deposit History</a>
+                      </li>
+                    </ul>
+                  </li>
+
+                </ul>
+              </li>
+              <li name="mastermenu" class="nav-item  active">
+                <a id="" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                  class="nav-link dropdown-toggle" style="color: #DDDDDD">
+
+
+                  <i class="fas fa-cogs mr-1" style="color: #DDDDDD"></i>
+                  <span>Merchants</span>
+                </a>
+                <ul name="ulmaster" class="noClick dropdown-menu border-0 shadow" style="left: 0px; right: inherit;">
+                  <li class="mr-3">
+
+                    <a class="dropdown-item " href="/Admin/merchantbalanceoverview">Merchant Balance Overview</a>
+                  </li>
+                  <li class="mr-3">
+
+                    <a class="dropdown-item " href="/Admin/adjustmentbalance">Adjustment Balance</a>
+                  </li>
+
+                </ul>
+              </li>
+              <li name="mastermenu" class="nav-item  ">
+                <a id="" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                  class="nav-link dropdown-toggle" style="color: #DDDDDD">
+
+
+                  <i class="fas fa-address-book mr-1" style="color: #DDDDDD"></i>
+                  <span>Users</span>
+                </a>
+                <ul name="ulmaster" class="noClick dropdown-menu border-0 shadow" style="left: 0px; right: inherit;">
+                  <li class="mr-3">
+
+                    <a class="dropdown-item " href="/Admin/rolemanage">Role Management</a>
+                  </li>
+                  <li class="mr-3">
+
+                    <a class="dropdown-item " href="/Admin/groupusermanage">Group of User Management</a>
+                  </li>
+                  <li class="mr-3">
+
+                    <a class="dropdown-item " href="/Admin/usermanage">Users Management</a>
+                  </li>
+
+                </ul>
+              </li>
+              <li name="mastermenu" class="nav-item  ">
+                <a id="" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                  class="nav-link dropdown-toggle" style="color: #DDDDDD">
+
+
+                  <i class="fas fa-cogs mr-1" style="color: #DDDDDD"></i>
+                  <span>Management</span>
+                </a>
+                <ul name="ulmaster" class="noClick dropdown-menu border-0 shadow" style="left: 0px; right: inherit;">
+                  <li class="mr-3">
+
+                    <a class="dropdown-item " href="/Admin/log">Detail Action Logs</a>
+                  </li>
+                  <li class="mr-3">
+
+                    <a class="dropdown-item " href="/Admin/phonemonitor">Service Connection Management</a>
+                  </li>
+
+                </ul>
+              </li>
+              <li name="mastermenu" class="nav-item  ">
+                <a id="" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                  class="nav-link dropdown-toggle" style="color: #DDDDDD">
+
+
+                  <i class="fas fa-code mr-1" style="color: #DDDDDD"></i>
+                  <span>BO Settings</span>
+                </a>
+                <ul name="ulmaster" class="noClick dropdown-menu border-0 shadow" style="left: 0px; right: inherit;">
+                  <li class="mr-3">
+
+                    <a class="dropdown-item " href="/Admin/whitelistipsmanage">Whitelist Merchant IPs</a>
+                  </li>
+                  <li class="mr-3">
+
+                    <a class="dropdown-item " href="/Admin/backofficesetting">Back Office</a>
+                  </li>
+                  <li class="mr-3">
+
+                    <a class="dropdown-item " href="/Admin/domainmanage">Domain</a>
+                  </li>
+                  <li class="mr-3">
+
+                    <a class="dropdown-item " href="/Admin/payoutconfig">Payout Configuration</a>
+                  </li>
+                  <li class="mr-3">
+
+                    <a class="dropdown-item " href="/Admin/SubmissionLimitConfig">Submission Limit Config</a>
+                  </li>
+
+                </ul>
+              </li>
+
+              <!-- Divider -->
+
+            </ul>
+          </div>
+          <ul class="navbar-nav ml-auto">
+            <form action="/Home/MarkMessageAsRead" data-ajax="true" data-ajax-method="Post" data-ajax-mode="replace"
+              data-ajax-update="#liNoti" id="form0" method="post" class="ng-pristine ng-valid">
+              <li class="nav-item dropdown no-arrow mx-1" id="liNoti">
+
+
+                <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-bell fa-fw"></i>
+                  <!-- Counter - Alerts -->
+
+                </a>
+
+                <!-- Dropdown - Alerts -->
+                <div class="dropdown-list dropdown-menu dropdown-menu-left " aria-labelledby="alertsDropdown">
+                  <h6 class="dropdown-header">
+                    Notification
+                  </h6>
+
+                  <input id="IdNotification" name="IdNotification" type="hidden" value="0" autocomplete="off">
+                  <button type="submit" id="SubmitRead" hidden=""></button>
+                </div>
+                <script type="text/javascript">
+                  $(function () {
+                    $("button[name*='ButtonType']").each(function () {
+                      $(this).click(function () {
+                        if ($(this).val() == "MarkAsRead") {
+                          $("#IdNotification").val($(this).attr("data-id"));
+                          $("#SubmitRead").click();
+                        }
+                        if ($(this).val() == "MarkAllAsRead") {
+                          $("#MarkAllMessageAsRead").submit();
+                        }
+                      })
+                    })
+                  })
+                </script>
+
+              </li>
+            </form>
+            <form action="/Home/MarkAllMessageAsRead" data-ajax="true" data-ajax-method="Post" data-ajax-mode="replace"
+              data-ajax-update="#liNoti" id="MarkAllMessageAsRead" method="post" class="ng-pristine ng-valid"></form>
+            <li class="nav-item dropdown no-arrow mt-3">
+
+              <div class="topbar-divider d-none d-sm-block"></div>
+            </li>
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span class="sidebar-brand-text mx-3">Admin</span>
+
+                <div class="avatarImg" style="background-image: url(/Images/anonymos.png)"></div>
+
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in overwrite"
+                aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="/Home/ChangePassword">
+                  <i class="fa fa-key fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Change Password
+                </a>
+                <a class="dropdown-item" data-toggle="modal" data-target="#changeProfile" href="#">
+                  <i class="fas fa-user-circle fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" data-toggle="modal" data-target="#logoutModal" href="#">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+          </ul>
+          <!-- Topbar Navbar -->
+        </nav>
+        <!-- End of Topbar -->
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+
+
+
+
+
+          <script src="/Content/Angular/Module.js?v=1.6"></script>
+          <style>
+            #content {
+              background-color: #D6F3FF;
+            }
+
+            .background_color {
+              background-color: #D6F3FF;
+            }
+
+            .tab_currency {
+              background-color: #D9D9D9;
+            }
+
+            .tab_currency:hover {
+              background-color: white;
+            }
+
+            .navbar-nav {
+              margin-bottom: 0.5rem !important;
+            }
+
+            .tab_currency_active {
+              background-color: white !important;
+            }
+
+            .table-responsive {
+              font-size: 0.95rem;
+            }
+
+            .table-responsive-total {
+              font-size: 0.85rem;
+            }
+
+            .table td,
+            table th {
+              padding: 0.6rem !important;
+            }
+
+            .text-red {
+              color: red;
+            }
+
+            .text-green {
+              color: #7ED957;
+            }
+
+            .hidden_field {
+              display: none;
+            }
+
+            #loadingAngular {}
+          </style>
+          <h1 id="vbMessage" class="viewbagMessage"></h1>
+
+          <form action="/Admin/MerchantBalanceOverview/ExportMerchantBalance" id="ExportMerchantBalance" method="post"
+            target="_blank" class="ng-pristine ng-valid"><input id="ExportFromDate" name="ExportFromDate" type="hidden"
+              value="" autocomplete="off"><input id="ExportToDate" name="ExportToDate" type="hidden" value=""
+              autocomplete="off"><input id="ExportMerchantID" name="ExportMerchantID" type="hidden" value=""
+              autocomplete="off"></form>
+          <div ng-controller="MerchantBalanceOverviewCtrl" ng-init="init();" class="ng-scope">
+            <div ng-model="addMerchantString" class="header-Page ng-pristine ng-untouched ng-valid ng-not-empty"
+              style="margin-bottom: 0px !important">Merchant Balance Overview</div>
+            <div class="row">
+              <div class="pl-4 pt-2"
+                style="color:deepskyblue; font-size:18px; font-weight:bold; vertical-align:middle; margin-top:5px">
+                Merchant</div>
+
+              <div class="col-1 pt-2">
+                <select ng-model="MerchantSelected" ng-init=""
+                  class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-valid ng-not-empty ng-touched"
+                  ng-change="filterMerchant(MerchantSelected); loadBalance()">
+
+                  <!-- ngRepeat: merchant in listMerchant -->
+                  <option ng-selected="true" ng-repeat="merchant in listMerchant" value="101"
+                    class="ng-binding ng-scope" selected="selected">
+                    Sub_UI
+                  </option><!-- end ngRepeat: merchant in listMerchant -->
+                </select>
+              </div>
+              <div class="row pl-4" style="float:right">
+                <div class="form-group form-inline">
+                  <label class="text-info mr-1"><strong>From</strong></label>
+                  <input id="FromDate" type="date" ng-model="FilterFromDate"
+                    class="form-control mb-2 ng-pristine ng-untouched ng-valid ng-not-empty">
+                  <label class="text-info mr-1 ml-3"><strong>To</strong></label>
+                  <input id="ToDate" type="date" ng-model="FilterToDate"
+                    class="form-control mb-2 ng-pristine ng-untouched ng-valid ng-not-empty">
+                </div>
+              </div>
+              <div class="col-1.5" style="padding-left:20px">
+                <button id="LoadBalance" type="submit" class="btn btn-info" name="ButtonType" value="Submit"
+                  ng-click="filterFromDate(FilterFromDate); filterToDate(FilterToDate); loadBalance() ">
+                  <span class="text">Load Balance</span>
+                </button>
+              </div>
+              <div class="col-sm-2 col-xl-2" style="max-width: fit-content">
+                <button ng-click="ExportWithMerchantID()" type="button" value="Export" id="btnExport" name="ButtonType"
+                  class="btn btn-success">Export</button>
+              </div>
+            </div>
+            <div id="">
+              <div class="row">
+                <div class="col-5">
+                  <div class="table-responsive-total">
+                    <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                      <div class="row" style="padding-top: 5px">
+                        <div class="col-sm-6">
+                          <div ng-model="listTotalCurrency" hidden=""
+                            class="ng-pristine ng-untouched ng-valid ng-not-empty"></div>
+                          <table class="table table-bordered" style="background-color:white; border-color:#D6F3FF" id=""
+                            width="100%" cellspacing="0">
+                            <tbody>
+                              <tr>
+                                <th style="padding: 0.25rem !important">Currency</th>
+                                <th style="padding: 0.25rem !important">Total Current Balance</th>
+                              </tr>
+                              <!-- ngRepeat: curr in listTotalCurrency -->
+                              <tr ng-repeat="curr in listTotalCurrency" class="ng-scope">
+                                <th style="padding: 0.25rem !important" class="ng-binding">THB</th>
+                                <!-- ngIf: curr.Item2<0 -->
+                                <!-- ngIf: curr.Item2>=0 -->
+                                <td ng-if="curr.Item2>=0" style="padding: 0.25rem !important; font-weight:bold"
+                                  class="text-green ng-binding ng-scope">0.00</td><!-- end ngIf: curr.Item2>=0 -->
+                              </tr><!-- end ngRepeat: curr in listTotalCurrency -->
+                              <tr ng-repeat="curr in listTotalCurrency" class="ng-scope">
+                                <th style="padding: 0.25rem !important" class="ng-binding">VND</th>
+                                <!-- ngIf: curr.Item2<0 -->
+                                <!-- ngIf: curr.Item2>=0 -->
+                                <td ng-if="curr.Item2>=0" style="padding: 0.25rem !important; font-weight:bold"
+                                  class="text-green ng-binding ng-scope">0.00</td><!-- end ngIf: curr.Item2>=0 -->
+                              </tr><!-- end ngRepeat: curr in listTotalCurrency -->
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="background_color mb-4">
+                <div ng-show="formCurrency" class="d-flex" style="width:50%; padding-left:25px">
+                  <!-- ngRepeat: curr in listTotalCurrency -->
+                  <a ng-repeat="curr in listTotalCurrency" style="text-decoration:none" class="h-100 mr-3 ng-scope"
+                    href="" ng-click="filterMerchant(MerchantSelected); filterCurrency(curr.Item1); loadBalance()">
+                    <div class="tab_currency card-body tab_currency_active"
+                      style="width:220px; text-align:center; border-radius:25px 25px 0px 0px"
+                      ng-class="{'tab_currency_active' : currency == curr.Item1}">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col">
+                          <div class="h3 m-0 font-weight-bold text-primary ng-binding">THB</div>
+                        </div>
+                      </div>
+                    </div>
+                  </a><!-- end ngRepeat: curr in listTotalCurrency --><a ng-repeat="curr in listTotalCurrency"
+                    style="text-decoration:none" class="h-100 mr-3 ng-scope" href=""
+                    ng-click="filterMerchant(MerchantSelected); filterCurrency(curr.Item1); loadBalance()">
+                    <div class="tab_currency card-body"
+                      style="width:220px; text-align:center; border-radius:25px 25px 0px 0px"
+                      ng-class="{'tab_currency_active' : currency == curr.Item1}">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col">
+                          <div class="h3 m-0 font-weight-bold text-primary ng-binding">VND</div>
+                        </div>
+                      </div>
+                    </div>
+                  </a><!-- end ngRepeat: curr in listTotalCurrency -->
+                </div>
+                <div class="card-body" style="background-color:white">
+                  <div class="table-responsive">
+                    <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                      <div class="row" style="overflow-x:scroll">
+                        <div class="col-sm-12">
+                          <table class="table" id="dataTable1" width="100%" cellspacing="0">
+                            <thead>
+                              <tr>
+                                <th>MC</th>
+                                <th>Date</th>
+                                <th>Opening</th>
+                                <th>Volume<br>DP</th>
+                                <th>
+                                  Deposit
+                                </th>
+                                <th>
+                                  Deposit Fee
+                                </th>
+                                <th>Volume<br>PO</th>
+                                <th>Payout</th>
+                                <th>
+                                  Payout Fee
+                                </th>
+                                <th>Top Up</th>
+                                <th>Settlement</th>
+                                <th>
+                                  <div>Settlement</div>
+                                  <div>Fee</div>
+                                </th>
+
+                                <th>Adjustment</th>
+                                <th>
+                                  Closing
+                                </th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <!-- ngRepeat: item in results -->
+                              <tr ng-show="item.forRow" ng-repeat="item in results" class="ng-scope">
+                                <td>
+                                  <!-- ngIf: item.MerchantCode.indexOf(addMerchantString) < 0 -->
+                                  <div ng-if="item.MerchantCode.indexOf(addMerchantString) < 0"
+                                    class="ng-binding ng-scope">
+                                    Sub_UI
+                                    <a ng-click="HideAndShowRow(item.MerchantCode, item.MerchantID); toggle=!toggle"
+                                      style="margin-left:5px; color:black; cursor:grab" aria-hidden="true"
+                                      ng-init="toggle=true"
+                                      ng-class="toggle==false ? 'fa fa-caret-right' : 'fa fa-caret-down'"
+                                      class="fa fa-caret-down"></a>
+                                  </div><!-- end ngIf: item.MerchantCode.indexOf(addMerchantString) < 0 -->
+                                </td>
+                                <td class="ng-binding">
+                                  05-11-2024
+                                </td>
+                                <!-- ngIf: item.Opening<0 -->
+                                <!-- ngIf: item.Opening>=0 -->
+                                <td ng-if="item.Opening>=0" class="text-green ng-binding ng-scope">
+                                  0.00
+                                </td><!-- end ngIf: item.Opening>=0 -->
+                                <td class="ng-binding">
+                                  0.00
+                                </td>
+                                <td class="ng-binding">
+                                  0.00
+                                </td>
+                                <td class="ng-binding">
+                                  0.00
+                                </td>
+                                <td class="ng-binding">
+                                  0.00
+                                </td>
+                                <td class="ng-binding">
+                                  0.00
+                                </td>
+                                <td class="ng-binding">
+                                  0.00
+                                </td>
+                                <td class="ng-binding">
+                                  0.00
+                                </td>
+                                <td class="ng-binding">
+                                  0.00
+                                </td>
+                                <td class="ng-binding">
+                                  0.00
+                                </td>
+                                <td class="ng-binding">
+                                  0.00
+                                </td>
+                                <!-- ngIf: item.Closing<0 -->
+                                <!-- ngIf: item.Closing>=0 -->
+                                <td ng-if="item.Closing>=0" class="text-green ng-binding ng-scope">
+                                  0.00
+                                </td><!-- end ngIf: item.Closing>=0 -->
+                              </tr><!-- end ngRepeat: item in results -->
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="ModalAdjustmentDetails" tabindex="-1" role="dialog"
+              aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Balance Details</h5>
+                    <button type="button" id="btnCloseAdjustmentForm" class="close" data-dismiss="modal"
+                      aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <form id="adjustmentdetailsForm" class="ng-pristine ng-valid">
+                    <div class="modal-body">
+                      <div ng-model="EditID" aria-hidden="true" class="ng-pristine ng-untouched ng-valid ng-empty">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Merchant</label>
+                        <input ng-model="EditModel.MerchantCode" name="Merchant"
+                          class="form-control ng-pristine ng-untouched ng-valid ng-empty" id="Merchant"
+                          readonly="readonly">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Date</label>
+                        <input ng-model="EditModel.Date" step="any" id="FTransferredTime"
+                          class="form-control ng-pristine ng-untouched ng-valid ng-empty" readonly="readonly">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Top Up</label>
+                        <input ng-model="EditModel.TopUp" name="TopUp"
+                          class="form-control inputnumber ng-pristine ng-untouched ng-valid ng-empty" type="text">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Settlement</label>
+                        <input ng-model="EditModel.Settlement" name="Settlement"
+                          class="form-control inputnumber ng-pristine ng-untouched ng-valid ng-empty" type="text">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Settlement Fee</label>
+                        <input ng-model="EditModel.SettlementFee" name="SettlementFee"
+                          class="form-control inputnumber ng-pristine ng-untouched ng-valid ng-empty" type="text">
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" id="btnCloseManualForm" class="btn btn-secondary"
+                        data-dismiss="modal">Cancel</button>
+                      <button data-id="" data-value="" ng-click="updateBalanceDetail(EditModel)" type="submit"
+                        class="btn btn-primary">Save Changes</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <script type="text/javascript">
+            app.service("DataService", function ($http) {
+              this.getData = function (_currency, _MerchantID, _FromDate, _ToDate) {
+                var model = {
+                  currency: _currency,
+                  MerchantID: _MerchantID,
+                  FromDate: _FromDate,
+                  ToDate: _ToDate
+                };
+                var url = location.protocol + "//" + location.host + "/admin/MerchantBalanceOverview/GetData";
+                return $http.post(url, model);
+              };
+              this.getListMerchant = function () {
+                var url = location.protocol + "//" + location.host + "/admin/MerchantBalanceOverview/GetListMerchant";
+                return $http.post(url);
+              };
+              this.exportMerchantBalance = function (_ExportFromDate, _ExportToDate, _ExportMerchantID) {
+                var model = {
+                  ExportFromDate: _ExportFromDate,
+                  ExportToDate: _ExportToDate,
+                  ExportMerchantID: _ExportMerchantID
+                };
+                var url = location.protocol + "//" + location.host + "/admin/MerchantBalanceOverview/ExportMerchantBalance";
+                function formatDate(date) {
+                  var d = date.getDate();
+                  var m = date.getMonth() + 1;
+                  var y = date.getFullYear();
+                  return (m < 10 ? "0" + m : m) + "-" + (d < 10 ? "0" + d : d) + "-" + y;
+                }
+                $("#ExportFromDate").val(formatDate(_ExportFromDate));
+                $("#ExportToDate").val(formatDate(_ExportToDate));
+                $("#ExportMerchantID").val(_ExportMerchantID);
+                $("#ExportMerchantBalance").submit();
+
+              };
+              this.editBalanceDetail = function (_EditModel) {
+                console.log(_EditModel.TopUp)
+                _EditModel.TopUp = _EditModel.TopUp.replace(/,/g, ''),
+                  _EditModel.Settlement = _EditModel.Settlement.replace(/,/g, ''),
+                  _EditModel.SettlementFee = _EditModel.SettlementFee.replace(/,/g, '')
+                console.log(_EditModel)
+                var url = location.protocol + "//" + location.host + "/admin/MerchantBalanceOverview/EditBalanceDetail";
+                return $http.post(url, _EditModel);
+              };
+            })
+            app.controller("MerchantBalanceOverviewCtrl", function ($scope, DataService) {
+              function formatDate(date) {
+                var d = date.getDate();
+                var m = date.getMonth() + 1;
+                var y = date.getFullYear();
+                return (m < 10 ? "0" + m : m) + "-" + (d < 10 ? "0" + d : d) + "-" + y;
+              }
+              function formatDateCurrent(date) {
+                var d = date.getDate();
+                var m = date.getMonth() + 1;
+                var y = date.getFullYear();
+                return y + "-" + (m < 10 ? "0" + m : m) + "-" + (d < 10 ? "0" + d : d);
+              }
+              $scope.init = function () {
+                var getListMerchant = DataService.getListMerchant();
+                getListMerchant.then(function (listResult) {
+                  $scope.listMerchant = listResult.data.listMerchant;
+                  $scope.InitMerchant();
+                });
+                function parseDate(input) {
+                  var parts = input.match(/(\d+)/g);
+                  return new Date(parts[0], parts[1] - 1, parts[2]);
+                }
+                $scope.FilterFromDate = parseDate("2024-05-11");
+                $scope.FilterToDate = parseDate("2024-05-11");
+                $scope.addMerchantString = addString(10);
+              }
+
+              $scope.ShowMessage = function (type, message, title = "") {
+                toastr.remove();
+                if (type)
+                  toastr[type](title, message);
+                else {
+                  var sign = message.charAt(0);
+                  var content = message.substr(1, message.length);
+                  if (sign == '!')
+                    toastr['warning']("", content);
+                  else
+                    toastr['success']("", message);
+                }
+              }
+
+              $scope.filterFromDate = function (FromDate) {
+                $scope.FromDate = FromDate;
+              }
+              $scope.filterToDate = function (ToDate) {
+                $scope.ToDate = ToDate;
+              }
+              $scope.ShowMessage = function (type, message, title = "") {
+                toastr.remove();
+                if (type)
+                  toastr[type](title, message);
+                else {
+                  var sign = message.charAt(0);
+                  var content = message.substr(1, message.length);
+                  if (sign == '!')
+                    toastr['warning']("", content);
+                  else
+                    toastr['success']("", message);
+                }
+              }
+              $scope.formCurrency = false;
+              $scope.loadBalance = function (event) {
+                $("#loadingAngular").show();
+                var fromDate = new Date($('#FromDate').val());
+                var toDate = new Date($('#ToDate').val());
+                var deltaDate = (toDate - fromDate) / (1000 * 60 * 60 * 24);
+                var dateCurrent = new Date();
+                var formatNewDate = formatDateCurrent(dateCurrent);
+                var getDateCurrent = new Date(formatNewDate);
+                console.log(toDate);
+                console.log(getDateCurrent);
+                var deltaCurrentDay = (toDate - getDateCurrent) / (1000 * 60 * 60 * 24);
+                if (deltaDate > 180) {
+                  $scope.ShowMessage("warning", "Time Range Is " + 180 + " Days");
+                  $("#loadingAngular").hide();
+                  return;
+                }
+                else if (deltaDate < 0) {
+                  $scope.ShowMessage("error", "From Date is greater than To Date");
+                  $("#loadingAngular").hide();
+                  return;
+                }
+                else if (deltaCurrentDay > 0) {
+                  $scope.ShowMessage("error", "To Date is greater than current day. Please choose To Date again!");
+                  $("#loadingAngular").hide();
+                  return;
+                }
+                else {
+                  var getData = DataService.getData($scope.currency, $scope.MerchantSelected, fromDate, toDate);
+                  getData.then(function (result) {
+                    var listMerchant = [];
+                    if (result.data.data != null) {
+                      $scope.results = result.data.data.map(p => { /*p.Date = new Date(parseInt(p.Date.substr(6))); return p });*/
+                        if (listMerchant.includes(p.MerchantID)) {
+                          p.MerchantCode = $scope.addMerchantString + "|" + p.MerchantCode;
+                        }
+                        else {
+                          listMerchant.push(p.MerchantID);
+                        }
+                        p.Date = new Date(parseInt(p.Date.substr(6)));
+                        p.forRow = true;
+                        if (p.Date > new Date(new Date().getTime() - (3 * 24 * 60 * 60 * 1000))/* && p.Date < new Date(new Date().getTime())*/) {
+                          p.IsEdit = true;
+                        }
+                        return p;
+                      });
+                    }
+                    else {
+                      $scope.results = result.data.data;
+                    }
+                    $scope.formCurrency = true;
+                    $scope.listTotalCurrency = result.data.totalCurrency;
+                    if (!$scope.currency && $scope.listTotalCurrency)
+                      $scope.currency = $scope.listTotalCurrency[0].Item1;
+                    $("#loadingAngular").hide();
+                  });
+                }
+              }
+              $scope.InitMerchant = function () {
+                $scope.MerchantSelected = '';
+                var checkSubMerchant = "True";
+                if (checkSubMerchant == "True") {
+                  $scope.MerchantSelected = $scope.listMerchant[0].ID.toString();
+                }
+              }
+              $scope.filterCurrency = function (currency) {
+                $scope.currency = currency;
+              }
+
+              $scope.ExportWithMerchantID = function (event) {
+                var getExportMerchant = DataService.exportMerchantBalance($scope.FilterFromDate, $scope.FilterToDate, $scope.MerchantSelected);
+              }
+              $scope.EditDetail = function (item) {
+                $("#loadingAngular").show();
+                if (item.MerchantCode.substr(0, 11) == ($scope.addMerchantString + "|"))
+                  $scope.Merchant = item.MerchantCode.substr(11);
+                else
+                  $scope.Merchant = item.MerchantCode;
+                console.log($scope.Merchant)
+                $scope.EditModel = {
+                  Date: formatDate(item.Date),
+                  VolumeTopup: item.VolumeTopup,
+                  TopUp: numberWithCommas(item.TopUp),
+                  VolumeSettlement: item.VolumeSettlement,
+                  Settlement: numberWithCommas(item.Settlement),
+                  SettlementFee: numberWithCommas(item.SettlementFee),
+                  MerchantID: item.MerchantID,
+                  MasterID: item.MasterID,
+                  Channel: item.Channel,
+                  Currency: item.Currency,
+                  CurrencyID: item.CurrencyID,
+                  MerchantCode: $scope.Merchant,
+                  Opening: item.Opening,
+                  VolumeDeposit: item.VolumeDeposit,
+                  Deposit: item.Deposit,
+                  DepositFee: item.DepositFee,
+                  VolumePayout: item.VolumePayout,
+                  Payout: item.Payout,
+                  PayoutFee: item.PayoutFee,
+                  Adjustment: item.Adjustment,
+                  Closing: item.Closing,
+                  TxnType: item.TxnType
+                };
+                console.log($scope.EditModel)
+                $("#loadingAngular").hide();
+              }
+              $scope.updateBalanceDetail = function (item) {
+                $("#loadingAngular").show();
+                var editBalanceDetail = DataService.editBalanceDetail($scope.EditModel);
+                editBalanceDetail.then(function (response) {
+                  $('#btnCloseManualForm').click();
+                  $(".modal-backdrop.fade.show").remove();
+                  if (response.data.Status == 0)
+                    $scope.ShowMessage('success', "Update Balance Detail Successful");
+                  else {
+                    $scope.ShowMessage('error', response.data.Message);
+                  }
+                  $("#loadingAngular").hide();
+                  $scope.loadBalance();
+                });
+              }
+              $scope.HideAndShowRow = function (MerchantCode, MerchantID) {
+                $scope.results.map(p => {
+                  if (p.MerchantCode == $scope.addMerchantString + "|" + MerchantCode && p.MerchantID == MerchantID) {
+                    p.forRow = !p.forRow;
+                  }
+                  return p;
+                });
+              }
+
+            });
+
+          </script>
+          <script>
+            $('input.inputnumber').keyup(function (event) {
+              if (event.which >= 37 && event.which <= 40) return;
+              $(this).val(function (index, value) {
+                return value
+                  // Keep only digits and decimal points:
+                  .replace(/[^\d.]/g, "")
+                  // Remove duplicated decimal point, if one exists:
+                  .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                  // Keep only two digits past the decimal point:
+                  .replace(/\.(\d{2})\d+/, '.$1')
+                  // Add thousands separators:
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+              });
+            });
+
+            function numberWithCommas(num) {
+              return num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+            }
+
+            function addString(length) {
+              var result = '';
+              var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!#$%^&*()?';
+              var charactersLength = characters.length;
+              for (var i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * charactersLength));
+              }
+              return result;
+            }
+
+          </script>
+
+        </div>
+        <!-- End of Main Content -->
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright © S-PAY Website 2020</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+    <div id="loadingDiv" class="loadingDiv" style="display: none;">
+      <img class="loadingImg" src="/Images/Loading_static.png" style="position: fixed !important">
+      <span class="loadingText">Loading...</span>
+    </div>
+    <div id="loadingDiv1" style="display: none;">
+      <img class="loadingImg" src="/Images/Loading_static.png">
+      <span class="loadingText">Loading...</span>
+    </div>
+    <div id="loadingAngular" class="loadingDiv" style="display: none;">
+      <img class="loadingImg" src="/Images/Loading_static.png" style="position: fixed !important">
+      <span class="loadingText">Loading...</span>
+    </div>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="/Home/Login">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="changeProfile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="card border-left-info shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center mb-3">
+                <div class="col mr-2">
+                  <form action="/Home/ChangeAvatar" method="post" id="formChangeAvatar" class="ng-pristine ng-valid">
+                    <div class="text-xl font-weight-bold text-info text-uppercase mb-1">
+                      Change your Avatar
+                    </div>
+                    <input class="mr-1" style="width: 80% !important;" id="inputImage" type="file" accept="image/*"
+                      required="">
+                    <button type="submit" class="btn btn-success">Change</button>
+                    <input id="postURL" name="postURL" type="hidden" value="/Home/ChangeAvatar" autocomplete="off">
+                  </form>
+                </div>
+              </div>
+              <div class="row no-gutters align-items-center mb-3">
+                <div class="col mr-2">
+                  <form action="" method="post" id="formChangeEmail" class="ng-pristine ng-valid">
+
+                    <div class="text-xl font-weight-bold text-info text-uppercase mb-1">
+                      Change your email
+                    </div>
+                    <div class="row ml-1 mb-2">
+                      <div class="mr-1"><strong>Current Email: </strong></div>
+                    </div>
+                    <div class="row ml-1">
+                      <strong class="mr-1">New Email: </strong><input id="inputEmail" type="email" required=""
+                        class="form-control mr-1" style="width: 60% !important;">
+                      <button type="submit" class="btn btn-success">Change</button>
+                      <input id="postEmailURL" name="postEmailURL" type="hidden" value="/Home/ChangeEmail"
+                        autocomplete="off">
+                      <input id="sendEmailURL" name="sendEmailURL" type="hidden" value="/Home/VerifyMail"
+                        autocomplete="off">
+                      <input id="CurrentEmail" name="CurrentEmail" type="hidden" value="" autocomplete="off">
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <form action="" method="post" id="formChangeEmail" class="ng-pristine ng-valid">
+                    <div class="text-xl font-weight-bold text-info text-uppercase mb-1">
+                      Google Authenticator
+                    </div>
+                    <div class="row ml-1">
+                      <strong class="mr-1">Status: </strong> Disabled
+                    </div>
+                    <div class="row ml-1 mt-2">
+                      <button id="btnActiveGGAuth" type="button" class="btn btn-success">Active</button>
+                      <input id="activeGGAuthURL" name="activeGGAuthURL" type="hidden" value="/Home/ActiveGGAuth"
+                        autocomplete="off">
+                    </div>
+
+                    <div class="row ml-1 mt-2" id="GGCodeDiv" style="display: none">
+                      <img id="GGAuthImg">
+                      <div class="row ml-1">
+                        <strong class="mr-1">Input Code: </strong><input id="GGCode" name="GGCode" required=""
+                          class="form-control mr-1" style="width: 50% !important;">
+                        <button type="button" id="btnSubmitGGCode" class="btn btn-success">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="/Content/js/jquery.chained.min.js"></script>
+    <script src="/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="/Content/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+
+
+
+    <!-- Custom scripts for all pages-->
+    <script src="/Content/js/MenuScript.js?v=1.6"></script>
+    <script src="/Content/js/sb-admin-2.min.js"></script>
+    <script src="/Content/js/jquery.blockUI.js"></script>
+    <script src="/Content/js/toastr.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+
+
+    <script src="/bundles/bootstrap?v=M4Nk6kIOwMFflsEKET0iPL9i5YBqbzMzvUOrd8gyCnw1"></script>
+
+
+    <script src="/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        if ($('#vbMessage').text()) {
+          toastr.remove();
+          var txt = $('#vbMessage').text();
+          var sign = txt.charAt(0);
+          var content = txt.substr(1, txt.length);
+          if (sign == '!')
+            toastr['warning']("", content);
+          else if (sign == '#')
+            toastr['error']("", content);
+          else
+            toastr['success']("", txt);
+        }
+      })
+      $(function () {
+        $('div[class*="table-responsive"]').each(function () {
+          $('div[class*="table-responsive"]').first().scroll(function (event) {
+            console.log("scrolll");
+
+            if (event.deltaY > 0) $(this).scrollLeft += 100;
+            else $(this).scrollLeft -= 100;
+          })
+        })
+
+        $("ul[name*='ulmaster']").click(function (e) {
+
+        })
+
+
+      })
+      function IsEmptyOrSpaces(str) {
+        return str === null || str.match(/^ *$/) !== null;
+      }
+      $(function () {
+        window.ajax_loading = false;
+        $.hasAjaxRunning = function () {
+          return window.ajax_loading;
+        };
+        $(document).ajaxStart(function () {
+          window.ajax_loading = true;
+        });
+        $(document).ajaxStop(function () {
+          window.ajax_loading = false;
+        });
+
+        var loadingInterval = setInterval(function () {
+          if ($.hasAjaxRunning && $.hasAjaxRunning()) {
+            $('#loadingDiv').show();
+          }
+          else {
+            $('#loadingDiv').hide();
+          }
+        }, 100)
+        $('input.numberOnly').on('input blur paste', function () {
+          $(this).val($(this).val().replace(/\D/g, ''))
+        })
+        $.fn.ShowMessage = function (type, message, title = "") {
+          toastr.remove();
+          if (type)
+            toastr[type](title, message);
+          else {
+            var sign = message.charAt(0);
+            var content = message.substr(1, message.length);
+            if (sign == '!')
+              toastr['warning']("", content);
+            else
+              toastr['success']("", message);
+          }
+        }
+        $.fn.showLoading = function () {
+          $("#loadingAngular").show();
+        }
+        $.fn.hideLoading = function () {
+          $("#loadingAngular").hide();
+        }
+      });
+    </script>
+    <script type="text/javascript">
+      $(function () {
+        $('#inputImage').bind('change', function () {
+
+        });
+        $("#formChangeAvatar").submit(function (e) {
+          e.preventDefault();
+
+          var fileUpload = $("#inputImage").get(0);
+          var files = fileUpload.files;
+
+          // Create FormData object
+          var fileData = new FormData();
+
+          // Looping over all files and add it to FormData object
+          for (var i = 0; i < files.length; i++) {
+            fileData.append(files[i].name, files[i]);
+          }
+
+        });
+      })
+    </script>
+
+    <script type="text/javascript">
+      $(function () {
+        $("#formChangeEmail").submit(function (e) {
+          e.preventDefault();
+          if ($("#CurrentEmail").val() == $("#inputEmail").val()) {
+            alert("New email must be different from current email!");
+            return;
+          }
+          if ($("#CurrentEmail").val() != "") {
+            var dataToPost = "{ ToMail:'" + $("#CurrentEmail").val() + "'}";
+            $.ajax({
+              url: $("#sendEmailURL").val(),
+              type: 'POST',
+              dataType: 'json',
+              data: dataToPost,
+              cache: false,
+              contentType: "application/jsonrequest; charset=utf-8",
+              success: function (data) {
+                if (data == null || data.res == "") {
+                  alert("Send verify email failed!");
+                }
+                else {
+                  for (var i = 0; i < 5; i++) {
+                    var code;
+                    if (i == 0)
+                      code = prompt("Please enter the code sent to your current email", '');
+                    else
+                      code = prompt("The code is wrong, please try again!", '');
+                    if (code == data.res) {
+                      PostNewEmail();
+                      break;
+                    }
+                    if (code == null)
+                      break;
+                  }
+                }
+              },
+              error: function (e) {
+                console.log(e);
+              }
+            });
+          }
+          else
+            PostNewEmail();
+        });
+        function PostNewEmail() {
+          var dataToPost = "{ newEmail:'" + $("#inputEmail").val() + "'}";
+          $.ajax({
+            url: $("#postEmailURL").val(),
+            type: 'POST',
+            dataType: 'json',
+            data: dataToPost,
+            cache: false,
+            contentType: "application/jsonrequest; charset=utf-8",
+            success: function (data) {
+              if (data.result == "Change Success") {
+
+                alert("Change email success");
+                location.reload();
+              }
+              else
+                alert(data.result);
+            }
+          });
+        }
+      })
+    </script>
+
+    <script type="text/javascript">
+      $(function () {
+        $("#btnActiveGGAuth").click(function () {
+          $.ajax({
+            url: $("#activeGGAuthURL").val(),
+            type: 'POST',
+            dataType: 'json',
+            cache: false,
+            contentType: "application/jsonrequest; charset=utf-8",
+            success: function (data) {
+              if (data.status == "Disabled") {
+                alert(data.result);
+                location.reload();
+              }
+              else {
+                if (data.result) {
+                  $("#GGAuthImg").attr("src", data.result);
+                  $("#GGCodeDiv").show();
+                }
+                else
+                  alert(data.result);
+              }
+            }
+          });
+        })
+        $("#btnSubmitGGCode").click(function () {
+          var dataToPost = "{ Code:'" + $("#GGCode").val() + "'}";
+          $.ajax({
+            url: $("#activeGGAuthURL").val(),
+            type: 'POST',
+            dataType: 'json',
+            data: dataToPost,
+            cache: false,
+            contentType: "application/jsonrequest; charset=utf-8",
+            success: function (data) {
+              if (data.status == "Success") {
+                alert(data.result);
+                location.reload();
+              }
+              else
+                alert(data.result);
+            }
+          });
+        })
+      })
+    </script>
+
+  </div>
+
+
+</body>
+
+</html>
+
+</html>

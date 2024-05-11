@@ -1,0 +1,163 @@
+.container-fluid {
+  padding: 15px;
+  font-size: 14px;
+}
+
+// title
+.title-page {
+  font-weight: 600;
+  font-size: 22px;
+  margin: 0 0 10px;
+}
+
+// filter
+.form-filter {
+  gap: 10px;
+
+  label {
+    margin-bottom: 0;
+  }
+
+  .label-info {
+    width: 75px;
+    font-weight: 600;
+  }
+}
+
+.custom-select {
+  width: 180px;
+}
+
+.form-group {
+  margin-bottom: 0;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.form_currency {
+  padding: 0 10px;
+
+  .nav-item {
+    font-weight: 500;
+
+    &:hover {
+      background-color: $gray-700;
+      border-radius: .35rem;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.total-balance {
+  display: flex;
+  padding: 10px;
+  gap: 10px;
+  margin: 15px 0;
+
+  @include media-breakpoint-down(425px) {
+    padding: 0;
+  }
+
+  .card-balance {
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #F8F8F8;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+
+    @include media-breakpoint-down(425px) {
+      padding: 10px;
+    }
+
+    &.active {
+      background-color: #363A3F;
+      color: #FFFFFF;
+
+      .card-balance {
+        &-currency {
+          background-color: #4E5257;
+        }
+
+        &-content {
+          .title {
+            color: #929EAE;
+          }
+
+          .total {
+            font-size: 24px;
+          }
+        }
+      }
+    }
+
+    &-currency {
+      background-color: #EBE8E8;
+      border-radius: 50%;
+      color: $primary;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 15px;
+
+      @include media-breakpoint-down(425px) {
+        margin-right: 10px;
+      }
+    }
+
+    &-content {
+      .title {
+        color: #929EAE;
+        font-weight: 500;
+      }
+
+      .total {
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+.table {
+  margin-bottom: 0;
+
+  thead {
+    th {
+      vertical-align: top;
+      white-space: nowrap;
+    }
+  }
+
+  tbody,
+  tfoot {
+    td {
+      vertical-align: middle;
+    }
+  }
+
+  th,
+  td {
+    text-align: center;
+  }
+
+  th {
+    padding: 5px;
+  }
+
+  tfoot {
+    td {
+      font-weight: 600;
+    }
+  }
+}

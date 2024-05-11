@@ -31,28 +31,19 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-light sidebar sidebar-light accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center p-2" href="index.html">
+                <img id="logo" class="img-fluid" src="./img/logo-2.png" alt="">
             </a>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
+            <li class="nav-item mt-4">
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
 
             <!-- Heading -->
             <div class="sidebar-heading">
@@ -94,13 +85,61 @@
                 </div>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
             <!-- Heading -->
             <div class="sidebar-heading">
                 Addons
             </div>
+
+            <!-- Bank Transfer -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#bankTransPages"
+                    aria-expanded="true" aria-controls="bankTransPages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Bank Transfer</span>
+                </a>
+                <div id="bankTransPages" class="collapse" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
+                    <div class="py-2 collapse-inner rounded">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link collapsed" href="#" data-toggle="collapse"
+                                    data-target="#depositPages" aria-expanded="true" aria-controls="depositPages">
+                                    <i class="fas fa-fw fa-folder"></i>
+                                    <span>Deposit</span>
+                                </a>
+                                <div id="depositPages" class="collapse" aria-labelledby="headingPages"
+                                    data-parent="#bankTransPages">
+                                    <div class="py-2 collapse-inner rounded">
+                                        <ul class="navbar-nav">
+                                            <li class="nav-item">
+                                                <a class="nav-link collapsed" href="#" data-toggle="collapse"
+                                                    data-target="#offlineDepositPages" aria-expanded="true"
+                                                    aria-controls="offlineDepositPages">
+                                                    <i class="fas fa-fw fa-folder"></i>
+                                                    <span>Offline Deposit</span>
+                                                </a>
+                                            </li>
+                                            <div id="offlineDepositPages" class="collapse"
+                                                aria-labelledby="headingPages" data-parent="#depositPages">
+                                                <div class="py-2 collapse-inner rounded">
+                                                    <a class="nav-link" href="tables.html">
+                                                        <i class="fas fa-fw fa-table"></i>
+                                                        <span>Offline History</span>
+                                                    </a>
+                                                    <a class="nav-link" href="blank.html">
+                                                        <i class="fas fa-fw fa-table"></i>
+                                                        <span>Offline Matching</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -137,11 +176,8 @@
                     <span>Tables</span></a>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
             <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
+            <div class="text-center d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
@@ -158,11 +194,9 @@
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
-                    <form class="form-inline">
-                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                    </form>
+                    <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
 
                     <!-- Topbar Search -->
                     <form
@@ -272,8 +306,7 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
-                                            alt="...">
+                                        <img class="rounded-circle" src="img/undraw_profile_1.svg" alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div class="font-weight-bold">
@@ -284,8 +317,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
-                                            alt="...">
+                                        <img class="rounded-circle" src="img/undraw_profile_2.svg" alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
                                     <div>
@@ -296,8 +328,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
-                                            alt="...">
+                                        <img class="rounded-circle" src="img/undraw_profile_3.svg" alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
                                     <div>
@@ -329,8 +360,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -385,6 +415,9 @@
                                             <th>Age</th>
                                             <th>Start date</th>
                                             <th>Salary</th>
+                                            <th>Salary</th>
+                                            <th>Salary</th>
+                                            <th>Salary</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -394,6 +427,9 @@
                                             <th>Office</th>
                                             <th>Age</th>
                                             <th>Start date</th>
+                                            <th>Salary</th>
+                                            <th>Salary</th>
+                                            <th>Salary</th>
                                             <th>Salary</th>
                                         </tr>
                                     </tfoot>
