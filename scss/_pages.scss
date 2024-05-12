@@ -41,7 +41,6 @@
   }
 }
 
-
 .card-body {
   padding: 10px;
 }
@@ -67,76 +66,91 @@
   }
 }
 
+// css for total balance
 .total-balance {
   display: flex;
-  padding: 10px;
   gap: 10px;
   margin: 15px 0;
+  width: 100%;
+  flex-wrap: nowrap;
 
-  @include media-breakpoint-down(425px) {
-    padding: 0;
+  @media (max-width: 1594px) {
+    flex-wrap: wrap;
   }
 
   .card-balance {
+    width: calc(25% - 8px);
     border-radius: 10px;
     padding: 20px;
-    background-color: #F8F8F8;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
+    background-color: #f2f3f5;
+    min-width: 316px;
 
-    @include media-breakpoint-down(425px) {
-      padding: 10px;
+    @media (max-width: 1594px) {
+      width: calc(50% - 5px);
     }
 
-    &.active {
-      background-color: #363A3F;
-      color: #FFFFFF;
-
-      .card-balance {
-        &-currency {
-          background-color: #4E5257;
-        }
-
-        &-content {
-          .title {
-            color: #929EAE;
-          }
-
-          .total {
-            font-size: 24px;
-          }
-        }
-      }
+    @media (max-width: 671px) {
+      width: 100%;
     }
 
-    &-currency {
-      background-color: #EBE8E8;
-      border-radius: 50%;
-      color: $primary;
-      width: 45px;
-      height: 45px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-right: 15px;
+    &-title {
+      color: $gray-600;
+      font-weight: 400;
+    }
 
-      @include media-breakpoint-down(425px) {
-        margin-right: 10px;
+    &-total {
+      font-size: clamp(2.25rem, calc(2.068rem + 0.7767vw), 3rem);
+      text-align: center;
+      font-weight: 700;
+
+      .currency {
+        display: inline-block;
+        margin-left: 5px;
+        font-size: clamp(1.75rem, calc(1.5983rem + 0.6472vw), 2.375rem);
       }
     }
 
-    &-content {
-      .title {
-        color: #929EAE;
-        font-weight: 500;
-      }
-
-      .total {
-        font-size: 24px;
-      }
+    &-desc {
+      font-size: 20px;
+      text-align: center;
+      font-weight: 500;
     }
   }
+}
+
+// css for chart
+.chart-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 15px 0;
+  width: 100%;
+
+  @media (max-width: 696px) {
+    padding: 0;
+  }
+
+  .card {
+    padding: 10px;
+    width: calc(50% - 5px);
+
+    @media (max-width: 800px) {
+      width: 100%;
+    }
+  }
+}
+
+.card-header {
+  padding: 10px !important;
+}
+
+.table-title {
+  display: inline-block;
+  border-radius: 8px;
+  background-color: $primary;
+  color: $white;
+  padding: 5px 8px;
+  font-weight: 600;
 }
 
 .table {
@@ -161,7 +175,8 @@
     text-align: center;
   }
 
-  th {
+  th,
+  td {
     padding: 5px;
   }
 
