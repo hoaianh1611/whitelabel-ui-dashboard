@@ -186,3 +186,24 @@
     }
   }
 }
+
+.history-table {
+  font-size: 12px;
+
+  .table-responsive {
+    th {
+      min-width: 70px;
+    }
+
+    .custom-select-sm {
+      font-size: 12px;
+    }
+
+    tbody {
+      th {
+        font-weight: 400;
+      }
+    }
+  }
+
+}

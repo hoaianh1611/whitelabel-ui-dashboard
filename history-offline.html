@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SB Admin 2 - Overview</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700;800;900&family=Raleway:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this page -->
+  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-light sidebar sidebar-light accordion justify-content-between" id="accordionSidebar">
+      <!-- Sidebar - Brand -->
+      <div class="d-flex justify-content-between">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center p-2" href="overview.html">
+          <img id="logo" class="img-fluid" src="./img/logo-2.png" alt="">
+        </a>
+        <button id="sidebarToggleTop" class="btn btn-link d-lg-none rounded-circle">
+          <i class="fa fa-bars"></i>
+        </button>
+      </div>
+      <ul class="list-unstyled list-menu">
+        <li class="nav-item mastermenu active">
+          <a class="nav-link" href="/masteroverview">
+            <i class="fas fa-fw fa-tachometer-alt mr-2"></i>
+            <span>Overview</span>
+          </a>
+        </li>
+
+        <!-- mastermenu -->
+        <li name="mastermenu" class="nav-item mastermenu">
+          <a href="#bank_transfer" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+            <i class="fas fa-exchange-alt mr-2"></i>
+            <span>Bank Transfer</span>
+          </a>
+
+          <!-- Bank Transfer List -->
+          <ul id="bank_transfer" class="collapse list-unstyled">
+
+            <!-- Deposit -->
+            <li class="sub-nav-item">
+              <a href="#deposit" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>Deposit</span>
+              </a>
+              <!-- Deposit List -->
+              <ul name="deposit" id="deposit" class="collapse list-unstyled sublist">
+                <li class="sub-nav-item">
+                  <a href="#deposit_offline" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                    <span>Offline Deposit</span>
+                  </a>
+                  <ul name="deposit_offline" id="deposit_offline" class="collapse list-unstyled">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/membersubmithistory">History</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/matching">Matching</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="sub-nav-item">
+                  <a href="#deposit_qr" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                    <span>QR Deposit</span>
+                  </a>
+                  <ul name="deposit_qr" id="deposit_qr" class="collapse list-unstyled">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/membersubmithistory">History</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/matching">Matching</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="sub-nav-item">
+                  <a href="#deposit_internet_banking" data-toggle="collapse" aria-expanded="false"
+                    class="nav-link collapsed">
+                    <span>Internet Banking</span>
+                  </a>
+                  <ul name="deposit_internet_banking" id="deposit_internet_banking" class="collapse list-unstyled">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/membersubmithistory">History</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/matching">Matching</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/unmatchstatement">Unmatch Statement</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Payout -->
+            <li class="sub-nav-item">
+              <a href="#payout" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>Payout</span>
+              </a>
+              <!-- Payout List -->
+              <ul name="payout" id="payout" class="collapse list-unstyled sublist">
+                <li class="nav-item">
+                  <a class="nav-link" href="/payoutlastesttransaction">In Progress</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="payoutsubmithistory?type=1">History</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/payoutmatching">Matching</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tooltip" data-placement="right" title="Approval Transactions"
+                    href="/PayoutApprovalTransaction?type=1">Approval Transactions</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/payoutbatches">Batches Payout</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Settlement -->
+            <li class="sub-nav-item">
+              <a href="#settlement" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>Settlement</span>
+              </a>
+              <!-- Settlement List -->
+              <ul name="settlement" id="settlement" class="collapse list-unstyled sublist">
+                <li class="nav-item">
+                  <a class="nav-link" href="/settlementinprogress">In Progress</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/settlementsubmithistory">History</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/settlementmatching">Matching</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/settlementrequests">Requests</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Internal Transfer -->
+            <li class="sub-nav-item">
+              <a href="#internal_transfer" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>Internal Transfer</span>
+              </a>
+              <!-- Internal Transfer List -->
+              <ul name="internal_transfer" id="internal_transfer" class="collapse list-unstyled sublist">
+                <li class="nav-item">
+                  <a class="nav-link" href="/grouptransferrules">Group Transfer Rules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/internaltransferrequest">History</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/payoutmatching?type=4">Matching</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/payoutlastesttransaction?type=4">In Progress</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- eBanking Account Management -->
+            <li class="sub-nav-item">
+              <a href="#ebanking_acc" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>eBanking Account</span>
+              </a>
+              <!-- eBanking Account Management List -->
+              <ul name="ebanking_acc" id="ebanking_acc" class="collapse list-unstyled sublist">
+                <li class="nav-item">
+                  <a class="nav-link" href="/accountstatus">Balance Overview</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/Admin/bankconfig">Banks</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/Admin/accountmanage">Accounts</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/Admin/groupmanage">Group of Account</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item active">
+              <a class="nav-link" href="/requestmonitor" data-toggle="tooltip" data-placement="right"
+                title="eBanking Request Monitor">eBanking Request Monitor</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- mastermenu -->
+        <li name="mastermenu" class="nav-item mastermenu">
+          <a href="#ewallets" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+            <i class="fas fa-wallet mr-2"></i>
+            <span>Ewallets</span>
+          </a>
+
+          <!-- Ewallets List -->
+          <ul id="ewallets" class="collapse list-unstyled">
+
+            <!-- Deposit -->
+            <li class="sub-nav-item">
+              <a href="#ewallets_deposit" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>Deposit</span>
+              </a>
+              <!-- Deposit List -->
+              <ul name="ewallets_deposit" id="ewallets_deposit" class="collapse list-unstyled sublist">
+                <li class="sub-nav-item">
+                  <a href="#ewallets_deposit_momo" data-toggle="collapse" aria-expanded="false"
+                    class="nav-link collapsed">
+                    <span>Momo</span>
+                  </a>
+                  <ul name="ewallets_deposit_momo" id="ewallets_deposit_momo" class="collapse list-unstyled">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/momosubmithistory">History</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/momodeposit">Matching</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/momounclaimedstatement">Unclaimed Statements</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="sub-nav-item">
+                  <a href="#ewallets_deposit_zalo" data-toggle="collapse" aria-expanded="false"
+                    class="nav-link collapsed">
+                    <span>Zalo</span>
+                  </a>
+                  <ul name="ewallets_deposit_zalo" id="ewallets_deposit_zalo" class="collapse list-unstyled">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/zalosubmithistory">History</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/zalodeposit">Matching</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/zalopayunclaimedstatement" data-toggle="tooltip" data-placement="right"
+                        title="Zalopay Unclaimed Statement">Unclaimed Statement</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Ewallets Account Management -->
+            <li class="sub-nav-item">
+              <a href="#ewallets_acc" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>Ewallets Account</span>
+              </a>
+              <!-- Ewallets Account Management List -->
+              <ul name="ewallets_acc" id="ewallets_acc" class="collapse list-unstyled sublist">
+                <li class="nav-item">
+                  <a class="nav-link" href="/accountewalletstatus">Balance Overview</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/Admin/manageewallets">Ewallets</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/Admin/accountewalletmanage">Accounts</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/requestmonitorewallet" data-toggle="tooltip" data-placement="right"
+                title="Ewallets Request Monitor">Request Monitor</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/unidentifiedewalletstatement" data-toggle="tooltip" data-placement="right"
+                title="Unidentified Statements">Unidentified Statements</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- mastermenu -->
+        <li name="mastermenu" class="nav-item mastermenu">
+          <a href="#scratchcard" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+            <i class="fas fa-chess-board mr-2"></i>
+            <span>Scratchcard</span>
+          </a>
+
+          <!-- Scratchcard List -->
+          <ul id="scratchcard" class="collapse list-unstyled">
+            <li class="nav-item">
+              <a class="nav-link" href="/SrCardSubmitHistory">History</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/SrCardConfig">Configuration</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- mastermenu -->
+        <li name="mastermenu" class="nav-item mastermenu">
+          <a href="#smartcard" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+            <i class="fas fa-credit-card mr-2"></i>
+            <span>Smart Card</span>
+          </a>
+
+          <!-- Smart Card List -->
+          <ul id="smartcard" class="collapse list-unstyled">
+
+            <!-- Deposit -->
+            <li class="sub-nav-item">
+              <a href="#smartcard_sales" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>Sale &amp; Purchase Cards</span>
+              </a>
+              <!-- List -->
+              <ul name="smartcard_sales" id="smartcard_sales" class="collapse list-unstyled sublist">
+                <li class="nav-item">
+                  <a class="nav-link" href="/smartcardtransaction">History</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Members Dashboard -->
+            <li class="sub-nav-item">
+              <a href="#smartcard_members" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>Members Dashboard</span>
+              </a>
+              <!-- Members Dashboard List -->
+              <ul name="smartcard_members" id="smartcard_members" class="collapse list-unstyled sublist">
+                <li class="nav-item">
+                  <a class="nav-link" href="/smartcardMember">Affilliates &amp; Members</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/smartcardlevel">Level Manage</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/smartcardaffiliatelink">Affiliate Link</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Merchant Submissions -->
+            <li class="sub-nav-item">
+              <a href="#smartcard_submissions" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>Merchant Submissions</span>
+              </a>
+              <!-- List -->
+              <ul name="smartcard_submissions" id="smartcard_submissions" class="collapse list-unstyled sublist">
+                <li class="nav-item">
+                  <a class="nav-link" href="/smartcardsubmithistory">History</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Card Management -->
+            <li class="sub-nav-item">
+              <a href="#smartcard_card_management" data-toggle="collapse" aria-expanded="false"
+                class="nav-link collapsed">
+                <span>Card Management</span>
+              </a>
+              <!-- List -->
+              <ul name="smartcard_card_management" id="smartcard_card_management"
+                class="collapse list-unstyled sublist">
+                <li class="nav-item">
+                  <a class="nav-link" href="/smartcardstatus">Card Status</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/smartcardmanage">Card Value</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/smartcardDiscount" data-toggle="tooltip" data-placement="right"
+                    title="Card Surcharge & Discount">Card Surcharge &amp; Discount</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <!-- mastermenu -->
+        <li name="mastermenu" class="nav-item mastermenu">
+          <a href="#merchants" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+            <i class="fas fa-cogs mr-2"></i>
+            <span>Merchants</span>
+          </a>
+
+          <!-- Merchants List -->
+          <ul id="merchants" class="collapse list-unstyled">
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/submerchantmanage" data-toggle="tooltip" data-placement="right"
+                title="Information Management">Information Management</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/merchantbalanceoverview">Balance Overview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/adjustmentbalance">Adjustment Balance</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/subspayoutconfig" data-toggle="tooltip" data-placement="right"
+                title="Payout Config for Sub Merchant">Payout Config for Sub Merchant</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/subwhitelistipsmanage" data-toggle="tooltip" data-placement="right"
+                title="Whitelist Merchant IPs">Whitelist Merchant IPs</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- mastermenu -->
+        <li name="mastermenu" class="nav-item mastermenu">
+          <a href="#users" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+            <i class="fas fa-users-cog mr-2"></i>
+            <span>Users</span>
+          </a>
+
+          <!-- Users List -->
+          <ul id="users" class="collapse list-unstyled">
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/rolemanage">Role Management</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/groupusermanage">Group of User</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/usermanage">Users Management</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- mastermenu -->
+        <li name="mastermenu" class="nav-item mastermenu">
+          <a href="#management" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+            <i class="fas fa-tasks mr-2"></i>
+            <span>Management</span>
+          </a>
+
+          <!-- Users List -->
+          <ul id="management" class="collapse list-unstyled">
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/log">Detail Action Logs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/smsmanage">SMS Management</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/NotificationManager">Notification</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/phonemonitor">Service Connection</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- mastermenu -->
+        <li name="mastermenu" class="nav-item mastermenu">
+          <a href="#bo_settings" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+            <i class="fas fa-cog mr-2"></i>
+            <span>BO Settings</span>
+          </a>
+
+          <!-- BO Settings List -->
+          <ul id="bo_settings" class="collapse list-unstyled">
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/whitelistipsmanage">Whitelist Merchant IPs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/backofficesetting">Back Office</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/domainmanage">Domain</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/payoutconfig">Payout Configuration</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/SubmissionLimitConfig">Submission Limit Config</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center">
+          <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+      </ul>
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Alerts -->
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell fa-fw"></i>
+                <!-- Counter - Alerts -->
+                <span class="badge badge-danger badge-counter">3+</span>
+              </a>
+              <!-- Dropdown - Alerts -->
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                aria-labelledby="alertsDropdown">
+                <h6 class="dropdown-header">
+                  Alerts Center
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-primary">
+                      <i class="fas fa-file-alt text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 12, 2019</div>
+                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-success">
+                      <i class="fas fa-donate text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 7, 2019</div>
+                    $290.29 has been deposited into your account!
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-warning">
+                      <i class="fas fa-exclamation-triangle text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 2, 2019</div>
+                    Spending Alert: We've noticed unusually high spending for your account.
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+              </div>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile
+                </a>
+                <a class="dropdown-item" href="/change-password.html">
+                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Change Password
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+
+
+          <link href="/Content/Style.css?v=1.6" rel="stylesheet">
+          <link href="/Content/PagingAngularStyle.css?v=1.6" rel="stylesheet">
+
+
+          <div class="title-page">Offline History</div>
+
+          <div id="OfflineHistoryCtrl" ng-controller="OfflineHistoryCtrl" ng-init="GetListFilter(); Init()"
+            class="ng-scope">
+            <h1 id="vbMessage" class="viewbagMessage"></h1>
+
+            <div class="modal fade" id="ModalTXNDetail" tabindex="-1" role="dialog"
+              aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content" style="border-radius: 15px">
+                  <div class="modal-header change-color">
+                    <h3 class="modal-title text-white" id="exampleModalLabel">Transaction Details</h3>
+                    <button type="button" id="btnCloseNoteForm" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <form id="noteForm" class="ng-pristine ng-valid">
+                    <div class="comodal-body">
+                      <div class="form-group" style="margin-bottom: -0.2rem">
+                        <div class="row ml-2">
+                          <div class="col-6">
+                            <div class="col-form-label"><strong>SPID</strong></div>
+                            <div class="col-form-label ng-binding"></div>
+                          </div>
+                          <div class="col-6">
+                            <div class="col-form-label"><strong>TxnID</strong></div>
+                            <div class="col-form-label ng-binding"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group" style="margin-bottom: 0rem">
+                        <div class="row ml-2">
+                          <div class="col-4">
+                            <label class="col-form-label"><strong>Expired at</strong></label>
+                          </div>
+                          <div class="col-8">
+                            <label class="col-form-label ng-binding"></label>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- ngRepeat: action in Actions -->
+                      <div ng-show="dtPreviousMessage" class="form-group ng-hide" style="margin-bottom: 0rem">
+                        <div class="row ml-2">
+                          <div class="col-4">
+                            <label class="col-form-label"><strong>Previous message</strong></label>
+                          </div>
+                          <div class="col-8">
+                            <label class="col-form-label ng-binding"></label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group" style="margin-bottom: 0rem">
+                        <div class="row ml-2">
+                          <div class="col-4">
+                            <label class="col-form-label"><strong>Message</strong></label>
+                          </div>
+                          <div class="col-6">
+                            <label class="col-form-label ng-binding"></label>
+                            <a style="margin-left:10px; margin-bottom: 10px;" name="btnViewCallback" target="_blank"
+                              class="btn btn-success btn-icon-split" id="ViewCallbackLog">
+                              <span class="icon text-white-500" title="View Callback Log">
+                                <i class="fas fa-eye"></i>
+                              </span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div ng-show="TriggerResult.Status == 1" class="form-group ng-hide" id="btnModifyStatus"
+                        style="margin-left: 20px">
+                        <a ng-click="ModifyStatus()" class="btn btn-success btn-icon-split" href="#">
+                          <span class="icon text-white-500" title="Modify Status">
+                            <i class="fas fa-hand-holding"></i>
+                          </span>
+                          <span class="text">
+                            Modify Status
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal fade" id="ModalModifyStatusAngular" tabindex="-1" role="dialog"
+              aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header change-color">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Modify Transaction Status</h5>
+                    <button type="button" id="btnCloseModifyStatus" class="close" data-dismiss="modal"
+                      aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <form id="ModifyStatusForm" class="ng-pristine ng-invalid ng-invalid-required">
+                    <div class="modal-body">
+                      <div class="form-group">
+                        <label class="col-form-label"><strong>Merchant:</strong></label>
+                        <div class="input-group-text ng-binding"></div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-form-label"><strong>TXN ID:</strong></label>
+                        <div class="input-group-text ng-binding"></div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-form-label"><strong>Member ID:</strong></label>
+                        <div class="input-group-text ng-binding"></div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-form-label"><strong>Current Recipient:</strong></label>
+                        <div class="input-group-text ng-binding"> - </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-form-label"><strong>New Recipient:</strong></label>
+                        <select required=""
+                          class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"
+                          ng-model="SelectToAcc">
+                          <option value="? undefined:undefined ?" selected="selected"></option>
+                          <!-- ngRepeat: account in supportedAccounts -->
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-form-label"><strong>Transfer Time:</strong></label>
+                        <input type="datetime-local" step="any" ng-model="MoTransferTime"
+                          class="form-control ng-pristine ng-untouched ng-valid ng-empty">
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" ng-click="SubmitModifyStatus()" class="btn btn-primary">Confirm</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="d-flex flex-wrap align-items-end form-filter">
+                <div>
+                  <label>
+                    <p class="label-info">From</p>
+                  </label>
+                  <input id="FromDate" type="date" ng-model="filterFromDate" ng-init="filterFromDate=Date('2024-05-14')"
+                    class="form-control ng-pristine ng-untouched ng-valid ng-not-empty">
+                </div>
+                <div>
+                  <label>
+                    <p class="label-info">To</p>
+                  </label>
+                  <input id="ToDate" type="date" ng-model="filterToDate" ng-init="filterToDate=Date('2024-05-14')"
+                    class="form-control ng-pristine ng-untouched ng-valid ng-not-empty">
+                </div>
+                <div class="group-btn">
+                  <button type="button" ng-click="Search(); Page = 1" name="ButtonType"
+                    class="d-inline-block btn btn-sm btn-primary shadow-sm">Search</button>
+                  <button type="button" value="Export" id="btnExport" name="ButtonType"
+                    class="d-inline-block btn btn-sm btn-primary shadow-sm">Export</button>
+                </div>
+              </div>
+              <script type="text/javascript">
+                $(function () {
+                })
+              </script>
+            </div>
+            <input id="MerchantCode" name="MerchantCode" type="hidden" value="" autocomplete="off">
+            <button type="submit" value="ModifyStatus" name="ButtonType" id="ModifyStatus" style="display:none;"
+              class="btn btn-info">Modify Status</button>
+            <div class="card shadow my-3">
+              <div class="card-header">
+                <p class="table-title">Member Submit History</p>
+              </div>
+              <div class="card-body history-table">
+                <div class="table-responsive">
+                  <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                    <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="0">
+                      <thead>
+                        <!--<tr>-->
+
+                        <!--<td colspan="15" class="separate-col titleRow">MEMBER SUBMIT HISTORY</td>
+                  </tr>-->
+                        <tr>
+                          <th>Deposit<br>Type</th>
+                          <th>Merchant<br>Code</th>
+                          <th style="white-space: nowrap">SPID</th>
+                          <th>
+                            Customer
+                          </th>
+                          <th>
+                            TxnID
+                          </th>
+                          <th>
+                            Currency
+                          </th>
+                          <th style="width: 10%">
+                            <div>To</div>
+                            <div>Account</div>
+                          </th>
+                          <th>
+                            Amount
+                          </th>
+                          <th>Fee</th>
+                          <th>
+                            <div>Created</div>
+                            <div>Time</div>
+                          </th>
+                          <th>
+                            <div>Updated</div>
+                            <div>Time</div>
+                          </th>
+                          <th>
+                            <div>Transfer</div>
+                            <div>Time</div>
+                          </th>
+                          <th>
+                            Status
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th>
+                            <select
+                              class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-valid ng-empty"
+                              ng-model="filterDepositType" ng-change="Search()">
+                              <option value="" selected="selected">ALL</option>
+                              <!-- ngRepeat: type in supportedDepositTypes -->
+                              <option ng-repeat="type in supportedDepositTypes" ng-selected="false" value="Offline"
+                                class="ng-binding ng-scope">Offline</option>
+                              <!-- end ngRepeat: type in supportedDepositTypes -->
+                              <option ng-repeat="type in supportedDepositTypes" ng-selected="false"
+                                value="Offline_Original" class="ng-binding ng-scope">Offline_Original</option>
+                              <!-- end ngRepeat: type in supportedDepositTypes -->
+                            </select>
+                          </th>
+                          <th>
+                          </th>
+                          <th>
+                            <input class="form-control form-control-sm ng-pristine ng-untouched ng-valid ng-empty"
+                              style="max-width: fit-content !important" placeholder="Search..." ng-model="filterSPID"
+                              ng-change="FilterID()" type="number">
+                          </th>
+                          <th></th>
+                          <th>
+                            <input class="form-control form-control-sm ng-pristine ng-untouched ng-valid ng-empty"
+                              style="max-width: fit-content !important" placeholder="Search..."
+                              ng-model="filterTransactionID" ng-change="FilterID()">
+                          </th>
+                          <th>
+                            <select
+                              class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-valid ng-empty"
+                              ng-model="filterCurrency" ng-init="filterBank=''" ng-change="Search()">
+                              <option value="" selected="selected">ALL</option>
+                              <!-- ngRepeat: currency in supportedCurrencies -->
+                              <option ng-repeat="currency in supportedCurrencies" ng-selected="false" value="VND"
+                                class="ng-binding ng-scope">VND</option>
+                              <!-- end ngRepeat: currency in supportedCurrencies -->
+                              <option ng-repeat="currency in supportedCurrencies" ng-selected="false" value="THB"
+                                class="ng-binding ng-scope">THB</option>
+                              <!-- end ngRepeat: currency in supportedCurrencies -->
+                            </select>
+                          </th>
+                          <th>
+                            <select
+                              class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-valid ng-empty"
+                              ng-model="filterBank" ng-init="filterBank=''" ng-change="Search()">
+                              <option value="" selected="selected">ALL</option>
+                              <!-- ngRepeat: bank in supportedBanks| filter :filterCurrency -->
+                            </select>
+                          </th>
+                          <th></th>
+
+                          <th>
+
+
+                          </th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th>
+                            <select
+                              class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-valid ng-not-empty"
+                              ng-model="filterStatus" ng-init="filterStatus='-2'" ng-change="Search()">
+                              <!-- ngRepeat: status in supportedStatus -->
+                              <option ng-repeat="status in supportedStatus" ng-selected="false" value="-1"
+                                class="ng-binding ng-scope">All</option>
+                              <!-- end ngRepeat: status in supportedStatus -->
+                              <option ng-repeat="status in supportedStatus" ng-selected="true" value="-2"
+                                class="ng-binding ng-scope" selected="selected">Handling</option>
+                              <!-- end ngRepeat: status in supportedStatus -->
+                              <option ng-repeat="status in supportedStatus" ng-selected="false" value="0"
+                                class="ng-binding ng-scope">Successful</option>
+                              <!-- end ngRepeat: status in supportedStatus -->
+                              <option ng-repeat="status in supportedStatus" ng-selected="false" value="1"
+                                class="ng-binding ng-scope">Failed</option>
+                              <!-- end ngRepeat: status in supportedStatus -->
+                              <option ng-repeat="status in supportedStatus" ng-selected="false" value="2"
+                                class="ng-binding ng-scope">Rejected</option>
+                              <!-- end ngRepeat: status in supportedStatus -->
+                              <option ng-repeat="status in supportedStatus" ng-selected="false" value="3"
+                                class="ng-binding ng-scope">Submitted</option>
+                              <!-- end ngRepeat: status in supportedStatus -->
+                              <option ng-repeat="status in supportedStatus" ng-selected="false" value="4"
+                                class="ng-binding ng-scope">Pending</option>
+                              <!-- end ngRepeat: status in supportedStatus -->
+                              <option ng-repeat="status in supportedStatus" ng-selected="false" value="5"
+                                class="ng-binding ng-scope">Processing</option>
+                              <!-- end ngRepeat: status in supportedStatus -->
+                              <option ng-repeat="status in supportedStatus" ng-selected="false" value="6"
+                                class="ng-binding ng-scope">Unknown</option>
+                              <!-- end ngRepeat: status in supportedStatus -->
+                              <option ng-repeat="status in supportedStatus" ng-selected="false" value="7"
+                                class="ng-binding ng-scope">Checking</option>
+                              <!-- end ngRepeat: status in supportedStatus -->
+                              <option ng-repeat="status in supportedStatus" ng-selected="false" value="8"
+                                class="ng-binding ng-scope">Proceed</option>
+                              <!-- end ngRepeat: status in supportedStatus -->
+                            </select>
+                          </th>
+
+                        </tr>
+                        <!-- ngRepeat: result in results -->
+                        <tr>
+                          <th>Offline_Original</th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th>THB</th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th>
+                            Processing
+                          </th>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <button data-toggle="modal" data-target="#ModalModifyStatusAngular" hidden=""
+                      id="btnTriggerModify"></button>
+                    <button hidden="" id="TriggerShowDetail" data-toggle="modal" data-target="#ModalTXNDetail"></button>
+                  </div>
+                </div>
+                <div class="d-flex flex-column flex-sm-row justify-content-between my-3 align-items-center">
+                  <div class="mb-2">
+                    <!-- ngIf: TotalItem>0 -->
+                    <!-- ngIf: TotalItem==0 -->
+                    <div ng-if="TotalItem==0" class="dataTables_info ng-scope" id="dataTable_info" role="status"
+                      aria-live="polite">
+                      Does not have any entries
+                    </div><!-- end ngIf: TotalItem==0 -->
+                  </div>
+                  <div class="dataTables_paginate paging_simple_numbers mb-2">
+                    <ul class="pagination ng-isolate-scope ng-not-empty ng-valid mb-0" total-items="TotalItem"
+                      items-per-page="NumberRecord" max-size="10" ng-model="Page" ng-change="Search()">
+                      <!-- ngIf: ::boundaryLinks -->
+                      <!-- ngIf: ::directionLinks -->
+                      <li ng-if="::directionLinks" ng-class="{disabled: noPrevious()||ngDisabled}"
+                        class="paginate_button page-item previous disabled"><a href=""
+                          ng-click="selectPage(page - 1, $event)" class="ng-binding page-link">Previous</a></li>
+                      <!-- end ngIf: ::directionLinks -->
+                      <!-- ngRepeat: page in pages track by $index -->
+                      <li ng-repeat="page in pages track by $index"
+                        ng-class="{active: page.active,disabled: ngDisabled&amp;&amp;!page.active}"
+                        class="paginate_button page-item ng-scope active"><a href=""
+                          ng-click="selectPage(page.number, $event)" class="ng-binding page-link">1</a></li>
+                      <!-- end ngRepeat: page in pages track by $index -->
+                      <!-- ngIf: ::directionLinks -->
+                      <li ng-if="::directionLinks" ng-class="{disabled: noNext()||ngDisabled}"
+                        class="paginate_button page-item next ng-scope disabled"><a href=""
+                          ng-click="selectPage(page + 1, $event)" class="ng-binding page-link">Next</a></li>
+                      <!-- end ngIf: ::directionLinks -->
+                      <!-- ngIf: ::boundaryLinks -->
+                    </ul>
+                  </div>
+                </div>
+                <div class="">
+                  <ul class="pagination d-flex align-items-center mb-0">
+                    <li class="mr-2" style="font-weight:bold; font-style:italic">Number of records:</li>
+                    <li>
+                      <select ng-model="NumberRecord" ng-change="Page=1; Search()" id="NumberRecord"
+                        class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-valid ng-not-empty"
+                        onchange="$('#formData').submit();">
+                        <option class="page-item page-link" value="20">20</option>
+                        <option class="page-item page-link" value="50">50</option>
+                        <option class="page-item page-link" value="100" selected="selected">100</option>
+                      </select>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="noteFeeModal" tabindex="-1" role="dialog"
+              aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header change-color">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Edit Fee</h5>
+                    <button type="button" id="btnCloseNoteFeeForm" class="close" data-dismiss="modal"
+                      aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <form id="noteFeeForm" class="ng-pristine ng-valid">
+                    <div class="modal-body">
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Fee:</label>
+                        <input ng-model="InputFee"
+                          class="form-control inputnumber ng-pristine ng-untouched ng-valid ng-empty" type="text">
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                      <button type="button" ng-click="AddFee(InputFee)" data-dismiss="modal"
+                        class="btn btn-primary">Confirm</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal-payslip">
+              <span class="close-payslip">×</span>
+              <img class="modal-payslip-content" id="img01">
+            </div>
+            <form action="/MemberSubmitHistory/ExportTXN" id="ExportForm" method="post" target="_blank"
+              class="ng-pristine ng-valid"><input name="__RequestVerificationToken" type="hidden"
+                value="QvH2zvwgPThk3MzTZGKfkn2PXB9lme_-4_iuyLZtUYHPlIqSMLVAA_1CvrrUn91Jz14fFdqjpneFSn1fcM_mzt6izCHXz3ctdsJyF3dsKms1"
+                autocomplete="off"><input id="ExportFromDate" name="ExportFromDate" type="hidden" value=""
+                autocomplete="off"><input id="ExportToDate" name="ExportToDate" type="hidden" value=""
+                autocomplete="off"><input id="ExportMerchantCode" name="ExportMerchantCode" type="hidden" value=""
+                autocomplete="off"></form>
+
+          </div>
+          <script type="text/javascript">
+            app.service("dtService", function ($http) {
+              var host = location.protocol + "//" + location.host;
+              this.GetData = function (_filterDepositType, _filterMerchant, filterCurrency, filterBank, filterTransactionID, filterSPID, _NumberRecord, filterFromDate, filterToDate, _status, page) {
+                var model = {
+                  DepositType: _filterDepositType,
+                  MerchantID: _filterMerchant,
+                  CurrencyName: filterCurrency,
+                  BankCode: filterBank,
+                  TransactionID: filterTransactionID,
+                  SPID: filterSPID,
+                  Page: page,
+                  NumberRecord: _NumberRecord,
+                  Status: _status,
+                  FromDate: filterFromDate,
+                  ToDate: filterToDate
+                };
+                var response = $http.post(host + "/MemberSubmitHistory/GetData", model);
+                return response;
+              };
+              this.AddFee = function (ID, fee) {
+                var model = {
+                  UpdateID: ID,
+                  Fee: fee
+                };
+                var response = $http.post(host + "/MemberSubmitHistory/AddFee", model);
+                return response;
+              };
+              this.ResendCallback = function (_ID) {
+                var model = {
+                  ID: _ID
+                };
+                var response = $http.post(host + "/MemberSubmitHistory/ResendCallback", model);
+                return response;
+              };
+              this.ModifyStatus = function (_ID, _ModifyAccount, _ModifyTransferTime) {
+                var model = {
+                  ID: _ID,
+                  ModifyAccount: _ModifyAccount,
+                  ModifyTransferTime: _ModifyTransferTime
+                };
+                var response = $http.post(host + "/MemberSubmitHistory/ModifyStatus", model);
+                return response;
+              };
+              this.GetListFilter = function () {
+                var response = $http.post(host + "/MemberSubmitHistory/GetListFilter");
+                return response;
+              }
+              this.GetActions = function (_ID) {
+                var model = {
+                  requestID: _ID
+                };
+                var response = $http.post(host + "/MemberSubmitHistory/GetActions", model);
+                return response;
+              }
+            })
+
+            app.controller("OfflineHistoryCtrl", function ($scope, dtService) {
+              $scope.Page = 1;
+              $scope.NumberRecord = "100";
+              var isOnChange = false;
+              var deltaTime = 0;
+              var loop;
+              $scope.Date = function (arg) {
+                return new Date(arg);
+              };
+              $scope.setPage = function (pageNo) {
+                $scope.Page = pageNo;
+              };
+              $scope.Init = function () {
+                setTimeout(function () {
+                  $scope.Search();
+                }, 0)
+              }
+              $scope.ShowMessage = function (type, message, title = "") {
+                toastr.remove();
+                if (type)
+                  toastr[type](title, message);
+                else {
+                  var sign = message.charAt(0);
+                  var content = message.substr(1, message.length);
+                  if (sign == '!')
+                    toastr['warning']("", content);
+                  else
+                    toastr['success']("", message);
+                }
+              }
+              $scope.GetListFilter = function () {
+                var getFilter = dtService.GetListFilter();
+                getFilter.then(function (response) {
+                  $scope.supportedCurrencies = response.data.Results.listCurrency;
+                  $scope.supportedBanks = response.data.Results.listBank;
+                  $scope.supportedStatus = response.data.Results.listStatus;
+                  $scope.supportedAccounts = response.data.Results.listAccount;
+                  $scope.supportedDepositTypes = response.data.Results.resultListDepositType;
+                  $scope.supportedMerchant = response.data.Results.listMerchant;
+                  console.log(response.data.Results.listAccount);
+                  if ($scope.supportedAccounts && $scope.supportedAccounts.length > 0) {
+                    $scope.SelectToAcc = $scope.supportedAccounts[0].ID.toString();
+                  }
+                })
+              }
+              $scope.Search = function () {
+                $("#loadingAngular").show();
+                var fromDate = new Date($('#FromDate').val());
+                var toDate = new Date($('#ToDate').val());
+                var deltaDate = (toDate - fromDate) / (1000 * 60 * 60 * 24);
+                if (deltaDate > 180) {
+                  $scope.ShowMessage("warning", "Time Range Is " + 180 + " Days");
+                  $("#loadingAngular").hide();
+                }
+                else if (deltaDate < 0) {
+                  $scope.ShowMessage("error", "From Date is greater than To Date");
+                  $("#loadingAngular").hide();
+                }
+                else {
+                  console.log($scope.filterDepositType)
+                  var getData = dtService.GetData($scope.filterDepositType, $scope.filterMerchant, $scope.filterCurrency, $scope.filterBank, $scope.filterTransactionID, $scope.filterSPID, $scope.NumberRecord, $scope.filterFromDate, $scope.filterToDate, $scope.filterStatus, $scope.Page)
+                  getData.then(function (response) {
+                    $scope.results = response.data.Results;
+                    console.log($scope.results)
+                    if ($scope.results)
+                      $scope.numberOfPages = Math.ceil($scope.results.length / $scope.NumberRecord);
+                    $scope.FirstItem = response.data.FirstItem;
+                    $scope.LastItem = response.data.LastItem;
+                    $scope.TotalItem = response.data.TotalItem;
+                    $scope.ListAction = response.data.ListAction;
+                    $("#loadingAngular").hide();
+                  });
+                }
+              }
+              $scope.ShowPayslip = function (url) {
+                if (url) {
+                  $('#img01').prop("src", url);
+                  $('#myModal').show();
+                }
+              }
+              $scope.SetTrigger = function (ID) {
+                $scope.TriggerID = ID;
+              }
+              $scope.AddFee = function (Fee) {
+                $("#loadingAngular").show();
+                var addFee = dtService.AddFee($scope.TriggerID, Fee)
+                addFee.then(function (response) {
+                  if (response.data.Status == 0) {
+                    $scope.ShowMessage("success", "Add fee successful");
+                    $scope.Search();
+                  }
+                  else {
+                    $scope.ShowMessage("error", response.data.Message);
+                    $("#loadingAngular").hide();
+                  }
+                })
+              }
+              $scope.ResendCallback = function (ID) {
+                $("#loadingAngular").show();
+                var resendCallback = dtService.ResendCallback(ID)
+                resendCallback.then(function (response) {
+                  if (response.data.Status == 0) {
+                    $scope.ShowMessage("success", "Resend callback successful");
+                  }
+                  else {
+                    $scope.ShowMessage("error", response.data.Message);
+                  }
+                  $("#loadingAngular").hide();
+                })
+              }
+              $scope.SetTriggerResult = function (res) {
+                $scope.TriggerResult = res;
+              }
+              $scope.ModifyStatus = function () {
+                var result = $scope.TriggerResult;
+                $scope.MoMerchant = result.MerchantCode;
+                $scope.MoTxnID = result.TXNID;
+                $scope.MoMemberID = result.Customer;
+                $scope.MoToAccount = result.ToAccount;
+                $scope.SelectToAcc = result.AccountID.toString();
+                $scope.MoToAccountName = result.ToAccountName.toString();
+                $scope.MoTransferTime = $scope.Date(result.TransferedTime);
+
+                $("#btnTriggerModify").click();
+              }
+              $scope.SubmitModifyStatus = function () {
+                $("#loadingAngular").show();
+                var modifyStatus = dtService.ModifyStatus($scope.TriggerResult.ID, $scope.SelectToAcc, $scope.MoTransferTime.toLocaleString("en-US"))
+                modifyStatus.then(function (response) {
+                  if (response.data.Status == 0) {
+                    $scope.ShowMessage("success", "Modify status successful");
+                    $scope.Search();
+                    $("#btnCloseNoteForm").click();
+                  }
+                  else {
+                    $scope.ShowMessage("error", response.data.Message);
+                    $("#loadingAngular").hide();
+                  }
+                  $("#btnCloseModifyStatus").click();
+                })
+              }
+              $scope.FilterID = function () {
+                deltaTime = 0;
+                if (isOnChange == false) {
+                  isOnChange = true;
+                  loop = setInterval(function () {
+                    deltaTime += 1;
+                    if (deltaTime >= 15) {
+                      clearInterval(loop);
+                      deltaTime = 0;
+                      isOnChange = false;
+                      $scope.Search();
+                    }
+                  }, 100);
+                }
+              }
+              $scope.ShowDetails = function (result) {
+                $("#loadingAngular").show();
+                var getAction = dtService.GetActions(result.RequestID);
+                getAction.then(function (response) {
+                  console.log(result);
+                  $scope.dtSPID = result.RequestID;
+                  $scope.dtTxnID = result.TXNID;
+                  $scope.dtExpiredTime = result.ExpiredTime ? result.ExpiredTime : "";
+                  $scope.dtPreviousMessage = result.PreviousMessage;
+                  $scope.dtMessage = result.NoteMessage;
+                  $scope.CallbackLogURL = "/CallbackLog/Index?TxnID=" + result.RequestID;
+                  if (response.data.Results) {
+                    $scope.Actions = response.data.Results;
+                    console.log($scope.Actions)
+                  }
+                  $("#TriggerShowDetail").click();
+                  $("#loadingAngular").hide();
+                })
+                console.log(result)
+
+              }
+              $('input.inputnumber').keyup(function (event) {
+                if (event.which >= 37 && event.which <= 40) return;
+                $(this).val(function (index, value) {
+                  return value
+                    // Keep only digits and decimal points:
+                    .replace(/[^\d.]/g, "")
+                    // Remove duplicated decimal point, if one exists:
+                    .replace(/^(\d*\.)(.*)\.(.*)$/, '$1$2$3')
+                    // Keep only two digits past the decimal point:
+                    .replace(/\.(\d{2})\d+/, '.$1')
+                    // Add thousands separators:
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                });
+              });
+            })
+          </script>
+          <script type="text/javascript">
+            $(function () {
+              var isOnChange = false;
+              var deltaTime = 0;
+
+
+              $('#myModal').click(function () {
+                $(this).hide();
+              })
+              $('#btnSearch').click(function (event) {
+                var fromDate = new Date($('#FromDate').val());
+                var toDate = new Date($('#ToDate').val());
+                var deltaDate = (toDate - fromDate) / (1000 * 60 * 60 * 24);
+                if (deltaDate > 180) {
+                  event.preventDefault();
+                  $('#vbMessage').text("Time Range Is " + 180 + " Days");
+                }
+                else if (deltaDate < 0) {
+                  event.preventDefault();
+                  $('#vbMessage').text("From Date is greater than To Date");
+                }
+                else {
+                  $('#vbMessage').text("");
+                  var interval = setInterval(function () {
+                    if (!$.hasAjaxRunning()) {
+                      toastr.remove();
+                      toastr['info']("Searched!", "Member Submit History");
+                      clearInterval(interval);
+                    }
+                  }, 100);
+                }
+              })
+              $('button[name*="ButtonType"]').each(function () {
+                if ($(this).val() == "Callback")
+                  $(this).click(function () {
+                    $("#ID").val($(this).data("value"));
+                    var interval = setInterval(function () {
+                      if (!$.hasAjaxRunning()) {
+                        toastr.remove();
+                        toastr['info']("Resend Callback", "Member Submit History");
+                        clearInterval(interval);
+                      }
+                    }, 100);
+                  })
+              })
+              var loop;
+              $('#TransactionID').focus();
+              $('#TransactionID').keypress(function (e) {
+                if (e.keyCode == 13) {
+                  console.log("key up");
+                  e.preventDefault();
+                  clearInterval(loop);
+                  isOnChange = false;
+                  $('#formData').submit();
+                }
+              });
+              $('#TransactionID').on('input propertychange paste', function (e) {
+
+                deltaTime = 0;
+                if (isOnChange == false) {
+                  isOnChange = true;
+                  loop = setInterval(function () {
+                    deltaTime += 1;
+                    if (deltaTime >= 20) {
+                      clearInterval(loop);
+                      deltaTime = 0;
+                      isOnChange = false;
+                      $('#formData').submit();
+                    }
+                  }, 100);
+                }
+              })
+              $('#TransactionID').val($('#searchTransaction').val());
+              $('#SPID').focus();
+              $('#SPID').keypress(function (e) {
+                if (e.keyCode == 13) {
+                  console.log("key up");
+                  e.preventDefault();
+                  clearInterval(loop);
+                  isOnChange = false;
+                  $('#formData').submit();
+                }
+              });
+              $('#SPID').on('input propertychange paste', function (e) {
+
+                deltaTime = 0;
+                if (isOnChange == false) {
+                  isOnChange = true;
+                  loop = setInterval(function () {
+                    deltaTime += 1;
+                    if (deltaTime >= 20) {
+                      clearInterval(loop);
+                      deltaTime = 0;
+                      isOnChange = false;
+                      $('#formData').submit();
+                    }
+                  }, 100);
+                }
+              })
+
+              $('div[name^="btnDetail"]').each(function () {
+                $(this).click(function (e) {
+                  $('#ConfirmBy').text($(this).data('value').ConfirmBy);
+                  $('#NoteMessage').text($(this).data('value').NoteMessage);
+                  $('#TypeMatch').text($(this).data('value').TypeMatch);
+                  $('#TXNID').text($(this).data('value').TXNID);
+                  $('#ActionNote').html($(this).data('value').ActionNote);
+                  $('#DepositID').text($(this).data('value').DepositID);
+                  $('#ViewCallbackLog').attr("href", "/CallbackLog/Index?TxnID=" + $(this).data('value').SPayID);
+                })
+              })
+              $(document).ajaxError(function (data, jqxhr, settings, thrownError) {
+                if (jqxhr.status == 597) {
+                  window.location.href = "/ErrorPage";
+                }
+              });
+              $("#btnExport").click(function (event) {
+
+                $("#ExportFromDate").val($("#FromDate").val());
+                $("#ExportToDate").val($("#ToDate").val());
+                $("#ExportMerchantCode").val($("#MerchantCode").val());
+                $('#vbMessage').text("Please wait export processing in new tab!");
+                $("#ExportForm").submit();
+              });
+
+
+            })
+          </script>
+
+
+        </div>
+
+      </div>
+      <!-- /.container-fluid -->
+      <!-- End of Main Content -->
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; White Label 2024</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Table plugins -->
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+  <script type="text/javascript">
+    $(function () {
+      $("#formChangeEmail").submit(function (e) {
+        e.preventDefault();
+        if ($("#CurrentEmail").val() == $("#inputEmail").val()) {
+          alert("New email must be different from current email!");
+          return;
+        }
+        if ($("#CurrentEmail").val() != "") {
+          var dataToPost = "{ ToMail:'" + $("#CurrentEmail").val() + "'}";
+          $.ajax({
+            url: $("#sendEmailURL").val(),
+            type: 'POST',
+            dataType: 'json',
+            data: dataToPost,
+            cache: false,
+            contentType: "application/jsonrequest; charset=utf-8",
+            success: function (data) {
+              if (data == null || data.res == "") {
+                alert("Send verify email failed!");
+              }
+              else {
+                for (var i = 0; i < 5; i++) {
+                  var code;
+                  if (i == 0)
+                    code = prompt("Please enter the code sent to your current email", '');
+                  else
+                    code = prompt("The code is wrong, please try again!", '');
+                  if (code == data.res) {
+                    PostNewEmail();
+                    break;
+                  }
+                  if (code == null)
+                    break;
+                }
+              }
+            },
+            error: function (e) {
+              console.log(e);
+            }
+          });
+        }
+        else
+          PostNewEmail();
+      });
+      function PostNewEmail() {
+        var dataToPost = "{ newEmail:'" + $("#inputEmail").val() + "'}";
+        $.ajax({
+          url: $("#postEmailURL").val(),
+          type: 'POST',
+          dataType: 'json',
+          data: dataToPost,
+          cache: false,
+          contentType: "application/jsonrequest; charset=utf-8",
+          success: function (data) {
+            if (data.result == "Change Success") {
+
+              alert("Change email success");
+              location.reload();
+            }
+            else
+              alert(data.result);
+          }
+        });
+      }
+    })
+  </script>
+
+  <script type="text/javascript">
+    $(function () {
+      $("#btnActiveGGAuth").click(function () {
+        $.ajax({
+          url: $("#activeGGAuthURL").val(),
+          type: 'POST',
+          dataType: 'json',
+          cache: false,
+          contentType: "application/jsonrequest; charset=utf-8",
+          success: function (data) {
+            if (data.status == "Disabled") {
+              alert(data.result);
+              location.reload();
+            }
+            else {
+              if (data.result) {
+                $("#GGAuthImg").attr("src", data.result);
+                $("#GGCodeDiv").show();
+              }
+              else
+                alert(data.result);
+            }
+          }
+        });
+      })
+      $("#btnSubmitGGCode").click(function () {
+        var dataToPost = "{ Code:'" + $("#GGCode").val() + "'}";
+        $.ajax({
+          url: $("#activeGGAuthURL").val(),
+          type: 'POST',
+          dataType: 'json',
+          data: dataToPost,
+          cache: false,
+          contentType: "application/jsonrequest; charset=utf-8",
+          success: function (data) {
+            if (data.status == "Success") {
+              alert(data.result);
+              location.reload();
+            }
+            else
+              alert(data.result);
+          }
+        });
+      })
+    })
+  </script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if ($('#vbMessage').text()) {
+        toastr.remove();
+        var txt = $('#vbMessage').text();
+        var sign = txt.charAt(0);
+        var content = txt.substr(1, txt.length);
+        if (sign == '!')
+          toastr['warning']("", content);
+        else if (sign == '#')
+          toastr['error']("", content);
+        else
+          toastr['success']("", txt);
+      }
+    })
+    $(function () {
+      $('div[class*="table-responsive"]').each(function () {
+        $('div[class*="table-responsive"]').first().scroll(function (event) {
+          console.log("scrolll");
+
+          if (event.deltaY > 0) $(this).scrollLeft += 100;
+          else $(this).scrollLeft -= 100;
+        })
+      })
+
+      $("ul[name*='ulmaster']").click(function (e) {
+
+      })
+
+
+    })
+    function IsEmptyOrSpaces(str) {
+      return str === null || str.match(/^ *$/) !== null;
+    }
+    $(function () {
+      window.ajax_loading = false;
+      $.hasAjaxRunning = function () {
+        return window.ajax_loading;
+      };
+      $(document).ajaxStart(function () {
+        window.ajax_loading = true;
+      });
+      $(document).ajaxStop(function () {
+        window.ajax_loading = false;
+      });
+
+      var loadingInterval = setInterval(function () {
+        if ($.hasAjaxRunning && $.hasAjaxRunning()) {
+          $('#loadingDiv').show();
+        }
+        else {
+          $('#loadingDiv').hide();
+        }
+      }, 100)
+      $('input.numberOnly').on('input blur paste', function () {
+        $(this).val($(this).val().replace(/\D/g, ''))
+      })
+      $.fn.ShowMessage = function (type, message, title = "") {
+        toastr.remove();
+        if (type)
+          toastr[type](title, message);
+        else {
+          var sign = message.charAt(0);
+          var content = message.substr(1, message.length);
+          if (sign == '!')
+            toastr['warning']("", content);
+          else
+            toastr['success']("", message);
+        }
+      }
+      $.fn.showLoading = function () {
+        $("#loadingAngular").show();
+      }
+      $.fn.hideLoading = function () {
+        $("#loadingAngular").hide();
+      }
+    });
+  </script>
+
+</body>
+
+</html>
