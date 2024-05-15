@@ -14,17 +14,9 @@
 .form-filter {
   gap: 10px;
 
-  label {
-    margin-bottom: 0;
-  }
-
   .label-info {
     font-weight: 600;
     margin-bottom: 5px;
-  }
-
-  .custom-select {
-    width: 180px;
   }
 
   .form-group {
@@ -35,28 +27,142 @@
     min-width: 180px;
   }
 
-}
+  .group-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 35px;
 
-.group-btn {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-height: 35px;
+    @media (max-width: 665px) {
+      flex-wrap: wrap;
+    }
 
-  @media (max-width: 665px) {
-    flex-wrap: wrap;
+    .btn {
+      min-height: 35px;
+      white-space: nowrap;
+    }
   }
 
   .btn {
-    min-height: 35px;
-    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .date-time-select {
+    min-width: 190px;
+    position: relative;
+    display: flex;
+    border: 1px solid $cyan;
+    border-radius: 0.35rem;
+
+    &:focus-within {
+      box-shadow: 0 0 0 .2rem rgba($cyan, .25);
+    }
+
+    .label-info {
+      margin-bottom: 0;
+      color: $cyan;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 10px;
+    }
+
+    &-input {
+      width: unset;
+      min-width: unset;
+      border: none;
+      transition: none;
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+
+  .input-search {
+    display: flex;
+    align-items: center;
+    border: 1px solid $cyan;
+    border-radius: 0.35rem;
+
+    &:focus-within {
+      box-shadow: 0 0 0 .2rem rgba($cyan, .25);
+    }
+
+    icon {
+      padding: 0 5px 0 8px;
+      font-size: 18px;
+
+      .fas {
+        color: $cyan;
+        font-weight: 600;
+      }
+    }
+
+    &-input {
+      min-width: unset;
+      min-height: 35px;
+      border-radius: 0.35rem;
+      width: 150px;
+      border: none;
+      transition: none;
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+
+  .select-custom {
+    position: relative;
+
+    .custom-select {
+      background: none;
+      text-align: center;
+
+      &:focus {
+        border-color: $cyan;
+        outline: 0;
+        box-shadow: 0 0 0 .2rem rgba($cyan, .25);
+      }
+    }
+
+    icon {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+
+      .fas {
+        color: $cyan;
+      }
+    }
+  }
+
+
+  select {
+    color: #d1d3e2;
+    width: 180px;
+  }
+
+  select option {
+    color: $gray-600;
+  }
+
+  select:has(option:checked:not([value])),
+  select:has(option:checked:not([value=""])) {
+    color: $gray-600;
+  }
+
+  select:has(option:checked:not([value])) option,
+  select:has(option:checked:not([value=""])) option {
+    color: $gray-600;
   }
 }
 
-.btn {
-  font-size: 14px;
-  font-weight: 500;
-}
+
 
 .card-body {
   padding: 10px;
@@ -202,14 +308,46 @@
       font-weight: 600;
     }
   }
+
+  .icon-list {
+    gap: 5px;
+    align-items: center;
+    justify-content: space-between;
+
+    .fas {
+      cursor: pointer;
+      font-size: 16px;
+
+      &.fa-share-square {
+        font-size: 14px;
+        color: $cyan;
+      }
+
+      &.fa-image {
+        color: $gray-800;
+      }
+
+      &.fa-eye {
+        color: #aacb3a;
+      }
+    }
+  }
 }
 
 .history-table,
 .matching-table {
   font-size: 12px;
 
+  .small-title {
+    font-size: 10px;
+    font-weight: 600;
+    display: block;
+    color: $cyan;
+  }
+
   .table-responsive {
     th {
+      vertical-align: middle;
       min-width: 70px;
     }
 
@@ -228,4 +366,53 @@
     }
   }
 
+}
+
+.status {
+  display: block;
+  border-radius: 18px;
+  font-size: 11px;
+  padding: 5px 10px;
+  font-weight: 500;
+  color: $white;
+
+  &.processing {
+    background-color: #1677A3;
+  }
+
+  &.sucessful {
+    background-color: $green;
+  }
+
+  &.failed {
+    background-color: $danger;
+  }
+
+  &.submitted {
+    background-color: #4266f5;
+  }
+
+  &.checking {
+    background-color: $info;
+  }
+
+  &.pending {
+    background-color: $orange;
+  }
+
+  &.rejected {
+    background-color: $brand-google;
+  }
+
+  &.wrongCard {
+    background-color: $warning;
+  }
+
+  &.unknown {
+    background-color: $dark;
+  }
+
+  &.proceed {
+    background-color: #9B59B6;
+  }
 }

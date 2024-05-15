@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Overview</title>
+  <title>SB Admin 2 - History</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -604,15 +604,10 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
-
-
           <link href="/Content/Style.css?v=1.6" rel="stylesheet">
           <link href="/Content/PagingAngularStyle.css?v=1.6" rel="stylesheet">
 
-
-          <div class="title-page">Offline History</div>
-
+          <p class="title-page">Offline History</p>
           <div id="OfflineHistoryCtrl" ng-controller="OfflineHistoryCtrl" ng-init="GetListFilter(); Init()"
             class="ng-scope">
             <h1 id="vbMessage" class="viewbagMessage"></h1>
@@ -748,267 +743,498 @@
               </div>
             </div>
 
-            <div>
-              <div class="d-flex flex-wrap align-items-end form-filter">
-                <div>
-                  <label>
-                    <p class="label-info">From</p>
-                  </label>
-                  <input id="FromDate" type="date" ng-model="filterFromDate" ng-init="filterFromDate=Date('2024-05-14')"
-                    class="form-control ng-pristine ng-untouched ng-valid ng-not-empty">
-                </div>
-                <div>
-                  <label>
-                    <p class="label-info">To</p>
-                  </label>
-                  <input id="ToDate" type="date" ng-model="filterToDate" ng-init="filterToDate=Date('2024-05-14')"
-                    class="form-control ng-pristine ng-untouched ng-valid ng-not-empty">
-                </div>
-                <div class="group-btn">
-                  <button type="button" ng-click="Search(); Page = 1" name="ButtonType"
-                    class="d-inline-block btn btn-sm btn-primary shadow-sm">Search</button>
-                  <button type="button" value="Export" id="btnExport" name="ButtonType"
-                    class="d-inline-block btn btn-sm btn-primary shadow-sm">Export</button>
-                </div>
+            <!-- Filter Section -->
+            <div class="d-flex flex-wrap align-items-end form-filter">
+              <div class="date-time-select">
+                <label class="label-info">From: </label>
+                <input placeholder="From" id="FromDate" type="date" ng-model="filterFromDate"
+                  ng-init="filterFromDate=Date('2024-05-14')"
+                  class="form-control date-time-select-input ng-pristine ng-untouched ng-valid ng-not-empty">
               </div>
-              <script type="text/javascript">
-                $(function () {
-                })
-              </script>
+              <div class="date-time-select">
+                <label class="label-info">To: </label>
+                <input id="ToDate" type="date" ng-model="filterToDate" ng-init="filterToDate=Date('2024-05-14')"
+                  class="form-control date-time-select-input ng-pristine ng-untouched ng-valid ng-not-empty">
+              </div>
+              <div class="group-btn">
+                <button type="button" ng-click="Search(); Page = 1" name="ButtonType"
+                  class="d-inline-block btn btn-sm btn-primary shadow-sm">Search</button>
+                <button type="button" value="Export" id="btnExport" name="ButtonType"
+                  class="d-inline-block btn btn-sm btn-primary shadow-sm">Export</button>
+              </div>
             </div>
+            <div class="d-flex flex-wrap align-items-end form-filter my-3">
+              <!-- Search TxnID -->
+              <div class="input-search">
+                <icon><i class="fas fa-search"></i></icon>
+                <input class="form-control input-search-input ng-pristine ng-untouched ng-valid ng-empty"
+                  style="max-width: fit-content !important" placeholder="ID/ TxnID" ng-model="filterSPID"
+                  ng-change="FilterID()" type="number">
+                </input>
+              </div>
+              <!-- Deposit Type -->
+              <div class="select-custom">
+                <select class="custom-select form-control ng-pristine ng-untouched ng-valid ng-empty"
+                  ng-model="filterDepositType" ng-change="Search()">
+                  <option value="" selected="selected">Deposit Type</option>
+                  <!-- ngRepeat: type in supportedDepositTypes -->
+                  <option ng-repeat="type in supportedDepositTypes" ng-selected="false" value="Offline"
+                    class="ng-binding ng-scope">Offline</option>
+                  <!-- end ngRepeat: type in supportedDepositTypes -->
+                  <option ng-repeat="type in supportedDepositTypes" ng-selected="false" value="Offline_Original"
+                    class="ng-binding ng-scope">Offline_Original</option>
+                  <!-- end ngRepeat: type in supportedDepositTypes -->
+                </select>
+                <icon><i class="fas fa-caret-down"></i></icon>
+              </div>
+              <!-- Merchant -->
+              <div class="select-custom">
+                <select class="custom-select form-control form-control-sm ng-pristine ng-untouched ng-valid ng-empty"
+                  ng-model="filterDepositType" ng-change="Search()">
+                  <option value="" selected="selected">Merchant</option>
+                  <!-- ngRepeat: type in supportedDepositTypes -->
+                  <option ng-repeat="type in supportedDepositTypes" ng-selected="false" value="Offline"
+                    class="ng-binding ng-scope">Offline</option>
+                  <!-- end ngRepeat: type in supportedDepositTypes -->
+                  <option ng-repeat="type in supportedDepositTypes" ng-selected="false" value="Offline_Original"
+                    class="ng-binding ng-scope">Offline_Original</option>
+                  <!-- end ngRepeat: type in supportedDepositTypes -->
+                </select>
+                <icon><i class="fas fa-caret-down"></i></icon>
+              </div>
+              <!-- Currency -->
+              <div class="select-custom">
+                <select class="custom-select form-control form-control-sm ng-pristine ng-untouched ng-valid ng-empty"
+                  ng-model="filterCurrency" ng-init="filterBank=''" ng-change="Search()">
+                  <option value="" selected="selected">Currency</option>
+                  <!-- ngRepeat: currency in supportedCurrencies -->
+                  <option ng-repeat="currency in supportedCurrencies" ng-selected="false" value="VND"
+                    class="ng-binding ng-scope">VND</option>
+                  <!-- end ngRepeat: currency in supportedCurrencies -->
+                  <option ng-repeat="currency in supportedCurrencies" ng-selected="false" value="THB"
+                    class="ng-binding ng-scope">THB</option>
+                  <!-- end ngRepeat: currency in supportedCurrencies -->
+                </select>
+                <icon><i class="fas fa-caret-down"></i></icon>
+              </div>
+              <!-- Bank -->
+              <div class="select-custom">
+                <select class="custom-select form-control form-control-sm ng-pristine ng-untouched ng-valid ng-empty"
+                  ng-model="filterCurrency" ng-init="filterBank=''" ng-change="Search()">
+                  <option value="" selected="selected">Bank</option>
+                  <!-- ngRepeat: currency in supportedCurrencies -->
+                  <option ng-repeat="currency in supportedCurrencies" ng-selected="false" value="VND"
+                    class="ng-binding ng-scope">VND</option>
+                  <!-- end ngRepeat: currency in supportedCurrencies -->
+                  <option ng-repeat="currency in supportedCurrencies" ng-selected="false" value="THB"
+                    class="ng-binding ng-scope">THB</option>
+                  <!-- end ngRepeat: currency in supportedCurrencies -->
+                </select>
+                <icon><i class="fas fa-caret-down"></i></icon>
+              </div>
+              <!-- Status -->
+              <div class="select-custom">
+                <select
+                  class="custom-select form-control form-control-sm ng-pristine ng-untouched ng-valid ng-not-empty"
+                  ng-model="filterStatus" ng-init="filterStatus='-2'" ng-change="Search()">
+                  <!-- end ngRepeat: status in supportedStatus -->
+                  <option ng-repeat="status in supportedStatus" ng-selected="true" value="" class="ng-binding ng-scope"
+                    selected="selected">Status</option>
+                  <!-- end ngRepeat: status in supportedStatus -->
+                  <option ng-repeat="status in supportedStatus" ng-selected="false" value="0"
+                    class="ng-binding ng-scope">
+                    Successful</option>
+                  <!-- end ngRepeat: status in supportedStatus -->
+                  <option ng-repeat="status in supportedStatus" ng-selected="false" value="1"
+                    class="ng-binding ng-scope">
+                    Failed</option>
+                  <!-- end ngRepeat: status in supportedStatus -->
+                  <option ng-repeat="status in supportedStatus" ng-selected="false" value="2"
+                    class="ng-binding ng-scope">
+                    Rejected</option>
+                  <!-- end ngRepeat: status in supportedStatus -->
+                  <option ng-repeat="status in supportedStatus" ng-selected="false" value="3"
+                    class="ng-binding ng-scope">
+                    Submitted</option>
+                  <!-- end ngRepeat: status in supportedStatus -->
+                  <option ng-repeat="status in supportedStatus" ng-selected="false" value="4"
+                    class="ng-binding ng-scope">
+                    Pending</option>
+                  <!-- end ngRepeat: status in supportedStatus -->
+                  <option ng-repeat="status in supportedStatus" ng-selected="false" value="5"
+                    class="ng-binding ng-scope">
+                    Processing</option>
+                  <!-- end ngRepeat: status in supportedStatus -->
+                  <option ng-repeat="status in supportedStatus" ng-selected="false" value="6"
+                    class="ng-binding ng-scope">
+                    Unknown</option>
+                  <!-- end ngRepeat: status in supportedStatus -->
+                  <option ng-repeat="status in supportedStatus" ng-selected="false" value="7"
+                    class="ng-binding ng-scope">
+                    Checking</option>
+                  <!-- end ngRepeat: status in supportedStatus -->
+                  <option ng-repeat="status in supportedStatus" ng-selected="false" value="8"
+                    class="ng-binding ng-scope">
+                    Proceed</option>
+                  <!-- end ngRepeat: status in supportedStatus -->
+                </select>
+                <icon><i class="fas fa-caret-down"></i></icon>
+              </div>
+            </div>
+            <script type="text/javascript">
+              $(function () {
+              })
+            </script>
+
             <input id="MerchantCode" name="MerchantCode" type="hidden" value="" autocomplete="off">
             <button type="submit" value="ModifyStatus" name="ButtonType" id="ModifyStatus" style="display:none;"
               class="btn btn-info">Modify Status</button>
 
-            <div class="card shadow my-3">
-              <div class="card-header">
-                <p class="table-title">Member Submit History</p>
-              </div>
-              <div class="card-body history-table">
-                <div class="table-responsive">
-                  <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                    <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="0">
-                      <thead>
-                        <!--<tr>-->
+            <!-- Table -->
+            <div class="history-table">
+              <div class="table-responsive">
+                <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                  <table class="table table-striped" id="dataTable1" width="100%" cellspacing="0">
+                    <thead>
+                      <tr>
+                        <th>Deposit<br>Type</th>
+                        <th>Merchant</th>
+                        <th>ID</th>
+                        <th>Client</th>
+                        <th>TxnID</th>
+                        <th>Currency</th>
+                        <th>Bank</th>
+                        <th>From<br>Acc.</th>
+                        <th>To<br>Acc.</th>
+                        <th>Amount<span class="small-title">Original Amount</span></th>
+                        <th>Fee</th>
+                        <th>Generated<br>Time</th>
+                        <th>Updated<br>Time</th>
+                        <th>Matched<br>By</th>
+                        <th>Confirmed<br>By</th>
+                        <th>Status</th>
+                        <th>Audit</th>
+                        <th>Operation</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- ngRepeat: result in results -->
+                      <tr>
+                        <th>Offline_Original</th>
+                        <th>SDEM01</th>
+                        <th>12900</th>
+                        <th>26</th>
+                        <th>6206134243</th>
+                        <th>THB</th>
+                        <th>KBANK</th>
+                        <th>xxx123</th>
+                        <th>xxx456</th>
+                        <th>999.89<span class="small-title">1000</span></th>
+                        <th>1.00</th>
+                        <th>13/05/2024 11:30:58</th>
+                        <th>13/05/2024 11:45:58</th>
+                        <th></th>
+                        <th></th>
+                        <th>
+                          <span class="status sucessful">Successful</span>
+                        </th>
+                        <th>Unmatched</th>
+                        <th>
+                          <div class="icon-list d-flex">
+                            <i class="fas fa-share-square"></i>
+                            <i class="fas fa-image"></i>
+                            <i class="fas fa-eye"></i>
+                          </div>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th>Offline_Original</th>
+                        <th>SDEM01</th>
+                        <th>12900</th>
+                        <th>26</th>
+                        <th>6206134243</th>
+                        <th>THB</th>
+                        <th>KBANK</th>
+                        <th>xxx123</th>
+                        <th>xxx456</th>
+                        <th>999.89<span class="small-title">1000</span></th>
+                        <th>1.00</th>
+                        <th>13/05/2024 11:30:58</th>
+                        <th>13/05/2024 11:45:58</th>
+                        <th></th>
+                        <th></th>
+                        <th>
+                          <span class="status submitted">Submitted</span>
+                        </th>
+                        <th>Unmatched</th>
+                        <th>
+                          <div class="icon-list">
 
-                        <!--<td colspan="15" class="separate-col titleRow">MEMBER SUBMIT HISTORY</td>
-                  </tr>-->
-                        <tr>
-                          <th>Deposit<br>Type</th>
-                          <th>Merchant<br>Code</th>
-                          <th style="white-space: nowrap">SPID</th>
-                          <th>
-                            Customer
-                          </th>
-                          <th>
-                            TxnID
-                          </th>
-                          <th>
-                            Currency
-                          </th>
-                          <th style="width: 10%">
-                            <div>To</div>
-                            <div>Account</div>
-                          </th>
-                          <th>
-                            Amount
-                          </th>
-                          <th>Fee</th>
-                          <th>
-                            <div>Created</div>
-                            <div>Time</div>
-                          </th>
-                          <th>
-                            <div>Updated</div>
-                            <div>Time</div>
-                          </th>
-                          <th>
-                            <div>Transfer</div>
-                            <div>Time</div>
-                          </th>
-                          <th>
-                            Status
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th>
-                            <select
-                              class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-valid ng-empty"
-                              ng-model="filterDepositType" ng-change="Search()">
-                              <option value="" selected="selected">ALL</option>
-                              <!-- ngRepeat: type in supportedDepositTypes -->
-                              <option ng-repeat="type in supportedDepositTypes" ng-selected="false" value="Offline"
-                                class="ng-binding ng-scope">Offline</option>
-                              <!-- end ngRepeat: type in supportedDepositTypes -->
-                              <option ng-repeat="type in supportedDepositTypes" ng-selected="false"
-                                value="Offline_Original" class="ng-binding ng-scope">Offline_Original</option>
-                              <!-- end ngRepeat: type in supportedDepositTypes -->
-                            </select>
-                          </th>
-                          <th>
-                          </th>
-                          <th>
-                            <input class="form-control form-control-sm ng-pristine ng-untouched ng-valid ng-empty"
-                              style="max-width: fit-content !important" placeholder="Search..." ng-model="filterSPID"
-                              ng-change="FilterID()" type="number">
-                          </th>
-                          <th></th>
-                          <th>
-                            <input class="form-control form-control-sm ng-pristine ng-untouched ng-valid ng-empty"
-                              style="max-width: fit-content !important" placeholder="Search..."
-                              ng-model="filterTransactionID" ng-change="FilterID()">
-                          </th>
-                          <th>
-                            <select
-                              class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-valid ng-empty"
-                              ng-model="filterCurrency" ng-init="filterBank=''" ng-change="Search()">
-                              <option value="" selected="selected">ALL</option>
-                              <!-- ngRepeat: currency in supportedCurrencies -->
-                              <option ng-repeat="currency in supportedCurrencies" ng-selected="false" value="VND"
-                                class="ng-binding ng-scope">VND</option>
-                              <!-- end ngRepeat: currency in supportedCurrencies -->
-                              <option ng-repeat="currency in supportedCurrencies" ng-selected="false" value="THB"
-                                class="ng-binding ng-scope">THB</option>
-                              <!-- end ngRepeat: currency in supportedCurrencies -->
-                            </select>
-                          </th>
-                          <th>
-                            <select
-                              class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-valid ng-empty"
-                              ng-model="filterBank" ng-init="filterBank=''" ng-change="Search()">
-                              <option value="" selected="selected">ALL</option>
-                              <!-- ngRepeat: bank in supportedBanks| filter :filterCurrency -->
-                            </select>
-                          </th>
-                          <th></th>
+                          </div>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th>Offline_Original</th>
+                        <th>SDEM01</th>
+                        <th>12900</th>
+                        <th>26</th>
+                        <th>6206134243</th>
+                        <th>THB</th>
+                        <th>KBANK</th>
+                        <th>xxx123</th>
+                        <th>xxx456</th>
+                        <th>999.89<span class="small-title">1000</span></th>
+                        <th>1.00</th>
+                        <th>13/05/2024 11:30:58</th>
+                        <th>13/05/2024 11:45:58</th>
+                        <th></th>
+                        <th></th>
+                        <th>
+                          <span class="status pending">Pending</span>
+                        </th>
+                        <th>Unmatched</th>
+                        <th>
+                          <div class="icon-list">
 
-                          <th>
+                          </div>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th>Offline_Original</th>
+                        <th>SDEM01</th>
+                        <th>12900</th>
+                        <th>26</th>
+                        <th>6206134243</th>
+                        <th>THB</th>
+                        <th>KBANK</th>
+                        <th>xxx123</th>
+                        <th>xxx456</th>
+                        <th>999.89<span class="small-title">1000</span></th>
+                        <th>1.00</th>
+                        <th>13/05/2024 11:30:58</th>
+                        <th>13/05/2024 11:45:58</th>
+                        <th></th>
+                        <th></th>
+                        <th>
+                          <span class="status processing">Processing</span>
+                        </th>
+                        <th>Unmatched</th>
+                        <th>
+                          <div class="icon-list">
 
+                          </div>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th>Offline_Original</th>
+                        <th>SDEM01</th>
+                        <th>12900</th>
+                        <th>26</th>
+                        <th>6206134243</th>
+                        <th>THB</th>
+                        <th>KBANK</th>
+                        <th>xxx123</th>
+                        <th>xxx456</th>
+                        <th>999.89<span class="small-title">1000</span></th>
+                        <th>1.00</th>
+                        <th>13/05/2024 11:30:58</th>
+                        <th>13/05/2024 11:45:58</th>
+                        <th></th>
+                        <th></th>
+                        <th>
+                          <span class="status unknown">Unknown</span>
+                        </th>
+                        <th>Unmatched</th>
+                        <th>
+                          <div class="icon-list">
 
-                          </th>
-                          <th></th>
-                          <th></th>
-                          <th></th>
-                          <th></th>
-                          <th></th>
-                          <th>
-                            <select
-                              class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-valid ng-not-empty"
-                              ng-model="filterStatus" ng-init="filterStatus='-2'" ng-change="Search()">
-                              <!-- ngRepeat: status in supportedStatus -->
-                              <option ng-repeat="status in supportedStatus" ng-selected="false" value="-1"
-                                class="ng-binding ng-scope">All</option>
-                              <!-- end ngRepeat: status in supportedStatus -->
-                              <option ng-repeat="status in supportedStatus" ng-selected="true" value="-2"
-                                class="ng-binding ng-scope" selected="selected">Handling</option>
-                              <!-- end ngRepeat: status in supportedStatus -->
-                              <option ng-repeat="status in supportedStatus" ng-selected="false" value="0"
-                                class="ng-binding ng-scope">Successful</option>
-                              <!-- end ngRepeat: status in supportedStatus -->
-                              <option ng-repeat="status in supportedStatus" ng-selected="false" value="1"
-                                class="ng-binding ng-scope">Failed</option>
-                              <!-- end ngRepeat: status in supportedStatus -->
-                              <option ng-repeat="status in supportedStatus" ng-selected="false" value="2"
-                                class="ng-binding ng-scope">Rejected</option>
-                              <!-- end ngRepeat: status in supportedStatus -->
-                              <option ng-repeat="status in supportedStatus" ng-selected="false" value="3"
-                                class="ng-binding ng-scope">Submitted</option>
-                              <!-- end ngRepeat: status in supportedStatus -->
-                              <option ng-repeat="status in supportedStatus" ng-selected="false" value="4"
-                                class="ng-binding ng-scope">Pending</option>
-                              <!-- end ngRepeat: status in supportedStatus -->
-                              <option ng-repeat="status in supportedStatus" ng-selected="false" value="5"
-                                class="ng-binding ng-scope">Processing</option>
-                              <!-- end ngRepeat: status in supportedStatus -->
-                              <option ng-repeat="status in supportedStatus" ng-selected="false" value="6"
-                                class="ng-binding ng-scope">Unknown</option>
-                              <!-- end ngRepeat: status in supportedStatus -->
-                              <option ng-repeat="status in supportedStatus" ng-selected="false" value="7"
-                                class="ng-binding ng-scope">Checking</option>
-                              <!-- end ngRepeat: status in supportedStatus -->
-                              <option ng-repeat="status in supportedStatus" ng-selected="false" value="8"
-                                class="ng-binding ng-scope">Proceed</option>
-                              <!-- end ngRepeat: status in supportedStatus -->
-                            </select>
-                          </th>
+                          </div>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th>Offline_Original</th>
+                        <th>SDEM01</th>
+                        <th>12900</th>
+                        <th>26</th>
+                        <th>6206134243</th>
+                        <th>THB</th>
+                        <th>KBANK</th>
+                        <th>xxx123</th>
+                        <th>xxx456</th>
+                        <th>999.89<span class="small-title">1000</span></th>
+                        <th>1.00</th>
+                        <th>13/05/2024 11:30:58</th>
+                        <th>13/05/2024 11:45:58</th>
+                        <th></th>
+                        <th></th>
+                        <th>
+                          <span class="status failed">Failed</span>
+                        </th>
+                        <th>Unmatched</th>
+                        <th>
+                          <div class="icon-list">
 
-                        </tr>
-                        <!-- ngRepeat: result in results -->
-                        <tr>
-                          <th>Offline_Original</th>
-                          <th></th>
-                          <th></th>
-                          <th></th>
-                          <th></th>
-                          <th>THB</th>
-                          <th></th>
-                          <th></th>
-                          <th></th>
-                          <th></th>
-                          <th></th>
-                          <th></th>
-                          <th></th>
-                          <th></th>
-                          <th>
-                            Processing
-                          </th>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <button data-toggle="modal" data-target="#ModalModifyStatusAngular" hidden=""
-                      id="btnTriggerModify"></button>
-                    <button hidden="" id="TriggerShowDetail" data-toggle="modal" data-target="#ModalTXNDetail"></button>
-                  </div>
+                          </div>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th>Offline_Original</th>
+                        <th>SDEM01</th>
+                        <th>12900</th>
+                        <th>26</th>
+                        <th>6206134243</th>
+                        <th>THB</th>
+                        <th>KBANK</th>
+                        <th>xxx123</th>
+                        <th>xxx456</th>
+                        <th>999.89<span class="small-title">1000</span></th>
+                        <th>1.00</th>
+                        <th>13/05/2024 11:30:58</th>
+                        <th>13/05/2024 11:45:58</th>
+                        <th></th>
+                        <th></th>
+                        <th>
+                          <span class="status checking">Checking</span>
+                        </th>
+                        <th>Unmatched</th>
+                        <th>
+                          <div class="icon-list">
+
+                          </div>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th>Offline_Original</th>
+                        <th>SDEM01</th>
+                        <th>12900</th>
+                        <th>26</th>
+                        <th>6206134243</th>
+                        <th>THB</th>
+                        <th>KBANK</th>
+                        <th>xxx123</th>
+                        <th>xxx456</th>
+                        <th>999.89<span class="small-title">1000</span></th>
+                        <th>1.00</th>
+                        <th>13/05/2024 11:30:58</th>
+                        <th>13/05/2024 11:45:58</th>
+                        <th></th>
+                        <th></th>
+                        <th>
+                          <span class="status rejected">Rejected</span>
+                        </th>
+                        <th>Unmatched</th>
+                        <th>
+                          <div class="icon-list">
+
+                          </div>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th>Offline_Original</th>
+                        <th>SDEM01</th>
+                        <th>12900</th>
+                        <th>26</th>
+                        <th>6206134243</th>
+                        <th>THB</th>
+                        <th>KBANK</th>
+                        <th>xxx123</th>
+                        <th>xxx456</th>
+                        <th>999.89<span class="small-title">1000</span></th>
+                        <th>1.00</th>
+                        <th>13/05/2024 11:30:58</th>
+                        <th>13/05/2024 11:45:58</th>
+                        <th></th>
+                        <th></th>
+                        <th>
+                          <span class="status proceed">Proceed</span>
+                        </th>
+                        <th>Unmatched</th>
+                        <th>
+                          <div class="icon-list">
+
+                          </div>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th>Offline_Original</th>
+                        <th>SDEM01</th>
+                        <th>12900</th>
+                        <th>26</th>
+                        <th>6206134243</th>
+                        <th>THB</th>
+                        <th>KBANK</th>
+                        <th>xxx123</th>
+                        <th>xxx456</th>
+                        <th>999.89<span class="small-title">1000</span></th>
+                        <th>1.00</th>
+                        <th>13/05/2024 11:30:58</th>
+                        <th>13/05/2024 11:45:58</th>
+                        <th></th>
+                        <th></th>
+                        <th>
+                          <span class="status wrongCard">WrongCardValue</span>
+                        </th>
+                        <th>Unmatched</th>
+                        <th>
+                          <div class="icon-list">
+
+                          </div>
+                        </th>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <button data-toggle="modal" data-target="#ModalModifyStatusAngular" hidden=""
+                    id="btnTriggerModify"></button>
+                  <button hidden="" id="TriggerShowDetail" data-toggle="modal" data-target="#ModalTXNDetail"></button>
                 </div>
-                <div class="d-flex flex-column flex-sm-row justify-content-between my-3 align-items-center">
-                  <div class="mb-2">
-                    <!-- ngIf: TotalItem>0 -->
-                    <!-- ngIf: TotalItem==0 -->
-                    <div ng-if="TotalItem==0" class="dataTables_info ng-scope" id="dataTable_info" role="status"
-                      aria-live="polite">
-                      Does not have any entries
-                    </div><!-- end ngIf: TotalItem==0 -->
-                  </div>
-                  <div class="dataTables_paginate paging_simple_numbers mb-2">
-                    <ul class="pagination ng-isolate-scope ng-not-empty ng-valid mb-0" total-items="TotalItem"
-                      items-per-page="NumberRecord" max-size="10" ng-model="Page" ng-change="Search()">
-                      <!-- ngIf: ::boundaryLinks -->
-                      <!-- ngIf: ::directionLinks -->
-                      <li ng-if="::directionLinks" ng-class="{disabled: noPrevious()||ngDisabled}"
-                        class="paginate_button page-item previous disabled"><a href=""
-                          ng-click="selectPage(page - 1, $event)" class="ng-binding page-link">Previous</a></li>
-                      <!-- end ngIf: ::directionLinks -->
-                      <!-- ngRepeat: page in pages track by $index -->
-                      <li ng-repeat="page in pages track by $index"
-                        ng-class="{active: page.active,disabled: ngDisabled&amp;&amp;!page.active}"
-                        class="paginate_button page-item ng-scope active"><a href=""
-                          ng-click="selectPage(page.number, $event)" class="ng-binding page-link">1</a></li>
-                      <!-- end ngRepeat: page in pages track by $index -->
-                      <!-- ngIf: ::directionLinks -->
-                      <li ng-if="::directionLinks" ng-class="{disabled: noNext()||ngDisabled}"
-                        class="paginate_button page-item next ng-scope disabled"><a href=""
-                          ng-click="selectPage(page + 1, $event)" class="ng-binding page-link">Next</a></li>
-                      <!-- end ngIf: ::directionLinks -->
-                      <!-- ngIf: ::boundaryLinks -->
-                    </ul>
-                  </div>
-                </div>
-                <ul class="pagination d-flex align-items-center mb-0">
-                  <li class="mr-2" style="font-weight:bold; font-style:italic">Number of records:</li>
-                  <li>
-                    <select ng-model="NumberRecord" ng-change="Page=1; Search()" id="NumberRecord"
-                      class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-valid ng-not-empty"
-                      onchange="$('#formData').submit();">
-                      <option class="page-item page-link" value="20">20</option>
-                      <option class="page-item page-link" value="50">50</option>
-                      <option class="page-item page-link" value="100" selected="selected">100</option>
-                    </select>
-                  </li>
-                </ul>
               </div>
+              <div class="d-flex flex-column flex-sm-row justify-content-between my-3 align-items-center">
+                <div class="mb-2">
+                  <!-- ngIf: TotalItem>0 -->
+                  <!-- ngIf: TotalItem==0 -->
+                  <div ng-if="TotalItem==0" class="dataTables_info ng-scope" id="dataTable_info" role="status"
+                    aria-live="polite">
+                    Does not have any entries
+                  </div><!-- end ngIf: TotalItem==0 -->
+                </div>
+                <div class="dataTables_paginate paging_simple_numbers mb-2">
+                  <ul class="pagination ng-isolate-scope ng-not-empty ng-valid mb-0" total-items="TotalItem"
+                    items-per-page="NumberRecord" max-size="10" ng-model="Page" ng-change="Search()">
+                    <!-- ngIf: ::boundaryLinks -->
+                    <!-- ngIf: ::directionLinks -->
+                    <li ng-if="::directionLinks" ng-class="{disabled: noPrevious()||ngDisabled}"
+                      class="paginate_button page-item previous disabled"><a href=""
+                        ng-click="selectPage(page - 1, $event)" class="ng-binding page-link">Previous</a></li>
+                    <!-- end ngIf: ::directionLinks -->
+                    <!-- ngRepeat: page in pages track by $index -->
+                    <li ng-repeat="page in pages track by $index"
+                      ng-class="{active: page.active,disabled: ngDisabled&amp;&amp;!page.active}"
+                      class="paginate_button page-item ng-scope active"><a href=""
+                        ng-click="selectPage(page.number, $event)" class="ng-binding page-link">1</a></li>
+                    <!-- end ngRepeat: page in pages track by $index -->
+                    <!-- ngIf: ::directionLinks -->
+                    <li ng-if="::directionLinks" ng-class="{disabled: noNext()||ngDisabled}"
+                      class="paginate_button page-item next ng-scope disabled"><a href=""
+                        ng-click="selectPage(page + 1, $event)" class="ng-binding page-link">Next</a></li>
+                    <!-- end ngIf: ::directionLinks -->
+                    <!-- ngIf: ::boundaryLinks -->
+                  </ul>
+                </div>
+              </div>
+              <ul class="pagination d-flex align-items-center mb-0">
+                <li class="mr-2" style="font-weight:bold; font-style:italic">Number of records:</li>
+                <li>
+                  <select ng-model="NumberRecord" ng-change="Page=1; Search()" id="NumberRecord"
+                    class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-valid ng-not-empty"
+                    onchange="$('#formData').submit();">
+                    <option class="page-item page-link" value="20">20</option>
+                    <option class="page-item page-link" value="50">50</option>
+                    <option class="page-item page-link" value="100" selected="selected">100</option>
+                  </select>
+                </li>
+              </ul>
             </div>
+
             <!-- Modal -->
             <div class="modal fade" id="noteFeeModal" tabindex="-1" role="dialog"
               aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
