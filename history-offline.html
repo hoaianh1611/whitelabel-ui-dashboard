@@ -779,6 +779,7 @@
             <input id="MerchantCode" name="MerchantCode" type="hidden" value="" autocomplete="off">
             <button type="submit" value="ModifyStatus" name="ButtonType" id="ModifyStatus" style="display:none;"
               class="btn btn-info">Modify Status</button>
+
             <div class="card shadow my-3">
               <div class="card-header">
                 <p class="table-title">Member Submit History</p>
@@ -994,20 +995,18 @@
                     </ul>
                   </div>
                 </div>
-                <div class="">
-                  <ul class="pagination d-flex align-items-center mb-0">
-                    <li class="mr-2" style="font-weight:bold; font-style:italic">Number of records:</li>
-                    <li>
-                      <select ng-model="NumberRecord" ng-change="Page=1; Search()" id="NumberRecord"
-                        class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-valid ng-not-empty"
-                        onchange="$('#formData').submit();">
-                        <option class="page-item page-link" value="20">20</option>
-                        <option class="page-item page-link" value="50">50</option>
-                        <option class="page-item page-link" value="100" selected="selected">100</option>
-                      </select>
-                    </li>
-                  </ul>
-                </div>
+                <ul class="pagination d-flex align-items-center mb-0">
+                  <li class="mr-2" style="font-weight:bold; font-style:italic">Number of records:</li>
+                  <li>
+                    <select ng-model="NumberRecord" ng-change="Page=1; Search()" id="NumberRecord"
+                      class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-valid ng-not-empty"
+                      onchange="$('#formData').submit();">
+                      <option class="page-item page-link" value="20">20</option>
+                      <option class="page-item page-link" value="50">50</option>
+                      <option class="page-item page-link" value="100" selected="selected">100</option>
+                    </select>
+                  </li>
+                </ul>
               </div>
             </div>
             <!-- Modal -->

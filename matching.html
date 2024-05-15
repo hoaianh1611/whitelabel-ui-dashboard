@@ -1,0 +1,3077 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SB Admin 2 - Matching</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700;800;900&family=Raleway:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-light sidebar sidebar-light accordion justify-content-between" id="accordionSidebar">
+      <!-- Sidebar - Brand -->
+      <div class="d-flex justify-content-between">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center p-2" href="overview.html">
+          <img id="logo" class="img-fluid" src="./img/logo-2.png" alt="">
+        </a>
+        <button id="sidebarToggleTop" class="btn btn-link d-lg-none rounded-circle">
+          <i class="fa fa-bars"></i>
+        </button>
+      </div>
+      <ul class="list-unstyled list-menu">
+        <li class="nav-item mastermenu active">
+          <a class="nav-link" href="/masteroverview">
+            <i class="fas fa-fw fa-tachometer-alt mr-2"></i>
+            <span>Overview</span>
+          </a>
+        </li>
+
+        <!-- mastermenu -->
+        <li name="mastermenu" class="nav-item mastermenu">
+          <a href="#bank_transfer" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+            <i class="fas fa-exchange-alt mr-2"></i>
+            <span>Bank Transfer</span>
+          </a>
+
+          <!-- Bank Transfer List -->
+          <ul id="bank_transfer" class="collapse list-unstyled">
+
+            <!-- Deposit -->
+            <li class="sub-nav-item">
+              <a href="#deposit" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>Deposit</span>
+              </a>
+              <!-- Deposit List -->
+              <ul name="deposit" id="deposit" class="collapse list-unstyled sublist">
+                <li class="sub-nav-item">
+                  <a href="#deposit_offline" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                    <span>Offline Deposit</span>
+                  </a>
+                  <ul name="deposit_offline" id="deposit_offline" class="collapse list-unstyled">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/membersubmithistory">History</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/matching">Matching</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="sub-nav-item">
+                  <a href="#deposit_qr" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                    <span>QR Deposit</span>
+                  </a>
+                  <ul name="deposit_qr" id="deposit_qr" class="collapse list-unstyled">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/membersubmithistory">History</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/matching">Matching</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="sub-nav-item">
+                  <a href="#deposit_internet_banking" data-toggle="collapse" aria-expanded="false"
+                    class="nav-link collapsed">
+                    <span>Internet Banking</span>
+                  </a>
+                  <ul name="deposit_internet_banking" id="deposit_internet_banking" class="collapse list-unstyled">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/membersubmithistory">History</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/matching">Matching</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/unmatchstatement">Unmatch Statement</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Payout -->
+            <li class="sub-nav-item">
+              <a href="#payout" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>Payout</span>
+              </a>
+              <!-- Payout List -->
+              <ul name="payout" id="payout" class="collapse list-unstyled sublist">
+                <li class="nav-item">
+                  <a class="nav-link" href="/payoutlastesttransaction">In Progress</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="payoutsubmithistory?type=1">History</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/payoutmatching">Matching</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tooltip" data-placement="right" title="Approval Transactions"
+                    href="/PayoutApprovalTransaction?type=1">Approval Transactions</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/payoutbatches">Batches Payout</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Settlement -->
+            <li class="sub-nav-item">
+              <a href="#settlement" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>Settlement</span>
+              </a>
+              <!-- Settlement List -->
+              <ul name="settlement" id="settlement" class="collapse list-unstyled sublist">
+                <li class="nav-item">
+                  <a class="nav-link" href="/settlementinprogress">In Progress</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/settlementsubmithistory">History</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/settlementmatching">Matching</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/settlementrequests">Requests</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Internal Transfer -->
+            <li class="sub-nav-item">
+              <a href="#internal_transfer" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>Internal Transfer</span>
+              </a>
+              <!-- Internal Transfer List -->
+              <ul name="internal_transfer" id="internal_transfer" class="collapse list-unstyled sublist">
+                <li class="nav-item">
+                  <a class="nav-link" href="/grouptransferrules">Group Transfer Rules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/internaltransferrequest">History</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/payoutmatching?type=4">Matching</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/payoutlastesttransaction?type=4">In Progress</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- eBanking Account Management -->
+            <li class="sub-nav-item">
+              <a href="#ebanking_acc" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>eBanking Account</span>
+              </a>
+              <!-- eBanking Account Management List -->
+              <ul name="ebanking_acc" id="ebanking_acc" class="collapse list-unstyled sublist">
+                <li class="nav-item">
+                  <a class="nav-link" href="/accountstatus">Balance Overview</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/Admin/bankconfig">Banks</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/Admin/accountmanage">Accounts</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/Admin/groupmanage">Group of Account</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item active">
+              <a class="nav-link" href="/requestmonitor" data-toggle="tooltip" data-placement="right"
+                title="eBanking Request Monitor">eBanking Request Monitor</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- mastermenu -->
+        <li name="mastermenu" class="nav-item mastermenu">
+          <a href="#ewallets" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+            <i class="fas fa-wallet mr-2"></i>
+            <span>Ewallets</span>
+          </a>
+
+          <!-- Ewallets List -->
+          <ul id="ewallets" class="collapse list-unstyled">
+
+            <!-- Deposit -->
+            <li class="sub-nav-item">
+              <a href="#ewallets_deposit" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>Deposit</span>
+              </a>
+              <!-- Deposit List -->
+              <ul name="ewallets_deposit" id="ewallets_deposit" class="collapse list-unstyled sublist">
+                <li class="sub-nav-item">
+                  <a href="#ewallets_deposit_momo" data-toggle="collapse" aria-expanded="false"
+                    class="nav-link collapsed">
+                    <span>Momo</span>
+                  </a>
+                  <ul name="ewallets_deposit_momo" id="ewallets_deposit_momo" class="collapse list-unstyled">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/momosubmithistory">History</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/momodeposit">Matching</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/momounclaimedstatement">Unclaimed Statements</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="sub-nav-item">
+                  <a href="#ewallets_deposit_zalo" data-toggle="collapse" aria-expanded="false"
+                    class="nav-link collapsed">
+                    <span>Zalo</span>
+                  </a>
+                  <ul name="ewallets_deposit_zalo" id="ewallets_deposit_zalo" class="collapse list-unstyled">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/zalosubmithistory">History</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/zalodeposit">Matching</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/zalopayunclaimedstatement" data-toggle="tooltip" data-placement="right"
+                        title="Zalopay Unclaimed Statement">Unclaimed Statement</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Ewallets Account Management -->
+            <li class="sub-nav-item">
+              <a href="#ewallets_acc" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>Ewallets Account</span>
+              </a>
+              <!-- Ewallets Account Management List -->
+              <ul name="ewallets_acc" id="ewallets_acc" class="collapse list-unstyled sublist">
+                <li class="nav-item">
+                  <a class="nav-link" href="/accountewalletstatus">Balance Overview</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/Admin/manageewallets">Ewallets</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/Admin/accountewalletmanage">Accounts</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/requestmonitorewallet" data-toggle="tooltip" data-placement="right"
+                title="Ewallets Request Monitor">Request Monitor</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/unidentifiedewalletstatement" data-toggle="tooltip" data-placement="right"
+                title="Unidentified Statements">Unidentified Statements</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- mastermenu -->
+        <li name="mastermenu" class="nav-item mastermenu">
+          <a href="#scratchcard" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+            <i class="fas fa-chess-board mr-2"></i>
+            <span>Scratchcard</span>
+          </a>
+
+          <!-- Scratchcard List -->
+          <ul id="scratchcard" class="collapse list-unstyled">
+            <li class="nav-item">
+              <a class="nav-link" href="/SrCardSubmitHistory">History</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/SrCardConfig">Configuration</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- mastermenu -->
+        <li name="mastermenu" class="nav-item mastermenu">
+          <a href="#smartcard" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+            <i class="fas fa-credit-card mr-2"></i>
+            <span>Smart Card</span>
+          </a>
+
+          <!-- Smart Card List -->
+          <ul id="smartcard" class="collapse list-unstyled">
+
+            <!-- Deposit -->
+            <li class="sub-nav-item">
+              <a href="#smartcard_sales" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>Sale &amp; Purchase Cards</span>
+              </a>
+              <!-- List -->
+              <ul name="smartcard_sales" id="smartcard_sales" class="collapse list-unstyled sublist">
+                <li class="nav-item">
+                  <a class="nav-link" href="/smartcardtransaction">History</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Members Dashboard -->
+            <li class="sub-nav-item">
+              <a href="#smartcard_members" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>Members Dashboard</span>
+              </a>
+              <!-- Members Dashboard List -->
+              <ul name="smartcard_members" id="smartcard_members" class="collapse list-unstyled sublist">
+                <li class="nav-item">
+                  <a class="nav-link" href="/smartcardMember">Affilliates &amp; Members</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/smartcardlevel">Level Manage</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/smartcardaffiliatelink">Affiliate Link</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Merchant Submissions -->
+            <li class="sub-nav-item">
+              <a href="#smartcard_submissions" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>Merchant Submissions</span>
+              </a>
+              <!-- List -->
+              <ul name="smartcard_submissions" id="smartcard_submissions" class="collapse list-unstyled sublist">
+                <li class="nav-item">
+                  <a class="nav-link" href="/smartcardsubmithistory">History</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Card Management -->
+            <li class="sub-nav-item">
+              <a href="#smartcard_card_management" data-toggle="collapse" aria-expanded="false"
+                class="nav-link collapsed">
+                <span>Card Management</span>
+              </a>
+              <!-- List -->
+              <ul name="smartcard_card_management" id="smartcard_card_management"
+                class="collapse list-unstyled sublist">
+                <li class="nav-item">
+                  <a class="nav-link" href="/smartcardstatus">Card Status</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/smartcardmanage">Card Value</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/smartcardDiscount" data-toggle="tooltip" data-placement="right"
+                    title="Card Surcharge & Discount">Card Surcharge &amp; Discount</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <!-- mastermenu -->
+        <li name="mastermenu" class="nav-item mastermenu">
+          <a href="#merchants" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+            <i class="fas fa-cogs mr-2"></i>
+            <span>Merchants</span>
+          </a>
+
+          <!-- Merchants List -->
+          <ul id="merchants" class="collapse list-unstyled">
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/submerchantmanage" data-toggle="tooltip" data-placement="right"
+                title="Information Management">Information Management</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/merchantbalanceoverview">Balance Overview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/adjustmentbalance">Adjustment Balance</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/subspayoutconfig" data-toggle="tooltip" data-placement="right"
+                title="Payout Config for Sub Merchant">Payout Config for Sub Merchant</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/subwhitelistipsmanage" data-toggle="tooltip" data-placement="right"
+                title="Whitelist Merchant IPs">Whitelist Merchant IPs</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- mastermenu -->
+        <li name="mastermenu" class="nav-item mastermenu">
+          <a href="#users" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+            <i class="fas fa-users-cog mr-2"></i>
+            <span>Users</span>
+          </a>
+
+          <!-- Users List -->
+          <ul id="users" class="collapse list-unstyled">
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/rolemanage">Role Management</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/groupusermanage">Group of User</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/usermanage">Users Management</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- mastermenu -->
+        <li name="mastermenu" class="nav-item mastermenu">
+          <a href="#management" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+            <i class="fas fa-tasks mr-2"></i>
+            <span>Management</span>
+          </a>
+
+          <!-- Users List -->
+          <ul id="management" class="collapse list-unstyled">
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/log">Detail Action Logs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/smsmanage">SMS Management</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/NotificationManager">Notification</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/phonemonitor">Service Connection</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- mastermenu -->
+        <li name="mastermenu" class="nav-item mastermenu">
+          <a href="#bo_settings" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+            <i class="fas fa-cog mr-2"></i>
+            <span>BO Settings</span>
+          </a>
+
+          <!-- BO Settings List -->
+          <ul id="bo_settings" class="collapse list-unstyled">
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/whitelistipsmanage">Whitelist Merchant IPs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/backofficesetting">Back Office</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/domainmanage">Domain</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/payoutconfig">Payout Configuration</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/SubmissionLimitConfig">Submission Limit Config</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center">
+          <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+      </ul>
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Alerts -->
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell fa-fw"></i>
+                <!-- Counter - Alerts -->
+                <span class="badge badge-danger badge-counter">3+</span>
+              </a>
+              <!-- Dropdown - Alerts -->
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                aria-labelledby="alertsDropdown">
+                <h6 class="dropdown-header">
+                  Alerts Center
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-primary">
+                      <i class="fas fa-file-alt text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 12, 2019</div>
+                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-success">
+                      <i class="fas fa-donate text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 7, 2019</div>
+                    $290.29 has been deposited into your account!
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-warning">
+                      <i class="fas fa-exclamation-triangle text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 2, 2019</div>
+                    Spending Alert: We've noticed unusually high spending for your account.
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+              </div>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile
+                </a>
+                <a class="dropdown-item" href="/change-password.html">
+                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Change Password
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <link href="/Content/Style.css?v=1.6" rel="stylesheet">
+          <link href="/Content/Site.css?v=1.6" rel="stylesheet">
+          <link href="/Content/PagingAngularStyle.css?v=1.6" rel="stylesheet">
+          <link href="/Content/MatchingColor.css?v=1.6" rel="stylesheet">
+
+          <div class="title-page">Offline Matching</div>
+
+          <div id="OfflineMatchingCtrl" ng-controller="OfflineMatchingCtrl" ng-init="Init()" class="ng-scope">
+
+            <!-- Modal -->
+            <div class="modal fade" id="addStatementNoteModal" tabindex="-1" role="dialog"
+              aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header change-color">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Statement Note</h5>
+                    <button type="button" id="btnCloseNoteForm" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <form id="noteForm" class="ng-pristine ng-valid">
+                    <input id="StatementID" name="StatementID" type="hidden" value="" autocomplete="off">
+                    <div class="modal-body">
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Note:</label>
+                        <textarea name="Note" class="form-control ng-pristine ng-untouched ng-valid ng-empty"
+                          ng-model="stmNote" id="message-text"></textarea>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                      <button type="submit" class="btn btn-primary" ng-click="AddNote(stmNote)">Confirm</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <!--Modal-->
+            <div class="modal fade" id="statementConnectModal" tabindex="-1" role="dialog"
+              aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                <div class="modal-content">
+                  <div class="modal-header change-color">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Statement Connect</h5>
+                    <button type="button" id="btnCloseStatementConnectForm" class="close" data-dismiss="modal"
+                      aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <form id="statementConnectForm" class="ng-pristine ng-valid">
+                    <div class="modal-body pb">
+                      <div class="form-group" style="overflow-x: scroll">
+                        <label for="message-text" class="col-form-label">Please fill in the TxnID/SPID you would like to
+                          overwrite <br>and replace it with the amount <b class="ng-binding"></b>:</label>
+                        <table id="connectTable" class="table table-bordered">
+                          <tbody>
+                            <tr>
+                              <th>Merchant Code</th>
+                              <th>SPID</th>
+                              <th>Customer</th>
+                              <th>TxnID</th>
+                              <th>Amount</th>
+                              <th>Status</th>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td style="width: 10%">
+                                <input
+                                  class="form-control form-control-sm ng-pristine ng-valid ng-empty ng-touched ng-untouched"
+                                  placeholder="Search..." ng-model="filterSPIDConnect" ng-change="FilterIDConnect()"
+                                  type="number">
+                              </td>
+                              <td></td>
+                              <td style="width: 10%">
+                                <input
+                                  class="form-control form-control-sm ng-pristine ng-valid ng-empty ng-touched ng-untouched"
+                                  style="max-width: fit-content !important" placeholder="Search..."
+                                  ng-model="filterTransactionIDConnect" ng-change="FilterIDConnect()">
+                              </td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td class="ng-binding"></td>
+                              <td class="ng-binding"></td>
+                              <td class="ng-binding"></td>
+                              <td class="ng-binding"></td>
+                              <td class="ng-binding"></td>
+                              <td class="ng-binding"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <label style="color: red" class="ng-binding"></label>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                      <button type="submit" id="btnConnect" disabled="" class="btn btn-primary"
+                        ng-click="StatementConnect(stmNote)">Confirm</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="ModalTXNDetail" tabindex="-1" role="dialog"
+              aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content" style="border-radius: 15px">
+                  <div class="modal-header change-color">
+                    <h3 class="modal-title text-white" id="exampleModalLabel">Transaction Details</h3>
+                    <button type="button" id="btnCloseNoteForm" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <form id="noteForm" class="ng-pristine ng-valid">
+                    <div class="comodal-body">
+                      <div class="form-group" style="margin-bottom: -0.2rem">
+                        <div class="row ml-2">
+                          <div class="col-6">
+                            <div class="col-form-label"><strong>SPID</strong></div>
+                            <div class="col-form-label ng-binding"></div>
+                          </div>
+                          <div class="col-6">
+                            <div class="col-form-label"><strong>TxnID</strong></div>
+                            <div class="col-form-label ng-binding"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group" style="margin-bottom: 0rem">
+                        <div class="row ml-2">
+                          <div class="col-4">
+                            <label class="col-form-label"><strong>Expired at</strong></label>
+                          </div>
+                          <div class="col-8">
+                            <label class="col-form-label ng-binding"></label>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- ngRepeat: action in Actions -->
+                      <div ng-show="dtPreviousMessage" class="form-group ng-hide" style="margin-bottom: 0rem">
+                        <div class="row ml-2">
+                          <div class="col-4">
+                            <label class="col-form-label"><strong>Previous message</strong></label>
+                          </div>
+                          <div class="col-8">
+                            <label class="col-form-label ng-binding"></label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group" style="margin-bottom: 0rem">
+                        <div class="row ml-2">
+                          <div class="col-4">
+                            <label class="col-form-label"><strong>Message</strong></label>
+                          </div>
+                          <div class="col-8">
+                            <label class="col-form-label ng-binding"></label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="ModalReject" tabindex="-1" role="dialog"
+              aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header change-color">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Reason for rejection</h5>
+                    <button type="button" id="btnCloseRejectForm" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <form id="rejectForm" class="ng-pristine ng-valid">
+                    <div class="modal-body">
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Reason:</label>
+                        <textarea name="Note" class="form-control ng-pristine ng-untouched ng-valid ng-empty"
+                          ng-model="rejectNote" id="message-text"></textarea>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                      <button type="submit" class="btn btn-primary" ng-click="Reject(rejectNote)">Confirm</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <h1 id="message" class="viewbagMessage"></h1>
+            <!-- ngIf: AccInfo && AccInfo.AccID > 0 -->
+
+            <input id="id" name="id" type="hidden" value="" autocomplete="off">
+            <input id="PageTemp" name="PageTemp" type="hidden" value="" autocomplete="off">
+
+            <div class="">
+              <div class="d-flex flex-wrap align-items-end form-filter">
+                <div>
+                  <label>
+                    <p class="label-info">From</p>
+                  </label>
+                  <input id="FromDate" type="date" ng-model="filterFromDate" ng-init="filterFromDate=Date('2024-05-15')"
+                    class="form-control ng-pristine ng-untouched ng-valid ng-not-empty">
+                </div>
+                <div>
+                  <label>
+                    <p class="label-info">To</p>
+                  </label>
+                  <input id="ToDate" type="date" ng-model="filterToDate" ng-init="filterToDate=Date('2024-05-15')"
+                    class="form-control ng-pristine ng-untouched ng-valid ng-not-empty">
+                </div>
+                <div class="group-btn">
+                  <button type="button" ng-click="Search(); Page = 1" name="ButtonType"
+                    class="btn btn-primary">Search</button>
+                  <script type="text/javascript">
+                    $(function () {
+                    })
+                  </script>
+                  <button type="button" ng-click="UpdateStatement()" class="btn btn-primary">Update Statement</button>
+
+                  <div ng-show="AccInfo &amp;&amp; AccInfo.Status == '0' || AccInfo.Status == '1'"
+                    class="d-inline-block">
+                  </div>
+
+                  <div
+                    ng-show="AccInfo &amp;&amp; AccInfo.Bank == 'KBANK' &amp;&amp; AccInfo.Status == '0' || AccInfo.Status == '1'"
+                    class="d-inline-block">
+                    <button type="button" ng-click="UpdateStatement(1)" class="btn btn-primary">3h statements</button>
+                  </div>
+
+                  <div
+                    ng-show="AccInfo &amp;&amp; AccInfo.Bank == 'KBANK' &amp;&amp; AccInfo.Status == '0' || AccInfo.Status == '1'"
+                    class="ng-hide d-inline-block" style="max-width: fit-content">
+                    <button type="button" ng-click="UpdateStatement(2)"
+                      class="btn btn-primary upload-statement-button">Lastest statements</button>
+                  </div>
+
+                  <div class="d-inline-block">
+                    <input id="hiddenAccountID" hidden="">
+                    <button type="button" value="Export" id="btnExport" name="ButtonType" class="btn btn-primary"
+                      hidden="">Export</button>
+                    <button ng-click="TriggerExport()" type="button" class="btn btn-primary">Export</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex flex-wrap align-items-end form-filter my-4">
+              <div>
+                <p class="label-info">Currency</p>
+                <select class="custom-select form-control form-control-sm ng-pristine ng-untouched ng-valid ng-empty"
+                  ng-model="filterCurrency" ng-init="filterBank=''" ng-change="currencyChange()">
+                  <option value="" selected="selected">ALL</option>
+                  <!-- ngRepeat: currency in supportedCurrencies -->
+                  <option ng-repeat="currency in supportedCurrencies" ng-selected="false" value="VND"
+                    class="ng-binding ng-scope">VND</option><!-- end ngRepeat: currency in supportedCurrencies -->
+                  <option ng-repeat="currency in supportedCurrencies" ng-selected="false" value="THB"
+                    class="ng-binding ng-scope">THB</option><!-- end ngRepeat: currency in supportedCurrencies -->
+                </select>
+              </div>
+              <div>
+                <p class="label-info">Bank</p>
+                <select
+                  class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-valid ng-empty"
+                  ng-model="filterBank" ng-init="filterBank=''" ng-change="bankChange()">
+                  <option value="" selected="selected">ALL</option>
+                  <!-- ngRepeat: bank in supportedBanks| filter :filterCurrency -->
+                </select>
+              </div>
+              <div>
+                <p class="label-info">Account Status</p>
+                <select id="AccountStatus" name="AccountStatus" ng-init="filterAccountStatus='Active'"
+                  ng-model="filterAccountStatus" ng-change="accountStatusChange()"
+                  class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-valid ng-not-empty">
+                  <option value="">ALL</option>
+                  <option value="Active" ng-selected="true" selected="selected">Active</option>
+                  <option value="Disable" ng-selected="false">Disable</option>
+                  <option value="Reach_Limit" ng-selected="false">Reach Limit</option>
+                </select>
+              </div>
+              <div>
+                <p class="label-info">To Account</p>
+                <select
+                  class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-valid ng-empty"
+                  ng-model="filterAccount" ng-change="Search(); FAccountID = filterAccount;">
+                  <option value="? undefined:undefined ?" selected="selected"></option>
+                  <!-- ngRepeat: account in supportedAccounts | filter : filterCurrency | filter : filterBank | filter : filterAccountStatus -->
+                </select>
+              </div>
+            </div>
+
+            <div ng-show="IsOfflineOriginal == false" class="ng-hide mb-3 group-btn">
+              <button type="submit" ng-click="ConfirmAll()" class="btn btn-primary">Confirm All</button>
+              <button type="submit" ng-click="Match()" class="btn btn-primary">Match</button>
+              <button type="submit" ng-click="Unmatch()" class="btn btn-primary">Unmatch</button>
+            </div>
+            <div class="form-group">
+              <button type="button" value="" class="btn btn-success" data-toggle="modal"
+                data-target="#ModalAddStatementManual">
+                <span class="icon text-white" title="Add Statement Manual">
+                  <i class="fas fa-plus"></i>
+                </span>
+                <span>Add Statement</span>
+              </button>
+            </div>
+            <hr>
+
+            <div class="card shadow">
+              <div class="card-header py-3">
+                <h6 class="table-title">Offline Matching</h6>
+              </div>
+              <div class="card-body matching-table">
+                <!-- Table -->
+                <div class="table-responsive">
+                  <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                    <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="0">
+                      <thead>
+                        <tr>
+                          <td colspan="9" class="separate-col titleRow">DEPOSIT TRANSACTIONS</td>
+                          <td colspan="8" ng-show="!IsOfflineOriginal" class="separate-col titleRow">BANK STATEMENTS
+                          </td>
+                          <td colspan="9" ng-show="IsOfflineOriginal" class="separate-col titleRow ng-hide">BANK
+                            STATEMENTS</td>
+                        </tr>
+                        <tr>
+                          <th>
+                            Merchant Code
+                          </th>
+                          <th style="white-space:nowrap">
+                            SPID
+                          </th>
+                          <th>
+                            Customer
+                          </th>
+                          <th>
+                            TxnID
+                          </th>
+                          <th>
+                            From Acc
+                          </th>
+                          <th>
+                            Amount
+                          </th>
+                          <th>Transfered Time</th>
+                          <th>
+                            Status
+                          </th>
+                          <th class="separate-col">
+                            Audit
+                          </th>
+                          <th>
+                            From Acc
+                          </th>
+                          <th>Transfered Time</th>
+                          <th>
+                            Amount
+                          </th>
+                          <th>R.Balance</th>
+
+
+                          <th style="width: 10%">
+                            Description
+                          </th>
+                          <th>
+                            Note
+                          </th>
+                          <th>
+                            Ref Code
+                          </th>
+                          <th ng-show="IsOfflineOriginal" class="ng-hide">Confirm By</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th></th>
+                          <th>
+                            <input class="form-control form-control-sm ng-pristine ng-untouched ng-valid ng-empty"
+                              style="max-width: fit-content !important" placeholder="Search..." ng-model="filterSPID"
+                              ng-change="FilterID()" type="number">
+                          </th>
+                          <th></th>
+                          <th>
+                            <input class="form-control form-control-sm ng-pristine ng-untouched ng-valid ng-empty"
+                              style="max-width: fit-content !important" placeholder="Search..."
+                              ng-model="filterTransactionID" ng-change="FilterID()">
+                          </th>
+                          <th></th>
+                          <th>
+                            <input class="form-control form-control-sm ng-pristine ng-untouched ng-valid ng-empty"
+                              style="max-width: fit-content !important" ng-model="queryAmount" placeholder="Search..."
+                              autofocus="" ng-change="FilterID()" type="number">
+                          </th>
+                          <th style="display: flex; align-items: center; width: max-content; min-height: 42px;">
+                            <div>
+                              <select ng-model="qHour" ng-change="filterTime(30)"
+                                style=" border: solid gray 2px; border-radius: 5px;"
+                                class="ng-pristine ng-untouched ng-valid ng-empty">
+                                <option value="" selected="selected">--</option>
+                                <!-- ngRepeat: n in range(0,23) -->
+                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="0">0
+                                </option><!-- end ngRepeat: n in range(0,23) -->
+                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="1">1
+                                </option><!-- end ngRepeat: n in range(0,23) -->
+                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="2">2
+                                </option><!-- end ngRepeat: n in range(0,23) -->
+                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="3">3
+                                </option><!-- end ngRepeat: n in range(0,23) -->
+                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="4">4
+                                </option><!-- end ngRepeat: n in range(0,23) -->
+                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="5">5
+                                </option><!-- end ngRepeat: n in range(0,23) -->
+                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="6">6
+                                </option><!-- end ngRepeat: n in range(0,23) -->
+                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="7">7
+                                </option><!-- end ngRepeat: n in range(0,23) -->
+                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="8">8
+                                </option><!-- end ngRepeat: n in range(0,23) -->
+                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="9">9
+                                </option><!-- end ngRepeat: n in range(0,23) -->
+                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="10">10
+                                </option><!-- end ngRepeat: n in range(0,23) -->
+                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="11">11
+                                </option><!-- end ngRepeat: n in range(0,23) -->
+                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="12">12
+                                </option><!-- end ngRepeat: n in range(0,23) -->
+                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="13">13
+                                </option><!-- end ngRepeat: n in range(0,23) -->
+                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="14">14
+                                </option><!-- end ngRepeat: n in range(0,23) -->
+                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="15">15
+                                </option><!-- end ngRepeat: n in range(0,23) -->
+                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="16">16
+                                </option><!-- end ngRepeat: n in range(0,23) -->
+                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="17">17
+                                </option><!-- end ngRepeat: n in range(0,23) -->
+                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="18">18
+                                </option><!-- end ngRepeat: n in range(0,23) -->
+                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="19">19
+                                </option><!-- end ngRepeat: n in range(0,23) -->
+                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="20">20
+                                </option><!-- end ngRepeat: n in range(0,23) -->
+                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="21">21
+                                </option><!-- end ngRepeat: n in range(0,23) -->
+                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="22">22
+                                </option><!-- end ngRepeat: n in range(0,23) -->
+                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="23">23
+                                </option><!-- end ngRepeat: n in range(0,23) -->
+                              </select> :
+                              <select ng-model="qMinute" ng-change="filterTime(20)"
+                                style=" border: solid gray 2px; border-radius: 5px;"
+                                class="ng-pristine ng-untouched ng-valid ng-empty">
+                                <option value="" selected="selected">--</option>
+                                <!-- ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="0">0
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="1">1
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="2">2
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="3">3
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="4">4
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="5">5
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="6">6
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="7">7
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="8">8
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="9">9
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="10">10
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="11">11
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="12">12
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="13">13
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="14">14
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="15">15
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="16">16
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="17">17
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="18">18
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="19">19
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="20">20
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="21">21
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="22">22
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="23">23
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="24">24
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="25">25
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="26">26
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="27">27
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="28">28
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="29">29
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="30">30
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="31">31
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="32">32
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="33">33
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="34">34
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="35">35
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="36">36
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="37">37
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="38">38
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="39">39
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="40">40
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="41">41
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="42">42
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="43">43
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="44">44
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="45">45
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="46">46
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="47">47
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="48">48
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="49">49
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="50">50
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="51">51
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="52">52
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="53">53
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="54">54
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="55">55
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="56">56
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="57">57
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="58">58
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="59">59
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                              </select> :
+                              <select ng-model="qSecond" ng-change="filterTime(5)"
+                                style=" border: solid gray 2px; border-radius: 5px;"
+                                class="ng-pristine ng-untouched ng-valid ng-empty">
+                                <option value="" selected="selected">--</option>
+                                <!-- ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="0">0
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="1">1
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="2">2
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="3">3
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="4">4
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="5">5
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="6">6
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="7">7
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="8">8
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="9">9
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="10">10
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="11">11
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="12">12
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="13">13
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="14">14
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="15">15
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="16">16
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="17">17
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="18">18
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="19">19
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="20">20
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="21">21
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="22">22
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="23">23
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="24">24
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="25">25
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="26">26
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="27">27
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="28">28
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="29">29
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="30">30
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="31">31
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="32">32
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="33">33
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="34">34
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="35">35
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="36">36
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="37">37
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="38">38
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="39">39
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="40">40
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="41">41
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="42">42
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="43">43
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="44">44
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="45">45
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="46">46
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="47">47
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="48">48
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="49">49
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="50">50
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="51">51
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="52">52
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="53">53
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="54">54
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="55">55
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="56">56
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="57">57
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="58">58
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="59">59
+                                </option><!-- end ngRepeat: n in range(0,59) -->
+                              </select>
+                            </div>
+                          </th>
+                          <th></th>
+                          <th class="separate-col">
+                            <select
+                              class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-valid ng-not-empty"
+                              ng-model="filterStatus" ng-init="InitStatus()" ng-change="Search()">
+                              <option value="-1" selected="selected">ALL</option>
+                              <!-- ngRepeat: status in supportedStatus -->
+                              <option ng-repeat="status in supportedStatus" ng-selected="false" value="0"
+                                class="ng-binding ng-scope">Confirmed</option>
+                              <!-- end ngRepeat: status in supportedStatus -->
+                              <option ng-repeat="status in supportedStatus" ng-selected="false" value="1"
+                                class="ng-binding ng-scope">Unconfirmed</option>
+                              <!-- end ngRepeat: status in supportedStatus -->
+                            </select>
+                          </th>
+                          <th>&nbsp;</th>
+
+                          <th></th>
+                          <th>
+                            <select ng-model="filterAmount"
+                              class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-valid ng-not-empty"
+                              ng-init="filterAmount='1'" ng-change="Search()">
+                              <option value="0" {{filteramount="=" 0="" ?="" "selected"="" :="" "" }}="">ALL
+                              </option>
+                              <option value="1" {{filteramount="=" 1="" ?="" "selected"="" :="" "" }}=""
+                                selected="selected">+</option>
+                              <option value="-1" {{filteramount="=" -1="" ?="" "selected"="" :="" "" }}="">-
+                              </option>
+                            </select>
+                          </th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                          <th ng-show="IsOfflineOriginal" class="ng-hide"></th>
+                          <th></th>
+                        </tr>
+                        <!-- ngRepeat: result in results -->
+                      </tbody>
+                    </table>
+                    <button hidden="" id="TriggerShowDetail" data-toggle="modal" data-target="#ModalTXNDetail"></button>
+                  </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="d-flex flex-column flex-sm-row justify-content-between my-3 align-items-center">
+                  <div class="mb-2">
+                    <!-- ngIf: TotalItem>0 -->
+                    <!-- ngIf: TotalItem==0 -->
+                    <div ng-if="TotalItem==0" class="dataTables_info ng-scope" id="dataTable_info" role="status"
+                      aria-live="polite">
+                      Does not have any entries
+                    </div><!-- end ngIf: TotalItem==0 -->
+                  </div>
+                  <ul class="pagination ng-isolate-scope ng-not-empty ng-valid mb-0" total-items="TotalItem"
+                    items-per-page="NumberRecord" max-size="10" ng-model="Page" ng-change="Search()">
+                    <!-- ngIf: ::boundaryLinks -->
+                    <!-- ngIf: ::directionLinks -->
+                    <li ng-if="::directionLinks" ng-class="{disabled: noPrevious()||ngDisabled}"
+                      class="paginate_button page-item previous ng-scope disabled"><a href=""
+                        ng-click="selectPage(page - 1, $event)" class="page-link ng-binding">Previous</a></li>
+                    <!-- end ngIf: ::directionLinks -->
+                    <!-- ngRepeat: page in pages track by $index -->
+                    <li ng-repeat="page in pages track by $index"
+                      ng-class="{active: page.active,disabled: ngDisabled&amp;&amp;!page.active}"
+                      class="paginate_button page-item ng-scope active">
+                      <a href="" ng-click="selectPage(page.number, $event)" class="page-link ng-binding">1</a>
+                    </li>
+                    <!-- end ngRepeat: page in pages track by $index -->
+                    <!-- ngIf: ::directionLinks -->
+                    <li ng-if="::directionLinks" ng-class="{disabled: noNext()||ngDisabled}"
+                      class="paginate_button page-item ng-scope disabled"><a href=""
+                        ng-click="selectPage(page + 1, $event)" class="ng-binding page-link">Next</a></li>
+                    <!-- end ngIf: ::directionLinks -->
+                    <!-- ngIf: ::boundaryLinks -->
+                  </ul>
+
+                </div>
+
+                <!-- Number of Records -->
+                <ul class="pagination d-flex align-items-center mb-0">
+                  <li class="mr-2" style="font-weight:bold; font-style:italic">Number of records:</li>
+                  <li>
+                    <select ng-model="NumberRecord" ng-change="Page=1; Search()" id="NumberRecord"
+                      class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-valid ng-not-empty"
+                      onchange="$('#formData').submit();">
+                      <option class="page-item page-link" value="20">20</option>
+                      <option class="page-item page-link" value="50">50</option>
+                      <option class="page-item page-link" value="100" selected="selected">100</option>
+                    </select>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <form action="/Matching/ExportTXN" id="ExportForm" method="post" target="_blank"
+              class="ng-pristine ng-valid"><input name="__RequestVerificationToken" type="hidden"
+                value="En5l-7F8idz67rm9h4-MR032538RhoH4MlG4P2vdR7P8ghlNvBu51smS4pCcMB-21MPfERt1GBcwhoX2T0eIX_i57jYr8CUpai3tvWGO2oA1"
+                autocomplete="off"><input id="ExportFromDate" name="ExportFromDate" type="hidden" value=""
+                autocomplete="off"><input id="ExportToDate" name="ExportToDate" type="hidden" value=""
+                autocomplete="off"><input id="ExportAccount" name="ExportAccount" type="hidden" value=""
+                autocomplete="off"></form>
+            <!-- Modal -->
+            <div class="modal fade" id="addCustomerModal" tabindex="-1" role="dialog"
+              aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header change-color">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Edit Customer Information</h5>
+                    <button type="button" id="btnCloseCustomerForm" class="close" data-dismiss="modal"
+                      aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <form id="customerForm" class="ng-pristine ng-valid">
+                    <div class="modal-body">
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Customer:</label>
+                        <textarea name="Info" class="form-control ng-pristine ng-untouched ng-valid ng-empty"
+                          ng-model="inputCustomer" id="customer"></textarea>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                      <button type="submit" class="btn btn-primary"
+                        ng-click="EditCustomer(inputCustomer)">Confirm</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="addTxnIDModal" tabindex="-1" role="dialog"
+              aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header change-color">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Edit Transaction ID</h5>
+                    <button type="button" id="btnCloseTxnIDForm" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <form class="ng-pristine ng-valid">
+                    <input id="MatchingID_TxnID" name="MatchingID_TxnID" type="hidden" value="" autocomplete="off">
+                    <div class="modal-body">
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Transaction ID:</label>
+                        <textarea name="Info" class="form-control ng-pristine ng-untouched ng-valid ng-empty"
+                          ng-model="inputTxnID" id="TxnID"></textarea>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                      <button type="submit" class="btn btn-primary" ng-click="EditTxnID(inputTxnID)">Confirm</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="ModalAddStatementManual" tabindex="-1" role="dialog"
+              aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header change-color">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Statement Manual</h5>
+                    <button type="button" id="btnCloseAddStatementManualForm" class="close" data-dismiss="modal"
+                      aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <form id="addStatementForm" class="ng-pristine ng-invalid ng-invalid-required">
+                    <div class="modal-body">
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Account Statement:</label>
+                        <select required=""
+                          class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"
+                          disabled="" ng-model="FAccountID">
+                          <option value="? undefined:undefined ?" selected="selected"></option>
+                          <!-- ngRepeat: account in supportedAccounts | filter: {ID:FAccountID} -->
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Amount:</label>
+                        <input required="" ng-model="FAmount"
+                          class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"
+                          id="FAmount" value="0" type="number">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Balance:</label>
+                        <input ng-model="FBalance"
+                          class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"
+                          id="FBalance" type="number" value="0" required="">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Charge Fee:</label>
+                        <input ng-model="FChargeFee"
+                          class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"
+                          id="FChargeFee" type="number" value="0" required="">
+                      </div>
+
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Sender Account Number:</label>
+                        <input ng-model="FToAccNumber"
+                          class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"
+                          id="FToAccNumber" required="" type="number">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Ref Code:</label>
+                        <input ng-model="FRefCode" class="form-control ng-pristine ng-untouched ng-valid ng-empty"
+                          id="FRefCode">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Description:</label>
+                        <input ng-model="FDesc" class="form-control ng-pristine ng-untouched ng-valid ng-empty"
+                          id="FDesc">
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label">Transfered Date:</label>
+                        <input type="datetime-local" step="any" ng-model="FTransferredTime" id="FTransferredTime"
+                          class="form-control ng-pristine ng-untouched ng-valid ng-not-empty">
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                      <button type="submit" class="btn btn-primary" ng-click="AddStatementManual()">Confirm</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <script type="text/javascript">
+              $(function () {
+
+              })
+            </script>
+            <script type="text/javascript">
+              $(function () {
+                //$.ajaxSetup({
+                //    error: function (jqXHR, exception) {
+                //        if (jqXHR.status === 0) {
+                //            alert('Not connect.\n Verify Network.');
+                //        } else if (jqXHR.status == 400) {
+                //            alert('Requested page not found. [404]');
+                //        } else if (jqXHR.status == 500) {
+                //            alert('Internal Server Error [500].');
+                //        } else if (exception === 'parsererror') {
+                //            alert('Requested JSON parse failed.');
+                //        } else if (exception === 'timeout') {
+                //            alert('Time out error.');
+                //        } else if (exception === 'abort') {
+                //            alert('Ajax request aborted.');
+                //        } else {
+                //            alert('Uncaught Error.\n' + jqXHR.responseText);
+                //        }
+                //    }
+                //});
+                $(document).ready(function () {
+                  if ($('#vbMessage').text()) {
+                    toastr.remove();
+                    var txt = $('#vbMessage').text();
+                    var sign = txt.charAt(0);
+                    var content = txt.substr(1, txt.length);
+                    if (sign == '!')
+                      toastr['warning']("", content);
+                    else
+                      toastr['success']("", txt);
+                  }
+                })
+                $(document).ajaxError(function (data, jqxhr, settings, thrownError) {
+                  if (jqxhr.status == 500) {
+                    window.location.href = "/ErrorPage";
+                  }
+                });
+                var memberID = -1;
+                var statementID = -1;
+                $('td[name="memberTrans"]').each(function () {
+                  if ($(this).data('check') != "txnid") {
+                    $(this).click(function () {
+                      var memberTrans = $(this);
+                      if (!$(this).hasClass("highlight")) {
+                        $(this).addClass("highlight");
+                        memberID = $(this).data('value');
+                      }
+                      else {
+                        $(this).removeClass("highlight");
+                        memberID = -2;
+                        memberTrans = null;
+                      }
+                      $('td[name="statementTrans"][class*="highlight"]').each(function () {
+                        statementID = $(this).data('value');
+                      })
+                      $('td[name="memberTrans"]').each(function () {
+                        $(this).removeClass("highlight");
+                        if (memberTrans != null && $(this).attr('id') == memberTrans.attr('id') && !$(this).hasClass("highlight"))
+                          $(this).addClass("highlight");
+                      })
+                      $.ajax({
+                        url: '/matching/TableData',
+                        type: "GET",
+                        data: { CheckedMemberID: memberID, CheckedStatementID: statementID },
+                        success: function () {
+                          memberID = -1;
+                          statementID = -1;
+                        }
+                      })
+                    })
+                  }
+                });
+                $('td[name="statementTrans"]').each(function () {
+                  if (!$(this).closest('tr').hasClass('audited') && !$(this).closest('tr').hasClass('fail')) {
+                    if ($(this).attr('id') != "0_tdStatementID") {
+                      $(this).click(function () {
+                        var statementTrans = $(this);
+                        if (!$(this).hasClass("highlight")) {
+                          $(this).addClass("highlight");
+                          statementID = $(this).data('value');
+                        }
+                        else {
+                          $(this).removeClass("highlight");
+                          statementID = -2;
+                          statementTrans = null;
+                        }
+                        $('td[name="memberTrans"][class*="highlight"]').each(function () {
+                          memberID = $(this).data('value');
+                        })
+                        $('td[name="statementTrans"]').each(function () {
+                          $(this).removeClass("highlight");
+                          if (statementTrans != null && $(this).attr('id') == statementTrans.attr('id') && !$(this).hasClass("highlight"))
+                            $(this).addClass("highlight");
+                        })
+                        $.ajax({
+                          url: '/matching/TableData',
+                          type: "GET",
+                          data: { CheckedMemberID: memberID, CheckedStatementID: statementID },
+                          success: function () {
+                            memberID = -1;
+                            statementID = -1;
+                          }
+                        })
+                      })
+                    }
+                  }
+                });
+                $('button[name^="ButtonType"][value*="triggerReject"]').each(function () {
+                  $(this).click(function (event) {
+
+                    {
+                      event.preventDefault();
+                      document.getElementById("inputMemberID").value = $(this).data('value');
+                    }
+                  })
+                })
+                $('#rejectForm').submit(function (e) {
+                  e.preventDefault();
+                  var formData = new FormData(document.querySelector('#rejectForm'));
+                  $('#note').val(formData.get('Note'));
+                  $('#btnCloseRejectForm').click();
+                  $("#submitReject").click();
+                })
+
+                $('button[name^="ButtonType"][value="Confirm"]').each(function () {
+                  $(this).click(function (event) {
+                    if (confirm("Are you sure to Confirm? ") == false)
+                      event.preventDefault();
+                    else {
+                      document.getElementById("inputMemberID").value = $(this).data('value');
+                    }
+                  })
+                })
+                $('#btnMatch').click(function (e) {
+                  var txn = $("td[data-name='tdTxnTransferTime'][class*='highlight']").data("transfertime");
+                  var stm = $("td[data-name='tdStmTransferTime'][class*='highlight']").data("transfertime");
+                  if (txn != undefined && stm != undefined) {
+                    var diff = new Date(txn) - new Date(stm);
+                    var diffMinute = Math.abs(diff) / 1000 / 60;
+                    if (diffMinute > 30) {
+                      var result = confirm("Transfer time are different. Are you sure about matching the transaction with this statement?");
+                      if (result == false)
+                        e.preventDefault();
+                    }
+                  }
+                })
+                $('#btnConfirm').each(function () {
+                  $(this).click(function (event) {
+                    if (confirm("Are you sure to Confirm all matched transaction (You won't be able to change them anymore)?") == false)
+                      event.preventDefault();
+                    else {
+                      document.getElementById("inputMemberID").value = $(this).data('value');
+                    }
+                  })
+                })
+                $('#btnSearch').click(function (e) {
+                  var fromDate = new Date($('#FromDate').val());
+                  var toDate = new Date($('#ToDate').val());
+                  var deltaDate = (toDate - fromDate) / (1000 * 60 * 60 * 24);
+                  if (deltaDate > 180) {
+                    e.preventDefault();
+                    $('#message').text("Time Range Is " + 180 + " Days");
+                  }
+                  else if (deltaDate < 0) {
+                    e.preventDefault();
+                    $('#message').text("From Date is greater than To Date");
+                  }
+                  else {
+                    $('#message').text("");
+                    var interval = setInterval(function () {
+                      if (!$.hasAjaxRunning()) {
+                        toastr.remove();
+                        toastr['info']("Searched!", "Matching");
+                        clearInterval(interval);
+                      }
+                    }, 100);
+                  }
+                })
+                $('#AccountID').change(function (e) {
+                  var fromDate = new Date($('#FromDate').val());
+                  var toDate = new Date($('#ToDate').val());
+                  var deltaDate = (toDate - fromDate) / (1000 * 60 * 60 * 24);
+                  if (deltaDate > 180) {
+                    e.preventDefault();
+                    $('#message').text("Time Range Is " + 180 + " Days");
+                  }
+                  else if (deltaDate < 0) {
+                    e.preventDefault();
+                    $('#message').text("From Date is greater than To Date");
+                  }
+                  else {
+                    $('#message').text("");
+                    $('#SubmitForm').submit();
+                    var interval = setInterval(function () {
+                      if (!$.hasAjaxRunning()) {
+                        toastr.remove();
+                        toastr['info']("Searched!", "Matching");
+                        clearInterval(interval);
+                      }
+                    }, 100);
+                  }
+                })
+                $('#btnUpdate').click(function (e) {
+                  var fromDate = new Date($('#FromDate').val());
+                  var toDate = new Date($('#ToDate').val());
+                  var deltaDate = (toDate - fromDate) / (1000 * 60 * 60 * 24);
+                  if (deltaDate > 180) {
+                    e.preventDefault();
+                    $('#message').text("Time Range Is " + 180 + " Days");
+                  }
+                  else if (deltaDate < 0) {
+                    event.preventDefault();
+                    $('#message').text("From Date is greater than To Date");
+                  }
+                  else {
+                    $('#message').text("");
+                    $('#id').val($('#AccountID').val());
+                    var interval = setInterval(function () {
+                      if (!$.hasAjaxRunning()) {
+                        toastr.remove();
+                        toastr['success']("Received Request!", "Update Statement");
+                        clearInterval(interval);
+                      }
+                    }, 100);
+                  }
+                })
+
+
+                $('div[name*="imgIcon"]').each(function () {
+                  $(this).click(function () {
+                    $('#myModal').show();
+                    $('#img01').attr("src", $(this).data('value'));
+                  })
+                })
+                $('#myModal').click(function () {
+                  $(this).hide();
+                })
+                $('div[name^="btnAddCustomer"]').each(function () {
+                  $(this).click(function (e) {
+                    console.log($(this).val())
+                    $('#MatchingID_Customer').val($(this).data('id'));
+                    $('#customer').val($(this).data('value'));
+                  })
+                })
+                $('div[name^="btnAddTxnID"]').each(function () {
+                  $(this).click(function (e) {
+                    console.log($(this).val())
+                    $('#MatchingID_TxnID').val($(this).data('id'));
+                    $('#TxnID').val($(this).data('value'));
+                  })
+                })
+                $('div[name^="btnDetail"]').each(function () {
+                  $(this).click(function (e) {
+                    console.log($(this).val())
+                    $('#StatementID').val($(this).data('id'));
+                    $('#ConfirmBy').text($(this).data('value').ConfirmBy);
+                    $('#TypeMatch').text($(this).data('value').TypeMatch);
+                    $('#NoteMessage').text($(this).data('value').NoteMessage);
+                    $('#RefCode').text($(this).data('value').RefCode);
+                    $('#TXNID').text($(this).data('value').TXNID);
+                    $('#ActionNote').html($(this).data('value').ActionNote);
+                    if ($(this).data('value').PayslipURL == null || $(this).data('value').PayslipURL == "")
+                      $("#payslipDiv").hide();
+                    else {
+                      $("#payslipDiv").show();
+                      $("#myImg").data("value", window.location.protocol + "//" + window.location.host + "/" + $(this).data('value').PayslipURL);
+                    }
+                  })
+                })
+                $('#customerForm').submit(function (e) {
+                  e.preventDefault();
+                  $.ajax({
+                    url: '/Matching/EditCustomer/',
+                    type: 'post',
+                    data: $('#customerForm').serialize(),
+                    success: function () {
+                      // Whatever you want to do after the form is successfully submitted
+                      $('#btnCloseCustomerForm').click();
+                      $(".modal-backdrop.fade.show").remove();
+                      setTimeout(function () {
+                        $('#btnRefresh').click();
+                      }, 200);
+                    }
+                  });
+                })
+
+                $('#TxnIDForm').submit(function (e) {
+                  e.preventDefault();
+                  $.ajax({
+                    url: '/Matching/EditTxnID/',
+                    type: 'post',
+                    data: $('#TxnIDForm').serialize(),
+                    success: function (data) {
+                      // Whatever you want to do after the form is successfully submitted
+                      $('#btnCloseTxnIDForm').click();
+                      $(".modal-backdrop.fade.show").remove();
+                      if (data != null && data != "") {
+                        var interval = setInterval(function () {
+                          if (!$.hasAjaxRunning()) {
+                            toastr.remove();
+                            toastr['warning'](data, "Matching");
+                            clearInterval(interval);
+                          }
+                        }, 100);
+                      }
+                      else {
+                        setTimeout(function () {
+                          $('#btnRefresh').click();
+                        }, 200);
+                      }
+                    }
+                  });
+                })
+
+
+                var isOnChange = false;
+                var loop;
+                $('#SPID').focus();
+                $('#SPID').keypress(function (e) {
+                  if (e.keyCode == 13) {
+                    console.log("key up");
+                    e.preventDefault();
+                    clearInterval(loop);
+                    isOnChange = false;
+                    $('#formData').submit();
+                  }
+                });
+                $('#SPID').on('input propertychange paste', function (e) {
+
+                  deltaTime = 0;
+                  if (isOnChange == false) {
+                    isOnChange = true;
+                    loop = setInterval(function () {
+                      deltaTime += 1;
+                      if (deltaTime >= 15) {
+                        clearInterval(loop);
+                        deltaTime = 0;
+                        isOnChange = false;
+                        $('#formData').submit();
+                      }
+                    }, 100);
+                  }
+                })
+                $('#queryStringAmount').keypress(function (e) {
+                  if (e.keyCode == 13) {
+                    console.log("key up");
+                    e.preventDefault();
+                    clearInterval(loop);
+                    isOnChange = false;
+                    $('#formData').submit();
+                  }
+                });
+                $('#queryStringAmount').on('input propertychange paste', function (e) {
+                  deltaTime = 0;
+                  if (isOnChange == false) {
+                    isOnChange = true;
+                    loop = setInterval(function () {
+                      deltaTime += 1;
+                      if (deltaTime >= 15) {
+                        clearInterval(loop);
+                        deltaTime = 0;
+                        isOnChange = false;
+                        $('#formData').submit();
+                      }
+                    }, 100);
+                  }
+                })
+                $('#queryStringAmount').val($('#searchAmount').val());
+                $('#TransTime').keypress(function (e) {
+                  if (e.keyCode == 13) {
+                    console.log("key up");
+                    e.preventDefault();
+                    clearInterval(loop);
+                    isOnChange = false;
+                    $('#formData').submit();
+                  }
+                });
+                $('#TransTime').on('input propertychange paste', function (e) {
+                  deltaTime = 0;
+                  if (isOnChange == false) {
+                    isOnChange = true;
+                    loop = setInterval(function () {
+                      deltaTime += 1;
+                      if (deltaTime >= 30) {
+                        clearInterval(loop);
+                        deltaTime = 0;
+                        isOnChange = false;
+                        if ($("#FromDate").val() != $("#ToDate").val()) {
+                          var interval = setInterval(function () {
+                            if (!$.hasAjaxRunning()) {
+                              toastr.remove();
+                              toastr['warning']("Please choose same date for the range date FROM and TO");
+                              clearInterval(interval);
+                            }
+                          }, 100);
+                        }
+                        else {
+                          $('#formData').submit();
+                        }
+                      }
+                    }, 100);
+                  }
+                })
+                $('#TransTime').val();
+
+                $("#formData").submit(function (e) {
+                  var fromDate = new Date($('#FromDate').val());
+                  var toDate = new Date($('#ToDate').val());
+                  var deltaDate = (toDate - fromDate) / (1000 * 60 * 60 * 24);
+                  if (deltaDate > 180) {
+                    e.preventDefault();
+                    $('#message').text("Time Range Is " + 180 + " Days");
+                  }
+                  else if (deltaDate < 0) {
+                    e.preventDefault();
+                    $('#message').text("From Date is greater than To Date");
+                  }
+                })
+              })
+
+
+            </script>
+
+            <input id="filterWithAccountID" name="filterWithAccountID" type="hidden" value="" autocomplete="off">
+          </div>
+          <script type="text/javascript">
+            app.service("dtService", function ($http) {
+              var host = location.protocol + "//" + location.host;
+              this.GetData = function (filterAccount, filterCurrency, filterBank, filterAccountStatus, filterTransactionID, filterSPID, _filterAmount, _queryAmount, _qHour, _qMinute, _qSecond, _NumberRecord, filterFromDate, filterToDate, _status, page) {
+                var model = {
+                  AccountID: filterAccount,
+                  CurrencyName: filterCurrency,
+                  BankCode: filterBank,
+                  AccountStatus: filterAccountStatus,
+                  TransactionID: filterTransactionID,
+                  SPID: filterSPID,
+                  FilterAmount: _filterAmount,
+                  QueryAmount: _queryAmount,
+                  QueryHour: _qHour,
+                  QueryMinute: _qMinute,
+                  QuerySecond: _qSecond,
+                  Page: page,
+                  NumberRecord: _NumberRecord,
+                  Status: _status,
+                  FromDate: filterFromDate,
+                  ToDate: filterToDate
+                };
+                var response = $http.post(host + "/Matching/GetData", model);
+                return response;
+              };
+              this.AddFee = function (ID, fee) {
+                var model = {
+                  UpdateID: ID,
+                  Fee: fee
+                };
+                var response = $http.post(host + "/Matching/AddFee", model);
+                return response;
+              };
+              this.ResendCallback = function (_ID) {
+                var model = {
+                  ID: _ID
+                };
+                var response = $http.post(host + "/Matching/ResendCallback", model);
+                return response;
+              };
+              this.GetListFilter = function () {
+                var response = $http.post(host + "/Matching/GetListFilter");
+                return response;
+              }
+              this.GetActions = function (_ID) {
+                var model = {
+                  requestID: _ID
+                };
+                var response = $http.post(host + "/Matching/GetActions", model);
+                return response;
+              }
+              this.Match = function (_transactionID, _statementID) {
+                var model = {
+                  transactionID: _transactionID,
+                  statementID: _statementID
+                };
+                var response = $http.post(host + "/Matching/Match", model);
+                return response;
+              };
+              this.Unmatch = function (_transactionID, _statementID) {
+                var model = {
+                  transactionID: _transactionID,
+                  statementID: _statementID
+                };
+                var response = $http.post(host + "/Matching/Unmatch", model);
+                return response;
+              };
+              this.Confirm = function (_transactionID, _accountID) {
+                var model = {
+                  transactionID: _transactionID,
+                  accountID: _accountID
+                };
+                var response = $http.post(host + "/Matching/Confirm", model);
+                return response;
+              };
+              this.ConfirmAll = function (_listTransaction) {
+                var model = {
+                  listTransaction: _listTransaction
+                };
+                var response = $http.post(host + "/Matching/ConfirmAll", model);
+                return response;
+              };
+              this.Reject = function (_transactionID, _Note) {
+                var model = {
+                  transactionID: _transactionID,
+                  Note: _Note
+                };
+                var response = $http.post(host + "/Matching/Reject", model);
+                return response;
+              };
+              this.AddNote = function (_StatementID, _Note) {
+                var model = {
+                  StatementID: _StatementID,
+                  Note: _Note
+                };
+                var response = $http.post(host + "/Matching/AddNote", model);
+                return response;
+              };
+              this.EditCustomer = function (_MatchingID_Customer, _Info) {
+                var model = {
+                  MatchingID_Customer: _MatchingID_Customer,
+                  Info: _Info
+                };
+                var response = $http.post(host + "/Matching/EditCustomer", model);
+                return response;
+              };
+              this.EditTxnID = function (_MatchingID_TxnID, _Info) {
+                var model = {
+                  MatchingID_TxnID: _MatchingID_TxnID,
+                  Info: _Info
+                };
+                var response = $http.post(host + "/Matching/EditTxnID", model);
+                return response;
+              };
+              this.UpdateStatement = function (_fromDate, _toDate, _accountID, _BankUpdateStmType) {
+                var model = {
+                  FromDate: _fromDate,
+                  ToDate: _toDate,
+                  AccountID: _accountID,
+                  BankUpdateStmType: _BankUpdateStmType
+                };
+                var response = $http.post(host + "/Matching/UpdateStatement", model);
+                return response;
+              };
+              this.AddStatementManual = function (_FAccountID, _FAmount, _FBalance, _FChargeFee, _FToAccName, _FToAccNumber, _FRefCode, _FDesc, _FTransferredTime) {
+                var model = {
+                  FAccountID: _FAccountID,
+                  FAmount: _FAmount,
+                  FBalance: _FBalance,
+                  FChargeFee: _FChargeFee,
+                  FToAccName: _FToAccName,
+                  FToAccNumber: _FToAccNumber,
+                  FRefCode: _FRefCode,
+                  FDesc: _FDesc,
+                  FTransferredTime: _FTransferredTime
+                };
+                var response = $http.post(host + "/Matching/AddStatementManual", model);
+                return response;
+              };
+              this.StatementConnect = function (_statementID, _transactionID, _SPID, _TXNID) {
+                var model = {
+                  statementID: _statementID,
+                  transactionID: _transactionID,
+                  SPID: _SPID,
+                  TXNID: _TXNID
+                };
+                debugger
+                var response = $http.post(host + "/Matching/StatementConnect", model);
+                return response;
+              };
+              this.SearchTransaction = function (_accid, _spid, _txnid) {
+                var model = {
+                  AccountID: _accid,
+                  SPID: _spid,
+                  TxnID: _txnid
+                };
+                var response = $http.post(host + "/Matching/SearchTransaction", model);
+                return response;
+              };
+            })
+
+            app.controller("OfflineMatchingCtrl", function ($scope, $filter, filterFilter, dtService) {
+              $scope.Page = 1;
+              $scope.NumberRecord = "100";
+              $scope.limitConnectStatement = "0.0";
+              var isOnChange = false;
+              var deltaTime = 0;
+              var loop;
+
+              $scope.TargetTxnID = -1;
+              $scope.TargetStmID = -1;
+              $scope.filterAmount = "0";
+              $scope.Date = function (arg) {
+                return new Date(arg);
+              };
+              $scope.InitStatus = function () {
+                if ('-1') {
+                  $scope.filterStatus = "-1";
+                }
+                else
+                  $scope.filterStatus = 1;
+              }
+
+              $scope.FTransferredTime = $scope.Date("5/15/2024 12:08:31 PM");
+
+              $scope.setPage = function (pageNo) {
+                $scope.Page = pageNo;
+              };
+              $scope.Init = function () {
+                $scope.GetListFilter();
+              }
+              $scope.range = function (min, max, step) {
+                step = step || 1;
+                var input = [];
+                for (var i = min; i <= max; i += step) {
+                  input.push(i);
+                }
+                return input;
+              };
+              $scope.ShowMessage = function (type, message, title = "") {
+                toastr.remove();
+                if (type)
+                  toastr[type](title, message);
+                else {
+                  var sign = message.charAt(0);
+                  var content = message.substr(1, message.length);
+                  if (sign == '!')
+                    toastr['warning']("", content);
+                  else
+                    toastr['success']("", message);
+                }
+              }
+              $scope.GetListFilter = function () {
+                $("#loadingAngular").show();
+                var getFilter = dtService.GetListFilter();
+                getFilter.then(function (response) {
+                  var isStarted = false;
+                  $scope.supportedCurrencies = response.data.Results.listCurrency;
+                  $scope.supportedBanks = response.data.Results.listBank;
+                  $scope.supportedStatus = response.data.Results.listStatus;
+                  $scope.supportedAccounts = response.data.Results.listAccount;
+                  $scope.filterWithAccountID = $("#filterWithAccountID").val();
+                  if ($scope.supportedAccounts && $scope.supportedAccounts.length > 0) {
+                    if ($scope.filterAccountStatus == "Active") {
+                      var checkFilterAccount = $filter('filter')($scope.supportedAccounts, $scope.filterAccountStatus)
+                      console.log(checkFilterAccount)
+                      if (checkFilterAccount && checkFilterAccount.length > 0) {
+                        $scope.filterAccount = checkFilterAccount[0].ID.toString();
+                        console.log($scope.filterAccount)
+                        $scope.FAccountID = checkFilterAccount[0].ID.toString();
+                        console.log($scope.FAccountID)
+                      }
+                    }
+                    var filteredArray = [];
+                    $scope.$watch('filterCurrency', function () {
+                      console.log("s1")
+                      isStarted = true;
+                      filteredArray = filterFilter($scope.supportedAccounts, $scope.filterCurrency);
+                      filteredArray = filterFilter(filteredArray, $scope.filterBank);
+                      filteredArray = filterFilter(filteredArray, $scope.filterAccountStatus);
+                      // do something with the first result
+                      if (filteredArray && filteredArray.length > 0) {
+                        $scope.filterAccount = filteredArray[0].ID.toString(); // first result
+                        $scope.FAccountID = $scope.filterAccount;
+                      }
+                      $scope.Search();
+                    });
+                    $scope.$watch('filterBank', function () {
+                      console.log("s2")
+                      filteredArray = filterFilter($scope.supportedAccounts, $scope.filterCurrency);
+                      filteredArray = filterFilter(filteredArray, $scope.filterBank);
+                      filteredArray = filterFilter(filteredArray, $scope.filterAccountStatus);
+                      // do something with the first result
+                      if (filteredArray && filteredArray.length > 0) {
+                        $scope.filterAccount = filteredArray[0].ID.toString(); // first result
+                        $scope.FAccountID = $scope.filterAccount;
+                      }
+                      //if (isStarted == false)
+                      $scope.Search();
+                    });
+                    $scope.$watch('filterAccountStatus', function () {
+                      console.log("OK")
+                      filteredArray = filterFilter($scope.supportedAccounts, $scope.filterCurrency);
+                      filteredArray = filterFilter(filteredArray, $scope.filterBank);
+                      filteredArray = filterFilter(filteredArray, $scope.filterAccountStatus);
+                      // do something with the first result
+                      if (filteredArray && filteredArray.length > 0) {
+                        if ($scope.filterWithAccountID) {
+                          $scope.filterAccount = $scope.filterWithAccountID.toString();
+                        }
+                        else {
+                          $scope.filterAccount = filteredArray[0].ID.toString(); // first result
+                        }
+                        $scope.FAccountID = $scope.filterAccount;
+                      } else {
+                        $scope.FAccountID = null;
+                      }
+                      //if (isStarted == false)
+                      $scope.Search();
+                    });
+
+                  }
+                  else {
+                    $("#loadingAngular").hide();
+                  }
+                })
+              }
+              $scope.Search = function () {
+                $("#loadingAngular").show();
+                var fromDate = new Date($('#FromDate').val());
+                var toDate = new Date($('#ToDate').val());
+                var deltaDate = (toDate - fromDate) / (1000 * 60 * 60 * 24);
+                if (deltaDate > 180) {
+                  $scope.ShowMessage("warning", "Time Range Is " + 180 + " Days");
+                  $("#loadingAngular").hide();
+                }
+                else if (deltaDate < 0) {
+                  $scope.ShowMessage("error", "From Date is greater than To Date");
+                  $("#loadingAngular").hide();
+                }
+                else {
+                  if ('') {
+                    console.log($scope.supportedAccounts)
+                    var check = $scope.supportedAccounts.find(function (ele) { return ele.ID.toString() == '' })
+                    console.log(check)
+                    if (check) {
+                      $scope.filterAccount = '';
+                      $scope.FAccountID = '';
+                    }
+                  }
+                  console.log($scope.filterAccount)
+                  var getData = dtService.GetData($scope.filterAccount, $scope.filterCurrency, $scope.filterBank, $scope.filterAccountStatus, $scope.filterTransactionID, $scope.filterSPID, $scope.filterAmount, $scope.queryAmount, $scope.qHour, $scope.qMinute, $scope.qSecond, $scope.NumberRecord, $scope.filterFromDate, $scope.filterToDate, $scope.filterStatus, $scope.Page)
+                  getData.then(function (response) {
+                    if ($scope.filterAccount)
+                      $scope.AccInfo = response.data.AccInfo;
+                    else
+                      $scope.AccInfo = null;
+                    $scope.results = response.data.Results;
+                    if ($scope.results)
+                      $scope.numberOfPages = Math.ceil($scope.results.length / $scope.NumberRecord);
+                    $scope.FirstItem = response.data.FirstItem;
+                    $scope.LastItem = response.data.LastItem;
+                    $scope.TotalItem = response.data.TotalItem;
+                    $scope.ListAction = response.data.ListAction;
+                    $scope.IsOfflineOriginal = response.data.IsOfflineOriginal;
+                    $scope.StatementConnectMessage = response.data.Message;
+                    $("#loadingAngular").hide();
+                  });
+                }
+              }
+
+              $scope.currencyChange = function () {
+
+                console.log("dssdsdsd")
+
+              }
+              $scope.bankChange = function () {
+
+                console.log("dssdsdrrrrrrrrrrrsdsd")
+
+              }
+              $scope.accountStatusChange = function () {
+
+                console.log("dssdsdstroietiued")
+
+              }
+              $scope.GetClass = function (transaction) {
+                if (transaction.MemberMatchStruct.RequestID == 0)
+                  return "";
+                if (transaction.MemberMatchStruct.Audit == 0 && transaction.IsSystemConfirm == false) {
+                  if (transaction.MemberMatchStruct.IsOfflineOriginal == false) {
+                    if (transaction.MemberMatchStruct.MatchingStatus == 0) { return "audited "; }
+                    else { return "fail "; }
+                  }
+                  else {
+                    return "orginal ";
+                  }
+                }
+              }
+              $scope.ShowPayslip = function (url) {
+                if (url) {
+                  $('#img01').prop("src", url);
+                  $('#myModal').show();
+                }
+              }
+              $scope.SetTrigger = function (ID) {
+                $scope.TriggerID = ID;
+              }
+              $scope.SetSelectedTxn = function (ID) {
+                if (ID != 0) {
+                  var check = $scope.results.find(function (ele) { return ele.MemberMatchStruct.MemberMatchID == ID; })
+                  if (check.MemberMatchStruct.Audit == 0)
+                    return;
+                  if ($scope.TargetTxnID == ID) {
+                    $scope.TargetTxnID = -1;
+                    if (check && check.StatementMatchStruct.StatementID > 0) {
+                      $scope.TargetStmID = -1;
+                    }
+                  }
+                  else {
+                    $scope.TargetTxnID = ID;
+                    if (check && check.StatementMatchStruct.StatementID > 0) {
+                      $scope.TargetStmID = check.StatementMatchStruct.StatementID;
+                    }
+                  }
+                }
+              }
+              $scope.SetSelectedStm = function (ID) {
+                if (ID != 0) {
+                  var check = $scope.results.find(function (ele) { return ele.StatementMatchStruct.StatementID == ID; })
+                  if (check.MemberMatchStruct.MemberMatchID > 0 && check.MemberMatchStruct.Audit == 0) {
+                    return;
+                  }
+                  if (check.StatementMatchStruct.Amount < 0) {
+                    return;
+                  }
+                  if ($scope.TargetStmID == ID) {
+                    $scope.TargetStmID = -1;
+                    if (check && check.MemberMatchStruct.MemberMatchID > 0) {
+                      $scope.TargetTxnID = -1;
+                    }
+                  }
+                  else {
+                    $scope.TargetStmID = ID;
+                    if (check && check.MemberMatchStruct.MemberMatchID > 0) {
+                      $scope.TargetTxnID = check.MemberMatchStruct.MemberMatchID;
+                    }
+                  }
+                }
+              }
+              $scope.StatementConnect = function () {
+                if (confirm("Are you certain&nbsp;to overwrite and&nbsp;replace&nbsp;the transaction with the amount " + $scope.stmAmount + "? \nOnce confirmed, you cannot alter it!") == false)
+                  return;
+                $("#loadingAngular").show();
+                var action = dtService.StatementConnect($scope.TriggerConnectID, $scope.ConnectID, $scope.ConnectSPID, $scope.ConnectTxnID)
+                action.then(function (response) {
+                  if (response.data.Status == 0) {
+                    $scope.ShowMessage("success", response.data.Message);
+                    $("#btnCloseStatementConnectForm").click();
+                    $scope.TargetStmID = -1;
+                    $scope.Search();
+                  }
+                  else {
+                    $scope.ShowMessage("error", response.data.Message);
+                    $("#loadingAngular").hide();
+                  }
+
+                })
+              }
+              $scope.AddFee = function (Fee) {
+                $("#loadingAngular").show();
+                var addFee = dtService.AddFee($scope.TriggerID, Fee)
+                addFee.then(function (response) {
+                  if (response.data.Status == 0) {
+                    $scope.ShowMessage("success", "Add fee successful");
+                    $scope.Search();
+                  }
+                  else {
+                    $scope.ShowMessage("error", response.data.Message);
+                    $("#loadingAngular").hide();
+                  }
+                })
+              }
+              $scope.FilterIDConnect = function (delta = 15) {
+                deltaTime = 0;
+                if (isOnChange == false) {
+                  clearInterval(loop);
+                  isOnChange = true;
+                  loop = setInterval(function () {
+                    deltaTime += 1;
+                    if (deltaTime >= delta) {
+                      clearInterval(loop);
+                      deltaTime = 0;
+                      isOnChange = false;
+                      $scope.searchTransaction($scope.filterSPIDConnect, $scope.filterTransactionIDConnect);
+                    }
+                  }, 100);
+                }
+              }
+              $scope.searchTransaction = function (spid, txnid) {
+                $("#loadingAngular").show();
+                if (!txnid) txnid = null;
+                dtService.SearchTransaction($scope.AccInfo.AccID, spid, txnid).then(function (response) {
+                  if (response.data.Status == 1)
+                    $scope.ShowMessage("error", response.data.Message);
+                  else {
+                    var txn = response.data.Results;
+                    console.log(response.data)
+                    $scope.ConnectMerchantCode = txn != null ? txn.MerchantCode : "";
+                    $scope.ConnectID = txn != null ? txn.ID : "";
+                    $scope.ConnectSPID = txn != null ? txn.SPID : "";
+                    $scope.ConnectCustomer = txn != null ? txn.Customer : "";
+                    $scope.ConnectTxnID = txn != null ? txn.TxnID : "";
+                    $scope.ConnectAmount = txn != null ? txn.Amount : "";
+                    $scope.ConnectStatus = txn != null ? txn.Status : "";
+                    $scope.StatementConnectMessage = response.data.Message;
+                    if (txn != null && response.data.Message == "")
+                      $("#btnConnect").prop("disabled", false);
+                    else {
+                      $("#btnConnect").prop("disabled", true);
+                    }
+                  }
+                  $("#loadingAngular").hide();
+                })
+              }
+              $scope.ResendCallback = function (ID) {
+                $("#loadingAngular").show();
+                var resendCallback = dtService.ResendCallback(ID)
+                resendCallback.then(function (response) {
+                  if (response.data.Status == 0) {
+                    $scope.ShowMessage("success", "Resend callback successful");
+                  }
+                  else {
+                    $scope.ShowMessage("error", response.data.Message);
+                  }
+                  $("#loadingAngular").hide();
+                })
+              }
+              $scope.SetStatementConnect = function (stm) {
+                $scope.TriggerConnectID = stm.StatementID;
+                $scope.stmAmount = stm.Amount;
+              }
+              $scope.filterTime = function (delta = 30) {
+                if ($("#FromDate").val() != $("#ToDate").val()) {
+                  var interval = setInterval(function () {
+                    if (!$.hasAjaxRunning()) {
+                      toastr.remove();
+                      toastr['warning']("Please choose same date for the range date FROM and TO");
+                      clearInterval(interval);
+                      return;
+                    }
+                  }, 100);
+                }
+                else {
+                  $scope.FilterID(delta);
+                }
+              }
+              $scope.FilterID = function (delta = 15) {
+                deltaTime = 0;
+                if (isOnChange == false) {
+                  clearInterval(loop);
+                  isOnChange = true;
+                  loop = setInterval(function () {
+                    deltaTime += 1;
+                    if (deltaTime >= delta) {
+                      clearInterval(loop);
+                      deltaTime = 0;
+                      isOnChange = false;
+                      $scope.Search();
+                    }
+                  }, 100);
+                }
+              }
+              $scope.FilterTransTime = function (delta = 30) {
+                deltaTime = 0;
+                if (isOnChange == false) {
+                  isOnChange = true;
+                  loop = setInterval(function () {
+                    deltaTime += 1;
+                    if (deltaTime >= delta) {
+                      clearInterval(loop);
+                      deltaTime = 0;
+                      isOnChange = false;
+                      if ($("#FromDate").val() != $("#ToDate").val()) {
+                        var interval = setInterval(function () {
+                          if (!$.hasAjaxRunning()) {
+                            toastr.remove();
+                            toastr['warning']("Please choose same date for the range date FROM and TO");
+                            clearInterval(interval);
+                            return;
+                          }
+                        }, 100);
+                      }
+                      else {
+                        $('#formData').submit();
+                      }
+                      $scope.Search();
+                    }
+                  }, 100);
+                }
+              }
+              $scope.ShowDetails = function (result) {
+                $("#loadingAngular").show();
+                var getAction = dtService.GetActions(result.MemberMatchStruct.RequestID);
+                getAction.then(function (response) {
+                  $scope.dtSPID = result.MemberMatchStruct.RequestID;
+                  $scope.dtTxnID = result.MemberMatchStruct.TXNID;
+                  $scope.dtExpiredTime = result.MemberMatchStruct.ExpiredTime ? result.MemberMatchStruct.ExpiredTime : "";
+                  $scope.dtPreviousMessage = result.MemberMatchStruct.PreviousMessage;
+                  $scope.dtMessage = result.MemberMatchStruct.NoteMessage;
+                  if (response.data.Results) {
+                    $scope.Actions = response.data.Results;
+                  }
+                  $("#TriggerShowDetail").click();
+                  $("#loadingAngular").hide();
+                })
+              }
+              $scope.Match = function () {
+                if ($scope.TargetTxnID == -1 || $scope.TargetStmID == -1) {
+                  $scope.ShowMessage("warning", "Please choose transaction and statement");
+                  return;
+                }
+                var txn = $scope.results.find(function (ele) { return ele.MemberMatchStruct.MemberMatchID == $scope.TargetTxnID; })
+                var stm = $scope.results.find(function (ele) { return ele.StatementMatchStruct.StatementID == $scope.TargetStmID; })
+                if (txn && stm) {
+                  var diff = new Date(txn.MemberMatchStruct.TransferedTime) - new Date(stm.StatementMatchStruct.TransferedTime);
+                  var diffMinute = Math.abs(diff) / 1000 / 60;
+                  if (diffMinute > 30) {
+                    var result = confirm("Transfer time are different. Are you sure about matching the transaction with this statement?");
+                    if (result == false)
+                      return;
+                  }
+                  if (Math.abs(parseFloat(txn.MemberMatchStruct.Amount)) != Math.abs(parseFloat(stm.StatementMatchStruct.Amount))) {
+                    var res = confirm("Amount doesn't match, are you sure you want to match?");
+                    if (res == false)
+                      return;
+                  }
+                }
+                $("#loadingAngular").show();
+                var action = dtService.Match($scope.TargetTxnID, $scope.TargetStmID)
+                action.then(function (response) {
+                  if (response.data.Status == 0) {
+                    $scope.ShowMessage("success", response.data.Message);
+                    $scope.TargetTxnID = -1;
+                    $scope.TargetStmID = -1;
+                    $("#loadingAngular").hide();
+                    $scope.Search();
+                  }
+                  else {
+                    $scope.ShowMessage("error", response.data.Message);
+                    $("#loadingAngular").hide();
+                  }
+                })
+              }
+              $scope.Unmatch = function () {
+                if ($scope.TargetTxnID == -1 || $scope.TargetStmID == -1) {
+                  $scope.ShowMessage("warning", "Please choose transaction and statement");
+                  return;
+                }
+                $("#loadingAngular").show();
+                var action = dtService.Unmatch($scope.TargetTxnID, $scope.TargetStmID)
+                action.then(function (response) {
+                  if (response.data.Status == 0) {
+                    $scope.ShowMessage("success", response.data.Message);
+                    $("#loadingAngular").hide();
+                    $scope.Search();
+                  }
+                  else {
+                    $scope.ShowMessage("error", response.data.Message);
+                    $("#loadingAngular").hide();
+                  }
+                })
+              }
+              $scope.Confirm = function (confirmID) {
+                if ($scope.IsOfflineOriginal == false && confirm("Are you sure to Confirm (You will not be able to change it anymore)?") == false)
+                  return;
+                else {
+                  $("#loadingAngular").show();
+                  var action = dtService.Confirm(confirmID, $scope.filterAccount)
+                  action.then(function (response) {
+                    if (response.data.Status == 0) {
+                      $scope.ShowMessage("success", response.data.Message);
+                      $scope.TargetTxnID = -1;
+                      $scope.TargetStmID = -1;
+                      $scope.Search();
+                    }
+                    else {
+                      $scope.ShowMessage("error", response.data.Message);
+                      $("#loadingAngular").hide();
+                    }
+                  })
+                }
+              }
+              $scope.ConfirmAll = function () {
+                if (confirm("Are you sure to Confirm all matched transaction (You will not be able to change them anymore)?") == false)
+                  return;
+                else {
+                  $("#loadingAngular").show();
+                  var listMatching = $scope.results.filter(function (ele) { return ele.MemberMatchStruct.MemberMatchID > 0 && ele.StatementMatchStruct.StatementID > 0 });
+                  var action = dtService.ConfirmAll(listMatching)
+                  action.then(function (response) {
+                    if (response.data.Status == 0) {
+                      $scope.ShowMessage("success", response.data.Message);
+                      $scope.Search();
+                    }
+                    else {
+                      $scope.ShowMessage("error", response.data.Message);
+                      $("#loadingAngular").hide();
+                    }
+                  })
+                }
+              }
+              $scope.UpdateStatement = function (BankUpdateStmType) {
+                $("#loadingAngular").show();
+                var action = dtService.UpdateStatement($scope.filterFromDate, $scope.filterToDate, $scope.filterAccount, BankUpdateStmType)
+                action.then(function (response) {
+                  if (response.data.Status == 0) {
+                    $scope.ShowMessage("success", response.data.Message);
+                  }
+                  else {
+                    $scope.ShowMessage("error", response.data.Message);
+                  }
+                  $("#loadingAngular").hide();
+                })
+              }
+              $scope.Reject = function (Note) {
+                $scope.rejectNote = "";
+                $("#loadingAngular").show();
+                var action = dtService.Reject($scope.TriggerID, Note)
+                action.then(function (response) {
+                  if (response.data.Status == 0) {
+                    $scope.ShowMessage("success", response.data.Message);
+                    $scope.Search();
+                    $("#btnCloseRejectForm").click();
+                  }
+                  else {
+                    $scope.ShowMessage("error", response.data.Message);
+                    $("#loadingAngular").hide();
+                  }
+                })
+              }
+              $scope.SetNote = function (Note) {
+                $scope.stmNote = Note;
+              }
+              $scope.AddNote = function (Note) {
+                $scope.stmNote = "";
+                $("#loadingAngular").show();
+                var action = dtService.AddNote($scope.TriggerID, Note)
+                action.then(function (response) {
+                  if (response.data.Status == 0) {
+                    $scope.ShowMessage("success", response.data.Message);
+                    $scope.Search();
+                  }
+                  else {
+                    $scope.ShowMessage("error", response.data.Message);
+                    $("#loadingAngular").hide();
+                  }
+                  $("#btnCloseNoteForm").click();
+                })
+              }
+              var customerText = "";
+              var txnText = "";
+              var customerEditting = false;
+              var txnEditting = false;
+              $scope.EditCustomer = function (Note) {
+                if ($scope.TriggerID) {
+                  $scope.inputCustomer = "";
+                  customerText = Note;
+                  if (customerEditting == false) {
+                    customerEditting = true;
+
+                    var action = dtService.EditCustomer($scope.TriggerID, customerText)
+                    action.then(function (response) {
+                      if (response.data.Status == 0) {
+
+                        $("#btnCloseCustomerForm").click();
+                        var row = $scope.results.find(function (ele) { return ele.MemberMatchStruct.MemberMatchID == $scope.TriggerID; });
+                        if (row) {
+                          row.MemberMatchStruct.Customer = customerText;
+                        }
+                      }
+                      else {
+                        $scope.ShowMessage("error", response.data.Message);
+                      }
+                      customerEditting = false;
+                      if (customerText != Note)
+                        $scope.EditCustomer(customerText)
+                    })
+                  }
+                }
+              }
+              $scope.EditTxnID = function (Note) {
+                if ($scope.TriggerID) {
+                  $scope.inputTxnID = "";
+                  txnText = Note;
+
+                  if (txnEditting == false) {
+                    txnEditting = true;
+                    var action = dtService.EditTxnID($scope.TriggerID, txnText)
+                    action.then(function (response) {
+                      if (response.data.Status == 0) {
+
+                        $("#btnCloseTxnIDForm").click();
+                        var row = $scope.results.find(function (ele) { return ele.MemberMatchStruct.MemberMatchID == $scope.TriggerID; });
+                        if (row) {
+                          row.MemberMatchStruct.TXNID = txnText;
+                          console.log(Note)
+                        }
+                      }
+                      else {
+                        $scope.ShowMessage("error", response.data.Message);
+                      }
+
+                      txnEditting = false;
+                      if (txnText != Note)
+                        $scope.EditTxnID(txnText)
+                    })
+                  }
+                }
+              }
+
+              $scope.AddStatementManual = function () {
+                $("#loadingAngular").show();
+                var TransferredTime = new Date($('#FTransferredTime').val());
+                var action = dtService.AddStatementManual($scope.FAccountID, $scope.FAmount, $scope.FBalance, $scope.FChargeFee, $scope.FToAccName, $scope.FToAccNumber, $scope.FRefCode, $scope.FDesc, TransferredTime.toLocaleString("en-US"))
+                action.then(function (response) {
+                  if (response.data.Status == 0) {
+                    $scope.ShowMessage("success", response.data.Message);
+                    $("#btnCloseAddStatementManualForm").click();
+                    $scope.Search();
+                  }
+                  else {
+                    $scope.ShowMessage("error", response.data.Message);
+                    $("#loadingAngular").hide();
+                  }
+
+                })
+              }
+              $scope.TriggerExport = function () {
+                console.log($("#hiddenAccountID").val($scope.filterAccount))
+                $("#hiddenAccountID").val($scope.filterAccount)
+                $("#btnExport").click()
+              }
+              $("#btnExport").click(function (event) {
+                $("#ExportFromDate").val($("#FromDate").val());
+                $("#ExportToDate").val($("#ToDate").val());
+                $("#ExportAccount").val($("#hiddenAccountID").val());
+                $('#vbMessage').text("Please wait export processing in new tab!");
+                $("#ExportForm").submit();
+              });
+            })
+          </script>
+          <script type="text/javascript">
+            $(document).ready(function () {
+              setTimeout(function () {
+                $("#formData").submit();
+              }, 0)
+            })
+          </script>
+
+        </div>
+
+      </div>
+      <!-- /.container-fluid -->
+      <!-- End of Main Content -->
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; White Label 2024</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Chart plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
+
+  <!-- Table plugins -->
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+  <script type="text/javascript">
+    $(function () {
+      $('#inputImage').bind('change', function () {
+
+      });
+      $("#formChangeAvatar").submit(function (e) {
+        e.preventDefault();
+
+        var fileUpload = $("#inputImage").get(0);
+        var files = fileUpload.files;
+
+        // Create FormData object
+        var fileData = new FormData();
+
+        // Looping over all files and add it to FormData object
+        for (var i = 0; i < files.length; i++) {
+          fileData.append(files[i].name, files[i]);
+        }
+
+      });
+    })
+  </script>
+
+  <script type="text/javascript">
+    $(function () {
+      $("#formChangeEmail").submit(function (e) {
+        e.preventDefault();
+        if ($("#CurrentEmail").val() == $("#inputEmail").val()) {
+          alert("New email must be different from current email!");
+          return;
+        }
+        if ($("#CurrentEmail").val() != "") {
+          var dataToPost = "{ ToMail:'" + $("#CurrentEmail").val() + "'}";
+          $.ajax({
+            url: $("#sendEmailURL").val(),
+            type: 'POST',
+            dataType: 'json',
+            data: dataToPost,
+            cache: false,
+            contentType: "application/jsonrequest; charset=utf-8",
+            success: function (data) {
+              if (data == null || data.res == "") {
+                alert("Send verify email failed!");
+              }
+              else {
+                for (var i = 0; i < 5; i++) {
+                  var code;
+                  if (i == 0)
+                    code = prompt("Please enter the code sent to your current email", '');
+                  else
+                    code = prompt("The code is wrong, please try again!", '');
+                  if (code == data.res) {
+                    PostNewEmail();
+                    break;
+                  }
+                  if (code == null)
+                    break;
+                }
+              }
+            },
+            error: function (e) {
+              console.log(e);
+            }
+          });
+        }
+        else
+          PostNewEmail();
+      });
+      function PostNewEmail() {
+        var dataToPost = "{ newEmail:'" + $("#inputEmail").val() + "'}";
+        $.ajax({
+          url: $("#postEmailURL").val(),
+          type: 'POST',
+          dataType: 'json',
+          data: dataToPost,
+          cache: false,
+          contentType: "application/jsonrequest; charset=utf-8",
+          success: function (data) {
+            if (data.result == "Change Success") {
+
+              alert("Change email success");
+              location.reload();
+            }
+            else
+              alert(data.result);
+          }
+        });
+      }
+    })
+  </script>
+
+  <script type="text/javascript">
+    $(function () {
+      $("#btnActiveGGAuth").click(function () {
+        $.ajax({
+          url: $("#activeGGAuthURL").val(),
+          type: 'POST',
+          dataType: 'json',
+          cache: false,
+          contentType: "application/jsonrequest; charset=utf-8",
+          success: function (data) {
+            if (data.status == "Disabled") {
+              alert(data.result);
+              location.reload();
+            }
+            else {
+              if (data.result) {
+                $("#GGAuthImg").attr("src", data.result);
+                $("#GGCodeDiv").show();
+              }
+              else
+                alert(data.result);
+            }
+          }
+        });
+      })
+      $("#btnSubmitGGCode").click(function () {
+        var dataToPost = "{ Code:'" + $("#GGCode").val() + "'}";
+        $.ajax({
+          url: $("#activeGGAuthURL").val(),
+          type: 'POST',
+          dataType: 'json',
+          data: dataToPost,
+          cache: false,
+          contentType: "application/jsonrequest; charset=utf-8",
+          success: function (data) {
+            if (data.status == "Success") {
+              alert(data.result);
+              location.reload();
+            }
+            else
+              alert(data.result);
+          }
+        });
+      })
+    })
+  </script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if ($('#vbMessage').text()) {
+        toastr.remove();
+        var txt = $('#vbMessage').text();
+        var sign = txt.charAt(0);
+        var content = txt.substr(1, txt.length);
+        if (sign == '!')
+          toastr['warning']("", content);
+        else if (sign == '#')
+          toastr['error']("", content);
+        else
+          toastr['success']("", txt);
+      }
+    })
+    $(function () {
+      $('div[class*="table-responsive"]').each(function () {
+        $('div[class*="table-responsive"]').first().scroll(function (event) {
+          console.log("scrolll");
+
+          if (event.deltaY > 0) $(this).scrollLeft += 100;
+          else $(this).scrollLeft -= 100;
+        })
+      })
+
+      $("ul[name*='ulmaster']").click(function (e) {
+
+      })
+
+
+    })
+    function IsEmptyOrSpaces(str) {
+      return str === null || str.match(/^ *$/) !== null;
+    }
+    $(function () {
+      window.ajax_loading = false;
+      $.hasAjaxRunning = function () {
+        return window.ajax_loading;
+      };
+      $(document).ajaxStart(function () {
+        window.ajax_loading = true;
+      });
+      $(document).ajaxStop(function () {
+        window.ajax_loading = false;
+      });
+
+      var loadingInterval = setInterval(function () {
+        if ($.hasAjaxRunning && $.hasAjaxRunning()) {
+          $('#loadingDiv').show();
+        }
+        else {
+          $('#loadingDiv').hide();
+        }
+      }, 100)
+      $('input.numberOnly').on('input blur paste', function () {
+        $(this).val($(this).val().replace(/\D/g, ''))
+      })
+      $.fn.ShowMessage = function (type, message, title = "") {
+        toastr.remove();
+        if (type)
+          toastr[type](title, message);
+        else {
+          var sign = message.charAt(0);
+          var content = message.substr(1, message.length);
+          if (sign == '!')
+            toastr['warning']("", content);
+          else
+            toastr['success']("", message);
+        }
+      }
+      $.fn.showLoading = function () {
+        $("#loadingAngular").show();
+      }
+      $.fn.hideLoading = function () {
+        $("#loadingAngular").hide();
+      }
+    });
+  </script>
+
+</body>
+
+</html>

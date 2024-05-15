@@ -19,7 +19,6 @@
   }
 
   .label-info {
-    width: 75px;
     font-weight: 600;
     margin-bottom: 5px;
   }
@@ -32,13 +31,31 @@
     margin-bottom: 0;
   }
 
-  .group-btn {
-    height: 38px;
-
-    button {
-      height: 100%;
-    }
+  .form-control {
+    min-width: 180px;
   }
+
+}
+
+.group-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 35px;
+
+  @media (max-width: 665px) {
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    min-height: 35px;
+    white-space: nowrap;
+  }
+}
+
+.btn {
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .card-body {
@@ -187,7 +204,8 @@
   }
 }
 
-.history-table {
+.history-table,
+.matching-table {
   font-size: 12px;
 
   .table-responsive {
@@ -203,6 +221,10 @@
       th {
         font-weight: 400;
       }
+    }
+
+    .titleRow {
+      font-weight: 700;
     }
   }
 
