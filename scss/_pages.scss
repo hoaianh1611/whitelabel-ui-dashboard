@@ -14,6 +14,10 @@
 .form-filter {
   gap: 10px;
 
+  label {
+    margin-bottom: 0;
+  }
+
   .label-info {
     font-weight: 600;
     margin-bottom: 5px;
@@ -120,6 +124,7 @@
     .custom-select {
       background: none;
       text-align: center;
+      border: 1px solid $cyan;
 
       &:focus {
         border-color: $cyan;
@@ -261,10 +266,39 @@
       width: 100%;
     }
   }
+
+  &.currency {
+    .card {
+      width: calc(25% - 5px);
+      min-width: 300px;
+
+      canvas {
+        width: 100%;
+      }
+    }
+  }
 }
 
 .card-header {
   padding: 10px !important;
+
+  &.currency {
+    display: flex;
+    gap: 10px;
+  }
+
+  .tab_currency {
+    display: inline-block;
+    border-radius: 0.35rem;
+    border: 1px solid $primary;
+    padding: 5px 15px;
+    font-weight: 600;
+
+    &_active {
+      background-color: $primary;
+      color: $white;
+    }
+  }
 }
 
 .table-title {
@@ -364,6 +398,14 @@
     .titleRow {
       font-weight: 700;
     }
+  }
+
+  .entered-data {
+    color: $primary;
+    text-decoration: underline;
+    text-decoration-color: $cyan;
+    text-decoration-style: dotted;
+    text-underline-offset: 3px;
   }
 
 }
