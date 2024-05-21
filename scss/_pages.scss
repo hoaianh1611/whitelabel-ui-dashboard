@@ -1,4 +1,5 @@
 .container-fluid {
+  position: relative;
   padding: 15px;
   font-size: 14px;
 }
@@ -312,6 +313,8 @@
 
 .table {
   margin-bottom: 0;
+  border: 1px solid #e3e6f0;
+  border-bottom: none;
 
   thead {
     th {
@@ -457,4 +460,109 @@
   &.proceed {
     background-color: #9B59B6;
   }
+}
+
+//Modal
+.modal {
+  &-content {
+    border-radius: 0.35rem;
+
+    .modal {
+      &-header {
+        padding: 10px 15px;
+        background-color: $primary;
+        color: $white;
+
+        .close {
+          padding: 0;
+          margin: 0;
+          color: $white;
+          text-shadow: none;
+          opacity: 1;
+          font-weight: 400;
+        }
+      }
+
+      &-title {
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      &-body {
+        padding: 10px 15px;
+
+        .form-group {
+          margin-bottom: 10px;
+          padding: 0;
+        }
+      }
+
+      &-footer {
+        padding: 10px 15px 0;
+        gap: 10px;
+
+        >* {
+          margin: 0;
+        }
+
+      }
+    }
+
+    //form
+    .form-group {
+      margin: 0;
+      padding: 10px 20px 15px;
+
+      .col-form-label {
+        font-weight: 700;
+        padding: 0;
+      }
+
+      &-item {
+        display: flex;
+        align-items: center;
+        min-height: 35px;
+
+        &.ng-hide {
+          display: none;
+        }
+
+        .label {
+          font-weight: 700;
+          width: 40%;
+        }
+
+        .info {
+          width: 60%;
+          display: inline-flex;
+          align-items: center;
+
+          a {
+            margin-left: 15px;
+          }
+
+          .icon {
+            .fa-eye {
+              font-size: 20px;
+              color: $cyan;
+            }
+          }
+        }
+      }
+
+      .submit-btn {
+        margin: 10px auto 0;
+        text-align: center;
+
+        .icon {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
+
+//Toast
+.toast {
+  max-width: unset;
 }

@@ -528,45 +528,151 @@
                 <span class="badge badge-danger badge-counter">3+</span>
               </a>
               <!-- Dropdown - Alerts -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" id="noti-div"
                 aria-labelledby="alertsDropdown">
                 <h6 class="dropdown-header">
-                  Alerts Center
+                  Notification
                 </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-primary">
-                      <i class="fas fa-file-alt text-white"></i>
+
+                <!-- Dropdown - Content -->
+                <div class="dropdown-content">
+                  <!-- If don't have noti -->
+                  <div class="dropdown-item d-flex align-items-center">
+                    <p class="no-noti">No Notification</p>
+                  </div>
+
+                  <!-- Notification List -->
+                  <div class="dropdown-item d-flex align-items-center">
+                    <a target="_blank" href="/PayoutApprovalTransaction" title="View">
+                      <i class="fas fa-eye"></i>
+                    </a>
+                    <div>
+                      <div class="small text-gray-500">May 21, 2024</div>
+                      <span class="font-weight-bold">Transaction with TransactionID 123623030673 need to be approved for
+                        reason No available account - Exceed The Limit Auto Payout</span>
                     </div>
+                    <button type="button" value="MarkAsRead" name="ButtonType" data-id="1506">
+                      <span class="icon" title="Mark As Read">
+                        <i class="fas fa-check-circle"></i>
+                      </span>
+                    </button>
                   </div>
-                  <div>
-                    <div class="small text-gray-500">December 12, 2019</div>
-                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-success">
-                      <i class="fas fa-donate text-white"></i>
+                  <div class="dropdown-item d-flex align-items-center">
+                    <a target="_blank" href="/PayoutApprovalTransaction" title="View">
+                      <i class="fas fa-eye"></i>
+                    </a>
+                    <div>
+                      <div class="small text-gray-500">May 21, 2024</div>
+                      <span class="font-weight-bold">Transaction with TransactionID 712805126544 need to be approved
+                        for reason No available account - Exceed The Limit Auto Payout</span>
                     </div>
+                    <button type="button" value="MarkAsRead" name="ButtonType" data-id="1505">
+                      <span class="icon" title="Mark As Read">
+                        <i class="fas fa-check-circle"></i>
+                      </span>
+                    </button>
                   </div>
-                  <div>
-                    <div class="small text-gray-500">December 7, 2019</div>
-                    $290.29 has been deposited into your account!
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-warning">
-                      <i class="fas fa-exclamation-triangle text-white"></i>
+                  <div class="dropdown-item d-flex align-items-center">
+                    <a target="_blank" href="/PayoutApprovalTransaction" title="View">
+                      <i class="fas fa-eye"></i>
+                    </a>
+                    <div>
+                      <div class="small text-gray-500">May 21, 2024</div>
+                      <span class="font-weight-bold">Transaction with TransactionID 501213801361 need to be approved
+                        for reason No available account - Exceed The Limit Auto Payout</span>
                     </div>
+                    <button type="button" value="MarkAsRead" name="ButtonType" data-id="1504">
+                      <span class="icon" title="Mark As Read">
+                        <i class="fas fa-check-circle"></i>
+                      </span>
+                    </button>
                   </div>
-                  <div>
-                    <div class="small text-gray-500">December 2, 2019</div>
-                    Spending Alert: We've noticed unusually high spending for your account.
+                  <div class="dropdown-item d-flex align-items-center">
+                    <a target="_blank" href="/PayoutApprovalTransaction" title="View">
+                      <i class="fas fa-eye"></i>
+                    </a>
+                    <div>
+                      <div class="small text-gray-500">May 21, 2024</div>
+                      <span class="font-weight-bold">Transaction with TransactionID 407233524468 need to be approved
+                        for reason No available account - Exceed The Limit Auto Payout</span>
+                    </div>
+                    <button type="button" value="MarkAsRead" name="ButtonType" data-id="1503">
+                      <span class="icon" title="Mark As Read">
+                        <i class="fas fa-check-circle"></i>
+                      </span>
+                    </button>
                   </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                  <div class="dropdown-item d-flex align-items-center">
+                    <a target="_blank" href="/PayoutApprovalTransaction" title="View">
+                      <i class="fas fa-eye"></i>
+                    </a>
+                    <div>
+                      <div class="small text-gray-500">May 21, 2024</div>
+                      <span class="font-weight-bold">Transaction with TransactionID 128326670488 need to be approved
+                        for reason No available account - Exceed The Limit Auto Payout</span>
+                    </div>
+                    <button type="button" value="MarkAsRead" name="ButtonType" data-id="1502">
+                      <span class="icon" title="Mark As Read">
+                        <i class="fas fa-check-circle"></i>
+                      </span>
+                    </button>
+                  </div>
+                  <div class="dropdown-item d-flex align-items-center">
+                    <a target="_blank" href="/PayoutApprovalTransaction" title="View">
+                      <i class="fas fa-eye"></i>
+                    </a>
+                    <div>
+                      <div class="small text-gray-500">May 21, 2024</div>
+                      <span class="font-weight-bold">Transaction with TransactionID 574886246820 need to be approved
+                        for reason No available account - Exceed The Limit Auto Payout</span>
+                    </div>
+                    <button type="button" value="MarkAsRead" name="ButtonType" data-id="1501">
+                      <span class="icon" title="Mark As Read">
+                        <i class="fas fa-check-circle"></i>
+                      </span>
+                    </button>
+                  </div>
+                  <div class="dropdown-item d-flex align-items-center">
+                    <a target="_blank" href="/PayoutApprovalTransaction" title="View">
+                      <i class="fas fa-eye"></i>
+                    </a>
+                    <div>
+                      <div class="small text-gray-500">May 21, 2024</div>
+                      <span class="font-weight-bold">Transaction with TransactionID 864514222745 need to be approved
+                        for reason No available account - Exceed The Limit Auto Payout</span>
+                    </div>
+                    <button type="button" value="MarkAsRead" name="ButtonType" data-id="1500">
+                      <span class="icon" title="Mark As Read">
+                        <i class="fas fa-check-circle"></i>
+                      </span>
+                    </button>
+                  </div>
+                  <div class="dropdown-item d-flex align-items-center">
+                    <a target="_blank" href="/PayoutApprovalTransaction" title="View">
+                      <i class="fas fa-eye"></i>
+                    </a>
+                    <div>
+                      <div class="small text-gray-500">May 21, 2024</div>
+                      <span class="font-weight-bold">Transaction with TransactionID 466343153600 need to be approved
+                        for reason No available account - Exceed The Limit Auto Payout</span>
+                    </div>
+                    <button type="button" value="MarkAsRead" name="ButtonType" data-id="1499">
+                      <span class="icon" title="Mark As Read">
+                        <i class="fas fa-check-circle"></i>
+                      </span>
+                    </button>
+                  </div>
+                </div>
+                <div class="dropdown-footer">
+                  <button type="button" value="MarkAllAsRead" name="ButtonType" class="btn">
+                    <span class="text">Mark All as Read</span>
+                    <span class="icon" title="Mark All As Read">
+                      <i class="fas fa-check"></i>
+                    </span>
+                  </button>
+                </div>
+                <input id="IdNotification" name="IdNotification" type="hidden" value="0" autocomplete="off">
+                <button type="submit" id="SubmitRead" hidden=""></button>
               </div>
             </li>
 
@@ -604,85 +710,80 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-          <link href="/Content/Style.css?v=1.6" rel="stylesheet">
-          <link href="/Content/PagingAngularStyle.css?v=1.6" rel="stylesheet">
+          <!-- <link href="/Content/Style.css?v=1.6" rel="stylesheet"> -->
+          <!-- <link href="/Content/PagingAngularStyle.css?v=1.6" rel="stylesheet"> -->
 
           <p class="title-page">Offline History</p>
           <div id="OfflineHistoryCtrl" ng-controller="OfflineHistoryCtrl" ng-init="GetListFilter(); Init()"
             class="ng-scope">
-            <h1 id="vbMessage" class="viewbagMessage"></h1>
 
-            <div class="modal fade" id="ModalTXNDetail" tabindex="-1" role="dialog"
-              aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <!-- Notice when export excel -->
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="10000"
+              style="position: absolute; top: 1rem; right: 1rem;">
+              <div class="toast-header">
+                <strong class="mr-auto">Notice</strong>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="toast-body">
+                <p id="vbMessage" class="viewbagMessage">Please wait export processing in new tab!</p>
+              </div>
+            </div>
+
+            <!-- Modal TXN Detail -->
+            <div class="modal fade" id="ModalTXNDetail" tabindex="-1" aria-labelledby="exampleModalCenterTitle"
+              aria-modal="true" role="dialog">
               <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content" style="border-radius: 15px">
-                  <div class="modal-header change-color">
-                    <h3 class="modal-title text-white" id="exampleModalLabel">Transaction Details</h3>
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Transaction Details</h3>
                     <button type="button" id="btnCloseNoteForm" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">×</span>
                     </button>
                   </div>
-                  <form id="noteForm" class="ng-pristine ng-valid">
+                  <form id="noteForm" class="ng-pristine ng-valid form-modal">
                     <div class="comodal-body">
-                      <div class="form-group" style="margin-bottom: -0.2rem">
-                        <div class="row ml-2">
-                          <div class="col-6">
-                            <div class="col-form-label"><strong>SPID</strong></div>
-                            <div class="col-form-label ng-binding"></div>
-                          </div>
-                          <div class="col-6">
-                            <div class="col-form-label"><strong>TxnID</strong></div>
-                            <div class="col-form-label ng-binding"></div>
-                          </div>
+                      <div class="form-group">
+                        <div class="form-group-item">
+                          <div class="label">SPID</div>
+                          <div class="info">12964</div>
                         </div>
-                      </div>
-                      <div class="form-group" style="margin-bottom: 0rem">
-                        <div class="row ml-2">
-                          <div class="col-4">
-                            <label class="col-form-label"><strong>Expired at</strong></label>
-                          </div>
-                          <div class="col-8">
-                            <label class="col-form-label ng-binding"></label>
-                          </div>
+                        <div class="form-group-item">
+                          <div class="label">TxnID</div>
+                          <div class="info">612716766770</div>
                         </div>
-                      </div>
-                      <!-- ngRepeat: action in Actions -->
-                      <div ng-show="dtPreviousMessage" class="form-group ng-hide" style="margin-bottom: 0rem">
-                        <div class="row ml-2">
-                          <div class="col-4">
-                            <label class="col-form-label"><strong>Previous message</strong></label>
-                          </div>
-                          <div class="col-8">
-                            <label class="col-form-label ng-binding"></label>
-                          </div>
+                        <div class="form-group-item">
+                          <div class="label">Expired at</div>
+                          <div class="info">2024-05-16 13:32:15</div>
                         </div>
-                      </div>
-                      <div class="form-group" style="margin-bottom: 0rem">
-                        <div class="row ml-2">
-                          <div class="col-4">
-                            <label class="col-form-label"><strong>Message</strong></label>
-                          </div>
-                          <div class="col-6">
-                            <label class="col-form-label ng-binding"></label>
-                            <a style="margin-left:10px; margin-bottom: 10px;" name="btnViewCallback" target="_blank"
-                              class="btn btn-success btn-icon-split" id="ViewCallbackLog">
-                              <span class="icon text-white-500" title="View Callback Log">
+                        <!-- ngRepeat: action in Actions -->
+                        <div ng-show="dtPreviousMessage" class="form-group-item ng-hide">
+                          <div class="label">Previous message</div>
+                          <div class="info"></div>
+                        </div>
+                        <div class="form-group-item">
+                          <div class="label">Message</div>
+                          <div class="info">
+                            <span class="ng-binding">Transaction is timeout</span>
+                            <a name="btnViewCallback" target="_blank" id="ViewCallbackLog"
+                              href="/CallbackLog/Index?TxnID=12964">
+                              <span class="icon" title="View Callback Log">
                                 <i class="fas fa-eye"></i>
                               </span>
                             </a>
                           </div>
                         </div>
-                      </div>
-                      <div ng-show="TriggerResult.Status == 1" class="form-group ng-hide" id="btnModifyStatus"
-                        style="margin-left: 20px">
-                        <a ng-click="ModifyStatus()" class="btn btn-success btn-icon-split" href="#">
-                          <span class="icon text-white-500" title="Modify Status">
-                            <i class="fas fa-hand-holding"></i>
-                          </span>
-                          <span class="text">
-                            Modify Status
-                          </span>
-                        </a>
+                        <div class="submit-btn" ng-show="TriggerResult.Status == 1" id="btnModifyStatus">
+                          <a ng-click="ModifyStatus()" class="btn btn-primary" href="#">
+                            <span class="icon" title="Modify Status">
+                              <i class="fas fa-exchange-alt"></i>
+                            </span>
+                            <span class="text">
+                              Modify Status
+                            </span>
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </form>
@@ -690,8 +791,9 @@
               </div>
             </div>
 
+            <!-- Modal Modify Status -->
             <div class="modal fade" id="ModalModifyStatusAngular" tabindex="-1" role="dialog"
-              aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              aria-labelledby="exampleModalCenterTitle" aria-modal="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                   <div class="modal-header change-color">
@@ -701,7 +803,7 @@
                       <span aria-hidden="true">×</span>
                     </button>
                   </div>
-                  <form id="ModifyStatusForm" class="ng-pristine ng-invalid ng-invalid-required">
+                  <form id="ModifyStatusForm" class="ng-pristine ng-valid ng-valid-required">
                     <div class="modal-body">
                       <div class="form-group">
                         <label class="col-form-label"><strong>Merchant:</strong></label>
@@ -722,16 +824,17 @@
                       <div class="form-group">
                         <label class="col-form-label"><strong>New Recipient:</strong></label>
                         <select required=""
-                          class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"
+                          class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-not-empty ng-valid ng-valid-required ng-touched"
                           ng-model="SelectToAcc">
-                          <option value="? undefined:undefined ?" selected="selected"></option>
+                          <option value="? string:354 ?" selected="selected"></option>
+                          <option value="? undefined:undefined ?"></option>
                           <!-- ngRepeat: account in supportedAccounts -->
                         </select>
                       </div>
                       <div class="form-group">
                         <label class="col-form-label"><strong>Transfer Time:</strong></label>
                         <input type="datetime-local" step="any" ng-model="MoTransferTime"
-                          class="form-control ng-pristine ng-untouched ng-valid ng-empty">
+                          class="form-control ng-pristine ng-untouched ng-valid ng-not-empty">
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -881,11 +984,6 @@
                 <icon><i class="fas fa-caret-down"></i></icon>
               </div>
             </div>
-            <script type="text/javascript">
-              $(function () {
-              })
-            </script>
-
             <input id="MerchantCode" name="MerchantCode" type="hidden" value="" autocomplete="off">
             <button type="submit" value="ModifyStatus" name="ButtonType" id="ModifyStatus" style="display:none;"
               class="btn btn-info">Modify Status</button>
@@ -1207,7 +1305,7 @@
                     Does not have any entries
                   </div><!-- end ngIf: TotalItem==0 -->
                 </div>
-                <div class="dataTables_paginate paging_simple_numbers mb-2">
+                <div class="dataTables_paginate paging_simple_numbers">
                   <ul class="pagination ng-isolate-scope ng-not-empty ng-valid mb-0" total-items="TotalItem"
                     items-per-page="NumberRecord" max-size="10" ng-model="Page" ng-change="Search()">
                     <!-- ngIf: ::boundaryLinks -->
@@ -1245,7 +1343,7 @@
               </ul>
             </div>
 
-            <!-- Modal -->
+            <!-- Modal Payslip -->
             <div class="modal fade" id="noteFeeModal" tabindex="-1" role="dialog"
               aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
@@ -1264,22 +1362,18 @@
                         <input ng-model="InputFee"
                           class="form-control inputnumber ng-pristine ng-untouched ng-valid ng-empty" type="text">
                       </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                      <button type="button" ng-click="AddFee(InputFee)" data-dismiss="modal"
-                        class="btn btn-primary">Confirm</button>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" ng-click="AddFee(InputFee)" data-dismiss="modal" class="btn btn-primary">
+                          Confirm
+                        </button>
+                      </div>
                     </div>
                   </form>
                 </div>
               </div>
             </div>
 
-            <!-- The Modal -->
-            <div id="myModal" class="modal-payslip">
-              <span class="close-payslip">×</span>
-              <img class="modal-payslip-content" id="img01">
-            </div>
             <form action="/MemberSubmitHistory/ExportTXN" id="ExportForm" method="post" target="_blank"
               class="ng-pristine ng-valid"><input name="__RequestVerificationToken" type="hidden"
                 value="QvH2zvwgPThk3MzTZGKfkn2PXB9lme_-4_iuyLZtUYHPlIqSMLVAA_1CvrrUn91Jz14fFdqjpneFSn1fcM_mzt6izCHXz3ctdsJyF3dsKms1"
@@ -1289,7 +1383,7 @@
                 autocomplete="off"></form>
 
           </div>
-          <script type="text/javascript">
+          <!-- <script type="text/javascript">
             app.service("dtService", function ($http) {
               var host = location.protocol + "//" + location.host;
               this.GetData = function (_filterDepositType, _filterMerchant, filterCurrency, filterBank, filterTransactionID, filterSPID, _NumberRecord, filterFromDate, filterToDate, _status, page) {
@@ -1666,7 +1760,7 @@
 
 
             })
-          </script>
+          </script> -->
 
 
         </div>
@@ -1729,7 +1823,7 @@
   <script src="vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     $(function () {
       $("#formChangeEmail").submit(function (e) {
         e.preventDefault();
@@ -1921,6 +2015,14 @@
         $("#loadingAngular").hide();
       }
     });
+  </script> -->
+  <script>
+    $(function () {
+      $("#btnExport").click(function () {
+        console.log("first")
+        $('.toast').toast('show');
+      });
+    })
   </script>
 
 </body>
