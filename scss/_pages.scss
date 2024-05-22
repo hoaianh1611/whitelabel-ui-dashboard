@@ -168,8 +168,6 @@
   }
 }
 
-
-
 .card-body {
   padding: 10px;
 }
@@ -411,6 +409,62 @@
     text-underline-offset: 3px;
   }
 
+}
+
+.matching-table {
+  table {
+    tbody {
+      .matched {
+        background-color: #fdf7c3;
+
+        &.audited {
+          background-color: #f3fcfb;
+        }
+
+        .highlight {
+          background-color: #dffdcb;
+        }
+      }
+    }
+  }
+}
+
+.summary-matching {
+  background-color: $gray-500;
+  margin-bottom: 15px;
+  overflow: hidden;
+  border-spacing: 0;
+  border-collapse: separate;
+  border-radius: 10px;
+  border: 1px solid $gray-500;
+
+  tbody {
+    tr:not(:last-child) {
+
+      >th,
+      >td {
+        border-bottom: 1px solid $gray-500;
+      }
+    }
+  }
+
+  th:not(:last-child),
+  td:not(:last-child) {
+    border-right: 1px solid $gray-500;
+  }
+
+  th {
+    background-color: #ecf3fb;
+    color: #629aa2;
+    font-weight: 700;
+    padding: 8px 12px;
+  }
+
+  td {
+    background-color: #f9faff;
+    padding: 8px 12px;
+    color: #89c6ca;
+  }
 }
 
 .status {

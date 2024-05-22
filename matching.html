@@ -601,11 +601,6 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-          <link href="/Content/Style.css?v=1.6" rel="stylesheet">
-          <link href="/Content/Site.css?v=1.6" rel="stylesheet">
-          <link href="/Content/PagingAngularStyle.css?v=1.6" rel="stylesheet">
-          <link href="/Content/MatchingColor.css?v=1.6" rel="stylesheet">
-
           <div class="title-page">Offline Matching</div>
 
           <div id="OfflineMatchingCtrl" ng-controller="OfflineMatchingCtrl" ng-init="Init()" class="ng-scope">
@@ -706,6 +701,7 @@
                 </div>
               </div>
             </div>
+
             <!-- Modal -->
             <div class="modal fade" id="ModalTXNDetail" tabindex="-1" role="dialog"
               aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -797,621 +793,784 @@
             </div>
 
             <h1 id="message" class="viewbagMessage"></h1>
-            <!-- ngIf: AccInfo && AccInfo.AccID > 0 -->
 
-            <input id="id" name="id" type="hidden" value="" autocomplete="off">
-            <input id="PageTemp" name="PageTemp" type="hidden" value="" autocomplete="off">
-
-            <div class="">
-              <div class="d-flex flex-wrap align-items-end form-filter">
-                <div>
-                  <label>
-                    <p class="label-info">From</p>
-                  </label>
-                  <input id="FromDate" type="date" ng-model="filterFromDate" ng-init="filterFromDate=Date('2024-05-15')"
-                    class="form-control ng-pristine ng-untouched ng-valid ng-not-empty">
-                </div>
-                <div>
-                  <label>
-                    <p class="label-info">To</p>
-                  </label>
-                  <input id="ToDate" type="date" ng-model="filterToDate" ng-init="filterToDate=Date('2024-05-15')"
-                    class="form-control ng-pristine ng-untouched ng-valid ng-not-empty">
-                </div>
-                <div class="group-btn">
-                  <button type="button" ng-click="Search(); Page = 1" name="ButtonType"
-                    class="btn btn-primary">Search</button>
-                  <script type="text/javascript">
-                    $(function () {
-                    })
-                  </script>
-                  <button type="button" ng-click="UpdateStatement()" class="btn btn-primary">Update Statement</button>
-
-                  <div ng-show="AccInfo &amp;&amp; AccInfo.Status == '0' || AccInfo.Status == '1'"
-                    class="d-inline-block">
-                  </div>
-
-                  <div
-                    ng-show="AccInfo &amp;&amp; AccInfo.Bank == 'KBANK' &amp;&amp; AccInfo.Status == '0' || AccInfo.Status == '1'"
-                    class="d-inline-block">
-                    <button type="button" ng-click="UpdateStatement(1)" class="btn btn-primary">3h statements</button>
-                  </div>
-
-                  <div
-                    ng-show="AccInfo &amp;&amp; AccInfo.Bank == 'KBANK' &amp;&amp; AccInfo.Status == '0' || AccInfo.Status == '1'"
-                    class="ng-hide d-inline-block" style="max-width: fit-content">
-                    <button type="button" ng-click="UpdateStatement(2)"
-                      class="btn btn-primary upload-statement-button">Lastest statements</button>
-                  </div>
-
-                  <div class="d-inline-block">
-                    <input id="hiddenAccountID" hidden="">
-                    <button type="button" value="Export" id="btnExport" name="ButtonType" class="btn btn-primary"
-                      hidden="">Export</button>
-                    <button ng-click="TriggerExport()" type="button" class="btn btn-primary">Export</button>
-                  </div>
-                </div>
+            <!-- Filter Part -->
+            <div class="d-flex flex-wrap align-items-end form-filter my-3">
+              <!-- Deposit Type -->
+              <div class="select-custom">
+                <select class="custom-select form-control ng-pristine ng-untouched ng-valid ng-empty"
+                  ng-model="filterDepositType" ng-change="Search()">
+                  <option value="" selected="selected">Deposit Type</option>
+                  <!-- ngRepeat: type in supportedDepositTypes -->
+                  <option ng-repeat="type in supportedDepositTypes" ng-selected="false" value="Offline"
+                    class="ng-binding ng-scope">Offline</option>
+                  <!-- end ngRepeat: type in supportedDepositTypes -->
+                  <option ng-repeat="type in supportedDepositTypes" ng-selected="false" value="Offline_Original"
+                    class="ng-binding ng-scope">Offline_Original</option>
+                  <!-- end ngRepeat: type in supportedDepositTypes -->
+                </select>
+                <icon><i class="fas fa-caret-down"></i></icon>
               </div>
-            </div>
-
-            <div class="d-flex flex-wrap align-items-end form-filter my-4">
-              <div>
-                <p class="label-info">Currency</p>
+              <!-- Currency -->
+              <div class="select-custom">
                 <select class="custom-select form-control form-control-sm ng-pristine ng-untouched ng-valid ng-empty"
-                  ng-model="filterCurrency" ng-init="filterBank=''" ng-change="currencyChange()">
-                  <option value="" selected="selected">ALL</option>
+                  ng-model="filterCurrency" ng-init="filterBank=''" ng-change="Search()">
+                  <option value="" selected="selected">Currency</option>
                   <!-- ngRepeat: currency in supportedCurrencies -->
                   <option ng-repeat="currency in supportedCurrencies" ng-selected="false" value="VND"
-                    class="ng-binding ng-scope">VND</option><!-- end ngRepeat: currency in supportedCurrencies -->
+                    class="ng-binding ng-scope">VND</option>
+                  <!-- end ngRepeat: currency in supportedCurrencies -->
                   <option ng-repeat="currency in supportedCurrencies" ng-selected="false" value="THB"
-                    class="ng-binding ng-scope">THB</option><!-- end ngRepeat: currency in supportedCurrencies -->
+                    class="ng-binding ng-scope">THB</option>
+                  <!-- end ngRepeat: currency in supportedCurrencies -->
                 </select>
+                <icon><i class="fas fa-caret-down"></i></icon>
               </div>
-              <div>
-                <p class="label-info">Bank</p>
+              <!-- Bank -->
+              <div class="select-custom">
+                <select class="custom-select form-control form-control-sm ng-pristine ng-untouched ng-valid ng-empty"
+                  ng-model="filterCurrency" ng-init="filterBank=''" ng-change="Search()">
+                  <option value="" selected="selected">Bank</option>
+                  <!-- ngRepeat: currency in supportedCurrencies -->
+                  <option ng-repeat="currency in supportedCurrencies" ng-selected="false" value="VND"
+                    class="ng-binding ng-scope">VND</option>
+                  <!-- end ngRepeat: currency in supportedCurrencies -->
+                  <option ng-repeat="currency in supportedCurrencies" ng-selected="false" value="THB"
+                    class="ng-binding ng-scope">THB</option>
+                  <!-- end ngRepeat: currency in supportedCurrencies -->
+                </select>
+                <icon><i class="fas fa-caret-down"></i></icon>
+              </div>
+              <!-- Account Status -->
+              <div class="select-custom">
                 <select
-                  class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-valid ng-empty"
-                  ng-model="filterBank" ng-init="filterBank=''" ng-change="bankChange()">
-                  <option value="" selected="selected">ALL</option>
-                  <!-- ngRepeat: bank in supportedBanks| filter :filterCurrency -->
+                  class="custom-select form-control form-control-sm ng-pristine ng-untouched ng-valid ng-not-empty"
+                  ng-model="filterStatus" ng-init="filterStatus='-2'" ng-change="Search()">
+                  <!-- end ngRepeat: status in supportedStatus -->
+                  <option ng-repeat="status in supportedStatus" ng-selected="true" value="" class="ng-binding ng-scope"
+                    selected="selected">Account Status</option>
+                  <!-- end ngRepeat: status in supportedStatus -->
+                  <option ng-repeat="status in supportedStatus" ng-selected="false" value="0"
+                    class="ng-binding ng-scope">
+                    Successful</option>
+                  <!-- end ngRepeat: status in supportedStatus -->
+                  <option ng-repeat="status in supportedStatus" ng-selected="false" value="1"
+                    class="ng-binding ng-scope">
+                    Failed</option>
+                  <!-- end ngRepeat: status in supportedStatus -->
+                  <option ng-repeat="status in supportedStatus" ng-selected="false" value="2"
+                    class="ng-binding ng-scope">
+                    Rejected</option>
+                  <!-- end ngRepeat: status in supportedStatus -->
+                  <option ng-repeat="status in supportedStatus" ng-selected="false" value="3"
+                    class="ng-binding ng-scope">
+                    Submitted</option>
+                  <!-- end ngRepeat: status in supportedStatus -->
+                  <option ng-repeat="status in supportedStatus" ng-selected="false" value="4"
+                    class="ng-binding ng-scope">
+                    Pending</option>
+                  <!-- end ngRepeat: status in supportedStatus -->
+                  <option ng-repeat="status in supportedStatus" ng-selected="false" value="5"
+                    class="ng-binding ng-scope">
+                    Processing</option>
+                  <!-- end ngRepeat: status in supportedStatus -->
+                  <option ng-repeat="status in supportedStatus" ng-selected="false" value="6"
+                    class="ng-binding ng-scope">
+                    Unknown</option>
+                  <!-- end ngRepeat: status in supportedStatus -->
+                  <option ng-repeat="status in supportedStatus" ng-selected="false" value="7"
+                    class="ng-binding ng-scope">
+                    Checking</option>
+                  <!-- end ngRepeat: status in supportedStatus -->
+                  <option ng-repeat="status in supportedStatus" ng-selected="false" value="8"
+                    class="ng-binding ng-scope">
+                    Proceed</option>
+                  <!-- end ngRepeat: status in supportedStatus -->
                 </select>
+                <icon><i class="fas fa-caret-down"></i></icon>
               </div>
-              <div>
-                <p class="label-info">Account Status</p>
-                <select id="AccountStatus" name="AccountStatus" ng-init="filterAccountStatus='Active'"
-                  ng-model="filterAccountStatus" ng-change="accountStatusChange()"
-                  class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-valid ng-not-empty">
-                  <option value="">ALL</option>
-                  <option value="Active" ng-selected="true" selected="selected">Active</option>
-                  <option value="Disable" ng-selected="false">Disable</option>
-                  <option value="Reach_Limit" ng-selected="false">Reach Limit</option>
-                </select>
-              </div>
-              <div>
-                <p class="label-info">To Account</p>
+              <!-- To Account -->
+              <div class="select-custom">
                 <select
-                  class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-valid ng-empty"
+                  class="custom-select form-control form-control-sm ng-pristine ng-untouched ng-valid ng-not-empty"
                   ng-model="filterAccount" ng-change="Search(); FAccountID = filterAccount;">
-                  <option value="? undefined:undefined ?" selected="selected"></option>
                   <!-- ngRepeat: account in supportedAccounts | filter : filterCurrency | filter : filterBank | filter : filterAccountStatus -->
+                  <option
+                    ng-repeat="account in supportedAccounts | filter : filterCurrency | filter : filterBank | filter : filterAccountStatus"
+                    ng-selected="true" value="354" class="ng-binding ng-scope" selected="selected">FUND IN -
+                    038100060904344 - Test</option>
+                  <!-- end ngRepeat: account in supportedAccounts | filter : filterCurrency | filter : filterBank | filter : filterAccountStatus -->
+                  <option
+                    ng-repeat="account in supportedAccounts | filter : filterCurrency | filter : filterBank | filter : filterAccountStatus"
+                    ng-selected="false" value="358" class="ng-binding ng-scope">FUND IN - 12345 - THB Offline</option>
+                  <!-- end ngRepeat: account in supportedAccounts | filter : filterCurrency | filter : filterBank | filter : filterAccountStatus -->
                 </select>
+                <icon><i class="fas fa-caret-down"></i></icon>
+              </div>
+              <!-- Export -->
+              <div>
+                <input id="hiddenAccountID" hidden="">
+                <button type="button" value="Export" id="btnExport" name="ButtonType" class="btn btn-primary"
+                  hidden="">Export</button>
+                <button ng-click="TriggerExport()" type="button" value="Export" id="btnExport" name="ButtonType"
+                  class="d-inline-block btn btn-sm btn-primary shadow-sm" style="height: 35px; border-radius: 0.35rem;"
+                  ata-toggle="tooltip" data-placement="bottom" title="Export">
+                  <i class="fas fa-file-export" style="font-size: 18px;"></i>
+                </button>
               </div>
             </div>
 
-            <div ng-show="IsOfflineOriginal == false" class="ng-hide mb-3 group-btn">
-              <button type="submit" ng-click="ConfirmAll()" class="btn btn-primary">Confirm All</button>
-              <button type="submit" ng-click="Match()" class="btn btn-primary">Match</button>
-              <button type="submit" ng-click="Unmatch()" class="btn btn-primary">Unmatch</button>
+            <!-- ngIf: AccInfo && AccInfo.AccID > 0 -->
+            <div ng-if="AccInfo &amp;&amp; AccInfo.AccID > 0" class="ng-scope">
+              <table class="summary-matching">
+                <tr>
+                  <th>Bank:</th>
+                  <td>ACB</td>
+                </tr>
+                <tr>
+                  <th>Account Number:</th>
+                  <td>038100060904344</td>
+                </tr>
+                <tr>
+                  <th>Account Name:</th>
+                  <td>Test</td>
+                </tr>
+              </table>
             </div>
-            <div class="form-group">
-              <button type="button" value="" class="btn btn-success" data-toggle="modal"
-                data-target="#ModalAddStatementManual">
-                <span class="icon text-white" title="Add Statement Manual">
-                  <i class="fas fa-plus"></i>
-                </span>
+            <!-- end ngIf: AccInfo && AccInfo.AccID > 0 -->
+
+            <!-- Filter Date > 0 -->
+            <input id="id" name="id" type="hidden" value="" autocomplete="off">
+            <input id="PageTemp" name="PageTemp" type="hidden" value="" autocomplete="off">
+            <div class="d-flex flex-wrap align-items-end form-filter">
+              <div class="date-time-select">
+                <label class="label-info">From: </label>
+                <input placeholder="From" id="FromDate" type="date" ng-model="filterFromDate"
+                  ng-init="filterFromDate=Date('2024-05-14')"
+                  class="form-control date-time-select-input ng-pristine ng-untouched ng-valid ng-not-empty">
+              </div>
+              <div class="date-time-select">
+                <label class="label-info">To: </label>
+                <input id="ToDate" type="date" ng-model="filterToDate" ng-init="filterToDate=Date('2024-05-14')"
+                  class="form-control date-time-select-input ng-pristine ng-untouched ng-valid ng-not-empty">
+              </div>
+              <div class="group-btn">
+                <div>
+                  <button type="button" ng-click="Search(); Page = 1" name="ButtonType" class="btn btn-primary"
+                    data-toggle="tooltip" data-placement="top" title="Search">
+                    <i class="fas fa-sync-alt"></i>
+                  </button>
+                </div>
+                <div ng-show="AccInfo &amp;&amp; AccInfo.Status == '0' || AccInfo.Status == '1'">
+                  <button type="button" ng-click="UpdateStatement()" class="btn btn-primary" data-toggle="tooltip"
+                    data-placement="right" title="Update statements">
+                    <i class="fas fa-download"></i>
+                  </button>
+                </div>
+                <div
+                  ng-show="AccInfo &amp;&amp; AccInfo.Bank == 'KBANK' &amp;&amp; AccInfo.Status == '0' || AccInfo.Status == '1'"
+                  class="ng-hide">
+                  <button type="button" ng-click="UpdateStatement(1)" class="btn"
+                    style="background-color: #aacb3a; color: #ffffff;" data-toggle="tooltip" data-placement="right"
+                    title="3h statements">
+                    <span style="margin-right: 5px;">3h</span>
+                    <i class="fas fa-download"></i>
+                  </button>
+                </div>
+                <div
+                  ng-show="AccInfo &amp;&amp; AccInfo.Bank == 'KBANK' &amp;&amp; AccInfo.Status == '0' || AccInfo.Status == '1'">
+                  <button type="button" ng-click="UpdateStatement(2)" class="btn upload-statement-button"
+                    style="background-color: #e6a1a3; color: #ffffff;" data-toggle="tooltip" data-placement="right"
+                    title="Lastest statements">
+                    <span style="margin-right: 5px;">Lastest</span>
+                    <i class="fas fa-download"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex flex-wrap align-items-end form-filter my-3">
+              <!-- Search TxnID -->
+              <div class="input-search">
+                <icon><i class="fas fa-search"></i></icon>
+                <input class="form-control input-search-input ng-pristine ng-untouched ng-valid ng-empty"
+                  style="max-width: fit-content !important" placeholder="ID/ TxnID" ng-model="filterSPID"
+                  ng-change="FilterID()" type="number">
+                </input>
+              </div>
+              <!-- Audit -->
+              <div class="select-custom">
+                <select class="custom-select form-control ng-pristine ng-untouched ng-valid ng-empty"
+                  ng-model="filterDepositType" ng-change="Search()">
+                  <option value="" selected="selected">Audit</option>
+                  <!-- ngRepeat: type in supportedDepositTypes -->
+                  <option ng-repeat="type in supportedDepositTypes" ng-selected="false" value="Offline"
+                    class="ng-binding ng-scope">Offline</option>
+                  <!-- end ngRepeat: type in supportedDepositTypes -->
+                  <option ng-repeat="type in supportedDepositTypes" ng-selected="false" value="Offline_Original"
+                    class="ng-binding ng-scope">Offline_Original</option>
+                  <!-- end ngRepeat: type in supportedDepositTypes -->
+                </select>
+                <icon><i class="fas fa-caret-down"></i></icon>
+              </div>
+              <!-- Add Statement -->
+              <button type="button" value="" class="btn" data-toggle=" modal" data-target="#ModalAddStatementManual"
+                style="display: flex; align-items: center; justify-content: center; background-color: #aacb3a; color: #ffffff;">
+                <i class="fas fa-plus" style="margin-right: 5px; font-size: 14px;"></i>
                 <span>Add Statement</span>
               </button>
-            </div>
-            <hr>
-
-            <div class="card shadow">
-              <div class="card-header py-3">
-                <h6 class="table-title">Offline Matching</h6>
+              <div ng-show="IsOfflineOriginal == false" class="group-btn">
+                <button type="submit" ng-click="ConfirmAll()" class="btn btn-success"
+                  style="display: flex; align-items: center; justify-content: center;">
+                  <i class="far fa-check-circle" style="margin-right: 5px; font-size: 16px;"></i>
+                  <span>Confirm All</span>
+                </button>
+                <button type="submit" ng-click="Match()" class="btn btn-primary">Match</button>
+                <button type="submit" ng-click="Unmatch()" class="btn btn-primary">Unmatch</button>
               </div>
-              <div class="card-body matching-table">
-                <!-- Table -->
-                <div class="table-responsive">
-                  <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                    <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="0">
-                      <thead>
-                        <tr>
-                          <td colspan="9" class="separate-col titleRow">DEPOSIT TRANSACTIONS</td>
-                          <td colspan="8" ng-show="!IsOfflineOriginal" class="separate-col titleRow">BANK STATEMENTS
-                          </td>
-                          <td colspan="9" ng-show="IsOfflineOriginal" class="separate-col titleRow ng-hide">BANK
-                            STATEMENTS</td>
-                        </tr>
-                        <tr>
-                          <th>
-                            Merchant Code
-                          </th>
-                          <th style="white-space:nowrap">
-                            SPID
-                          </th>
-                          <th>
-                            Customer
-                          </th>
-                          <th>
-                            TxnID
-                          </th>
-                          <th>
-                            From Acc
-                          </th>
-                          <th>
-                            Amount
-                          </th>
-                          <th>Transfered Time</th>
-                          <th>
-                            Status
-                          </th>
-                          <th class="separate-col">
-                            Audit
-                          </th>
-                          <th>
-                            From Acc
-                          </th>
-                          <th>Transfered Time</th>
-                          <th>
-                            Amount
-                          </th>
-                          <th>R.Balance</th>
+            </div>
 
-
-                          <th style="width: 10%">
-                            Description
-                          </th>
-                          <th>
-                            Note
-                          </th>
-                          <th>
-                            Ref Code
-                          </th>
-                          <th ng-show="IsOfflineOriginal" class="ng-hide">Confirm By</th>
-                          <th>Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th></th>
-                          <th>
-                            <input class="form-control form-control-sm ng-pristine ng-untouched ng-valid ng-empty"
-                              style="max-width: fit-content !important" placeholder="Search..." ng-model="filterSPID"
-                              ng-change="FilterID()" type="number">
-                          </th>
-                          <th></th>
-                          <th>
-                            <input class="form-control form-control-sm ng-pristine ng-untouched ng-valid ng-empty"
-                              style="max-width: fit-content !important" placeholder="Search..."
-                              ng-model="filterTransactionID" ng-change="FilterID()">
-                          </th>
-                          <th></th>
-                          <th>
-                            <input class="form-control form-control-sm ng-pristine ng-untouched ng-valid ng-empty"
-                              style="max-width: fit-content !important" ng-model="queryAmount" placeholder="Search..."
-                              autofocus="" ng-change="FilterID()" type="number">
-                          </th>
-                          <th style="display: flex; align-items: center; width: max-content; min-height: 42px;">
-                            <div>
-                              <select ng-model="qHour" ng-change="filterTime(30)"
-                                style=" border: solid gray 2px; border-radius: 5px;"
-                                class="ng-pristine ng-untouched ng-valid ng-empty">
-                                <option value="" selected="selected">--</option>
-                                <!-- ngRepeat: n in range(0,23) -->
-                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="0">0
-                                </option><!-- end ngRepeat: n in range(0,23) -->
-                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="1">1
-                                </option><!-- end ngRepeat: n in range(0,23) -->
-                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="2">2
-                                </option><!-- end ngRepeat: n in range(0,23) -->
-                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="3">3
-                                </option><!-- end ngRepeat: n in range(0,23) -->
-                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="4">4
-                                </option><!-- end ngRepeat: n in range(0,23) -->
-                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="5">5
-                                </option><!-- end ngRepeat: n in range(0,23) -->
-                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="6">6
-                                </option><!-- end ngRepeat: n in range(0,23) -->
-                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="7">7
-                                </option><!-- end ngRepeat: n in range(0,23) -->
-                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="8">8
-                                </option><!-- end ngRepeat: n in range(0,23) -->
-                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="9">9
-                                </option><!-- end ngRepeat: n in range(0,23) -->
-                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="10">10
-                                </option><!-- end ngRepeat: n in range(0,23) -->
-                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="11">11
-                                </option><!-- end ngRepeat: n in range(0,23) -->
-                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="12">12
-                                </option><!-- end ngRepeat: n in range(0,23) -->
-                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="13">13
-                                </option><!-- end ngRepeat: n in range(0,23) -->
-                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="14">14
-                                </option><!-- end ngRepeat: n in range(0,23) -->
-                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="15">15
-                                </option><!-- end ngRepeat: n in range(0,23) -->
-                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="16">16
-                                </option><!-- end ngRepeat: n in range(0,23) -->
-                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="17">17
-                                </option><!-- end ngRepeat: n in range(0,23) -->
-                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="18">18
-                                </option><!-- end ngRepeat: n in range(0,23) -->
-                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="19">19
-                                </option><!-- end ngRepeat: n in range(0,23) -->
-                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="20">20
-                                </option><!-- end ngRepeat: n in range(0,23) -->
-                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="21">21
-                                </option><!-- end ngRepeat: n in range(0,23) -->
-                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="22">22
-                                </option><!-- end ngRepeat: n in range(0,23) -->
-                                <option ng-repeat="n in range(0,23)" class="ng-binding ng-scope" value="23">23
-                                </option><!-- end ngRepeat: n in range(0,23) -->
-                              </select> :
-                              <select ng-model="qMinute" ng-change="filterTime(20)"
-                                style=" border: solid gray 2px; border-radius: 5px;"
-                                class="ng-pristine ng-untouched ng-valid ng-empty">
-                                <option value="" selected="selected">--</option>
-                                <!-- ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="0">0
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="1">1
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="2">2
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="3">3
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="4">4
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="5">5
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="6">6
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="7">7
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="8">8
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="9">9
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="10">10
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="11">11
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="12">12
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="13">13
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="14">14
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="15">15
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="16">16
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="17">17
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="18">18
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="19">19
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="20">20
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="21">21
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="22">22
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="23">23
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="24">24
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="25">25
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="26">26
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="27">27
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="28">28
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="29">29
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="30">30
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="31">31
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="32">32
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="33">33
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="34">34
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="35">35
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="36">36
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="37">37
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="38">38
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="39">39
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="40">40
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="41">41
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="42">42
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="43">43
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="44">44
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="45">45
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="46">46
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="47">47
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="48">48
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="49">49
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="50">50
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="51">51
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="52">52
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="53">53
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="54">54
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="55">55
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="56">56
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="57">57
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="58">58
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="59">59
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                              </select> :
-                              <select ng-model="qSecond" ng-change="filterTime(5)"
-                                style=" border: solid gray 2px; border-radius: 5px;"
-                                class="ng-pristine ng-untouched ng-valid ng-empty">
-                                <option value="" selected="selected">--</option>
-                                <!-- ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="0">0
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="1">1
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="2">2
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="3">3
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="4">4
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="5">5
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="6">6
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="7">7
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="8">8
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="9">9
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="10">10
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="11">11
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="12">12
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="13">13
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="14">14
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="15">15
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="16">16
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="17">17
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="18">18
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="19">19
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="20">20
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="21">21
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="22">22
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="23">23
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="24">24
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="25">25
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="26">26
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="27">27
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="28">28
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="29">29
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="30">30
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="31">31
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="32">32
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="33">33
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="34">34
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="35">35
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="36">36
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="37">37
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="38">38
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="39">39
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="40">40
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="41">41
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="42">42
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="43">43
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="44">44
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="45">45
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="46">46
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="47">47
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="48">48
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="49">49
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="50">50
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="51">51
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="52">52
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="53">53
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="54">54
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="55">55
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="56">56
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="57">57
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="58">58
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                                <option ng-repeat="n in range(0,59)" class="ng-binding ng-scope" value="59">59
-                                </option><!-- end ngRepeat: n in range(0,59) -->
-                              </select>
+            <div class="matching-table">
+              <div class="table-responsive">
+                <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                  <table class="table border-0" id="dataTable1" width="100%" cellspacing="0">
+                    <thead>
+                      <tr>
+                        <td colspan="9" class="separate-col titleRow"
+                          style="border: 1px solid #cccccc; background-color: #ddeaf6;">TRANSACTIONS
+                        </td>
+                        <td class="border-0" style="min-width: 10px; background-color: white;"></td>
+                        <td colspan="8" ng-show="!IsOfflineOriginal" class="separate-col titleRow"
+                          style="border: 1px solid #cccccc; background-color: #ddeaf6;">BANK
+                          STATEMENTS</td>
+                      </tr>
+                      <tr>
+                        <th>Merchant</th>
+                        <th>ID</th>
+                        <th>Client</th>
+                        <th>TxnID</th>
+                        <th>From<br>Acc.</th>
+                        <th>Amount</th>
+                        <th>Transfered<br>Time</th>
+                        <th>Status</th>
+                        <th class="separate-col">Audit</th>
+                        <th style="min-width: 10px; border-top: 0;"></th>
+                        <th>From<br>Acc.</th>
+                        <th>Transfered<br>Time</th>
+                        <th>Amount</th>
+                        <th>R.Balance</th>
+                        <th style="width: 10%">Content</th>
+                        <th>Note</th>
+                        <th>Ref.<br>No</th>
+                        <th>Operation</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- ngRepeat: result in results -->
+                      <tr ng-repeat="result in results" class="audited  matched"
+                        ng-class="result.MemberMatchStruct.RequestID > 0 &amp;&amp; result.MemberMatchStruct.MatchingStatus == 0 ? 'matched' : result.MemberMatchStruct.RequestID > 0 &amp;&amp; result.MemberMatchStruct.Status == 1 ? 'fail' : ''">
+                        <td ng-click="SetSelectedTxn(result.MemberMatchStruct.MemberMatchID)"
+                          ng-class="result.MemberMatchStruct.MemberMatchID == TargetTxnID ? 'highlight' : ''"
+                          class="ng-binding">
+                          UI
+                        </td>
+                        <td ng-click="SetSelectedTxn(result.MemberMatchStruct.MemberMatchID)"
+                          ng-class="result.MemberMatchStruct.MemberMatchID == TargetTxnID ? 'highlight' : ''">
+                          <!-- ngIf: result.MemberMatchStruct.RequestID > 0 -->
+                          <div ng-if="result.MemberMatchStruct.RequestID > 0" class="ng-binding ng-scope">
+                            12999
+                          </div>
+                          <!-- end ngIf: result.MemberMatchStruct.RequestID > 0 -->
+                        </td>
+                        <!-- ngIf: IsOfflineOriginal -->
+                        <!-- ngIf: IsOfflineOriginal -->
+                        <!-- ngIf: !IsOfflineOriginal -->
+                        <td ng-click="SetSelectedTxn(result.MemberMatchStruct.MemberMatchID)"
+                          ng-class="result.MemberMatchStruct.MemberMatchID == TargetTxnID ? 'highlight' : ''"
+                          ng-if="!IsOfflineOriginal" class="ng-binding ng-scope">
+                          61
+                        </td>
+                        <!-- end ngIf: !IsOfflineOriginal -->
+                        <!-- ngIf: !IsOfflineOriginal -->
+                        <td ng-click="SetSelectedTxn(result.MemberMatchStruct.MemberMatchID)"
+                          ng-class="result.MemberMatchStruct.MemberMatchID == TargetTxnID ? 'highlight' : ''"
+                          ng-if="!IsOfflineOriginal" class="ng-scope">
+                          <div name="btnDetail" class="entered-data ng-binding" ng-click="ShowDetails(result)">
+                            005368823510
+                          </div>
+                        </td>
+                        <!-- end ngIf: !IsOfflineOriginal -->
+                        <td ng-click="SetSelectedTxn(result.MemberMatchStruct.MemberMatchID)"
+                          ng-class="result.MemberMatchStruct.MemberMatchID == TargetTxnID ? 'highlight' : ''"
+                          class="ng-binding">
+                          abc123
+                        </td>
+                        <td ng-click="SetSelectedTxn(result.MemberMatchStruct.MemberMatchID)"
+                          ng-class="result.MemberMatchStruct.MemberMatchID == TargetTxnID ? 'highlight' : ''">
+                          <!-- ngIf: result.MemberMatchStruct.RequestID > 0 -->
+                          <div ng-if="result.MemberMatchStruct.RequestID > 0" class="ng-binding ng-scope">
+                            10,000.00
+                          </div>
+                          <!-- end ngIf: result.MemberMatchStruct.RequestID > 0 -->
+                        </td>
+                        <td ng-click="SetSelectedTxn(result.MemberMatchStruct.MemberMatchID)"
+                          ng-class="result.MemberMatchStruct.MemberMatchID == TargetTxnID ? 'highlight' : ''">
+                          <!-- ngIf: result.MemberMatchStruct.RequestID > 0 && !result.IsTransferredTime -->
+                          <div ng-if="result.MemberMatchStruct.RequestID > 0 &amp;&amp; !result.IsTransferredTime"
+                            class="ng-binding ng-scope">
+                            17/05/2024 <br>
+                            18:19:54
+                          </div>
+                          <!-- end ngIf: result.MemberMatchStruct.RequestID > 0 && !result.IsTransferredTime -->
+                        </td>
+                        <td ng-click="SetSelectedTxn(result.MemberMatchStruct.MemberMatchID)"
+                          ng-class="result.MemberMatchStruct.MemberMatchID == TargetTxnID ? 'highlight' : ''">
+                          <!-- ngIf: result.MemberMatchStruct.RequestID > 0 -->
+                          <div ng-if="result.MemberMatchStruct.RequestID > 0" class="status sucessful">
+                            Successful
+                          </div><!-- end ngIf: result.MemberMatchStruct.RequestID > 0 -->
+                        </td>
+                        <td ng-click="SetSelectedTxn(result.MemberMatchStruct.MemberMatchID)"
+                          ng-class="result.MemberMatchStruct.MemberMatchID == TargetTxnID ? 'highlight' : ''"
+                          class="separate-col Status">
+                          <!-- ngIf: result.MemberMatchStruct.RequestID > 0 -->
+                          <div ng-if="result.MemberMatchStruct.RequestID > 0" class="ng-binding ng-scope">
+                            Matched
+                            <!-- ngIf: result.MemberMatchStruct.Audit == 0 && result.MemberMatchStruct.IsSystemConfirm == false -->
+                          </div><!-- end ngIf: result.MemberMatchStruct.RequestID > 0 -->
+                        </td>
+                        <th style="min-width: 10px;"></th>
+                        <td ng-click="SetSelectedStm(result.StatementMatchStruct.StatementID)"
+                          ng-class="result.StatementMatchStruct.StatementID == TargetStmID ? 'highlight' : ''"
+                          class="ng-binding">
+                          12345
+                        </td>
+                        <td ng-click="SetSelectedStm(result.StatementMatchStruct.StatementID)"
+                          ng-class="result.StatementMatchStruct.StatementID == TargetStmID ? 'highlight' : ''">
+                          <!-- ngIf: result.StatementMatchStruct.StatementID > 0 -->
+                          <div ng-if="result.StatementMatchStruct.StatementID > 0" class="ng-binding ng-scope">
+                            17/05/2024<br>
+                            18:17:22
+                          </div><!-- end ngIf: result.StatementMatchStruct.StatementID > 0 -->
+                        </td>
+                        <td ng-click="SetSelectedStm(result.StatementMatchStruct.StatementID)"
+                          ng-class="result.StatementMatchStruct.StatementID == TargetStmID ? 'highlight' : ''">
+                          <!-- ngIf: result.StatementMatchStruct.StatementID > 0 -->
+                          <div ng-if="result.StatementMatchStruct.StatementID > 0" class="ng-binding ng-scope">
+                            10,000.00
+                          </div><!-- end ngIf: result.StatementMatchStruct.StatementID > 0 -->
+                        </td>
+                        <td ng-click="SetSelectedStm(result.StatementMatchStruct.StatementID)"
+                          ng-class="result.StatementMatchStruct.StatementID == TargetStmID ? 'highlight' : ''">
+                          <!-- ngIf: result.StatementMatchStruct.StatementID > 0 -->
+                          <div ng-if="result.StatementMatchStruct.StatementID > 0" class="ng-binding ng-scope">
+                            0.00
+                          </div><!-- end ngIf: result.StatementMatchStruct.StatementID > 0 -->
+                        </td>
+                        <td ng-click="SetSelectedStm(result.StatementMatchStruct.StatementID)"
+                          ng-class="result.StatementMatchStruct.StatementID == TargetStmID ? 'highlight' : ''"
+                          class="ng-binding">
+                          SPTID0321
+                        </td>
+                        <td ng-click="SetSelectedStm(result.StatementMatchStruct.StatementID)"
+                          ng-class="result.StatementMatchStruct.StatementID == TargetStmID ? 'highlight' : ''">
+                          <div class="entered-data" name="btnAddNote" data-toggle="modal"
+                            data-target="#addStatementNoteModal"
+                            ng-click="SetNote(result.StatementMatchStruct.Note); SetTrigger(result.StatementMatchStruct.StatementID);">
+                            <!-- ngIf: result.StatementMatchStruct.Note -->
+                            <!-- ngIf: !result.StatementMatchStruct.Note && result.StatementMatchStruct.StatementID > 0 -->
+                            <div
+                              ng-if="!result.StatementMatchStruct.Note &amp;&amp; result.StatementMatchStruct.StatementID > 0"
+                              class="ng-scope">
+                              <div>&nbsp; &nbsp; &nbsp; &nbsp;</div>
                             </div>
-                          </th>
-                          <th></th>
-                          <th class="separate-col">
-                            <select
-                              class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-valid ng-not-empty"
-                              ng-model="filterStatus" ng-init="InitStatus()" ng-change="Search()">
-                              <option value="-1" selected="selected">ALL</option>
-                              <!-- ngRepeat: status in supportedStatus -->
-                              <option ng-repeat="status in supportedStatus" ng-selected="false" value="0"
-                                class="ng-binding ng-scope">Confirmed</option>
-                              <!-- end ngRepeat: status in supportedStatus -->
-                              <option ng-repeat="status in supportedStatus" ng-selected="false" value="1"
-                                class="ng-binding ng-scope">Unconfirmed</option>
-                              <!-- end ngRepeat: status in supportedStatus -->
-                            </select>
-                          </th>
-                          <th>&nbsp;</th>
-
-                          <th></th>
-                          <th>
-                            <select ng-model="filterAmount"
-                              class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-valid ng-not-empty"
-                              ng-init="filterAmount='1'" ng-change="Search()">
-                              <option value="0" {{filteramount="=" 0="" ?="" "selected"="" :="" "" }}="">ALL
-                              </option>
-                              <option value="1" {{filteramount="=" 1="" ?="" "selected"="" :="" "" }}=""
-                                selected="selected">+</option>
-                              <option value="-1" {{filteramount="=" -1="" ?="" "selected"="" :="" "" }}="">-
-                              </option>
-                            </select>
-                          </th>
-                          <th></th>
-                          <th></th>
-                          <th></th>
-                          <th></th>
-                          <th ng-show="IsOfflineOriginal" class="ng-hide"></th>
-                          <th></th>
-                        </tr>
-                        <!-- ngRepeat: result in results -->
-                      </tbody>
-                    </table>
-                    <button hidden="" id="TriggerShowDetail" data-toggle="modal" data-target="#ModalTXNDetail"></button>
-                  </div>
+                            <!-- end ngIf: !result.StatementMatchStruct.Note && result.StatementMatchStruct.StatementID > 0 -->
+                          </div>
+                          <!-- ngIf: result.MemberMatchStruct.TypeMatch == 'MANUAL' -->
+                          <label ng-if="result.MemberMatchStruct.TypeMatch == 'MANUAL'"
+                            style="color: white; background-color: #269abc; border-color: #086486; border: 2px solid; border-radius: 10px; padding:0 5px 0 5px"
+                            class="ng-scope">Manual</label><!-- end ngIf: result.MemberMatchStruct.TypeMatch == 'MANUAL' -->
+                          <!-- ngIf: result.MemberMatchStruct.TypeMatch && result.MemberMatchStruct.TypeMatch != 'MANUAL' -->
+                          <!-- ngIf: result.StatementMatchStruct.IsManual -->
+                          <div ng-if="result.StatementMatchStruct.IsManual" class="ng-scope">
+                            <i class="fa fa-user-plus"></i>
+                          </div><!-- end ngIf: result.StatementMatchStruct.IsManual -->
+                        </td>
+                        <td ng-click="SetSelectedStm(result.StatementMatchStruct.StatementID)"
+                          ng-class="result.StatementMatchStruct.StatementID == TargetStmID ? 'highlight' : ''"
+                          class="ng-binding">
+                        </td>
+                        <td ng-click="SetSelectedStm(result.StatementMatchStruct.StatementID)"
+                          ng-class="result.StatementMatchStruct.StatementID == TargetStmID ? 'highlight' : ''">
+                          <!-- ngIf: result.MemberMatchStruct.RequestID > 0 && result.MemberMatchStruct.MatchingStatus == 1 && result.MemberMatchStruct.Audit == 1 -->
+                          <!-- ngIf: !IsOfflineOriginal && result.MemberMatchStruct.RequestID > 0 && result.MemberMatchStruct.MatchingStatus == 0 && result.MemberMatchStruct.Audit == 1 -->
+                          <!-- ngIf: IsOfflineOriginal && result.StatementMatchStruct.StatementID > 0 && result.StatementMatchStruct.MatchingID == 0 -->
+                          &nbsp;
+                        </td>
+                      </tr>
+                      <!-- end ngRepeat: result in results -->
+                      <tr ng-repeat="result in results" class="matched"
+                        ng-class="result.MemberMatchStruct.RequestID > 0 &amp;&amp; result.MemberMatchStruct.MatchingStatus == 0 ? 'matched' : result.MemberMatchStruct.RequestID > 0 &amp;&amp; result.MemberMatchStruct.Status == 1 ? 'fail' : ''">
+                        <td ng-click="SetSelectedTxn(result.MemberMatchStruct.MemberMatchID)"
+                          ng-class="result.MemberMatchStruct.MemberMatchID == TargetTxnID ? 'highlight' : ''"
+                          class="ng-binding">
+                          UI
+                        </td>
+                        <td ng-click="SetSelectedTxn(result.MemberMatchStruct.MemberMatchID)"
+                          ng-class="result.MemberMatchStruct.MemberMatchID == TargetTxnID ? 'highlight' : ''">
+                          <!-- ngIf: result.MemberMatchStruct.RequestID > 0 -->
+                          <div ng-if="result.MemberMatchStruct.RequestID > 0" class="ng-binding ng-scope">
+                            12998
+                          </div>
+                          <!-- end ngIf: result.MemberMatchStruct.RequestID > 0 -->
+                        </td>
+                        <!-- ngIf: !IsOfflineOriginal -->
+                        <td ng-click="SetSelectedTxn(result.MemberMatchStruct.MemberMatchID)"
+                          ng-class="result.MemberMatchStruct.MemberMatchID == TargetTxnID ? 'highlight' : ''"
+                          ng-if="!IsOfflineOriginal" class="ng-binding ng-scope">
+                          61
+                        </td>
+                        <!-- end ngIf: !IsOfflineOriginal -->
+                        <!-- ngIf: !IsOfflineOriginal -->
+                        <td ng-click="SetSelectedTxn(result.MemberMatchStruct.MemberMatchID)"
+                          ng-class="result.MemberMatchStruct.MemberMatchID == TargetTxnID ? 'highlight' : ''"
+                          ng-if="!IsOfflineOriginal" class="ng-scope">
+                          <div name="btnDetail" class="entered-data ng-binding" ng-click="ShowDetails(result)">
+                            680238221546
+                          </div>
+                        </td>
+                        <!-- end ngIf: !IsOfflineOriginal -->
+                        <td ng-click="SetSelectedTxn(result.MemberMatchStruct.MemberMatchID)"
+                          ng-class="result.MemberMatchStruct.MemberMatchID == TargetTxnID ? 'highlight' : ''"
+                          class="ng-binding">
+                          abc123
+                        </td>
+                        <td ng-click="SetSelectedTxn(result.MemberMatchStruct.MemberMatchID)"
+                          ng-class="result.MemberMatchStruct.MemberMatchID == TargetTxnID ? 'highlight' : ''">
+                          <!-- ngIf: result.MemberMatchStruct.RequestID > 0 -->
+                          <div ng-if="result.MemberMatchStruct.RequestID > 0" class="ng-binding ng-scope">
+                            10,000.00
+                          </div><!-- end ngIf: result.MemberMatchStruct.RequestID > 0 -->
+                        </td>
+                        <td ng-click="SetSelectedTxn(result.MemberMatchStruct.MemberMatchID)"
+                          ng-class="result.MemberMatchStruct.MemberMatchID == TargetTxnID ? 'highlight' : ''">
+                          <!-- ngIf: result.MemberMatchStruct.RequestID > 0 && !result.IsTransferredTime -->
+                          <div ng-if="result.MemberMatchStruct.RequestID > 0 &amp;&amp; !result.IsTransferredTime"
+                            class="ng-binding ng-scope">
+                            17/05/2024 <br>
+                            18:18:39
+                          </div>
+                          <!-- end ngIf: result.MemberMatchStruct.RequestID > 0 && !result.IsTransferredTime -->
+                        </td>
+                        <td ng-click="SetSelectedTxn(result.MemberMatchStruct.MemberMatchID)"
+                          ng-class="result.MemberMatchStruct.MemberMatchID == TargetTxnID ? 'highlight' : ''">
+                          <!-- ngIf: result.MemberMatchStruct.RequestID > 0 -->
+                          <div ng-if="result.MemberMatchStruct.RequestID > 0" class="status submitted">
+                            Submitted
+                          </div>
+                          <!-- end ngIf: result.MemberMatchStruct.RequestID > 0 -->
+                        </td>
+                        <td ng-click="SetSelectedTxn(result.MemberMatchStruct.MemberMatchID)"
+                          ng-class="result.MemberMatchStruct.MemberMatchID == TargetTxnID ? 'highlight' : ''"
+                          class="separate-col Status">
+                          <!-- ngIf: result.MemberMatchStruct.RequestID > 0 -->
+                          <div ng-if="result.MemberMatchStruct.RequestID > 0" class="ng-binding ng-scope">
+                            Matched
+                            <!-- ngIf: result.MemberMatchStruct.Audit == 0 && result.MemberMatchStruct.IsSystemConfirm == false -->
+                          </div>
+                          <!-- end ngIf: result.MemberMatchStruct.RequestID > 0 -->
+                        </td>
+                        <th style="min-width: 10px;"></th>
+                        <td ng-click="SetSelectedStm(result.StatementMatchStruct.StatementID)"
+                          ng-class="result.StatementMatchStruct.StatementID == TargetStmID ? 'highlight' : ''"
+                          class="ng-binding">
+                          12345
+                        </td>
+                        <td ng-click="SetSelectedStm(result.StatementMatchStruct.StatementID)"
+                          ng-class="result.StatementMatchStruct.StatementID == TargetStmID ? 'highlight' : ''">
+                          <!-- ngIf: result.StatementMatchStruct.StatementID > 0 -->
+                          <div ng-if="result.StatementMatchStruct.StatementID > 0" class="ng-binding ng-scope">
+                            17/05/2024<br>
+                            18:17:22
+                          </div><!-- end ngIf: result.StatementMatchStruct.StatementID > 0 -->
+                        </td>
+                        <td ng-click="SetSelectedStm(result.StatementMatchStruct.StatementID)"
+                          ng-class="result.StatementMatchStruct.StatementID == TargetStmID ? 'highlight' : ''">
+                          <!-- ngIf: result.StatementMatchStruct.StatementID > 0 -->
+                          <div ng-if="result.StatementMatchStruct.StatementID > 0" class="ng-binding ng-scope">
+                            10,000.00
+                          </div><!-- end ngIf: result.StatementMatchStruct.StatementID > 0 -->
+                        </td>
+                        <td ng-click="SetSelectedStm(result.StatementMatchStruct.StatementID)"
+                          ng-class="result.StatementMatchStruct.StatementID == TargetStmID ? 'highlight' : ''">
+                          <!-- ngIf: result.StatementMatchStruct.StatementID > 0 -->
+                          <div ng-if="result.StatementMatchStruct.StatementID > 0" class="ng-binding ng-scope">
+                            0.00
+                          </div><!-- end ngIf: result.StatementMatchStruct.StatementID > 0 -->
+                        </td>
+                        <td ng-click="SetSelectedStm(result.StatementMatchStruct.StatementID)"
+                          ng-class="result.StatementMatchStruct.StatementID == TargetStmID ? 'highlight' : ''"
+                          class="ng-binding">
+                          SPTID0322
+                        </td>
+                        <td ng-click="SetSelectedStm(result.StatementMatchStruct.StatementID)"
+                          ng-class="result.StatementMatchStruct.StatementID == TargetStmID ? 'highlight' : ''">
+                          <div class="entered-data" name="btnAddNote" data-toggle="modal"
+                            data-target="#addStatementNoteModal"
+                            ng-click="SetNote(result.StatementMatchStruct.Note); SetTrigger(result.StatementMatchStruct.StatementID);">
+                            <!-- ngIf: result.StatementMatchStruct.Note -->
+                            <!-- ngIf: !result.StatementMatchStruct.Note && result.StatementMatchStruct.StatementID > 0 -->
+                            <div
+                              ng-if="!result.StatementMatchStruct.Note &amp;&amp; result.StatementMatchStruct.StatementID > 0"
+                              class="ng-scope">
+                              <div>&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                            </div>
+                            <!-- end ngIf: !result.StatementMatchStruct.Note && result.StatementMatchStruct.StatementID > 0 -->
+                          </div>
+                          <!-- ngIf: result.MemberMatchStruct.TypeMatch == 'MANUAL' --><label
+                            ng-if="result.MemberMatchStruct.TypeMatch == 'MANUAL'"
+                            style="color: white; background-color: #269abc; border-color: #086486; border: 2px solid; border-radius: 10px; padding:0 5px 0 5px"
+                            class="ng-scope">Manual</label><!-- end ngIf: result.MemberMatchStruct.TypeMatch == 'MANUAL' -->
+                          <!-- ngIf: result.MemberMatchStruct.TypeMatch && result.MemberMatchStruct.TypeMatch != 'MANUAL' -->
+                          <!-- ngIf: result.StatementMatchStruct.IsManual -->
+                          <div ng-if="result.StatementMatchStruct.IsManual" class="ng-scope">
+                            <i class="fa fa-user-plus"></i>
+                          </div><!-- end ngIf: result.StatementMatchStruct.IsManual -->
+                        </td>
+                        <td ng-click="SetSelectedStm(result.StatementMatchStruct.StatementID)"
+                          ng-class="result.StatementMatchStruct.StatementID == TargetStmID ? 'highlight' : ''"
+                          class="ng-binding">
+                        </td>
+                        <td ng-click="SetSelectedStm(result.StatementMatchStruct.StatementID)"
+                          ng-class="result.StatementMatchStruct.StatementID == TargetStmID ? 'highlight' : ''">
+                          <!-- ngIf: result.MemberMatchStruct.RequestID > 0 && result.MemberMatchStruct.MatchingStatus == 1 && result.MemberMatchStruct.Audit == 1 -->
+                          <!-- ngIf: !IsOfflineOriginal && result.MemberMatchStruct.RequestID > 0 && result.MemberMatchStruct.MatchingStatus == 0 && result.MemberMatchStruct.Audit == 1 -->
+                          <div
+                            ng-if="!IsOfflineOriginal &amp;&amp; result.MemberMatchStruct.RequestID > 0 &amp;&amp; result.MemberMatchStruct.MatchingStatus == 0 &amp;&amp; result.MemberMatchStruct.Audit == 1"
+                            class="ng-scope">
+                            <button type="submit" value="Confirm" name="ButtonType" class="btn"
+                              ng-click="Confirm(result.MemberMatchStruct.MemberMatchID)" style="padding: 0 3px;"
+                              data-toggle="tooltip" data-placement="top" title="Confirm">
+                              <span class="icon">
+                                <i class="fas fa-check-circle" style="color: #aacb3a; font-size: 18px;"></i>
+                              </span>
+                            </button>
+                            <button type="submit" value="Confirm" name="ButtonType" class="btn"
+                              ng-click="Confirm(result.MemberMatchStruct.MemberMatchID)" style="padding: 0 3px;"
+                              data-toggle="tooltip" data-placement="top" title="Unmatch">
+                              <span class="icon">
+                                <i class="fas fa-cut" style="color: #6359E9; font-size: 18px;"></i>
+                              </span>
+                            </button>
+                            <button type="submit" value="Confirm" name="ButtonType" class="btn"
+                              ng-click="Confirm(result.MemberMatchStruct.MemberMatchID)" style="padding: 0 3px;"
+                              data-toggle="tooltip" data-placement="top" title="Match">
+                              <span class="icon">
+                                <i class="fas fa-paperclip" style="color: #6359E9; font-size: 18px;"></i>
+                              </span>
+                            </button>
+                            <button type="submit" value="Confirm" name="ButtonType" class="btn"
+                              ng-click="Confirm(result.MemberMatchStruct.MemberMatchID)"
+                              style="padding: 0px; width: 21px; height: 21px; background-color: #f6c734; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;"
+                              data-toggle="tooltip" data-placement="top" title="Connect Statement">
+                              <span class=" icon">
+                                <i class="fas fa-link" style="color: #ffffff; font-size: 13px;"></i>
+                              </span>
+                            </button>
+                          </div>
+                          <!-- end ngIf: !IsOfflineOriginal && result.MemberMatchStruct.RequestID > 0 && result.MemberMatchStruct.MatchingStatus == 0 && result.MemberMatchStruct.Audit == 1 -->
+                          <!-- ngIf: IsOfflineOriginal && result.StatementMatchStruct.StatementID > 0 && result.StatementMatchStruct.MatchingID == 0 -->
+                          &nbsp;
+                        </td>
+                      </tr>
+                      <!-- end ngRepeat: result in results -->
+                      <tr ng-repeat="result in results" class=""
+                        ng-class="result.MemberMatchStruct.RequestID > 0 &amp;&amp; result.MemberMatchStruct.MatchingStatus == 0 ? 'matched' : result.MemberMatchStruct.RequestID > 0 &amp;&amp; result.MemberMatchStruct.Status == 1 ? 'fail' : ''">
+                        <td ng-click="SetSelectedTxn(result.MemberMatchStruct.MemberMatchID)"
+                          ng-class="result.MemberMatchStruct.MemberMatchID == TargetTxnID ? 'highlight' : ''"
+                          class="ng-binding">
+                        </td>
+                        <td ng-click="SetSelectedTxn(result.MemberMatchStruct.MemberMatchID)"
+                          ng-class="result.MemberMatchStruct.MemberMatchID == TargetTxnID ? 'highlight' : ''">
+                          <!-- ngIf: result.MemberMatchStruct.RequestID > 0 -->
+                        </td>
+                        <!-- ngIf: IsOfflineOriginal -->
+                        <!-- ngIf: IsOfflineOriginal -->
+                        <!-- ngIf: !IsOfflineOriginal -->
+                        <td ng-click="SetSelectedTxn(result.MemberMatchStruct.MemberMatchID)"
+                          ng-class="result.MemberMatchStruct.MemberMatchID == TargetTxnID ? 'highlight' : ''"
+                          ng-if="!IsOfflineOriginal" class="ng-binding ng-scope">
+                        </td>
+                        <!-- end ngIf: !IsOfflineOriginal -->
+                        <!-- ngIf: !IsOfflineOriginal -->
+                        <td ng-click="SetSelectedTxn(result.MemberMatchStruct.MemberMatchID)"
+                          ng-class="result.MemberMatchStruct.MemberMatchID == TargetTxnID ? 'highlight' : ''"
+                          ng-if="!IsOfflineOriginal" class="ng-scope">
+                          <div name="btnDetail" class="entered-data ng-binding" ng-click="ShowDetails(result)">
+                          </div>
+                        </td>
+                        <!-- end ngIf: !IsOfflineOriginal -->
+                        <td ng-click="SetSelectedTxn(result.MemberMatchStruct.MemberMatchID)"
+                          ng-class="result.MemberMatchStruct.MemberMatchID == TargetTxnID ? 'highlight' : ''"
+                          class="ng-binding">
+                        </td>
+                        <td ng-click="SetSelectedTxn(result.MemberMatchStruct.MemberMatchID)"
+                          ng-class="result.MemberMatchStruct.MemberMatchID == TargetTxnID ? 'highlight' : ''">
+                          <!-- ngIf: result.MemberMatchStruct.RequestID > 0 -->
+                        </td>
+                        <td ng-click="SetSelectedTxn(result.MemberMatchStruct.MemberMatchID)"
+                          ng-class="result.MemberMatchStruct.MemberMatchID == TargetTxnID ? 'highlight' : ''">
+                          <!-- ngIf: result.MemberMatchStruct.RequestID > 0 && !result.IsTransferredTime -->
+                        </td>
+                        <td ng-click="SetSelectedTxn(result.MemberMatchStruct.MemberMatchID)"
+                          ng-class="result.MemberMatchStruct.MemberMatchID == TargetTxnID ? 'highlight' : ''">
+                          <!-- ngIf: result.MemberMatchStruct.RequestID > 0 -->
+                        </td>
+                        <td ng-click="SetSelectedTxn(result.MemberMatchStruct.MemberMatchID)"
+                          ng-class="result.MemberMatchStruct.MemberMatchID == TargetTxnID ? 'highlight' : ''"
+                          class="separate-col Status">
+                          <!-- ngIf: result.MemberMatchStruct.RequestID > 0 -->
+                        </td>
+                        <th style="min-width: 10px;"></th>
+                        <td ng-click="SetSelectedStm(result.StatementMatchStruct.StatementID)"
+                          ng-class="result.StatementMatchStruct.StatementID == TargetStmID ? 'highlight' : ''"
+                          class="ng-binding">
+                          12345
+                        </td>
+                        <td ng-click="SetSelectedStm(result.StatementMatchStruct.StatementID)"
+                          ng-class="result.StatementMatchStruct.StatementID == TargetStmID ? 'highlight' : ''">
+                          <!-- ngIf: result.StatementMatchStruct.StatementID > 0 -->
+                          <div ng-if="result.StatementMatchStruct.StatementID > 0" class="ng-binding ng-scope">
+                            17/05/2024<br>
+                            18:17:22
+                          </div>
+                          <!-- end ngIf: result.StatementMatchStruct.StatementID > 0 -->
+                        </td>
+                        <td ng-click="SetSelectedStm(result.StatementMatchStruct.StatementID)"
+                          ng-class="result.StatementMatchStruct.StatementID == TargetStmID ? 'highlight' : ''">
+                          <!-- ngIf: result.StatementMatchStruct.StatementID > 0 -->
+                          <div ng-if="result.StatementMatchStruct.StatementID > 0" class="ng-binding ng-scope">
+                            10,000.00
+                          </div>
+                          <!-- end ngIf: result.StatementMatchStruct.StatementID > 0 -->
+                        </td>
+                        <td ng-click="SetSelectedStm(result.StatementMatchStruct.StatementID)"
+                          ng-class="result.StatementMatchStruct.StatementID == TargetStmID ? 'highlight' : ''">
+                          <!-- ngIf: result.StatementMatchStruct.StatementID > 0 -->
+                          <div ng-if="result.StatementMatchStruct.StatementID > 0" class="ng-binding ng-scope">
+                            0.00
+                          </div>
+                          <!-- end ngIf: result.StatementMatchStruct.StatementID > 0 -->
+                        </td>
+                        <td ng-click="SetSelectedStm(result.StatementMatchStruct.StatementID)"
+                          ng-class="result.StatementMatchStruct.StatementID == TargetStmID ? 'highlight' : ''"
+                          class="ng-binding">
+                          SPTID0323
+                        </td>
+                        <td ng-click="SetSelectedStm(result.StatementMatchStruct.StatementID)"
+                          ng-class="result.StatementMatchStruct.StatementID == TargetStmID ? 'highlight' : ''">
+                          <div class="entered-data" name="btnAddNote" data-toggle="modal"
+                            data-target="#addStatementNoteModal"
+                            ng-click="SetNote(result.StatementMatchStruct.Note); SetTrigger(result.StatementMatchStruct.StatementID);">
+                            <!-- ngIf: result.StatementMatchStruct.Note -->
+                            <!-- ngIf: !result.StatementMatchStruct.Note && result.StatementMatchStruct.StatementID > 0 -->
+                            <div
+                              ng-if="!result.StatementMatchStruct.Note &amp;&amp; result.StatementMatchStruct.StatementID > 0"
+                              class="ng-scope">
+                              <div>&nbsp; &nbsp; &nbsp; &nbsp;</div>
+                            </div>
+                            <!-- end ngIf: !result.StatementMatchStruct.Note && result.StatementMatchStruct.StatementID > 0 -->
+                          </div>
+                          <!-- ngIf: result.MemberMatchStruct.TypeMatch == 'MANUAL' -->
+                          <!-- ngIf: result.MemberMatchStruct.TypeMatch && result.MemberMatchStruct.TypeMatch != 'MANUAL' -->
+                          <!-- ngIf: result.StatementMatchStruct.IsManual -->
+                          <div ng-if="result.StatementMatchStruct.IsManual" class="ng-scope">
+                            <i class="fa fa-user-plus"></i>
+                          </div>
+                          <!-- end ngIf: result.StatementMatchStruct.IsManual -->
+                        </td>
+                        <td ng-click="SetSelectedStm(result.StatementMatchStruct.StatementID)"
+                          ng-class="result.StatementMatchStruct.StatementID == TargetStmID ? 'highlight' : ''"
+                          class="ng-binding">
+                        </td>
+                        <td ng-click="SetSelectedStm(result.StatementMatchStruct.StatementID)"
+                          ng-show="IsOfflineOriginal"
+                          ng-class="result.StatementMatchStruct.StatementID == TargetStmID ? 'highlight' : ''"
+                          class="ng-binding ng-hide">
+                        </td>
+                        <td ng-click="SetSelectedStm(result.StatementMatchStruct.StatementID)"
+                          ng-class="result.StatementMatchStruct.StatementID == TargetStmID ? 'highlight' : ''">
+                          <!-- ngIf: result.MemberMatchStruct.RequestID > 0 && result.MemberMatchStruct.MatchingStatus == 1 && result.MemberMatchStruct.Audit == 1 -->
+                          <!-- ngIf: !IsOfflineOriginal && result.MemberMatchStruct.RequestID > 0 && result.MemberMatchStruct.MatchingStatus == 0 && result.MemberMatchStruct.Audit == 1 -->
+                          <!-- ngIf: IsOfflineOriginal && result.StatementMatchStruct.StatementID > 0 && result.StatementMatchStruct.MatchingID == 0 -->
+                          &nbsp;
+                        </td>
+                      </tr>
+                      <!-- end ngRepeat: result in results -->
+                    </tbody>
+                  </table>
+                  <button hidden="" id="TriggerShowDetail" data-toggle="modal" data-target="#ModalTXNDetail"></button>
                 </div>
-
-                <!-- Pagination -->
-                <div class="d-flex flex-column flex-sm-row justify-content-between my-3 align-items-center">
-                  <div class="mb-2">
-                    <!-- ngIf: TotalItem>0 -->
-                    <!-- ngIf: TotalItem==0 -->
-                    <div ng-if="TotalItem==0" class="dataTables_info ng-scope" id="dataTable_info" role="status"
-                      aria-live="polite">
-                      Does not have any entries
-                    </div><!-- end ngIf: TotalItem==0 -->
+              </div>
+              <div class="d-flex flex-column flex-sm-row justify-content-between my-3 align-items-center">
+                <div class="mb-2">
+                  <!-- ngIf: TotalItem>0 -->
+                  <div ng-if="TotalItem>0" class="dataTables_info ng-binding ng-scope" id="dataTable_info" role="status"
+                    aria-live="polite">
+                    Showing 1 to 3 of 3 entries
                   </div>
-                  <ul class="pagination ng-isolate-scope ng-not-empty ng-valid mb-0" total-items="TotalItem"
+                  <!-- end ngIf: TotalItem>0 -->
+                </div>
+                <div class="dataTables_paginate paging_simple_numbers">
+                  <ul class="pagination ng-isolate-scope ng-not-empty ng-valid" total-items="TotalItem"
                     items-per-page="NumberRecord" max-size="10" ng-model="Page" ng-change="Search()">
                     <!-- ngIf: ::boundaryLinks -->
                     <!-- ngIf: ::directionLinks -->
                     <li ng-if="::directionLinks" ng-class="{disabled: noPrevious()||ngDisabled}"
-                      class="paginate_button page-item previous ng-scope disabled"><a href=""
-                        ng-click="selectPage(page - 1, $event)" class="page-link ng-binding">Previous</a></li>
+                      class="pagination-prev ng-scope disabled"><a href="" ng-click="selectPage(page - 1, $event)"
+                        class="ng-binding page-link">Previous</a>
+                    </li>
                     <!-- end ngIf: ::directionLinks -->
                     <!-- ngRepeat: page in pages track by $index -->
                     <li ng-repeat="page in pages track by $index"
                       ng-class="{active: page.active,disabled: ngDisabled&amp;&amp;!page.active}"
-                      class="paginate_button page-item ng-scope active">
-                      <a href="" ng-click="selectPage(page.number, $event)" class="page-link ng-binding">1</a>
+                      class="pagination-page ng-scope active">
+                      <a href="" ng-click="selectPage(page.number, $event)" class="ng-binding page-link">1</a>
                     </li>
                     <!-- end ngRepeat: page in pages track by $index -->
                     <!-- ngIf: ::directionLinks -->
                     <li ng-if="::directionLinks" ng-class="{disabled: noNext()||ngDisabled}"
-                      class="paginate_button page-item ng-scope disabled"><a href=""
-                        ng-click="selectPage(page + 1, $event)" class="ng-binding page-link">Next</a></li>
+                      class="pagination-next ng-scope disabled"><a href="" ng-click="selectPage(page + 1, $event)"
+                        class="ng-binding page-link">Next</a>
+                    </li>
                     <!-- end ngIf: ::directionLinks -->
                     <!-- ngIf: ::boundaryLinks -->
                   </ul>
-
                 </div>
-
-                <!-- Number of Records -->
-                <ul class="pagination d-flex align-items-center mb-0">
-                  <li class="mr-2" style="font-weight:bold; font-style:italic">Number of records:</li>
-                  <li>
-                    <select ng-model="NumberRecord" ng-change="Page=1; Search()" id="NumberRecord"
-                      class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-valid ng-not-empty"
-                      onchange="$('#formData').submit();">
-                      <option class="page-item page-link" value="20">20</option>
-                      <option class="page-item page-link" value="50">50</option>
-                      <option class="page-item page-link" value="100" selected="selected">100</option>
-                    </select>
-                  </li>
-                </ul>
               </div>
+              <ul class="pagination d-flex align-items-center mb-0">
+                <li class="mr-2" style="font-weight:bold; font-style:italic">Number of records:</li>
+                <li>
+                  <select ng-model="NumberRecord" ng-change="Page=1; Search()" id="NumberRecord"
+                    class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-valid ng-not-empty"
+                    onchange="$('#formData').submit();">
+                    <option class="page-item page-link" value="20">20</option>
+                    <option class="page-item page-link" value="50">50</option>
+                    <option class="page-item page-link" value="100" selected="selected">100</option>
+                  </select>
+                </li>
+              </ul>
             </div>
 
             <form action="/Matching/ExportTXN" id="ExportForm" method="post" target="_blank"
               class="ng-pristine ng-valid"><input name="__RequestVerificationToken" type="hidden"
-                value="En5l-7F8idz67rm9h4-MR032538RhoH4MlG4P2vdR7P8ghlNvBu51smS4pCcMB-21MPfERt1GBcwhoX2T0eIX_i57jYr8CUpai3tvWGO2oA1"
+                value="hzazP0tTByGyJg7JcO_qsFVqv-kjgEVDb7kWQLwT4dPqXrcQhHGjkONZOFIctcZpTimYFCNPX2MBLeGdFZGM-hozBJ9AKA3IfWgfLe6yCVs1"
                 autocomplete="off"><input id="ExportFromDate" name="ExportFromDate" type="hidden" value=""
                 autocomplete="off"><input id="ExportToDate" name="ExportToDate" type="hidden" value=""
                 autocomplete="off"><input id="ExportAccount" name="ExportAccount" type="hidden" value=""
-                autocomplete="off"></form>
+                autocomplete="off">
+            </form>
+
             <!-- Modal -->
             <div class="modal fade" id="addCustomerModal" tabindex="-1" role="dialog"
               aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -1441,6 +1600,7 @@
                 </div>
               </div>
             </div>
+
             <!-- Modal -->
             <div class="modal fade" id="addTxnIDModal" tabindex="-1" role="dialog"
               aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -1469,13 +1629,14 @@
                 </div>
               </div>
             </div>
+
             <!-- Modal -->
             <div class="modal fade" id="ModalAddStatementManual" tabindex="-1" role="dialog"
               aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                   <div class="modal-header change-color">
-                    <h5 class="modal-title" id="exampleModalLabel">Add Statement Manual</h5>
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Add Statement Manual</h5>
                     <button type="button" id="btnCloseAddStatementManualForm" class="close" data-dismiss="modal"
                       aria-label="Close">
                       <span aria-hidden="true">×</span>
@@ -1486,10 +1647,12 @@
                       <div class="form-group">
                         <label for="message-text" class="col-form-label">Account Statement:</label>
                         <select required=""
-                          class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"
+                          class="custom-select custom-select-sm form-control form-control-sm ng-pristine ng-untouched ng-not-empty ng-valid ng-valid-required"
                           disabled="" ng-model="FAccountID">
-                          <option value="? undefined:undefined ?" selected="selected"></option>
                           <!-- ngRepeat: account in supportedAccounts | filter: {ID:FAccountID} -->
+                          <option ng-repeat="account in supportedAccounts | filter: {ID:FAccountID}" value="354"
+                            class="ng-binding ng-scope" selected="selected">038100060904344 - Test</option>
+                          <!-- end ngRepeat: account in supportedAccounts | filter: {ID:FAccountID} -->
                         </select>
                       </div>
                       <div class="form-group">
@@ -1969,7 +2132,9 @@
 
 
             </script>
-
+            <script src="/Content/Template2/js/sb-admin-2.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
+            <script src="/Content/Template2/vendor/datatables/jquery.dataTables.min.js"></script>
             <input id="filterWithAccountID" name="filterWithAccountID" type="hidden" value="" autocomplete="off">
           </div>
           <script type="text/javascript">
@@ -2155,7 +2320,7 @@
                   $scope.filterStatus = 1;
               }
 
-              $scope.FTransferredTime = $scope.Date("5/15/2024 12:08:31 PM");
+              $scope.FTransferredTime = $scope.Date("5/22/2024 11:38:55 PM");
 
               $scope.setPage = function (pageNo) {
                 $scope.Page = pageNo;
@@ -2791,9 +2956,7 @@
               }, 0)
             })
           </script>
-
         </div>
-
       </div>
       <!-- /.container-fluid -->
       <!-- End of Main Content -->
