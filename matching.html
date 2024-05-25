@@ -1704,12 +1704,7 @@
                 </div>
               </div>
             </div>
-            <script type="text/javascript">
-              $(function () {
-
-              })
-            </script>
-            <script type="text/javascript">
+            <!-- <script type="text/javascript">
               $(function () {
                 //$.ajaxSetup({
                 //    error: function (jqXHR, exception) {
@@ -2135,9 +2130,9 @@
             <script src="/Content/Template2/js/sb-admin-2.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
             <script src="/Content/Template2/vendor/datatables/jquery.dataTables.min.js"></script>
-            <input id="filterWithAccountID" name="filterWithAccountID" type="hidden" value="" autocomplete="off">
+            <input id="filterWithAccountID" name="filterWithAccountID" type="hidden" value="" autocomplete="off"> -->
           </div>
-          <script type="text/javascript">
+          <!-- <script type="text/javascript">
             app.service("dtService", function ($http) {
               var host = location.protocol + "//" + location.host;
               this.GetData = function (filterAccount, filterCurrency, filterBank, filterAccountStatus, filterTransactionID, filterSPID, _filterAmount, _queryAmount, _qHour, _qMinute, _qSecond, _NumberRecord, filterFromDate, filterToDate, _status, page) {
@@ -2948,14 +2943,14 @@
                 $("#ExportForm").submit();
               });
             })
-          </script>
-          <script type="text/javascript">
+          </script> -->
+          <!-- <script type="text/javascript">
             $(document).ready(function () {
               setTimeout(function () {
                 $("#formData").submit();
               }, 0)
             })
-          </script>
+          </script> -->
         </div>
       </div>
       <!-- /.container-fluid -->
@@ -3001,6 +2996,71 @@
     </div>
   </div>
 
+  <!-- Profile Modal-->
+  <div class="modal fade show modal-profile" id="changeProfile" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-modal="true" style="display: block;">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Edit Profile</h3>
+        </div>
+        <div class="modal-body">
+          <form action="/Home/ChangeAvatar" method="post" id="formChangeAvatar"
+            class="ng-pristine ng-valid upload-image form-modal">
+            <p class="form-modal-title">
+              Avatar
+            </p>
+            <div class="upload-image-input">
+              <label for="inputImage">
+                Select Image <br />
+                <i class="fa fa-2x fa-camera"></i>
+                <input id="inputImage" type="file" accept="image/*" />
+                <br />
+                <span id="imageName"></span>
+              </label>
+              <!-- <input id="inputImage" type="file" accept="image/*" required=""> -->
+            </div>
+            <button type="submit" class="btn btn-primary">Change</button>
+            <input id="postURL" name="postURL" type="hidden" value="/Home/ChangeAvatar" autocomplete="off">
+          </form>
+          <form action="" method="post" id="formChangeEmail" class="ng-pristine ng-valid form-modal change-email-form">
+            <p class="form-modal-title">Email</p>
+            <div class="change-email-info">
+              <p class="label">Current Email: </p>
+              <p class="label">New Email: </p>
+              <input id="inputEmail" type="email" required="" class="form-control">
+            </div>
+            <div class="change-email-confirm">
+              <button type="submit" class="btn btn-primary">Change</button>
+              <input id=" postEmailURL" name="postEmailURL" type="hidden" value="/Home/ChangeEmail" autocomplete="off">
+              <input id="sendEmailURL" name="sendEmailURL" type="hidden" value="/Home/VerifyMail" autocomplete="off">
+              <input id="CurrentEmail" name="CurrentEmail" type="hidden" value="" autocomplete="off">
+            </div>
+          </form>
+          <form action="" method="post" id="formChangeEmail" class="ng-pristine ng-valid form-modal form-authenticator">
+            <div class="form-authenticator-content">
+              <p class="form-modal-title">Google<br>Authenticator</p>
+              <p class="status">Status:<span class="span">Disabled</span></p>
+              <div class="">
+                <button id="btnActiveGGAuth" type="button" class="btn btn-primary">Active</button>
+                <input id="activeGGAuthURL" name="activeGGAuthURL" type="hidden" value="/Home/ActiveGGAuth"
+                  autocomplete="off">
+              </div>
+            </div>
+            <div class="form-authenticator-input" id="GGCodeDiv" style="display: block">
+              <img id="GGAuthImg">
+              <div class="info-part">
+                <p class="form-modal-title">Input Code: </p>
+                <input id="GGCode" name="GGCode" required="" class="form-control">
+                <button type="button" id="btnSubmitGGCode" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -3020,11 +3080,22 @@
 
   <script type="text/javascript">
     $(function () {
-      $('#inputImage').bind('change', function () {
+      // $('#inputImage').bind('change', function () {
 
-      });
+      // });
+
+      let input = document.getElementById("inputImage");
+      let imageName = document.getElementById("imageName")
+
+      input.addEventListener("change", () => {
+        let inputImage = document.querySelector("input[type=file]").files[0];
+
+        imageName.innerText = inputImage.name;
+      })
+
       $("#formChangeAvatar").submit(function (e) {
         e.preventDefault();
+
 
         var fileUpload = $("#inputImage").get(0);
         var files = fileUpload.files;
