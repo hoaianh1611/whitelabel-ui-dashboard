@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Overview</title>
+  <title>SB Admin 2 - Matching</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -601,287 +601,60 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
+          <div class="title-page">Create Role</div>
 
-          <div ng-controller="MasterOverviewCtrl" ng-init="init();" ng-cloak>
-            <h2 class="title-page">UI_Design Overview</h2>
-
-            <!-- Filter -->
-            <div class="d-flex flex-wrap align-items-end form-filter">
-              <div class="">
-                <p class="label-info">Merchant</p>
-                <select ng-model="MerchantSelected" ng-init="" class="custom-select form-control form-control-sm"
-                  ng-change="filterMerchant(MerchantSelected); Search()">
-                  <option value="" ng-if="listMerchant.length >= 1">ALL</option>
-                  <option ng-selected="{{merchant.ID == MerchantSelected}}" ng-repeat="merchant in listMerchant"
-                    value="Sub_UI">
-                    Sub_UI
-                  </option>
-                  <option ng-selected="{{merchant.ID == MerchantSelected}}" ng-repeat="merchant in listMerchant"
-                    value="ALL">
-                    ALL
-                  </option>
-                </select>
-              </div>
-              <div class="">
-                <p class="label-info">Currency</p>
-                <select ng-model="MerchantSelected" ng-init="" class="custom-select form-control form-control-sm"
-                  ng-change="filterMerchant(MerchantSelected); Search()">
-                  <option value="" ng-if="listMerchant.length >= 1">THB</option>
-                  <option ng-selected="{{merchant.ID == MerchantSelected}}" ng-repeat="merchant in listMerchant"
-                    value="THB">
-                    THB
-                  </option>
-                  <option ng-selected="{{merchant.ID == MerchantSelected}}" ng-repeat="merchant in listMerchant"
-                    value="VND">
-                    VND
-                  </option>
-                </select>
-              </div>
-              <div class="">
-                <label>
-                  <p class="label-info">From</p>
-                </label>
-                <input id="FromDate" type="date" ng-model="FilterFromDate" ng-init="FilterFromDate=Date('2024-05-10')"
-                  class="form-control" />
-              </div>
-              <div class="">
-                <label>
-                  <p class="label-info">To</p>
-                </label>
-                <input id="ToDate" type="date" ng-model="FilterToDate" ng-init="FilterToDate=Date('2024-05-10')"
-                  class="form-control" />
-              </div>
-              <div class="group-btn">
-                <button ng-click="filterFromDate(FilterFromDate); filterToDate(FilterToDate); Search()" type="button"
-                  value="Search" id="btnSearch" name="ButtonType"
-                  class="d-inline-block btn btn-sm btn-primary shadow-sm">
-                  <i class="fas fa-filter fa-sm text-white-50 mr-1"></i>
-                  <span class="text">Filter</span>
-                </button>
-                <button ng-click="Export()" id="btnExport" type="submit"
-                  class="d-inline-block btn btn-sm btn-primary shadow-sm" name="ButtonType" value="Submit" ng-click="">
-                  <i class="fas fa-download fa-sm text-white-50 mr-1"></i>
-                  <span class="text">Generate Report</span>
-                </button>
-              </div>
-            </div>
-
-            <!-- Overview Total Balance -->
-            <div id="dataTable_wrapper" class="total-balance">
-              <div ng-repeat="curr in listTotalCurrency" class="card-balance deposit">
-                <p class="card-balance-title">Total Deposit</p>
-                <p class="card-balance-total">500<span class="currency">THB</span></p>
-                <p class="card-balance-desc">Total amount of deposit</p>
-              </div>
-              <div ng-repeat="curr in listTotalCurrency" class="card-balance payout">
-                <p class="card-balance-title">Total Payout</p>
-                <p class="card-balance-total">500<span class="currency">THB</span></p>
-                <p class="card-balance-desc">Total amount of payout</p>
-              </div>
-              <div ng-repeat="curr in listTotalCurrency" class="card-balance topup">
-                <p class="card-balance-title">Total Topup</p>
-                <p class="card-balance-total">500<span class="currency">THB</span></p>
-                <p class="card-balance-desc">Total amount of topup</p>
-              </div>
-              <div ng-repeat="curr in listTotalCurrency" class="card-balance settlement">
-                <p class="card-balance-title">Total Settlement</p>
-                <p class="card-balance-total">500<span class="currency">THB</span></p>
-                <p class="card-balance-desc">Total amount of settlement</p>
-              </div>
-            </div>
-
-            <!-- Chart -->
-            <div class="chart-group">
-              <div class="card shadow">
-                <p class="card-balance-title">Total Deposit</p>
-                <canvas id="deposit_chart"></canvas>
-              </div>
-              <div class="card shadow">
-                <p class="card-balance-title">Total Payout</p>
-                <canvas id="payout_chart"></canvas>
-              </div>
-              <div class="card shadow">
-                <p class="card-balance-title">Total TopUp</p>
-                <canvas id="topup_chart"></canvas>
-              </div>
-              <div class="card shadow">
-                <p class="card-balance-title">Total Settlement</p>
-                <canvas id="settlement_chart"></canvas>
-              </div>
-            </div>
-
-            <!-- Table Volume -->
-            <div class="card shadow">
-              <div class="card-header">
-                <p class="table-title">Volume Detail</p>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="0">
-                    <thead>
-                      <tr>
-                        <th>Channels</th>
-                        <th>
-                          <div>Deposit</div>
-                        </th>
-                        <!-- ngIf: initData.canSeeFee -->
-                        <th>
-                          <div>Payout</div>
-                        </th>
-                        <!-- ngIf: initData.canSeeFee -->
-                        <th>
-                          <div>Topup</div>
-                        </th>
-                        <th>
-                          <div>Settlement</div>
-                        </th>
-                        <!-- ngIf: initData.canSeeFee -->
-
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <!-- ngRepeat: item in results -->
-                      <tr ng-repeat="item in results" class="ng-scope">
-                        <td style="font-weight: bold" class="ng-binding">
-                          Offline Original
-                        </td>
-                        <td class="ng-binding">
-                          0.00
-                        </td>
-                        <!-- ngIf: initData.canSeeFee -->
-                        <td class="ng-binding">
-                          0.00
-                        </td>
-                        <!-- ngIf: initData.canSeeFee -->
-                        <td class="ng-binding">
-                          0.00
-                        </td>
-                        <td class="ng-binding">
-                          0.00
-                        </td>
-                        <!-- ngIf: initData.canSeeFee -->
-                      </tr><!-- end ngRepeat: item in results -->
-                      <tr ng-repeat="item in results" class="ng-scope">
-                        <td style="font-weight: bold" class="ng-binding">
-                          Offline
-                        </td>
-                        <td class="ng-binding">
-                          0.00
-                        </td>
-                        <!-- ngIf: initData.canSeeFee -->
-                        <td class="ng-binding">
-                          0.00
-                        </td>
-                        <!-- ngIf: initData.canSeeFee -->
-                        <td class="ng-binding">
-                          0.00
-                        </td>
-                        <td class="ng-binding">
-                          0.00
-                        </td>
-                        <!-- ngIf: initData.canSeeFee -->
-                      </tr><!-- end ngRepeat: item in results -->
-                      <tr ng-repeat="item in results" class="ng-scope">
-                        <td style="font-weight: bold" class="ng-binding">
-                          TransferOut
-                        </td>
-                        <td class="ng-binding">
-                          0.00
-                        </td>
-                        <!-- ngIf: initData.canSeeFee -->
-                        <td class="ng-binding">
-                          0.00
-                        </td>
-                        <!-- ngIf: initData.canSeeFee -->
-                        <td class="ng-binding">
-                          0.00
-                        </td>
-                        <td class="ng-binding">
-                          0.00
-                        </td>
-                        <!-- ngIf: initData.canSeeFee -->
-                      </tr><!-- end ngRepeat: item in results -->
-                      <tr ng-repeat="item in results" class="ng-scope">
-                        <td style="font-weight: bold" class="ng-binding">
-                          PromptPay
-                        </td>
-                        <td class="ng-binding">
-                          0.00
-                        </td>
-                        <!-- ngIf: initData.canSeeFee -->
-                        <td class="ng-binding">
-                          0.00
-                        </td>
-                        <!-- ngIf: initData.canSeeFee -->
-                        <td class="ng-binding">
-                          0.00
-                        </td>
-                        <td class="ng-binding">
-                          0.00
-                        </td>
-                        <!-- ngIf: initData.canSeeFee -->
-                      </tr><!-- end ngRepeat: item in results -->
-                      <tr ng-repeat="item in results" class="ng-scope">
-                        <td style="font-weight: bold" class="ng-binding">
-                          SmartCard
-                        </td>
-                        <td class="ng-binding">
-                          0.00
-                        </td>
-                        <!-- ngIf: initData.canSeeFee -->
-                        <td class="ng-binding">
-                          0.00
-                        </td>
-                        <!-- ngIf: initData.canSeeFee -->
-                        <td class="ng-binding">
-                          0.00
-                        </td>
-                        <td class="ng-binding">
-                          0.00
-                        </td>
-                        <!-- ngIf: initData.canSeeFee -->
-                      </tr><!-- end ngRepeat: item in results -->
-                      <tr ng-repeat="item in results" class="ng-scope">
-                        <td style="font-weight: bold" class="ng-binding">
-                          Internet Banking
-                        </td>
-                        <td class="ng-binding">
-                          0.00
-                        </td>
-                        <!-- ngIf: initData.canSeeFee -->
-                        <td class="ng-binding">
-                          0.00
-                        </td>
-                        <!-- ngIf: initData.canSeeFee -->
-                        <td class="ng-binding">
-                          0.00
-                        </td>
-                        <td class="ng-binding">
-                          0.00
-                        </td>
-                        <!-- ngIf: initData.canSeeFee -->
-                      </tr><!-- end ngRepeat: item in results -->
-                    </tbody>
-                    <tfoot>
-                      <tr ng-show="totalForm" class="">
-                        <td style="font-weight: bold">TOTAL</td>
-                        <td class="color-total ng-binding">0.00</td>
-                        <!-- ngIf: initData.canSeeFee -->
-                        <td class="color-total ng-binding">0.00</td>
-                        <!-- ngIf: initData.canSeeFee -->
-                        <td class="color-total ng-binding">0.00</td>
-                        <td class="color-total ng-binding">0.00</td>
-                        <!-- ngIf: initData.canSeeFee -->
-                      </tr>
-                    </tfoot>
-                  </table>
+          <div class="card">
+            <div class="card-body">
+              <form action="/Admin/rolemanage/Create" method="post" class="ng-pristine ng-valid form-create-user">
+                <input name="__RequestVerificationToken" type="hidden"
+                  value="4JyjGrw9JdMcmjeK6C3Wx62RK-GFAYcU_kHljk3EmiYV3tvdKIjjU7dYkKOgyOciL_JVE91A681YhkQQxq8hWISDOVGRcgvkD8_1aZfwMQE1"
+                  autocomplete="off">
+                <div class="form-item">
+                  <label class="form-item-label" for="Role_Code">Role Code</label>
+                  <div class="form-item-input">
+                    <input class="form-control" data-val="true" data-val-required="The RoleCode field is required."
+                      id="role_RoleCode" name="role.RoleCode" placeholder="Please enter role code..." type="text"
+                      value="">
+                    <span class="field-validation-valid text-danger" data-valmsg-for="role.RoleCode"
+                      data-valmsg-replace="true"></span>
+                  </div>
                 </div>
-              </div>
+                <div class="form-item">
+                  <label class="form-item-label" for="Role_Name">Role Name</label>
+                  <div class="form-item-input">
+                    <input class="form-control" data-val="true" data-val-required="The RoleName field is required."
+                      id="role_RoleName" name="role.RoleName" placeholder="Please enter role name..." type="text"
+                      value="">
+                    <span class="field-validation-valid text-danger" data-valmsg-for="role.RoleName"
+                      data-valmsg-replace="true"></span>
+                  </div>
+                </div>
+                <div class="form-item">
+                  <label class="form-item-label" for="Role_Name">Select Permission</label>
+                  <div class="form-item-input">
+                    <input type="text" id="role_list" placeholder="Select" class="form-control">
+                  </div>
+                </div>
+                <div class="form-item">
+                  <button type="submit" class="btn btn-primary">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-check"></i>
+                    </span>
+                    <span class="text">Create</span>
+                  </button>
+                  <a href="/Admin/rolemanage" class="btn bg-gray-500">
+                    <span class="icon text-white">
+                      <i class="fas fa-times"></i>
+                    </span>
+                    <span class="text text-white">Cancel</span>
+                  </a>
+                </div>
+              </form>
             </div>
-
           </div>
-        </div>
 
+
+        </div>
       </div>
       <!-- /.container-fluid -->
       <!-- End of Main Content -->
@@ -933,6 +706,9 @@
   <!-- Core plugin JavaScript-->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
+  <!-- JS for Tree Select-->
+  <script src="js/comboTreePlugin.min.js"></script>
+
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
 
@@ -943,375 +719,825 @@
   <script src="vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
+  <script type="text/javascript">
+    //Select Tree JS
+    var myData = [
+      {
+        id: 1,
+        title: "Main Menu",
+        isSelectable: false,
+        subs: [
+          {
+            id: 10,
+            title: "Merchant Balance Overview",
+          },
+          {
+            id: 11,
+            title: "Overview",
+          },
+        ],
+      },
+      {
+        id: 2,
+        title: "Bank Transfer",
+        isSelectable: false,
+        subs: [
+          {
+            id: 20,
+            title: "Deposit",
+            isSelectable: false,
+            collapse: true,
+            subs: [
+              {
+                id: 201,
+                title: "Offline Deposit - Offline History",
+              },
+              {
+                id: 202,
+                title: "Offline Deposit - Offline Matching",
+              },
+              {
+                id: 203,
+                title: "QRPay Deposit - QR History",
+              },
+              {
+                id: 204,
+                title: "QRPay Deposit - QR Matching",
+              },
+            ],
+          },
+          {
+            id: 21,
+            title: "Payout",
+            isSelectable: false,
+            collapse: true,
+            subs: [
+              {
+                id: 211,
+                title: "Payout In Progress",
+              },
+              {
+                id: 212,
+                title: "Payout History",
+              },
+              {
+                id: 213,
+                title: "Payout Matching",
+              },
+              {
+                id: 214,
+                title: "Approval Transactions",
+              },
+              {
+                id: 214,
+                title: "Batches Payout",
+              },
+            ],
+          },
+          {
+            id: 22,
+            title: "Settlement",
+            isSelectable: false,
+            collapse: true,
+            subs: [
+              {
+                id: 221,
+                title: "Manage Accounts Settlement",
+                subs: [
+                  {
+                    id: 2211,
+                    title: "Settlement History",
+                  },
+                  {
+                    id: 2212,
+                    title: "Settlement Requests",
+                  },
+                  {
+                    id: 2213,
+                    title: "Create New Account Settlement",
+                  },
+                ]
+              },
+              {
+                id: 222,
+                title: "Edit Account Settlement Info",
+              }
+            ],
+          },
+          {
+            id: 23,
+            title: "eBanking Account Management",
+            isSelectable: false,
+            collapse: true,
+            subs: [
+              {
+                id: 231,
+                title: "Accounts Balance Overview",
+              },
+              {
+                id: 232,
+                title: "Manage Banks",
+              },
+              {
+                id: 233,
+                title: "Manage Accounts",
+                subs: [
+                  {
+                    id: 2331,
+                    title: "Create New Account",
+                  },
+                  {
+                    id: 2332,
+                    title: "Edit Account Info",
+                  },
+                  {
+                    id: 2333,
+                    title: "Details Account",
+                  },
+                  {
+                    id: 2333,
+                    title: "Delete Account",
+                  },
+                ]
+              },
+              {
+                id: 234,
+                title: "Manage Group of Account",
+                subs: [
+                  {
+                    id: 2341,
+                    title: "Create New Group Account",
+                  },
+                  {
+                    id: 2342,
+                    title: "Edit Group Account",
+                  },
+                  {
+                    id: 2343,
+                    title: "Details Group Account",
+                  },
+                  {
+                    id: 2343,
+                    title: "Delete Group Account",
+                  },
+                ]
+              },
+            ],
+          },
+          {
+            id: 24,
+            title: "eBanking Request Monitor",
+          },
+        ],
+      },
+      {
+        id: 3,
+        title: "Ewallets",
+        isSelectable: false,
+        subs: [
+          {
+            id: 30,
+            title: "Deposit",
+            isSelectable: false,
+            collapse: true,
+            subs: [
+              {
+                id: 301,
+                title: "Momo History",
+              },
+              {
+                id: 302,
+                title: "Momo Matching",
+              },
+              {
+                id: 301,
+                title: "ZaloPay History",
+              },
+              {
+                id: 302,
+                title: "ZaloPay Matching",
+              },
+            ],
+          },
+          {
+            id: 31,
+            title: "Ewallets Account Management",
+            isSelectable: false,
+            collapse: true,
+            subs: [
+              {
+                id: 311,
+                title: "Manage Ewallets",
+              },
+              {
+                id: 312,
+                title: "Manage Accounts",
+                subs: [
+                  {
+                    id: 3121,
+                    title: "Create New EWallets Account",
+                  },
+                  {
+                    id: 3122,
+                    title: "Edit EWallets Account",
+                  },
+                  {
+                    id: 3123,
+                    title: "Details EWallet Account",
+                  },
+                  {
+                    id: 3123,
+                    title: "Delete EWallet Account",
+                  },
+                ]
+              },
+              {
+                id: 313,
+                title: "Manage Group of Account",
+                subs: [
+                  {
+                    id: 3131,
+                    title: "Create New Group Account",
+                  },
+                  {
+                    id: 3132,
+                    title: "Edit Group Account",
+                  },
+                  {
+                    id: 3133,
+                    title: "Details Group Account",
+                  },
+                  {
+                    id: 3133,
+                    title: "Delete Group Account",
+                  },
+                ]
+              },
+            ],
+          },
+          {
+            id: 32,
+            title: "Ewallets Request Monitor",
+          },
+          {
+            id: 32,
+            title: "Unidentified Statements",
+          },
+          {
+            id: 32,
+            title: "Zalopay Unclaimed Statement",
+          }
+        ],
+      },
+      {
+        id: 4,
+        title: "Scratchcard",
+        isSelectable: false,
+        subs: [
+          {
+            id: 40,
+            title: "Scratchcard History",
+          },
+          {
+            id: 41,
+            title: "Edit ScratchCard Commercial Fee",
+          },
+        ],
+      },
+      {
+        id: 5,
+        title: "Merchants",
+        isSelectable: false,
+        subs: [
+          {
+            id: 50,
+            title: "ScratchCard Configuration",
+          },
+          {
+            id: 51,
+            title: "Report",
+          },
+          {
+            id: 52,
+            title: "Merchant Balance Overview",
+          },
+          {
+            id: 53,
+            title: "Adjustment Balance",
+          },
+          {
+            id: 54,
+            title: "Merchants Balance Overview",
+          },
+        ],
+      },
+      {
+        id: 6,
+        title: "ECard",
+        isSelectable: false,
+        subs: [
+          {
+            id: 60,
+            title: "Smart Card Submission",
+          },
+        ],
+      },
+      {
+        id: 6,
+        title: "Smart Card",
+        isSelectable: false,
+        subs: [
+          {
+            id: 60,
+            title: "Deposit History",
+          },
+        ],
+      },
+      {
+        id: 7,
+        title: "Users",
+        isSelectable: false,
+        collapse: false,
+        subs: [
+          {
+            id: 70,
+            title: "Role Management",
+            subs: [
+              {
+                id: 701,
+                title: "Create New Role",
+              },
+              {
+                id: 702,
+                title: "Edit Role",
+              },
+              {
+                id: 703,
+                title: "Details Role",
+              },
+            ]
+          },
+          {
+            id: 71,
+            title: "Group of User Management",
+            subs: [
+              {
+                id: 711,
+                title: "Create Group User",
+              },
+              {
+                id: 712,
+                title: "Edit Group User",
+              },
+              {
+                id: 713,
+                title: "Details Group User",
+              },
+            ]
+          },
+          {
+            id: 72,
+            title: "Users Management",
+            subs: [
+              {
+                id: 721,
+                title: "Create User",
+              },
+              {
+                id: 722,
+                title: "Edit User",
+              },
+              {
+                id: 723,
+                title: "Details User",
+              },
+            ]
+          },
+        ],
+      },
+      {
+        id: 8,
+        title: "EWallets",
+        isSelectable: false,
+        subs: [
+          {
+            id: 723,
+            title: "Account Notifications",
+          },
+        ]
+      },
+      {
+        id: 8,
+        title: "Management",
+        isSelectable: false,
+        subs: [
+          {
+            id: 81,
+            title: "Detail Action Logs",
+          },
+          {
+            id: 82,
+            title: "Service Connection Management",
+            subs: [
+              {
+                id: 821,
+                title: 'Create Phone Monitor'
+              },
+              {
+                id: 822,
+                title: 'Edit Phone Monitor'
+              },
+              {
+                id: 823,
+                title: 'Delete Phone Monitor'
+              },
+            ]
+          },
+        ]
+      },
+      {
+        id: 9,
+        title: "BO Settings",
+        isSelectable: false,
+        subs: [
+          {
+            id: 90,
+            title: "Whitelist Merchant IPs",
+          },
+          {
+            id: 91,
+            title: "Back Office",
+            subs: [
+              {
+                id: 911,
+                title: 'Edit TimeZone'
+              },
+              {
+                id: 912,
+                title: 'Edit Whitelist IP'
+              },
+              {
+                id: 913,
+                title: 'Edit THB Method'
+              },
+            ]
+          },
+          {
+            id: 92,
+            title: "Domain",
+            subs: [
+              {
+                id: 921,
+                title: 'Set Primary Domain'
+              },
+              {
+                id: 922,
+                title: 'Delete Domain'
+              },
+              {
+                id: 923,
+                title: 'Connect Domain'
+              },
+              {
+                id: 924,
+                title: 'Active Domain'
+              },
+            ]
+          },
+          {
+            id: 93,
+            title: "Payout Configuration",
+            subs: [
+              {
+                id: 931,
+                title: 'Edit Payout Config'
+              },
+            ]
+          },
+          {
+            id: 94,
+            title: "Submission Limit Config",
+            subs: [
+              {
+                id: 941,
+                title: 'Edit Submission Limit Config'
+              },
+            ]
+          },
+        ]
+      },
+      {
+        id: 10,
+        title: "Administrator",
+        isSelectable: false,
+        subs: [
+          {
+            id: 101,
+            title: "Callback Logs",
+          },
+        ]
+      },
+    ];
+
+    $(function () {
+      $('#role_list').comboTree({
+        source: myData,
+        isMultiple: true,
+        cascadeSelect: true,
+        collapse: false,
+        selectAll: true,
+      });
+
+      $('#CheckAllMaster').click(function () {
+        if ($(this).prop('checked') == true) {
+          $('input[name*="choosePages"]').each(function () {
+            $(this).prop('checked', true);
+          })
+        }
+        else {
+          $('input[name*="choosePages"]').each(function () {
+            $(this).prop('checked', false);
+          })
+        }
+      })
+      $('#CheckAllOnView').click(function () {
+        if ($(this).prop('checked') == true) {
+          $('input[data-type*="pageOnview"]').each(function () {
+            $(this).prop('checked', true);
+          })
+        }
+        else {
+          $('input[data-type*="pageOnview"]').each(function () {
+            $(this).prop('checked', false);
+            $('input[data-type*="pageFeature"][data-ref*="' + $(this).data("name") + '"]').each(function () {
+              $(this).prop('checked', false);
+            })
+          })
+        }
+      })
+      $('#CheckAllFeature').click(function () {
+        if ($(this).prop('checked') == true) {
+          $('input[data-type*="pageFeature"]').each(function () {
+            $(this).prop('checked', true);
+            $('input[data-type*="pageOnview"][data-name*="' + $(this).data("ref") + '"]').each(function () {
+              $(this).prop('checked', true);
+            })
+          })
+        }
+        else {
+          $('input[data-type*="pageFeature"]').each(function () {
+            $(this).prop('checked', false);
+          })
+        }
+      })
+      $('input[data-type="pageFeature"]').each(function () {
+        $(this).click(function () {
+          if ($(this).prop('checked') == true) {
+            $('input[data-type*="pageOnview"][data-name*="' + $(this).data("ref") + '"]').each(function () {
+              $(this).prop('checked', true);
+            })
+          }
+        })
+      })
+      $('input[data-type="pageOnview"]').each(function () {
+        $(this).click(function () {
+          if ($(this).prop('checked') == false) {
+            $('input[data-type*="pageFeature"][data-ref*="' + $(this).data("name") + '"]').each(function () {
+              $(this).prop('checked', false);
+            })
+          }
+        })
+      })
+    })
+  </script>
+
+  <script type="text/javascript">
+    $(function () {
+      // $('#inputImage').bind('change', function () {
+
+      // });
+
+      // input file image
+      let input = document.getElementById("inputImage");
+      let imageName = document.getElementById("imageName")
+
+      input?.addEventListener("change", () => {
+        let inputImage = document.querySelector("input[type=file]").files[0];
+
+        imageName.innerText = inputImage.name;
+      })
+
+      $("#formChangeAvatar").submit(function (e) {
+        e.preventDefault();
+        var fileUpload = $("#inputImage").get(0);
+        var files = fileUpload.files;
+
+        // Create FormData object
+        var fileData = new FormData();
+
+        // Looping over all files and add it to FormData object
+        for (var i = 0; i < files.length; i++) {
+          fileData.append(files[i].name, files[i]);
+        }
+
+      });
+    })
+  </script>
+
+  <script type="text/javascript">
+    $(function () {
+      $("#formChangeEmail").submit(function (e) {
+        e.preventDefault();
+        if ($("#CurrentEmail").val() == $("#inputEmail").val()) {
+          alert("New email must be different from current email!");
+          return;
+        }
+        if ($("#CurrentEmail").val() != "") {
+          var dataToPost = "{ ToMail:'" + $("#CurrentEmail").val() + "'}";
+          $.ajax({
+            url: $("#sendEmailURL").val(),
+            type: 'POST',
+            dataType: 'json',
+            data: dataToPost,
+            cache: false,
+            contentType: "application/jsonrequest; charset=utf-8",
+            success: function (data) {
+              if (data == null || data.res == "") {
+                alert("Send verify email failed!");
+              }
+              else {
+                for (var i = 0; i < 5; i++) {
+                  var code;
+                  if (i == 0)
+                    code = prompt("Please enter the code sent to your current email", '');
+                  else
+                    code = prompt("The code is wrong, please try again!", '');
+                  if (code == data.res) {
+                    PostNewEmail();
+                    break;
+                  }
+                  if (code == null)
+                    break;
+                }
+              }
+            },
+            error: function (e) {
+              console.log(e);
+            }
+          });
+        }
+        else
+          PostNewEmail();
+      });
+      function PostNewEmail() {
+        var dataToPost = "{ newEmail:'" + $("#inputEmail").val() + "'}";
+        $.ajax({
+          url: $("#postEmailURL").val(),
+          type: 'POST',
+          dataType: 'json',
+          data: dataToPost,
+          cache: false,
+          contentType: "application/jsonrequest; charset=utf-8",
+          success: function (data) {
+            if (data.result == "Change Success") {
+
+              alert("Change email success");
+              location.reload();
+            }
+            else
+              alert(data.result);
+          }
+        });
+      }
+    })
+  </script>
+
+  <script type="text/javascript">
+    $(function () {
+      $("#btnActiveGGAuth").click(function () {
+        $.ajax({
+          url: $("#activeGGAuthURL").val(),
+          type: 'POST',
+          dataType: 'json',
+          cache: false,
+          contentType: "application/jsonrequest; charset=utf-8",
+          success: function (data) {
+            if (data.status == "Disabled") {
+              alert(data.result);
+              location.reload();
+            }
+            else {
+              if (data.result) {
+                $("#GGAuthImg").attr("src", data.result);
+                $("#GGCodeDiv").show();
+              }
+              else
+                alert(data.result);
+            }
+          }
+        });
+      })
+      $("#btnSubmitGGCode").click(function () {
+        var dataToPost = "{ Code:'" + $("#GGCode").val() + "'}";
+        $.ajax({
+          url: $("#activeGGAuthURL").val(),
+          type: 'POST',
+          dataType: 'json',
+          data: dataToPost,
+          cache: false,
+          contentType: "application/jsonrequest; charset=utf-8",
+          success: function (data) {
+            if (data.status == "Success") {
+              alert(data.result);
+              location.reload();
+            }
+            else
+              alert(data.result);
+          }
+        });
+      })
+    })
+  </script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if ($('#vbMessage').text()) {
+        toastr.remove();
+        var txt = $('#vbMessage').text();
+        var sign = txt.charAt(0);
+        var content = txt.substr(1, txt.length);
+        if (sign == '!')
+          toastr['warning']("", content);
+        else if (sign == '#')
+          toastr['error']("", content);
+        else
+          toastr['success']("", txt);
+      }
+    })
+    $(function () {
+      $('div[class*="table-responsive"]').each(function () {
+        $('div[class*="table-responsive"]').first().scroll(function (event) {
+          console.log("scrolll");
+
+          if (event.deltaY > 0) $(this).scrollLeft += 100;
+          else $(this).scrollLeft -= 100;
+        })
+      })
+
+      $("ul[name*='ulmaster']").click(function (e) {
+
+      })
+
+
+    })
+    function IsEmptyOrSpaces(str) {
+      return str === null || str.match(/^ *$/) !== null;
+    }
+    $(function () {
+      window.ajax_loading = false;
+      $.hasAjaxRunning = function () {
+        return window.ajax_loading;
+      };
+      $(document).ajaxStart(function () {
+        window.ajax_loading = true;
+      });
+      $(document).ajaxStop(function () {
+        window.ajax_loading = false;
+      });
+
+      var loadingInterval = setInterval(function () {
+        if ($.hasAjaxRunning && $.hasAjaxRunning()) {
+          $('#loadingDiv').show();
+        }
+        else {
+          $('#loadingDiv').hide();
+        }
+      }, 100)
+      $('input.numberOnly').on('input blur paste', function () {
+        $(this).val($(this).val().replace(/\D/g, ''))
+      })
+      $.fn.ShowMessage = function (type, message, title = "") {
+        toastr.remove();
+        if (type)
+          toastr[type](title, message);
+        else {
+          var sign = message.charAt(0);
+          var content = message.substr(1, message.length);
+          if (sign == '!')
+            toastr['warning']("", content);
+          else
+            toastr['success']("", message);
+        }
+      }
+      $.fn.showLoading = function () {
+        $("#loadingAngular").show();
+      }
+      $.fn.hideLoading = function () {
+        $("#loadingAngular").hide();
+      }
+    });
+  </script>
+
 </body>
 
 </html>
-<script>
-  const data = {
-    "data": [
-      {
-        "MerchantID": 0,
-        "MasterID": 100,
-        "MerchantCode": null,
-        "Date": "\/Date(-62135596800000)\/",
-        "Channel": -1,
-        "CurrencyID": 3,
-        "Currency": "THB",
-        "Opening": 0,
-        "VolumeDeposit": 0,
-        "Deposit": 500.00,
-        "DepositFee": 0.00,
-        "VolumePayout": 0,
-        "Payout": 0.00,
-        "PayoutFee": 0.00,
-        "VolumeTopup": 0,
-        "TopUp": 0.00,
-        "VolumeSettlement": 0,
-        "Settlement": 0.00,
-        "SettlementFee": 0.00,
-        "Adjustment": 0,
-        "Closing": 0,
-        "TxnType": 0,
-        "ChannelText": "Offline Original",
-        "ListAdjustmentInfo": null,
-        "CreatedTime": "\/Date(-62135596800000)\/",
-        "ID": 0,
-        "IsDeleted": false,
-        "FailedDeposit": 200
-      },
-      {
-        "MerchantID": 0,
-        "MasterID": 100,
-        "MerchantCode": null,
-        "Date": "\/Date(-62135596800000)\/",
-        "Channel": 0,
-        "CurrencyID": 3,
-        "Currency": "THB",
-        "Opening": 0,
-        "VolumeDeposit": 1,
-        "Deposit": 1000.00,
-        "DepositFee": 0.00,
-        "VolumePayout": 0,
-        "Payout": 0.00,
-        "PayoutFee": 0.00,
-        "VolumeTopup": 0,
-        "TopUp": 0.00,
-        "VolumeSettlement": 0,
-        "Settlement": 0.00,
-        "SettlementFee": 0.00,
-        "Adjustment": 0,
-        "Closing": 0,
-        "TxnType": 0,
-        "ChannelText": "Offline",
-        "ListAdjustmentInfo": null,
-        "CreatedTime": "\/Date(-62135596800000)\/",
-        "ID": 0,
-        "IsDeleted": false,
-        "FailedDeposit": 200
-      },
-      {
-        "MerchantID": 0,
-        "MasterID": 100,
-        "MerchantCode": null,
-        "Date": "\/Date(-62135596800000)\/",
-        "Channel": 2,
-        "CurrencyID": 3,
-        "Currency": "THB",
-        "Opening": 0,
-        "VolumeDeposit": 0,
-        "Deposit": 0.00,
-        "DepositFee": 0.00,
-        "VolumePayout": 1,
-        "Payout": 500.00,
-        "PayoutFee": 0.00,
-        "VolumeTopup": 0,
-        "TopUp": 0.00,
-        "VolumeSettlement": 0,
-        "Settlement": 0.00,
-        "SettlementFee": 0.00,
-        "Adjustment": 0,
-        "Closing": 0,
-        "TxnType": 1,
-        "ChannelText": "TransferOut",
-        "ListAdjustmentInfo": null,
-        "CreatedTime": "\/Date(-62135596800000)\/",
-        "ID": 0,
-        "IsDeleted": false,
-        "FailedDeposit": 20
-      },
-      {
-        "MerchantID": 0,
-        "MasterID": 100,
-        "MerchantCode": null,
-        "Date": "\/Date(-62135596800000)\/",
-        "Channel": 5,
-        "CurrencyID": 3,
-        "Currency": "THB",
-        "Opening": 0,
-        "VolumeDeposit": 0,
-        "Deposit": 0.00,
-        "DepositFee": 0.00,
-        "VolumePayout": 0,
-        "Payout": 0.00,
-        "PayoutFee": 0.00,
-        "VolumeTopup": 0,
-        "TopUp": 0.00,
-        "VolumeSettlement": 0,
-        "Settlement": 0.00,
-        "SettlementFee": 0.00,
-        "Adjustment": 0,
-        "Closing": 0,
-        "TxnType": 0,
-        "ChannelText": "PromptPay",
-        "ListAdjustmentInfo": null,
-        "CreatedTime": "\/Date(-62135596800000)\/",
-        "ID": 0,
-        "IsDeleted": false,
-        "FailedDeposit": 200
-      },
-      {
-        "MerchantID": 0,
-        "MasterID": 100,
-        "MerchantCode": null,
-        "Date": "\/Date(-62135596800000)\/",
-        "Channel": 7,
-        "CurrencyID": 3,
-        "Currency": "THB",
-        "Opening": 0,
-        "VolumeDeposit": 0,
-        "Deposit": 0.00,
-        "DepositFee": 0.00,
-        "VolumePayout": 0,
-        "Payout": 0.00,
-        "PayoutFee": 0.00,
-        "VolumeTopup": 0,
-        "TopUp": 0.00,
-        "VolumeSettlement": 0,
-        "Settlement": 0.00,
-        "SettlementFee": 0.00,
-        "Adjustment": 0,
-        "Closing": 0,
-        "TxnType": 0,
-        "ChannelText": "SmartCard",
-        "ListAdjustmentInfo": null,
-        "CreatedTime": "\/Date(-62135596800000)\/",
-        "ID": 0,
-        "IsDeleted": false,
-        "FailedDeposit": 200
-      },
-      {
-        "MerchantID": 0,
-        "MasterID": 100,
-        "MerchantCode": null,
-        "Date": "\/Date(-62135596800000)\/",
-        "Channel": 8,
-        "CurrencyID": 3,
-        "Currency": "THB",
-        "Opening": 0,
-        "VolumeDeposit": 0,
-        "Deposit": 0.00,
-        "DepositFee": 0.00,
-        "VolumePayout": 0,
-        "Payout": 0.00,
-        "PayoutFee": 0.00,
-        "VolumeTopup": 0,
-        "TopUp": 0.00,
-        "VolumeSettlement": 0,
-        "Settlement": 0.00,
-        "SettlementFee": 0.00,
-        "Adjustment": 0,
-        "Closing": 0,
-        "TxnType": 0,
-        "ChannelText": "Internet Banking",
-        "ListAdjustmentInfo": null,
-        "CreatedTime": "\/Date(-62135596800000)\/",
-        "ID": 0,
-        "IsDeleted": false,
-        "FailedDeposit": 200
-      }
-    ],
-    "totalCurrency": [
-      {
-        "Item1": "THB",
-        "Item2": 500.00
-      },
-      {
-        "Item1": "VND",
-        "Item2": -10000.00
-      }
-    ],
-    "TotalVolumeDeposit": 1,
-    "TotalAmountDeposit": 1000.00,
-    "TotalDepositFee": 0.00,
-    "TotalVolumePayout": 1,
-    "TotalAmountPayout": 500.00,
-    "TotalPayoutFee": 0.00,
-    "TotalVolumeTopup": 0,
-    "TotalAmountTopup": 0.00,
-    "TotalVolumeSettlement": 0,
-    "TotalAmountSettlement": 0.00,
-    "TotalSettlementFee": 0.00
-  }
-
-  let dataSet_deposit = [];
-  let dataSet_payout = [];
-  let dataSet_settlement = [];
-  let dataSet_topup = [];
-  data?.data?.map((item) => {
-    dataSet_deposit.push({
-      label: item.ChannelText,
-      data: [item.Deposit],
-      // backgroundColor: 
-    })
-  })
-
-  console.log(dataSet_deposit)
-  data?.data?.map((item) => {
-    dataSet_payout.push({
-      label: item.ChannelText,
-      data: [item.Payout],
-      stack: 'Stack 0',
-    })
-  })
-  data?.data?.map((item) => {
-    dataSet_settlement.push({
-      label: item.ChannelText,
-      data: [item.Settlement],
-      // backgroundColor: 
-    })
-  })
-  data?.data?.map((item) => {
-    dataSet_topup.push({
-      label: item.ChannelText,
-      data: [item.TopUp],
-      // backgroundColor: 
-    })
-  })
-
-  console.log(data?.data)
-  var deposit = document.getElementById("deposit_chart").getContext('2d');
-  var myChart = new Chart(deposit, {
-    type: 'bar',
-    data: {
-      labels: ["12-05", "13-05"],
-      datasets: dataSet_deposit,
-    },
-    options: {
-      tooltips: {
-        displayColors: true,
-        callbacks: {
-          mode: 'x',
-        },
-      },
-      scales: {
-        x: {
-          stacked: true,
-        },
-        y: {
-          stacked: true
-        }
-      },
-      responsive: true
-    }
-  });
-  var payout = document.getElementById("payout_chart").getContext('2d');
-  var myChart = new Chart(payout, {
-    type: 'bar',
-    data: {
-      labels: ["12-05", "13-05"],
-      datasets: dataSet_payout,
-    },
-    options: {
-      tooltips: {
-        displayColors: true,
-        callbacks: {
-          mode: 'x',
-        },
-      },
-      scales: {
-        x: {
-          stacked: true,
-        },
-        y: {
-          stacked: true
-        }
-      },
-      responsive: true
-    }
-  });
-  var topup = document.getElementById("topup_chart").getContext('2d');
-  var myChart = new Chart(topup, {
-    type: 'bar',
-    data: {
-      labels: ["12-05", "13-05"],
-      datasets: dataSet_topup,
-    },
-    options: {
-      tooltips: {
-        displayColors: true,
-        callbacks: {
-          mode: 'x',
-        },
-      },
-      scales: {
-        x: {
-          stacked: true,
-        },
-        y: {
-          stacked: true
-        }
-      },
-      responsive: true
-    }
-  });
-  var settlement = document.getElementById("settlement_chart").getContext('2d');
-  var myChart = new Chart(settlement, {
-    type: 'bar',
-    data: {
-      labels: ["12-05", "13-05"],
-      datasets: dataSet_settlement,
-    },
-    options: {
-      tooltips: {
-        displayColors: true,
-        callbacks: {
-          mode: 'x',
-        },
-      },
-      scales: {
-        x: {
-          stacked: true,
-        },
-        y: {
-          stacked: true
-        }
-      },
-      responsive: true
-    }
-  });
-  var deposit = document.getElementById("deposit_chart").getContext('2d');
-  var myChart = new Chart(deposit, {
-    type: 'bar',
-    data: {
-      labels: ["12-05", "13-05"],
-      datasets: dataSet_deposit,
-    },
-    options: {
-      tooltips: {
-        displayColors: true,
-        callbacks: {
-          mode: 'x',
-        },
-      },
-      scales: {
-        x: {
-          stacked: true,
-        },
-        y: {
-          stacked: true
-        }
-      },
-      responsive: true
-    }
-  });
-</script>
