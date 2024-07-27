@@ -57,16 +57,16 @@
     min-width: 190px;
     position: relative;
     display: flex;
-    border: 1px solid $cyan;
+    border: 1px solid $primary;
     border-radius: 0.35rem;
 
     &:focus-within {
-      box-shadow: 0 0 0 .2rem rgba($cyan, .25);
+      box-shadow: 0 0 0 .2rem rgba($primary, .25);
     }
 
     .label-info {
       margin-bottom: 0;
-      color: $cyan;
+      color: $primary;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -88,11 +88,11 @@
   .input-search {
     display: flex;
     align-items: center;
-    border: 1px solid $cyan;
+    border: 1px solid $primary;
     border-radius: 0.35rem;
 
     &:focus-within {
-      box-shadow: 0 0 0 .2rem rgba($cyan, .25);
+      box-shadow: 0 0 0 .2rem rgba($primary, .25);
     }
 
     icon {
@@ -100,7 +100,7 @@
       font-size: 18px;
 
       .fas {
-        color: $cyan;
+        color: $primary;
         font-weight: 600;
       }
     }
@@ -125,12 +125,12 @@
     .custom-select {
       background: none;
       text-align: center;
-      border: 1px solid $cyan;
+      border: 1px solid $primary;
 
       &:focus {
-        border-color: $cyan;
+        border-color: $primary;
         outline: 0;
-        box-shadow: 0 0 0 .2rem rgba($cyan, .25);
+        box-shadow: 0 0 0 .2rem rgba($primary, .25);
       }
     }
 
@@ -142,7 +142,7 @@
       font-size: 18px;
 
       .fas {
-        color: $cyan;
+        color: $primary;
       }
     }
   }
@@ -980,4 +980,8 @@ span.ct-list-item-title,
   &:focus-visible {
     outline: none;
   }
+}
+
+.border-bottom-2 {
+  border-bottom-width: 2px !important;
 }
