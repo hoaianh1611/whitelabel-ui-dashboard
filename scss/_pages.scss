@@ -516,6 +516,138 @@
   }
 }
 
+//Account Balance
+.account-balance-page {
+  $primary: #6fa99d !important;
+  background-color: #6fa99d;
+  padding: 15px 0 0;
+
+  .btn-primary {
+    background-color: $primary;
+    border-color: $primary;
+  }
+
+  .page-item {
+    &.active {
+      .page-link {
+        background-color: $primary;
+        border-color: $primary;
+      }
+    }
+  }
+
+  .title-page {
+    color: #fff;
+    padding: 0 10px;
+  }
+
+  .account-balance-table {
+    font-size: 12px;
+
+    .small-title {
+      font-size: 10px;
+      font-weight: 600;
+      display: block;
+      color: $cyan;
+    }
+
+    .table-responsive {
+      .table {
+        background-color: #fff;
+      }
+
+      th {
+        vertical-align: middle;
+        min-width: 90px;
+      }
+
+      .custom-select-sm {
+        font-size: 12px;
+      }
+
+      tbody {
+        th {
+          font-weight: 400;
+        }
+      }
+
+      .titleRow {
+        font-weight: 700;
+      }
+
+      td {
+        .btn-icon-split {
+          span {
+            padding: 2px 5px;
+          }
+        }
+      }
+    }
+  }
+
+  .account-balance-tab {
+    padding: 0 10px;
+    column-gap: 10px;
+    border: none;
+
+    .nav-item {
+      align-self: flex-end;
+
+      .nav-link {
+        color: #6a998d;
+        background-color: #b3d4c6;
+        border: none;
+        margin-bottom: 0;
+        padding: 8px 16px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+
+        &:hover {
+          border-color: #b3d4c6;
+        }
+
+        &.active {
+          background-color: #eff0f2;
+          border-color: #eff0f2;
+          padding: 12px 16px;
+        }
+      }
+    }
+
+    &-content {
+      background-color: #eff0f2;
+      border: none;
+
+      .tab-pane {
+        height: 100%;
+        min-height: 74vh;
+      }
+    }
+  }
+
+  .account-balance-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+
+    .btn {
+      background: rgb(147, 192, 179);
+      background: linear-gradient(25deg, rgba(147, 192, 179, 1) 10%, rgba(106, 153, 141, 1) 38%, rgba(111, 169, 157, 1) 59%, rgba(179, 212, 198, 1) 87%);
+      width: 150px;
+      color: #545454;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 0;
+      text-align: left;
+      padding: 10px 15px;
+    }
+  }
+}
+
+
 //Modal
 .modal {
   &-content {

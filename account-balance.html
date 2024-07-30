@@ -1,0 +1,2660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SB Admin 2 - Overview</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700;800;900&family=Raleway:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-light sidebar sidebar-light accordion justify-content-between" id="accordionSidebar">
+      <!-- Sidebar - Brand -->
+      <div class="d-flex justify-content-between">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center p-2" href="overview.html">
+          <img id="logo" class="img-fluid" src="./img/logo-2.png" alt="">
+        </a>
+        <button id="sidebarToggleTop" class="btn btn-link d-lg-none rounded-circle">
+          <i class="fa fa-bars"></i>
+        </button>
+      </div>
+      <ul class="list-unstyled list-menu">
+        <li class="nav-item mastermenu active">
+          <a class="nav-link" href="/masteroverview">
+            <i class="fas fa-fw fa-tachometer-alt mr-2"></i>
+            <span>Overview</span>
+          </a>
+        </li>
+
+        <!-- mastermenu -->
+        <li name="mastermenu" class="nav-item mastermenu">
+          <a href="#bank_transfer" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+            <i class="fas fa-exchange-alt mr-2"></i>
+            <span>Bank Transfer</span>
+          </a>
+
+          <!-- Bank Transfer List -->
+          <ul id="bank_transfer" class="collapse list-unstyled">
+
+            <!-- Deposit -->
+            <li class="sub-nav-item">
+              <a href="#deposit" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>Deposit</span>
+              </a>
+              <!-- Deposit List -->
+              <ul name="deposit" id="deposit" class="collapse list-unstyled sublist">
+                <li class="sub-nav-item">
+                  <a href="#deposit_offline" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                    <span>Offline Deposit</span>
+                  </a>
+                  <ul name="deposit_offline" id="deposit_offline" class="collapse list-unstyled">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/membersubmithistory">History</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/matching">Matching</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="sub-nav-item">
+                  <a href="#deposit_qr" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                    <span>QR Deposit</span>
+                  </a>
+                  <ul name="deposit_qr" id="deposit_qr" class="collapse list-unstyled">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/membersubmithistory">History</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/matching">Matching</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="sub-nav-item">
+                  <a href="#deposit_internet_banking" data-toggle="collapse" aria-expanded="false"
+                    class="nav-link collapsed">
+                    <span>Internet Banking</span>
+                  </a>
+                  <ul name="deposit_internet_banking" id="deposit_internet_banking" class="collapse list-unstyled">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/membersubmithistory">History</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/matching">Matching</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/unmatchstatement">Unmatch Statement</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Payout -->
+            <li class="sub-nav-item">
+              <a href="#payout" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>Payout</span>
+              </a>
+              <!-- Payout List -->
+              <ul name="payout" id="payout" class="collapse list-unstyled sublist">
+                <li class="nav-item">
+                  <a class="nav-link" href="/payoutlastesttransaction">In Progress</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="payoutsubmithistory?type=1">History</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/payoutmatching">Matching</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tooltip" data-placement="right" title="Approval Transactions"
+                    href="/PayoutApprovalTransaction?type=1">Approval Transactions</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/payoutbatches">Batches Payout</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Settlement -->
+            <li class="sub-nav-item">
+              <a href="#settlement" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>Settlement</span>
+              </a>
+              <!-- Settlement List -->
+              <ul name="settlement" id="settlement" class="collapse list-unstyled sublist">
+                <li class="nav-item">
+                  <a class="nav-link" href="/settlementinprogress">In Progress</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/settlementsubmithistory">History</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/settlementmatching">Matching</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/settlementrequests">Requests</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Internal Transfer -->
+            <li class="sub-nav-item">
+              <a href="#internal_transfer" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>Internal Transfer</span>
+              </a>
+              <!-- Internal Transfer List -->
+              <ul name="internal_transfer" id="internal_transfer" class="collapse list-unstyled sublist">
+                <li class="nav-item">
+                  <a class="nav-link" href="/grouptransferrules">Group Transfer Rules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/internaltransferrequest">History</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/payoutmatching?type=4">Matching</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/payoutlastesttransaction?type=4">In Progress</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- eBanking Account Management -->
+            <li class="sub-nav-item">
+              <a href="#ebanking_acc" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>eBanking Account</span>
+              </a>
+              <!-- eBanking Account Management List -->
+              <ul name="ebanking_acc" id="ebanking_acc" class="collapse list-unstyled sublist">
+                <li class="nav-item">
+                  <a class="nav-link" href="/accountstatus">Balance Overview</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/Admin/bankconfig">Banks</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/Admin/accountmanage">Accounts</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/Admin/groupmanage">Group of Account</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item active">
+              <a class="nav-link" href="/requestmonitor" data-toggle="tooltip" data-placement="right"
+                title="eBanking Request Monitor">eBanking Request Monitor</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- mastermenu -->
+        <li name="mastermenu" class="nav-item mastermenu">
+          <a href="#ewallets" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+            <i class="fas fa-wallet mr-2"></i>
+            <span>Ewallets</span>
+          </a>
+
+          <!-- Ewallets List -->
+          <ul id="ewallets" class="collapse list-unstyled">
+
+            <!-- Deposit -->
+            <li class="sub-nav-item">
+              <a href="#ewallets_deposit" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>Deposit</span>
+              </a>
+              <!-- Deposit List -->
+              <ul name="ewallets_deposit" id="ewallets_deposit" class="collapse list-unstyled sublist">
+                <li class="sub-nav-item">
+                  <a href="#ewallets_deposit_momo" data-toggle="collapse" aria-expanded="false"
+                    class="nav-link collapsed">
+                    <span>Momo</span>
+                  </a>
+                  <ul name="ewallets_deposit_momo" id="ewallets_deposit_momo" class="collapse list-unstyled">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/momosubmithistory">History</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/momodeposit">Matching</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/momounclaimedstatement">Unclaimed Statements</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="sub-nav-item">
+                  <a href="#ewallets_deposit_zalo" data-toggle="collapse" aria-expanded="false"
+                    class="nav-link collapsed">
+                    <span>Zalo</span>
+                  </a>
+                  <ul name="ewallets_deposit_zalo" id="ewallets_deposit_zalo" class="collapse list-unstyled">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/zalosubmithistory">History</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/zalodeposit">Matching</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/zalopayunclaimedstatement" data-toggle="tooltip" data-placement="right"
+                        title="Zalopay Unclaimed Statement">Unclaimed Statement</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Ewallets Account Management -->
+            <li class="sub-nav-item">
+              <a href="#ewallets_acc" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>Ewallets Account</span>
+              </a>
+              <!-- Ewallets Account Management List -->
+              <ul name="ewallets_acc" id="ewallets_acc" class="collapse list-unstyled sublist">
+                <li class="nav-item">
+                  <a class="nav-link" href="/accountewalletstatus">Balance Overview</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/Admin/manageewallets">Ewallets</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/Admin/accountewalletmanage">Accounts</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/requestmonitorewallet" data-toggle="tooltip" data-placement="right"
+                title="Ewallets Request Monitor">Request Monitor</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/unidentifiedewalletstatement" data-toggle="tooltip" data-placement="right"
+                title="Unidentified Statements">Unidentified Statements</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- mastermenu -->
+        <li name="mastermenu" class="nav-item mastermenu">
+          <a href="#scratchcard" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+            <i class="fas fa-chess-board mr-2"></i>
+            <span>Scratchcard</span>
+          </a>
+
+          <!-- Scratchcard List -->
+          <ul id="scratchcard" class="collapse list-unstyled">
+            <li class="nav-item">
+              <a class="nav-link" href="/SrCardSubmitHistory">History</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/SrCardConfig">Configuration</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- mastermenu -->
+        <li name="mastermenu" class="nav-item mastermenu">
+          <a href="#smartcard" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+            <i class="fas fa-credit-card mr-2"></i>
+            <span>Smart Card</span>
+          </a>
+
+          <!-- Smart Card List -->
+          <ul id="smartcard" class="collapse list-unstyled">
+
+            <!-- Deposit -->
+            <li class="sub-nav-item">
+              <a href="#smartcard_sales" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>Sale &amp; Purchase Cards</span>
+              </a>
+              <!-- List -->
+              <ul name="smartcard_sales" id="smartcard_sales" class="collapse list-unstyled sublist">
+                <li class="nav-item">
+                  <a class="nav-link" href="/smartcardtransaction">History</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Members Dashboard -->
+            <li class="sub-nav-item">
+              <a href="#smartcard_members" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>Members Dashboard</span>
+              </a>
+              <!-- Members Dashboard List -->
+              <ul name="smartcard_members" id="smartcard_members" class="collapse list-unstyled sublist">
+                <li class="nav-item">
+                  <a class="nav-link" href="/smartcardMember">Affilliates &amp; Members</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/smartcardlevel">Level Manage</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/smartcardaffiliatelink">Affiliate Link</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Merchant Submissions -->
+            <li class="sub-nav-item">
+              <a href="#smartcard_submissions" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+                <span>Merchant Submissions</span>
+              </a>
+              <!-- List -->
+              <ul name="smartcard_submissions" id="smartcard_submissions" class="collapse list-unstyled sublist">
+                <li class="nav-item">
+                  <a class="nav-link" href="/smartcardsubmithistory">History</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Card Management -->
+            <li class="sub-nav-item">
+              <a href="#smartcard_card_management" data-toggle="collapse" aria-expanded="false"
+                class="nav-link collapsed">
+                <span>Card Management</span>
+              </a>
+              <!-- List -->
+              <ul name="smartcard_card_management" id="smartcard_card_management"
+                class="collapse list-unstyled sublist">
+                <li class="nav-item">
+                  <a class="nav-link" href="/smartcardstatus">Card Status</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/smartcardmanage">Card Value</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/smartcardDiscount" data-toggle="tooltip" data-placement="right"
+                    title="Card Surcharge & Discount">Card Surcharge &amp; Discount</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <!-- mastermenu -->
+        <li name="mastermenu" class="nav-item mastermenu">
+          <a href="#merchants" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+            <i class="fas fa-cogs mr-2"></i>
+            <span>Merchants</span>
+          </a>
+
+          <!-- Merchants List -->
+          <ul id="merchants" class="collapse list-unstyled">
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/submerchantmanage" data-toggle="tooltip" data-placement="right"
+                title="Information Management">Information Management</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/merchantbalanceoverview">Balance Overview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/adjustmentbalance">Adjustment Balance</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/subspayoutconfig" data-toggle="tooltip" data-placement="right"
+                title="Payout Config for Sub Merchant">Payout Config for Sub Merchant</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/subwhitelistipsmanage" data-toggle="tooltip" data-placement="right"
+                title="Whitelist Merchant IPs">Whitelist Merchant IPs</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- mastermenu -->
+        <li name="mastermenu" class="nav-item mastermenu">
+          <a href="#users" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+            <i class="fas fa-users-cog mr-2"></i>
+            <span>Users</span>
+          </a>
+
+          <!-- Users List -->
+          <ul id="users" class="collapse list-unstyled">
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/rolemanage">Role Management</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/groupusermanage">Group of User</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/usermanage">Users Management</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- mastermenu -->
+        <li name="mastermenu" class="nav-item mastermenu">
+          <a href="#management" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+            <i class="fas fa-tasks mr-2"></i>
+            <span>Management</span>
+          </a>
+
+          <!-- Users List -->
+          <ul id="management" class="collapse list-unstyled">
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/log">Detail Action Logs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/smsmanage">SMS Management</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/NotificationManager">Notification</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/phonemonitor">Service Connection</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- mastermenu -->
+        <li name="mastermenu" class="nav-item mastermenu">
+          <a href="#bo_settings" data-toggle="collapse" aria-expanded="false" class="nav-link collapsed">
+            <i class="fas fa-cog mr-2"></i>
+            <span>BO Settings</span>
+          </a>
+
+          <!-- BO Settings List -->
+          <ul id="bo_settings" class="collapse list-unstyled">
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/whitelistipsmanage">Whitelist Merchant IPs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/backofficesetting">Back Office</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/domainmanage">Domain</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/payoutconfig">Payout Configuration</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Admin/SubmissionLimitConfig">Submission Limit Config</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center">
+          <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+      </ul>
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Alerts -->
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell fa-fw"></i>
+                <!-- Counter - Alerts -->
+                <span class="badge badge-danger badge-counter">3+</span>
+              </a>
+              <!-- Dropdown - Alerts -->
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                aria-labelledby="alertsDropdown">
+                <h6 class="dropdown-header">
+                  Alerts Center
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-primary">
+                      <i class="fas fa-file-alt text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 12, 2019</div>
+                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-success">
+                      <i class="fas fa-donate text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 7, 2019</div>
+                    $290.29 has been deposited into your account!
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-warning">
+                      <i class="fas fa-exclamation-triangle text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 2, 2019</div>
+                    Spending Alert: We've noticed unusually high spending for your account.
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+              </div>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile
+                </a>
+                <a class="dropdown-item" href="/change-password.html">
+                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Change Password
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid account-balance-page">
+          <h2 class="title-page">Accounts Balance Overview</h2>
+
+          <!-- Tabs -->
+          <ul class="nav nav-tabs account-balance-tab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#tab_balance_overview" role="tab"
+                style="text-transform: uppercase; font-weight: 600;">Account Balance</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tab_total_limit" role="tab"
+                style="text-transform: uppercase; font-weight: 600;">Daily Limit</a>
+            </li>
+          </ul>
+
+          <!-- Tab Content -->
+          <div class="tab-content account-balance-tab-content">
+            <!-- Account Balance -->
+            <div class="tab-pane active" id="tab_balance_overview" role="tabpanel">
+              <form action="/AccountStatus/ExportAccountEBankingBalanceOverview" id="ExportForm" method="post"
+                target="_blank" class="ng-pristine ng-valid"><input name="__RequestVerificationToken" type="hidden"
+                  value="Nqy4GiydirXb9VTgVrhiJYhoDJS9FJ_Uiy2Nl55RlFwVeUbBmp7REoDFB2ReDm86vWKWmn3zLmHx7_tKzbcsGZEJVyQ4YPqnuEAgOC-nhqc1"
+                  autocomplete="off"></form>
+
+              <form action="/accountstatus/TableData?Length=13" data-ajax="true" data-ajax-method="post"
+                data-ajax-mode="replace" data-ajax-update="#divAjax" id="formData" method="post"
+                class="ng-pristine ng-valid">
+                <div id="divAjax">
+
+                  <div class="mb-4">
+                    <div style="padding: 10px;">
+                      <div class="d-flex align-items-center mt-2 justify-content-between">
+                        <button type="button" value="Export" id="btnExport" name="ButtonType"
+                          class="btn btn-success btn-sm"
+                          style="height: 35px; border-radius: 0.35rem; background-color: #6fa99d; border-color: #6fa99d;"
+                          data-original-title="" title="">Export</button>
+                        <div class="text-right">
+                          <input id="searchText" name="searchText" type="hidden" value="">
+                          <input class="form-control" style="min-width: 200px; display: unset" id="queryString"
+                            name="queryString" placeholder="Search..." autofocus="">
+                        </div>
+                      </div>
+                      <div class="modal fade" id="ModalUpdateBalance" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                          <div class="modal-content" style="border-radius: 15px">
+                            <div class="modal-header change-color">
+                              <h5 class="modal-title" id="exampleModalLabel">Update Vitual Account Balance</h5>
+                              <button type="button" id="btnCloseBalanceForm" class="close" data-dismiss="modal"
+                                aria-label="Close" data-original-title="" title="">
+                                <span aria-hidden="true">×</span>
+                              </button>
+                            </div>
+                            <form id="updateBalanceForm">
+                              <div class="comodal-body">
+                                <div class="form-group" style="margin-bottom: -0.2rem">
+                                  <div class="row ml-2 pb-5">
+                                    <div class="col-11 pb-3">
+                                      <div class="col-form-label"><strong>Balance</strong></div>
+                                      <input name="Balance" class="form-control" id="ValueBalance">
+                                      <input hidden="" name="AccountID" class="form-control" id="AccountBalance">
+                                    </div>
+                                    <div class="col-11">
+                                      <div class="col-form-label"><strong>Pending Balance</strong></div>
+                                      <input name="PedingBalance" class="form-control" id="ValuePendingBalance">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="modal-footer" style="padding-top:0">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                  data-original-title="" title="">Cancel</button>
+                                <button id="UpdateBalanceButton" type="submit" class="btn btn-primary"
+                                  data-original-title="" title="">Update</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                        <div class="mb-1" style="min-width: 250px; width: 16%;">
+                          <div class="">
+                            <table class="@*table-bordered*@" cellspacing="0">
+                              <thead class="text-center text-info">
+                                <tr>
+                                  <th style="width: 1%; font-size: 15px; color: cadetblue;">Currency</th>
+                                  <th class="text-right" style="width: 3%; font-size: 15px; color: cadetblue;">Total
+                                    Balance</th>
+                                </tr>
+                              </thead>
+                              <tbody style="font-size: 15px;font-weight: bold;">
+                                <tr>
+                                  <td class="text-center">THB</td>
+                                  <td class="text-left" style="width: 3%">
+                                    <div class="text-right">528,651.17</div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td class="text-center">VND</td>
+                                  <td class="text-left" style="width: 3%">
+                                    <div class="text-right">137,153,296.00</div>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        <input hidden="" name="AccountID" id="inputAccountID">
+                        <div class="account-balance-table">
+                          <div class="table-responsive">
+                            <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                              <table class="table table-bordered" id="dataTable" cellspacing="0">
+                                <thead>
+                                  <tr>
+                                    <th>Currency</th>
+                                    <th>Bank</th>
+                                    <th>Group</th>
+                                    <th>Acc Name</th>
+                                    <th>Short Name</th>
+                                    <th>Acc Number</th>
+                                    <th>Balance</th>
+                                    <th>Ledger Balance</th>
+                                    <th>Daily Limit</th>
+                                    <th>
+                                      <div>Remaining<br>Balance</div>
+                                    </th>
+                                    <th>
+                                      <div>Total<br>Transfer</div>
+                                    </th>
+                                    <th style="width: 8%">Updated Time</th>
+                                    <th>Status</th>
+                                    <th style="min-width: 120px">Action</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <th>
+                                      <select class="custom-select custom-select-sm form-control form-control-sm"
+                                        id="CurrencyName" name="CurrencyName" onchange="$(this.form).submit();">
+                                        <option selected="selected" value="">Currency</option>
+                                        <option value="VND">VND</option>
+                                        <option value="THB">THB</option>
+                                      </select>
+                                    </th>
+                                    <th>
+                                      <select class="custom-select custom-select-sm form-control form-control-sm"
+                                        id="BankID" name="BankID" onchange="$(this.form).submit();">
+                                        <option selected="selected" value="">Bank</option>
+                                        <option value="ACB">ACB</option>
+                                        <option value="DAB">DAB</option>
+                                        <option value="VCB">VCB</option>
+                                        <option value="VTB">VTB</option>
+                                        <option value="SACOM">SACOM</option>
+                                        <option value="TCB">TCB</option>
+                                        <option value="BIDV">BIDV</option>
+                                        <option value="EXIM">EXIM</option>
+                                        <option value="SCB">SCB</option>
+                                        <option value="KBANK">KBANK</option>
+                                        <option value="KTB">KTB</option>
+                                        <option value="BBL">BBL</option>
+                                        <option value="BAY">BAY</option>
+                                        <option value="GSB">GSB</option>
+                                        <option value="TMB">TMB</option>
+                                        <option value="KKB">KKB</option>
+                                        <option value="TBANK">TBANK</option>
+                                        <option value="TTB">TTB</option>
+                                        <option value="UOBT">UOBT</option>
+                                        <option value="SCBCOP">SCBCOP</option>
+                                        <option value="KTBB">KTBB</option>
+                                      </select>
+                                    </th>
+                                    <th>
+                                      <select class="custom-select custom-select-sm form-control form-control-sm"
+                                        id="GroupID" name="GroupID" onchange="$(this.form).submit();">
+                                        <option selected="selected" value="">Group</option>
+                                        <option value="52">OFFLINE DEPOSIT TH</option>
+                                        <option value="54">FUNDOUT TH</option>
+                                        <option value="60">SETTLEMENT</option>
+                                        <option value="69">STOP USE</option>
+                                        <option value="70">QR DEPOSIT TH</option>
+                                        <option value="74">QR DEPOSIT VN</option>
+                                        <option value="66">KC's Fund</option>
+                                        <option value="29">OFFLINE DEPOSIT VN</option>
+                                        <option value="80">PAYOUT VN</option>
+                                        <option value="86">INTERNET BANKING VN</option>
+                                        <option value="65">SSP Funds</option>
+                                      </select>
+                                    </th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th>
+                                      <select class="custom-select custom-select-sm form-control form-control-sm"
+                                        id="SortBalance" name="SortBalance" onchange="$(this.form).submit();">
+                                        <option value="0" selected="">None</option>
+                                        <option value="1">Smallest to Largest</option>
+                                        <option value="2">Largest to Smallest</option>
+                                      </select>
+                                    </th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th>
+                                      <select class="custom-select custom-select-sm form-control form-control-sm"
+                                        data-val="true" data-val-number="The field Int32 must be a number."
+                                        data-val-required="The Int32 field is required." id="Status" name="Status"
+                                        onchange="$(this.form).submit();">
+                                        <option selected="selected" value="">Status</option>
+                                        <option value="0">Active</option>
+                                        <option value="1">Disable</option>
+                                        <option value="2">Locked</option>
+                                        <option value="3">Deleted</option>
+                                        <option value="4">Reach_Limit</option>
+                                      </select>
+                                    </th>
+                                    <th></th>
+                                  </tr>
+                                  <tr>
+                                    <td name="Currency">
+                                      THB
+                                    </td>
+                                    <td name="Bank">
+                                      TBANK
+                                    </td>
+                                    <td name="Group">
+                                      SSP Funds
+                                    </td>
+                                    <td>
+                                      SSP Reserved Accounts
+                                    </td>
+                                    <td>
+                                      SSP Reserved
+                                    </td>
+                                    <td>
+                                      *****
+                                    </td>
+                                    <td style="color: forestgreen">
+                                      <div class="amount entered-data" name="onclickEditBalance" data-value="892.52"
+                                        data-valuepending="0.00" data-account="339">
+                                        892.52
+                                      </div>
+                                    </td>
+                                    <td class="amount">
+                                    </td>
+                                    <td class="amount">
+                                      1,500,000.00
+                                    </td>
+                                    <td class="amount" style="font-weight: bold;">
+                                      1,500,000.00
+                                    </td>
+                                    <td class="amount" style="color: red">
+                                      0.00
+                                    </td>
+                                    <td>
+                                      21/07/2024 22:12:01
+                                    </td>
+                                    <td>
+                                      <div class="Status-Yellow">Disable</div>
+                                    </td>
+                                    <td>
+                                      <button id="btnUpdateBalance" type="submit" value="UpdateBalance"
+                                        name="ButtonType" class="btn btn-primary btn-icon-split" data-value="339"
+                                        data-original-title="" title="">
+                                        <span class="icon text-white-50" title="Update Balance">
+                                          <i class="fas fa-search-dollar"></i>
+                                        </span>
+
+                                      </button>
+                                      <button id="btnUpdateStatement" type="submit" value="UpdateStatement"
+                                        name="ButtonType" class="btn btn-info btn-icon-split" data-value="339"
+                                        data-original-title="" title="">
+                                        <span class="icon text-white-50" title="Update Statement">
+                                          <i class="fas fa-exchange-alt"></i>
+                                        </span>
+
+                                      </button>
+                                      <a id="ViewAccountStatement-339" href="/AccountStatement/Index/339"
+                                        class="btn btn-success btn-icon-split">
+                                        <span class="icon text-white-50" title="View Statement">
+                                          <i class="far fa-eye"></i>
+                                        </span>
+
+                                      </a>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td name="Currency">
+                                      THB
+                                    </td>
+                                    <td name="Bank">
+                                      SCBCOP
+                                    </td>
+                                    <td name="Group">
+                                      SETTLEMENT
+                                    </td>
+                                    <td>
+                                      KC's FUND
+                                    </td>
+                                    <td>
+                                      KC
+                                    </td>
+                                    <td>
+                                      ***********
+                                    </td>
+                                    <td class="amount" style="color: forestgreen">
+                                      447,102.56
+                                    </td>
+                                    <td class="amount">
+                                    </td>
+                                    <td class="amount">
+                                      500,000.00
+                                    </td>
+                                    <td class="amount" style="font-weight: bold;">
+                                      500,000.00
+                                    </td>
+                                    <td class="amount" style="color: red">
+                                      0.00
+                                    </td>
+                                    <td>
+                                      22/07/2024 17:00:59
+                                    </td>
+                                    <td>
+
+                                      <div class="Status-Green">Active</div>
+                                    </td>
+                                    <td>
+                                      <button id="btnUpdateBalance" type="submit" value="UpdateBalance"
+                                        name="ButtonType" class="btn btn-primary btn-icon-split" data-value="344"
+                                        data-original-title="" title="">
+                                        <span class="icon text-white-50" title="Update Balance">
+                                          <i class="fas fa-search-dollar"></i>
+                                        </span>
+
+                                      </button>
+                                      <button id="btnUpdateStatement" type="submit" value="UpdateStatement"
+                                        name="ButtonType" class="btn btn-info btn-icon-split" data-value="344"
+                                        data-original-title="" title="">
+                                        <span class="icon text-white-50" title="Update Statement">
+                                          <i class="fas fa-exchange-alt"></i>
+                                        </span>
+
+                                      </button>
+                                      <a id="ViewAccountStatement-344" href="/AccountStatement/Index/344"
+                                        class="btn btn-success btn-icon-split">
+                                        <span class="icon text-white-50" title="View Statement">
+                                          <i class="far fa-eye"></i>
+                                        </span>
+
+                                      </a>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td name="Currency">
+                                      VND
+                                    </td>
+                                    <td name="Bank">
+                                      BIDV
+                                    </td>
+                                    <td name="Group">
+                                      SETTLEMENT
+                                    </td>
+                                    <td>
+                                      VND Deposit Accs
+                                    </td>
+                                    <td>
+                                      VND DP
+                                    </td>
+                                    <td>
+                                      **********
+                                    </td>
+                                    <td class="amount" style="color: forestgreen">
+                                      0.00
+                                    </td>
+                                    <td class="amount">
+                                    </td>
+                                    <td class="amount">
+                                      1,500,000.00
+                                    </td>
+                                    <td class="amount" style="font-weight: bold;">
+                                      1,500,000.00
+                                    </td>
+                                    <td class="amount" style="color: red">
+                                      0.00
+                                    </td>
+                                    <td>
+                                      01/04/2024 18:00:51
+                                    </td>
+                                    <td>
+
+                                      <div class="Status-Green">Active</div>
+                                    </td>
+                                    <td>
+                                      <button id="btnUpdateBalance" type="submit" value="UpdateBalance"
+                                        name="ButtonType" class="btn btn-primary btn-icon-split" data-value="345"
+                                        data-original-title="" title="">
+                                        <span class="icon text-white-50" title="Update Balance">
+                                          <i class="fas fa-search-dollar"></i>
+                                        </span>
+
+                                      </button>
+                                      <button id="btnUpdateStatement" type="submit" value="UpdateStatement"
+                                        name="ButtonType" class="btn btn-info btn-icon-split" data-value="345"
+                                        data-original-title="" title="">
+                                        <span class="icon text-white-50" title="Update Statement">
+                                          <i class="fas fa-exchange-alt"></i>
+                                        </span>
+
+                                      </button>
+                                      <a id="ViewAccountStatement-345" href="/AccountStatement/Index/345"
+                                        class="btn btn-success btn-icon-split">
+                                        <span class="icon text-white-50" title="View Statement">
+                                          <i class="far fa-eye"></i>
+                                        </span>
+
+                                      </a>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td name="Currency">
+                                      VND
+                                    </td>
+                                    <td name="Bank">
+                                      BIDV
+                                    </td>
+                                    <td name="Group">
+                                      SETTLEMENT
+                                    </td>
+                                    <td>
+                                      NGUYEN THI YEN
+                                    </td>
+                                    <td>
+                                      BIDV2912
+                                    </td>
+                                    <td>
+                                      8861942912
+                                    </td>
+                                    <td class="amount" style="color: forestgreen">
+                                      135,500,582.00
+                                    </td>
+                                    <td class="amount">
+                                    </td>
+                                    <td class="amount">
+                                      20,000,000.00
+                                    </td>
+                                    <td class="amount" style="font-weight: bold;">
+                                      20,000,000.00
+                                    </td>
+                                    <td class="amount" style="color: red">
+                                      0.00
+                                    </td>
+                                    <td>
+                                      27/07/2024 20:27:32
+                                    </td>
+                                    <td>
+
+                                      <div class="Status-Yellow">Disable</div>
+                                    </td>
+                                    <td>
+                                      <button id="btnUpdateBalance" type="submit" value="UpdateBalance"
+                                        name="ButtonType" class="btn btn-primary btn-icon-split" data-value="374"
+                                        data-original-title="" title="">
+                                        <span class="icon text-white-50" title="Update Balance">
+                                          <i class="fas fa-search-dollar"></i>
+                                        </span>
+
+                                      </button>
+                                      <button id="btnUpdateStatement" type="submit" value="UpdateStatement"
+                                        name="ButtonType" class="btn btn-info btn-icon-split" data-value="374"
+                                        data-original-title="" title="">
+                                        <span class="icon text-white-50" title="Update Statement">
+                                          <i class="fas fa-exchange-alt"></i>
+                                        </span>
+
+                                      </button>
+                                      <a id="ViewAccountStatement-374" href="/AccountStatement/Index/374"
+                                        class="btn btn-success btn-icon-split">
+                                        <span class="icon text-white-50" title="View Statement">
+                                          <i class="far fa-eye"></i>
+                                        </span>
+
+                                      </a>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td name="Currency">
+                                      VND
+                                    </td>
+                                    <td name="Bank">
+                                      VCB
+                                    </td>
+                                    <td name="Group">
+                                      PAYOUT VN
+                                    </td>
+                                    <td>
+                                      DANG THI PHUNG
+                                    </td>
+                                    <td>
+                                      VCB8223
+                                    </td>
+                                    <td>
+                                      3842248223
+                                    </td>
+                                    <td class="amount" style="color: forestgreen">
+                                      1,161,341.00
+                                    </td>
+                                    <td class="amount">
+                                    </td>
+                                    <td class="amount">
+                                      20,000,000.00
+                                    </td>
+                                    <td class="amount" style="font-weight: bold;">
+                                      20,000,000.00
+                                    </td>
+                                    <td class="amount" style="color: red">
+                                      0.00
+                                    </td>
+                                    <td>
+                                      27/07/2024 21:29:37
+                                    </td>
+                                    <td>
+
+                                      <div class="Status-Yellow">Disable</div>
+                                    </td>
+                                    <td>
+                                      <button id="btnUpdateBalance" type="submit" value="UpdateBalance"
+                                        name="ButtonType" class="btn btn-primary btn-icon-split" data-value="375"
+                                        data-original-title="" title="">
+                                        <span class="icon text-white-50" title="Update Balance">
+                                          <i class="fas fa-search-dollar"></i>
+                                        </span>
+
+                                      </button>
+                                      <button id="btnUpdateStatement" type="submit" value="UpdateStatement"
+                                        name="ButtonType" class="btn btn-info btn-icon-split" data-value="375"
+                                        data-original-title="" title="">
+                                        <span class="icon text-white-50" title="Update Statement">
+                                          <i class="fas fa-exchange-alt"></i>
+                                        </span>
+
+                                      </button>
+                                      <a id="ViewAccountStatement-375" href="/AccountStatement/Index/375"
+                                        class="btn btn-success btn-icon-split">
+                                        <span class="icon text-white-50" title="View Statement">
+                                          <i class="far fa-eye"></i>
+                                        </span>
+
+                                      </a>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td name="Currency">
+                                      VND
+                                    </td>
+                                    <td name="Bank">
+                                      TCB
+                                    </td>
+                                    <td name="Group">
+                                      PAYOUT VN
+                                    </td>
+                                    <td>
+                                      DANG THI PHUNG
+                                    </td>
+                                    <td>
+                                      TCB1014
+                                    </td>
+                                    <td>
+                                      19050321091014
+                                    </td>
+                                    <td class="amount" style="color: forestgreen">
+                                      490,394.00
+                                    </td>
+                                    <td class="amount">
+                                    </td>
+                                    <td class="amount">
+                                      20,000,000.00
+                                    </td>
+                                    <td class="amount" style="font-weight: bold;">
+                                      20,000,000.00
+                                    </td>
+                                    <td class="amount" style="color: red">
+                                      0.00
+                                    </td>
+                                    <td>
+                                      12/07/2024 20:45:07
+                                    </td>
+                                    <td>
+
+                                      <div class="Status-Yellow">Disable</div>
+                                    </td>
+                                    <td>
+                                      <button id="btnUpdateBalance" type="submit" value="UpdateBalance"
+                                        name="ButtonType" class="btn btn-primary btn-icon-split" data-value="377"
+                                        data-original-title="" title="">
+                                        <span class="icon text-white-50" title="Update Balance">
+                                          <i class="fas fa-search-dollar"></i>
+                                        </span>
+
+                                      </button>
+                                      <button id="btnUpdateStatement" type="submit" value="UpdateStatement"
+                                        name="ButtonType" class="btn btn-info btn-icon-split" data-value="377"
+                                        data-original-title="" title="">
+                                        <span class="icon text-white-50" title="Update Statement">
+                                          <i class="fas fa-exchange-alt"></i>
+                                        </span>
+
+                                      </button>
+                                      <a id="ViewAccountStatement-377" href="/AccountStatement/Index/377"
+                                        class="btn btn-success btn-icon-split">
+                                        <span class="icon text-white-50" title="View Statement">
+                                          <i class="far fa-eye"></i>
+                                        </span>
+
+                                      </a>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td name="Currency">
+                                      VND
+                                    </td>
+                                    <td name="Bank">
+                                      VCB
+                                    </td>
+                                    <td name="Group">
+                                      PAYOUT VN
+                                    </td>
+                                    <td>
+                                      NGUYEN THI HOA BINH
+                                    </td>
+                                    <td>
+                                      VCB3730
+                                    </td>
+                                    <td>
+                                      1046173730
+                                    </td>
+                                    <td class="amount" style="color: forestgreen">
+                                      979.00
+                                    </td>
+                                    <td class="amount">
+                                    </td>
+                                    <td class="amount">
+                                      20,000,000.00
+                                    </td>
+                                    <td class="amount" style="font-weight: bold;">
+                                      20,000,000.00
+                                    </td>
+                                    <td class="amount" style="color: red">
+                                      0.00
+                                    </td>
+                                    <td>
+                                      27/07/2024 21:31:43
+                                    </td>
+                                    <td>
+
+                                      <div class="Status-Yellow">Disable</div>
+                                    </td>
+                                    <td>
+                                      <button id="btnUpdateBalance" type="submit" value="UpdateBalance"
+                                        name="ButtonType" class="btn btn-primary btn-icon-split" data-value="382"
+                                        data-original-title="" title="">
+                                        <span class="icon text-white-50" title="Update Balance">
+                                          <i class="fas fa-search-dollar"></i>
+                                        </span>
+
+                                      </button>
+                                      <button id="btnUpdateStatement" type="submit" value="UpdateStatement"
+                                        name="ButtonType" class="btn btn-info btn-icon-split" data-value="382"
+                                        data-original-title="" title="">
+                                        <span class="icon text-white-50" title="Update Statement">
+                                          <i class="fas fa-exchange-alt"></i>
+                                        </span>
+
+                                      </button>
+                                      <a id="ViewAccountStatement-382" href="/AccountStatement/Index/382"
+                                        class="btn btn-success btn-icon-split">
+                                        <span class="icon text-white-50" title="View Statement">
+                                          <i class="far fa-eye"></i>
+                                        </span>
+
+                                      </a>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td name="Currency">
+                                      THB
+                                    </td>
+                                    <td name="Bank">
+                                      SCB
+                                    </td>
+                                    <td name="Group">
+                                      SETTLEMENT
+                                    </td>
+                                    <td>
+                                      Tunwa Saelum
+                                    </td>
+                                    <td>
+                                      SCB5500 - PPID3194
+                                    </td>
+                                    <td>
+                                      4151915500
+                                    </td>
+                                    <td class="amount" style="color: forestgreen">
+                                      10.64
+                                    </td>
+                                    <td class="amount">
+                                    </td>
+                                    <td class="amount">
+                                      200,000.00
+                                    </td>
+                                    <td class="amount" style="font-weight: bold;">
+                                      200,000.00
+                                    </td>
+                                    <td class="amount" style="color: red">
+                                      0.00
+                                    </td>
+                                    <td>
+                                      26/07/2024 14:58:15
+                                    </td>
+                                    <td>
+
+                                      <div class="Status-Green">Active</div>
+                                    </td>
+                                    <td>
+                                      <button id="btnUpdateBalance" type="submit" value="UpdateBalance"
+                                        name="ButtonType" class="btn btn-primary btn-icon-split" data-value="388"
+                                        data-original-title="" title="">
+                                        <span class="icon text-white-50" title="Update Balance">
+                                          <i class="fas fa-search-dollar"></i>
+                                        </span>
+
+                                      </button>
+                                      <button id="btnUpdateStatement" type="submit" value="UpdateStatement"
+                                        name="ButtonType" class="btn btn-info btn-icon-split" data-value="388"
+                                        data-original-title="" title="">
+                                        <span class="icon text-white-50" title="Update Statement">
+                                          <i class="fas fa-exchange-alt"></i>
+                                        </span>
+
+                                      </button>
+                                      <a id="ViewAccountStatement-388" href="/AccountStatement/Index/388"
+                                        class="btn btn-success btn-icon-split">
+                                        <span class="icon text-white-50" title="View Statement">
+                                          <i class="far fa-eye"></i>
+                                        </span>
+
+                                      </a>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td name="Currency">
+                                      THB
+                                    </td>
+                                    <td name="Bank">
+                                      BBL
+                                    </td>
+                                    <td name="Group">
+                                      QR DEPOSIT TH
+                                    </td>
+                                    <td>
+                                      Tunwa Saelum
+                                    </td>
+                                    <td>
+                                      BBL4765 - PPID2067
+                                    </td>
+                                    <td>
+                                      0784174765
+                                    </td>
+                                    <td class="amount" style="color: forestgreen">
+                                      652.84
+                                    </td>
+                                    <td class="amount">
+                                      652.84 </td>
+                                    <td class="amount">
+                                      700,000.00
+                                    </td>
+                                    <td class="amount" style="font-weight: bold;">
+                                      700,000.00
+                                    </td>
+                                    <td class="amount" style="color: red">
+                                      0.00
+                                    </td>
+                                    <td>
+                                      26/07/2024 05:09:48
+                                    </td>
+                                    <td>
+
+                                      <div class="Status-Yellow">Disable</div>
+                                    </td>
+                                    <td>
+                                      <button id="btnUpdateBalance" type="submit" value="UpdateBalance"
+                                        name="ButtonType" class="btn btn-primary btn-icon-split" data-value="396"
+                                        data-original-title="" title="">
+                                        <span class="icon text-white-50" title="Update Balance">
+                                          <i class="fas fa-search-dollar"></i>
+                                        </span>
+
+                                      </button>
+                                      <button id="btnUpdateStatement" type="submit" value="UpdateStatement"
+                                        name="ButtonType" class="btn btn-info btn-icon-split" data-value="396"
+                                        data-original-title="" title="">
+                                        <span class="icon text-white-50" title="Update Statement">
+                                          <i class="fas fa-exchange-alt"></i>
+                                        </span>
+
+                                      </button>
+                                      <a id="ViewAccountStatement-396" href="/AccountStatement/Index/396"
+                                        class="btn btn-success btn-icon-split">
+                                        <span class="icon text-white-50" title="View Statement">
+                                          <i class="far fa-eye"></i>
+                                        </span>
+
+                                      </a>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td name="Currency">
+                                      THB
+                                    </td>
+                                    <td name="Bank">
+                                      SCBCOP
+                                    </td>
+                                    <td name="Group">
+                                      SETTLEMENT
+                                    </td>
+                                    <td>
+                                      GM LAP CO.,LTD.
+                                    </td>
+                                    <td>
+                                      SCBCorp9960
+                                    </td>
+                                    <td>
+                                      2312249960
+                                    </td>
+                                    <td class="amount" style="color: forestgreen">
+                                      701.04
+                                    </td>
+                                    <td class="amount">
+                                    </td>
+                                    <td class="amount">
+                                      3,500,000.00
+                                    </td>
+                                    <td class="amount" style="font-weight: bold;">
+                                      3,500,000.00
+                                    </td>
+                                    <td class="amount" style="color: red">
+                                      0.00
+                                    </td>
+                                    <td>
+                                      30/07/2024 11:00:10
+                                    </td>
+                                    <td>
+                                      <div class="Status-Green">Active</div>
+                                    </td>
+                                    <td>
+                                      <button id="btnUpdateBalance" type="submit" value="UpdateBalance"
+                                        name="ButtonType" class="btn btn-primary btn-icon-split" data-value="424"
+                                        data-original-title="" title="">
+                                        <span class="icon text-white-50" title="Update Balance">
+                                          <i class="fas fa-search-dollar"></i>
+                                        </span>
+                                      </button>
+                                      <button id="btnUpdateStatement" type="submit" value="UpdateStatement"
+                                        name="ButtonType" class="btn btn-info btn-icon-split" data-value="424"
+                                        data-original-title="" title="">
+                                        <span class="icon text-white-50" title="Update Statement">
+                                          <i class="fas fa-exchange-alt"></i>
+                                        </span>
+                                      </button>
+                                      <a id="ViewAccountStatement-424" href="/AccountStatement/Index/424"
+                                        class="btn btn-success btn-icon-split">
+                                        <span class="icon text-white-50" title="View Statement">
+                                          <i class="far fa-eye"></i>
+                                        </span>
+                                      </a>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td name="Currency">
+                                      THB
+                                    </td>
+                                    <td name="Bank">
+                                      BAY
+                                    </td>
+                                    <td name="Group">
+                                      FUNDOUT TH
+                                    </td>
+                                    <td>
+                                      GM LAP CO.,LTD.
+                                    </td>
+                                    <td>
+                                      BAYCorp9258
+                                    </td>
+                                    <td>
+                                      6191279258
+                                    </td>
+                                    <td class="amount" style="color: forestgreen">
+                                      38,905.76
+                                    </td>
+                                    <td class="amount">
+                                    </td>
+                                    <td class="amount">
+                                      500,000.00
+                                    </td>
+                                    <td class="amount" style="font-weight: bold;">
+                                      500,000.00
+                                    </td>
+                                    <td class="amount" style="color: red">
+                                      0.00
+                                    </td>
+                                    <td>
+                                      30/07/2024 11:00:27
+                                    </td>
+                                    <td>
+
+                                      <div class="Status-Green">Active</div>
+                                    </td>
+                                    <td>
+                                      <button id="btnUpdateBalance" type="submit" value="UpdateBalance"
+                                        name="ButtonType" class="btn btn-primary btn-icon-split" data-value="426"
+                                        data-original-title="" title="">
+                                        <span class="icon text-white-50" title="Update Balance">
+                                          <i class="fas fa-search-dollar"></i>
+                                        </span>
+
+                                      </button>
+                                      <button id="btnUpdateStatement" type="submit" value="UpdateStatement"
+                                        name="ButtonType" class="btn btn-info btn-icon-split" data-value="426"
+                                        data-original-title="" title="">
+                                        <span class="icon text-white-50" title="Update Statement">
+                                          <i class="fas fa-exchange-alt"></i>
+                                        </span>
+
+                                      </button>
+                                      <a id="ViewAccountStatement-426" href="/AccountStatement/Index/426"
+                                        class="btn btn-success btn-icon-split">
+                                        <span class="icon text-white-50" title="View Statement">
+                                          <i class="far fa-eye"></i>
+                                        </span>
+
+                                      </a>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td name="Currency">
+                                      THB
+                                    </td>
+                                    <td name="Bank">
+                                      BBL
+                                    </td>
+                                    <td name="Group">
+                                      QR DEPOSIT TH
+                                    </td>
+                                    <td>
+                                      Naratip Phonpradit
+                                    </td>
+                                    <td>
+                                      BBL3030 - PPID0329
+                                    </td>
+                                    <td>
+                                      0784183030
+                                    </td>
+                                    <td class="amount" style="color: forestgreen">
+                                      699.33
+                                    </td>
+                                    <td class="amount">
+                                      699.33 </td>
+                                    <td class="amount">
+                                      700,000.00
+                                    </td>
+                                    <td class="amount" style="font-weight: bold;">
+                                      700,000.00
+                                    </td>
+                                    <td class="amount" style="color: red">
+                                      0.00
+                                    </td>
+                                    <td>
+                                      26/07/2024 05:10:30
+                                    </td>
+                                    <td>
+
+                                      <div class="Status-Yellow">Disable</div>
+                                    </td>
+                                    <td>
+                                      <button id="btnUpdateBalance" type="submit" value="UpdateBalance"
+                                        name="ButtonType" class="btn btn-primary btn-icon-split" data-value="432"
+                                        data-original-title="" title="">
+                                        <span class="icon text-white-50" title="Update Balance">
+                                          <i class="fas fa-search-dollar"></i>
+                                        </span>
+
+                                      </button>
+                                      <button id="btnUpdateStatement" type="submit" value="UpdateStatement"
+                                        name="ButtonType" class="btn btn-info btn-icon-split" data-value="432"
+                                        data-original-title="" title="">
+                                        <span class="icon text-white-50" title="Update Statement">
+                                          <i class="fas fa-exchange-alt"></i>
+                                        </span>
+
+                                      </button>
+                                      <a id="ViewAccountStatement-432" href="/AccountStatement/Index/432"
+                                        class="btn btn-success btn-icon-split">
+                                        <span class="icon text-white-50" title="View Statement">
+                                          <i class="far fa-eye"></i>
+                                        </span>
+
+                                      </a>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td name="Currency">
+                                      THB
+                                    </td>
+                                    <td name="Bank">
+                                      KBANK
+                                    </td>
+                                    <td name="Group">
+                                      FUNDOUT TH
+                                    </td>
+                                    <td>
+                                      CTAR SHOP - ChakkrinThonglueang
+                                    </td>
+                                    <td>
+                                      KBANKCorp3274
+                                    </td>
+                                    <td>
+                                      1861343274
+                                    </td>
+                                    <td class="amount" style="color: forestgreen">
+                                      39,686.48
+                                    </td>
+                                    <td class="amount">
+                                    </td>
+                                    <td class="amount">
+                                      1,000,000.00
+                                    </td>
+                                    <td class="amount" style="font-weight: bold;">
+                                      1,000,000.00
+                                    </td>
+                                    <td class="amount" style="color: red">
+                                      0.00
+                                    </td>
+                                    <td>
+                                      30/07/2024 11:01:32
+                                    </td>
+                                    <td>
+
+                                      <div class="Status-Green">Active</div>
+                                    </td>
+                                    <td>
+                                      <button id="btnUpdateBalance" type="submit" value="UpdateBalance"
+                                        name="ButtonType" class="btn btn-primary btn-icon-split" data-value="436"
+                                        data-original-title="" title="">
+                                        <span class="icon text-white-50" title="Update Balance">
+                                          <i class="fas fa-search-dollar"></i>
+                                        </span>
+
+                                      </button>
+                                      <button id="btnUpdateStatement" type="submit" value="UpdateStatement"
+                                        name="ButtonType" class="btn btn-info btn-icon-split" data-value="436"
+                                        data-original-title="" title="">
+                                        <span class="icon text-white-50" title="Update Statement">
+                                          <i class="fas fa-exchange-alt"></i>
+                                        </span>
+
+                                      </button>
+                                      <a id="ViewAccountStatement-436" href="/AccountStatement/Index/436"
+                                        class="btn btn-success btn-icon-split">
+                                        <span class="icon text-white-50" title="View Statement">
+                                          <i class="far fa-eye"></i>
+                                        </span>
+
+                                      </a>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                          <a hidden="" id="UpdateBalance" data-toggle="modal" data-target="#ModalUpdateBalance"></a>
+
+                          <div>
+                            <div class="d-flex flex-column flex-sm-row justify-content-between my-3 align-items-center">
+                              <div class="mb-2">
+                                <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">
+                                  Showing 1 to 13 of 13 entries
+                                </div>
+                              </div>
+                              <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                                <input id="Page" name="Page" type="hidden" value="1">
+                                <ul class="pagination">
+                                  <li class="paginate_button page-item active">
+                                    <div class="page-link" style="pointer-events: none">1</div>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <ul class="pagination d-flex align-items-center mb-0">
+                              <li class="mr-2" style="font-weight:bold; font-style:italic">Number of records:</li>
+                              <li>
+                                <select name="NumberRecord" id="NumberRecord"
+                                  class="custom-select custom-select-sm form-control form-control-sm"
+                                  onchange="$('#formData').submit();">
+                                  <option class="page-item page-link" value="20">20</option>
+                                  <option class="page-item page-link" value="50">50</option>
+                                  <option selected="" class="page-item page-link" value="100">100</option>
+                                </select>
+                              </li>
+                            </ul>
+                            <script type="text/javascript">
+                              $(function () {
+                                $("#formData").submit(function () {
+                                  $("#Page").val(1);
+                                })
+                              })
+                            </script>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <script type="text/javascript">
+                    $(function () {
+                      $(document).ready(function () {
+                        if ($('#vbMessage').text()) {
+                          setTimeout(function () {
+                            toastr.remove();
+                            var txt = $('#vbMessage').text();
+                            var sign = txt.charAt(0);
+                            var content = txt.substr(1, txt.length);
+                            if (sign == '!')
+                              toastr['warning']("", content);
+                            else
+                              toastr['success']("", txt);
+                          }, 100)
+                        }
+                      })
+                      $("div[name*='onclickEditBalance']").each(function () {
+                        $(this).on('click', function (e) {
+                          e.preventDefault(); // do not follow the link or move to top
+                          var value = $(this).attr('data-value');
+                          var valuePendingBalance = $(this).attr('data-valuePending');
+                          var valueAccountID = $(this).attr('data-account');
+                          $("#ValueBalance").attr("value", value);
+                          $("#ValuePendingBalance").attr("value", valuePendingBalance);
+                          $("#AccountBalance").attr("value", valueAccountID);
+                          $("#UpdateBalance").click();
+                        })
+                      })
+
+                      $('#UpdateBalanceButton').on('click', function (e) {
+                        var host = location.protocol + "//" + location.host;
+                        const thisForm = document.getElementById('updateBalanceForm');
+                        thisForm.addEventListener('submit', async function (e) {
+                          e.preventDefault();
+                          var valueBalance = document.getElementById('ValueBalance').value
+                          var valuePendingBalance = document.getElementById('ValuePendingBalance').value
+                          var valueAccount = document.getElementById('AccountBalance').value
+
+                          console.log(valueBalance)
+                          var formSubmit = { Balance: valueBalance, PendingBalance: valuePendingBalance, AccountID: valueAccount }
+                          const response = await fetch(host + "/AccountStatus/UpdateVirtualAccountBalance", {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(formSubmit)
+                          });
+
+                          const result = await response.json();
+                          if (result.IsSuccessful) {
+                            $("#btnCloseBalanceForm").click();
+                            $('#formData').submit();
+                            ShowMessage("success", result.Message)
+                          }
+                          else {
+                            ShowMessage("error", result.Message)
+                          }
+                          console.log(result)
+                        });
+                      })
+                      $('button[name^="ButtonType"][value*="UpdateBalance"]').each(function () {
+                        $(this).click(function (event) {
+                          document.getElementById("inputAccountID").value = $(this).data('value');
+                          var interval = setInterval(function () {
+                            if (!$.hasAjaxRunning()) {
+                              toastr.remove();
+                              toastr['success']("Received Request!", "Update Balance");
+                              clearInterval(interval);
+                            }
+                          }, 100);
+                        })
+                      })
+                      $('button[name^="ButtonType"][value*="UpdateStatement"]').each(function () {
+                        $(this).click(function (event) {
+                          document.getElementById("inputAccountID").value = $(this).data('value');
+                          var interval = setInterval(function () {
+                            if (!$.hasAjaxRunning()) {
+                              toastr.remove();
+                              toastr['success']("Received Request!", "Update Statement");
+                              clearInterval(interval);
+                            }
+                          }, 100);
+                        })
+                      })
+                      $('button').tooltip();
+
+                      var isOnChange = false;
+                      var deltaTime = 0;
+                      var loop;
+                      $('#queryString').focus();
+                      $('#queryString').keypress(function (e) {
+                        if (e.keyCode == 13) {
+                          console.log("key up");
+                          e.preventDefault();
+                          clearInterval(loop);
+                          isOnChange = false;
+                          $('#formData').submit();
+                        }
+                      });
+                      $('#queryString').on('input propertychange paste', function (e) {
+                        deltaTime = 0;
+                        if (isOnChange == false) {
+                          isOnChange = true;
+                          loop = setInterval(function () {
+                            deltaTime += 1;
+                            if (deltaTime >= 15) {
+                              clearInterval(loop);
+                              deltaTime = 0;
+                              isOnChange = false;
+                              $('#formData').submit();
+                            }
+                          }, 100);
+                        }
+                      })
+                      $('#queryString').val($('#searchText').val());
+
+                      $("#btnExport").click(function (event) {
+                        $('#vbMessage').text("Please wait export processing in new tab!");
+                        $("#ExportForm").submit();
+                      });
+                      function ShowMessage(type, message, title = "") {
+                        toastr.remove();
+                        toastr.options = {
+                          timeOut: 5000
+                        }
+                        if (type)
+                          toastr[type](title, message);
+                        else {
+                          var sign = message.charAt(0);
+                          var content = message.substr(1, message.length);
+                          if (sign == '!')
+                            toastr['warning']("", content);
+                          else
+                            toastr['success']("", message);
+                        }
+                      }
+                    })
+                  </script>
+                </div>
+              </form>
+
+              <script>
+                $(document).ready(function () {
+                  setTimeout(function () {
+                    $("#formData").submit();
+                  }, 0)
+                })
+              </script>
+            </div>
+
+            <!-- Total Limit -->
+            <div class="tab-pane" id="tab_total_limit" role="tabpanel">
+              <form action="/AccountStatus/ExportAccountEBankingBalanceOverview" id="ExportForm" method="post"
+                target="_blank" class="ng-pristine ng-valid"><input name="__RequestVerificationToken" type="hidden"
+                  value="Nqy4GiydirXb9VTgVrhiJYhoDJS9FJ_Uiy2Nl55RlFwVeUbBmp7REoDFB2ReDm86vWKWmn3zLmHx7_tKzbcsGZEJVyQ4YPqnuEAgOC-nhqc1"
+                  autocomplete="off"></form>
+
+              <form action="/accountstatus/TableData?Length=13" data-ajax="true" data-ajax-method="post"
+                data-ajax-mode="replace" data-ajax-update="#divAjax" id="formData" method="post"
+                class="ng-pristine ng-valid">
+                <div id="divAjax">
+
+                  <div class="mb-4">
+                    <div style="padding: 10px;">
+                      <div class="mt-2 account-balance-btns">
+                        <button type="button" value="Export" id="btnExport" name="ButtonType"
+                          class="btn btn-success btn-sm" data-original-title="" title="">
+                          <span class="text-center d-block">FUND IN</span>
+                          <span>THB<br>VND</span>
+                        </button>
+                        <button type="button" value="Export" id="btnExport" name="ButtonType"
+                          class="btn btn-success btn-sm" data-original-title="" title="">
+                          <span class="text-center d-block">FUND OUT</span>
+                          <span>THB<br>VND</span>
+                        </button>
+                        <button type="button" value="Export" id="btnExport" name="ButtonType"
+                          class="btn btn-success btn-sm" data-original-title="" title="">
+                          <span class="text-center d-block">SETTLEMENT</span>
+                          <span>THB<br>VND</span>
+                        </button>
+                        <button type="button" value="Export" id="btnExport" name="ButtonType"
+                          class="btn btn-success btn-sm" data-original-title="" title="">
+                          <span class="text-center d-block">VIRTUAL</span>
+                          <span>THB<br>VND</span>
+                        </button>
+                        <button type="button" value="Export" id="btnExport" name="ButtonType"
+                          class="btn btn-success btn-sm" data-original-title="" title="">
+                          <span class="text-center d-block">SHARE ACC</span>
+                          <span>THB<br>VND</span>
+                        </button>
+
+                      </div>
+                      <div class="modal fade" id="ModalUpdateBalance" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                          <div class="modal-content" style="border-radius: 15px">
+                            <div class="modal-header change-color">
+                              <h5 class="modal-title" id="exampleModalLabel">Update Vitual Account Balance</h5>
+                              <button type="button" id="btnCloseBalanceForm" class="close" data-dismiss="modal"
+                                aria-label="Close" data-original-title="" title="">
+                                <span aria-hidden="true">×</span>
+                              </button>
+                            </div>
+                            <form id="updateBalanceForm">
+                              <div class="comodal-body">
+                                <div class="form-group" style="margin-bottom: -0.2rem">
+                                  <div class="row ml-2 pb-5">
+                                    <div class="col-11 pb-3">
+                                      <div class="col-form-label"><strong>Balance</strong></div>
+                                      <input name="Balance" class="form-control" id="ValueBalance">
+                                      <input hidden="" name="AccountID" class="form-control" id="AccountBalance">
+                                    </div>
+                                    <div class="col-11">
+                                      <div class="col-form-label"><strong>Pending Balance</strong></div>
+                                      <input name="PedingBalance" class="form-control" id="ValuePendingBalance">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="modal-footer" style="padding-top:0">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                  data-original-title="" title="">Cancel</button>
+                                <button id="UpdateBalanceButton" type="submit" class="btn btn-primary"
+                                  data-original-title="" title="">Update</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                        <input hidden="" name="AccountID" id="inputAccountID">
+                        <div class="account-balance-table">
+                          <div class="table-responsive">
+                            <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                              <table class="table" id="dataTable" cellspacing="0">
+                                <thead>
+                                  <tr>
+                                    <th>Currency</th>
+                                    <th>Account Group</th>
+                                    <th>Daily Limit</th>
+                                    <th>Remaining Limit</th>
+                                    <th>Total Transfer</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <th>
+                                      <select class="custom-select custom-select-sm form-control form-control-sm"
+                                        style="max-width: 100px;" id="CurrencyName" name="CurrencyName"
+                                        onchange="$(this.form).submit();">
+                                        <option selected="selected" value="">Currency</option>
+                                        <option value="VND">VND</option>
+                                        <option value="THB">THB</option>
+                                      </select>
+                                    </th>
+                                    <th>
+                                      <select class="custom-select custom-select-sm form-control form-control-sm"
+                                        style="max-width: 160px;" id="GroupID" name="GroupID"
+                                        onchange="$(this.form).submit();">
+                                        <option selected="selected" value="">Groups</option>
+                                        <option value="52">OFFLINE DEPOSIT TH</option>
+                                        <option value="54">FUNDOUT TH</option>
+                                        <option value="60">SETTLEMENT</option>
+                                        <option value="69">STOP USE</option>
+                                        <option value="70">QR DEPOSIT TH</option>
+                                        <option value="74">QR DEPOSIT VN</option>
+                                        <option value="66">KC's Fund</option>
+                                        <option value="29">OFFLINE DEPOSIT VN</option>
+                                        <option value="80">PAYOUT VN</option>
+                                        <option value="86">INTERNET BANKING VN</option>
+                                        <option value="65">SSP Funds</option>
+                                      </select>
+                                    </th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                  </tr>
+                                  <tr>
+                                    <td name="Currency">
+                                      THB
+                                    </td>
+                                    <td name="Group">
+                                      SSP Reserved Accounts
+                                    </td>
+                                    <td style="color: forestgreen">
+                                      <div class="amount entered-data" name="onclickEditBalance" data-value="892.52"
+                                        data-valuepending="0.00" data-account="339">
+                                        892.52
+                                      </div>
+                                    </td>
+                                    <td class="amount">
+                                      1,500,000.00
+                                    </td>
+                                    <td class="amount" style="font-weight: bold;">
+                                      1,500,000.00
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td name="Currency">
+                                      THB
+                                    </td>
+                                    <td name="Group">
+                                      SETTLEMENT
+                                    </td>
+                                    <td class="amount" style="color: forestgreen">
+                                      447,102.56
+                                    </td>
+                                    <td class="amount">
+                                      500,000.00
+                                    </td>
+                                    <td class="amount" style="font-weight: bold;">
+                                      500,000.00
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                          <a hidden="" id="UpdateBalance" data-toggle="modal" data-target="#ModalUpdateBalance"></a>
+
+                          <div>
+                            <div class="d-flex flex-column flex-sm-row justify-content-between my-3 align-items-center">
+                              <div class="mb-2">
+                                <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">
+                                  Showing 1 to 13 of 13 entries
+                                </div>
+                              </div>
+                              <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                                <input id="Page" name="Page" type="hidden" value="1">
+                                <ul class="pagination">
+                                  <li class="paginate_button page-item active">
+                                    <div class="page-link" style="pointer-events: none">1</div>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <ul class="pagination d-flex align-items-center mb-0">
+                              <li class="mr-2" style="font-weight:bold; font-style:italic">Number of records:</li>
+                              <li>
+                                <select name="NumberRecord" id="NumberRecord"
+                                  class="custom-select custom-select-sm form-control form-control-sm"
+                                  onchange="$('#formData').submit();">
+                                  <option class="page-item page-link" value="20">20</option>
+                                  <option class="page-item page-link" value="50">50</option>
+                                  <option selected="" class="page-item page-link" value="100">100</option>
+                                </select>
+                              </li>
+                            </ul>
+                            <script type="text/javascript">
+                              $(function () {
+                                $("#formData").submit(function () {
+                                  $("#Page").val(1);
+                                })
+                              })
+                            </script>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <script type="text/javascript">
+                    $(function () {
+                      $(document).ready(function () {
+                        if ($('#vbMessage').text()) {
+                          setTimeout(function () {
+                            toastr.remove();
+                            var txt = $('#vbMessage').text();
+                            var sign = txt.charAt(0);
+                            var content = txt.substr(1, txt.length);
+                            if (sign == '!')
+                              toastr['warning']("", content);
+                            else
+                              toastr['success']("", txt);
+                          }, 100)
+                        }
+                      })
+                      $("div[name*='onclickEditBalance']").each(function () {
+                        $(this).on('click', function (e) {
+                          e.preventDefault(); // do not follow the link or move to top
+                          var value = $(this).attr('data-value');
+                          var valuePendingBalance = $(this).attr('data-valuePending');
+                          var valueAccountID = $(this).attr('data-account');
+                          $("#ValueBalance").attr("value", value);
+                          $("#ValuePendingBalance").attr("value", valuePendingBalance);
+                          $("#AccountBalance").attr("value", valueAccountID);
+                          $("#UpdateBalance").click();
+                        })
+                      })
+
+                      $('#UpdateBalanceButton').on('click', function (e) {
+                        var host = location.protocol + "//" + location.host;
+                        const thisForm = document.getElementById('updateBalanceForm');
+                        thisForm.addEventListener('submit', async function (e) {
+                          e.preventDefault();
+                          var valueBalance = document.getElementById('ValueBalance').value
+                          var valuePendingBalance = document.getElementById('ValuePendingBalance').value
+                          var valueAccount = document.getElementById('AccountBalance').value
+
+                          console.log(valueBalance)
+                          var formSubmit = { Balance: valueBalance, PendingBalance: valuePendingBalance, AccountID: valueAccount }
+                          const response = await fetch(host + "/AccountStatus/UpdateVirtualAccountBalance", {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(formSubmit)
+                          });
+
+                          const result = await response.json();
+                          if (result.IsSuccessful) {
+                            $("#btnCloseBalanceForm").click();
+                            $('#formData').submit();
+                            ShowMessage("success", result.Message)
+                          }
+                          else {
+                            ShowMessage("error", result.Message)
+                          }
+                          console.log(result)
+                        });
+                      })
+                      $('button[name^="ButtonType"][value*="UpdateBalance"]').each(function () {
+                        $(this).click(function (event) {
+                          document.getElementById("inputAccountID").value = $(this).data('value');
+                          var interval = setInterval(function () {
+                            if (!$.hasAjaxRunning()) {
+                              toastr.remove();
+                              toastr['success']("Received Request!", "Update Balance");
+                              clearInterval(interval);
+                            }
+                          }, 100);
+                        })
+                      })
+                      $('button[name^="ButtonType"][value*="UpdateStatement"]').each(function () {
+                        $(this).click(function (event) {
+                          document.getElementById("inputAccountID").value = $(this).data('value');
+                          var interval = setInterval(function () {
+                            if (!$.hasAjaxRunning()) {
+                              toastr.remove();
+                              toastr['success']("Received Request!", "Update Statement");
+                              clearInterval(interval);
+                            }
+                          }, 100);
+                        })
+                      })
+                      $('button').tooltip();
+
+                      var isOnChange = false;
+                      var deltaTime = 0;
+                      var loop;
+                      $('#queryString').focus();
+                      $('#queryString').keypress(function (e) {
+                        if (e.keyCode == 13) {
+                          console.log("key up");
+                          e.preventDefault();
+                          clearInterval(loop);
+                          isOnChange = false;
+                          $('#formData').submit();
+                        }
+                      });
+                      $('#queryString').on('input propertychange paste', function (e) {
+                        deltaTime = 0;
+                        if (isOnChange == false) {
+                          isOnChange = true;
+                          loop = setInterval(function () {
+                            deltaTime += 1;
+                            if (deltaTime >= 15) {
+                              clearInterval(loop);
+                              deltaTime = 0;
+                              isOnChange = false;
+                              $('#formData').submit();
+                            }
+                          }, 100);
+                        }
+                      })
+                      $('#queryString').val($('#searchText').val());
+
+                      $("#btnExport").click(function (event) {
+                        $('#vbMessage').text("Please wait export processing in new tab!");
+                        $("#ExportForm").submit();
+                      });
+                      function ShowMessage(type, message, title = "") {
+                        toastr.remove();
+                        toastr.options = {
+                          timeOut: 5000
+                        }
+                        if (type)
+                          toastr[type](title, message);
+                        else {
+                          var sign = message.charAt(0);
+                          var content = message.substr(1, message.length);
+                          if (sign == '!')
+                            toastr['warning']("", content);
+                          else
+                            toastr['success']("", message);
+                        }
+                      }
+                    })
+                  </script>
+                </div>
+              </form>
+
+              <script>
+                $(document).ready(function () {
+                  setTimeout(function () {
+                    $("#formData").submit();
+                  }, 0)
+                })
+              </script>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- /.container-fluid -->
+      <!-- End of Main Content -->
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; White Label 2024</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Chart plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
+
+  <!-- Table plugins -->
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+</body>
+
+</html>
+<script>
+  const data = {
+    "data": [
+      {
+        "MerchantID": 0,
+        "MasterID": 100,
+        "MerchantCode": null,
+        "Date": "\/Date(-62135596800000)\/",
+        "Channel": -1,
+        "CurrencyID": 3,
+        "Currency": "THB",
+        "Opening": 0,
+        "VolumeDeposit": 0,
+        "Deposit": 500.00,
+        "DepositFee": 0.00,
+        "VolumePayout": 0,
+        "Payout": 0.00,
+        "PayoutFee": 0.00,
+        "VolumeTopup": 0,
+        "TopUp": 0.00,
+        "VolumeSettlement": 0,
+        "Settlement": 0.00,
+        "SettlementFee": 0.00,
+        "Adjustment": 0,
+        "Closing": 0,
+        "TxnType": 0,
+        "ChannelText": "Offline Original",
+        "ListAdjustmentInfo": null,
+        "CreatedTime": "\/Date(-62135596800000)\/",
+        "ID": 0,
+        "IsDeleted": false
+      },
+      {
+        "MerchantID": 0,
+        "MasterID": 100,
+        "MerchantCode": null,
+        "Date": "\/Date(-62135596800000)\/",
+        "Channel": 0,
+        "CurrencyID": 3,
+        "Currency": "THB",
+        "Opening": 0,
+        "VolumeDeposit": 1,
+        "Deposit": 1000.00,
+        "DepositFee": 0.00,
+        "VolumePayout": 0,
+        "Payout": 0.00,
+        "PayoutFee": 0.00,
+        "VolumeTopup": 0,
+        "TopUp": 0.00,
+        "VolumeSettlement": 0,
+        "Settlement": 0.00,
+        "SettlementFee": 0.00,
+        "Adjustment": 0,
+        "Closing": 0,
+        "TxnType": 0,
+        "ChannelText": "Offline",
+        "ListAdjustmentInfo": null,
+        "CreatedTime": "\/Date(-62135596800000)\/",
+        "ID": 0,
+        "IsDeleted": false
+      },
+      {
+        "MerchantID": 0,
+        "MasterID": 100,
+        "MerchantCode": null,
+        "Date": "\/Date(-62135596800000)\/",
+        "Channel": 2,
+        "CurrencyID": 3,
+        "Currency": "THB",
+        "Opening": 0,
+        "VolumeDeposit": 0,
+        "Deposit": 0.00,
+        "DepositFee": 0.00,
+        "VolumePayout": 1,
+        "Payout": 500.00,
+        "PayoutFee": 0.00,
+        "VolumeTopup": 0,
+        "TopUp": 0.00,
+        "VolumeSettlement": 0,
+        "Settlement": 0.00,
+        "SettlementFee": 0.00,
+        "Adjustment": 0,
+        "Closing": 0,
+        "TxnType": 1,
+        "ChannelText": "TransferOut",
+        "ListAdjustmentInfo": null,
+        "CreatedTime": "\/Date(-62135596800000)\/",
+        "ID": 0,
+        "IsDeleted": false
+      },
+      {
+        "MerchantID": 0,
+        "MasterID": 100,
+        "MerchantCode": null,
+        "Date": "\/Date(-62135596800000)\/",
+        "Channel": 5,
+        "CurrencyID": 3,
+        "Currency": "THB",
+        "Opening": 0,
+        "VolumeDeposit": 0,
+        "Deposit": 0.00,
+        "DepositFee": 0.00,
+        "VolumePayout": 0,
+        "Payout": 0.00,
+        "PayoutFee": 0.00,
+        "VolumeTopup": 0,
+        "TopUp": 0.00,
+        "VolumeSettlement": 0,
+        "Settlement": 0.00,
+        "SettlementFee": 0.00,
+        "Adjustment": 0,
+        "Closing": 0,
+        "TxnType": 0,
+        "ChannelText": "PromptPay",
+        "ListAdjustmentInfo": null,
+        "CreatedTime": "\/Date(-62135596800000)\/",
+        "ID": 0,
+        "IsDeleted": false
+      },
+      {
+        "MerchantID": 0,
+        "MasterID": 100,
+        "MerchantCode": null,
+        "Date": "\/Date(-62135596800000)\/",
+        "Channel": 7,
+        "CurrencyID": 3,
+        "Currency": "THB",
+        "Opening": 0,
+        "VolumeDeposit": 0,
+        "Deposit": 0.00,
+        "DepositFee": 0.00,
+        "VolumePayout": 0,
+        "Payout": 0.00,
+        "PayoutFee": 0.00,
+        "VolumeTopup": 0,
+        "TopUp": 0.00,
+        "VolumeSettlement": 0,
+        "Settlement": 0.00,
+        "SettlementFee": 0.00,
+        "Adjustment": 0,
+        "Closing": 0,
+        "TxnType": 0,
+        "ChannelText": "SmartCard",
+        "ListAdjustmentInfo": null,
+        "CreatedTime": "\/Date(-62135596800000)\/",
+        "ID": 0,
+        "IsDeleted": false
+      },
+      {
+        "MerchantID": 0,
+        "MasterID": 100,
+        "MerchantCode": null,
+        "Date": "\/Date(-62135596800000)\/",
+        "Channel": 8,
+        "CurrencyID": 3,
+        "Currency": "THB",
+        "Opening": 0,
+        "VolumeDeposit": 0,
+        "Deposit": 0.00,
+        "DepositFee": 0.00,
+        "VolumePayout": 0,
+        "Payout": 0.00,
+        "PayoutFee": 0.00,
+        "VolumeTopup": 0,
+        "TopUp": 0.00,
+        "VolumeSettlement": 0,
+        "Settlement": 0.00,
+        "SettlementFee": 0.00,
+        "Adjustment": 0,
+        "Closing": 0,
+        "TxnType": 0,
+        "ChannelText": "Internet Banking",
+        "ListAdjustmentInfo": null,
+        "CreatedTime": "\/Date(-62135596800000)\/",
+        "ID": 0,
+        "IsDeleted": false
+      }
+    ],
+    "totalCurrency": [
+      {
+        "Item1": "THB",
+        "Item2": 500.00
+      },
+      {
+        "Item1": "VND",
+        "Item2": -10000.00
+      }
+    ],
+    "TotalVolumeDeposit": 1,
+    "TotalAmountDeposit": 1000.00,
+    "TotalDepositFee": 0.00,
+    "TotalVolumePayout": 1,
+    "TotalAmountPayout": 500.00,
+    "TotalPayoutFee": 0.00,
+    "TotalVolumeTopup": 0,
+    "TotalAmountTopup": 0.00,
+    "TotalVolumeSettlement": 0,
+    "TotalAmountSettlement": 0.00,
+    "TotalSettlementFee": 0.00
+  }
+
+  let dataSet_deposit = [];
+  let dataSet_payout = [];
+  let dataSet_settlement = [];
+  let dataSet_topup = [];
+  data?.data?.map((item) => {
+    dataSet_deposit.push({
+      label: item.ChannelText,
+      data: [item.Deposit],
+      // backgroundColor: 
+    })
+  })
+  data?.data?.map((item) => {
+    dataSet_payout.push({
+      label: item.ChannelText,
+      data: [item.Payout],
+      // backgroundColor: 
+    })
+  })
+  data?.data?.map((item) => {
+    dataSet_settlement.push({
+      label: item.ChannelText,
+      data: [item.Settlement],
+      // backgroundColor: 
+    })
+  })
+  data?.data?.map((item) => {
+    dataSet_topup.push({
+      label: item.ChannelText,
+      data: [item.TopUp],
+      // backgroundColor: 
+    })
+  })
+
+  console.log(data?.data)
+  var deposit = document.getElementById("deposit_chart").getContext('2d');
+  var myChart = new Chart(deposit, {
+    type: 'bar',
+    data: {
+      labels: ["12-05", "13-05"],
+      datasets: dataSet_deposit,
+    },
+    options: {
+      tooltips: {
+        displayColors: true,
+        callbacks: {
+          mode: 'x',
+        },
+      },
+      scales: {
+        x: {
+          stacked: true,
+        },
+        y: {
+          stacked: true
+        }
+      },
+      responsive: true
+    }
+  });
+  var payout = document.getElementById("payout_chart").getContext('2d');
+  var myChart = new Chart(payout, {
+    type: 'bar',
+    data: {
+      labels: ["12-05", "13-05"],
+      datasets: dataSet_payout,
+    },
+    options: {
+      tooltips: {
+        displayColors: true,
+        callbacks: {
+          mode: 'x',
+        },
+      },
+      scales: {
+        x: {
+          stacked: true,
+        },
+        y: {
+          stacked: true
+        }
+      },
+      responsive: true
+    }
+  });
+  var topup = document.getElementById("topup_chart").getContext('2d');
+  var myChart = new Chart(topup, {
+    type: 'bar',
+    data: {
+      labels: ["12-05", "13-05"],
+      datasets: dataSet_topup,
+    },
+    options: {
+      tooltips: {
+        displayColors: true,
+        callbacks: {
+          mode: 'x',
+        },
+      },
+      scales: {
+        x: {
+          stacked: true,
+        },
+        y: {
+          stacked: true
+        }
+      },
+      responsive: true
+    }
+  });
+  var settlement = document.getElementById("settlement_chart").getContext('2d');
+  var myChart = new Chart(settlement, {
+    type: 'bar',
+    data: {
+      labels: ["12-05", "13-05"],
+      datasets: dataSet_settlement,
+    },
+    options: {
+      tooltips: {
+        displayColors: true,
+        callbacks: {
+          mode: 'x',
+        },
+      },
+      scales: {
+        x: {
+          stacked: true,
+        },
+        y: {
+          stacked: true
+        }
+      },
+      responsive: true
+    }
+  });
+  var deposit = document.getElementById("deposit_chart").getContext('2d');
+  var myChart = new Chart(deposit, {
+    type: 'bar',
+    data: {
+      labels: ["12-05", "13-05"],
+      datasets: dataSet_deposit,
+    },
+    options: {
+      tooltips: {
+        displayColors: true,
+        callbacks: {
+          mode: 'x',
+        },
+      },
+      scales: {
+        x: {
+          stacked: true,
+        },
+        y: {
+          stacked: true
+        }
+      },
+      responsive: true
+    }
+  });
+</script>
